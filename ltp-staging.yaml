@@ -1,0 +1,467 @@
+projects:
+- name: LKFT-ltp-staging
+  projects:
+  - lkft/linux-mainline-oe
+  - lkft/linux-next-oe
+  - lkft/linux-stable-rc-4.4-oe
+  - lkft/linux-stable-rc-4.9-oe
+  - lkft/linux-stable-rc-4.14-oe
+  - lkft/linux-stable-rc-4.16-oe
+  - lkft/linux-stable-rc-4.17-oe
+  url: https://staging-qa-reports.linaro.org
+  environments:
+  - architecture: arm64
+    slug: hi6220-hikey
+  - architecture: arm64
+    slug: juno-r2
+  - architecture: arm64
+    slug: dragonboard-410c
+  - architecture: arm32
+    slug: x15
+  - architecture: x86_64
+    slug: x86
+  - architecture: x86_64
+    slug: qemu_x86_64
+  - architecture: x86
+    slug: qemu_x86_32
+  - architecture: arm32
+    slug: qemu_arm
+  - architecture: arm64
+    slug: qemu_arm64
+  known_issues:
+  - environments:
+    - slug: hi6220-hikey
+    - slug: juno-r2
+    - slug: x15
+    - slug: dragonboard-410c
+    - slug: qemu_x86_64
+    - slug: qemu_arm64
+    - slug: qemu_arm
+    notes: 'LKFT: LTP: fork13: runs long and hangs machine on branches'
+    projects:
+    - lkft/linux-mainline-oe
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.16-oe
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-4.15-oe
+    - lkft/linux-next-oe
+    - lkft/linux-stable-rc-4.17-oe
+    - lkft/linux-stable-rc-4.14-oe
+    test_name: ltp-syscalls-tests/fork13
+    url: https://bugs.linaro.org/show_bug.cgi?id=3719
+    active: true
+    intermittent: false
+  - environments:
+    - slug: hi6220-hikey
+    - slug: juno-r2
+    - slug: x15
+    - slug: dragonboard-410c
+    - slug: qemu_x86_64
+    - slug: qemu_arm64
+    - slug: qemu_arm
+    notes: 'msgctl10/msgstress03 and msgct11/msgstress04 tests overheats HiKey board
+      due to large number of fork() calls and message queues read/writes. [RPB] LTP:
+      msgctl10 fork failed'
+    projects:
+    - lkft/linux-mainline-oe
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.16-oe
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-4.15-oe
+    - lkft/linux-next-oe
+    - lkft/linux-stable-rc-4.17-oe
+    - lkft/linux-stable-rc-4.14-oe
+    test_name: ltp-syscalls-tests/msgctl10
+    url: https://bugs.linaro.org/show_bug.cgi?id=2355
+    active: true
+    intermittent: false
+  - environments:
+    - slug: hi6220-hikey
+    - slug: juno-r2
+    - slug: x15
+    - slug: dragonboard-410c
+    - slug: qemu_x86_64
+    - slug: qemu_arm64
+    - slug: qemu_arm
+    notes: 'msgctl10/msgstress03 and msgct11/msgstress04 tests overheats HiKey board
+      due to large number of fork() calls and message queues read/writes. [RPB] LTP:
+      msgctl10 fork failed'
+    projects:
+    - lkft/linux-mainline-oe
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.16-oe
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-4.15-oe
+    - lkft/linux-next-oe
+    - lkft/linux-stable-rc-4.17-oe
+    - lkft/linux-stable-rc-4.14-oe
+    test_name: ltp-syscalls-tests/msgctl11
+    url: https://bugs.linaro.org/show_bug.cgi?id=2355
+    active: true
+    intermittent: false
+  - environments:
+    - slug: hi6220-hikey
+    - slug: juno-r2
+    - slug: x15
+    - slug: dragonboard-410c
+    - slug: qemu_x86_64
+    - slug: qemu_arm64
+    - slug: qemu_arm
+    notes: 'msgctl10/msgstress03 and msgct11/msgstress04 tests overheats HiKey board
+      due to large number of fork() calls and message queues read/writes. [RPB] LTP:
+      msgctl10 fork failed'
+    projects:
+    - lkft/linux-mainline-oe
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.16-oe
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-4.15-oe
+    - lkft/linux-next-oe
+    - lkft/linux-stable-rc-4.17-oe
+    - lkft/linux-stable-rc-4.14-oe
+    test_name: ltp-syscalls-tests/msgstress03
+    url: https://bugs.linaro.org/show_bug.cgi?id=2355
+    active: true
+    intermittent: false
+  - environments:
+    - slug: hi6220-hikey
+    - slug: juno-r2
+    - slug: x15
+    - slug: dragonboard-410c
+    - slug: qemu_x86_64
+    - slug: qemu_arm64
+    - slug: qemu_arm
+    notes: 'msgctl10/msgstress03 and msgct11/msgstress04 tests overheats HiKey board
+      due to large number of fork() calls and message queues read/writes. [RPB] LTP:
+      msgctl10 fork failed'
+    projects:
+    - lkft/linux-mainline-oe
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.16-oe
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-4.15-oe
+    - lkft/linux-next-oe
+    - lkft/linux-stable-rc-4.17-oe
+    - lkft/linux-stable-rc-4.14-oe
+    test_name: ltp-syscalls-tests/msgstress04
+    url: https://bugs.linaro.org/show_bug.cgi?id=2355
+    active: true
+    intermittent: false
+  - environments:
+    - slug: hi6220-hikey
+    - slug: juno-r2
+    - slug: dragonboard-410c
+    - slug: qemu_arm64
+    notes: 'fanotify07 was added to syscalls in 20170929 and fails approximately 50%
+      of the time. See'
+    projects:
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-4.9-oe
+    test_name: ltp-syscalls-tests/fanotify07
+    url: https://bugs.linaro.org/show_bug.cgi?id=3303
+    active: true
+    intermittent: false
+  - environments:
+    - slug: hi6220-hikey
+    - slug: juno-r2
+    - slug: x86
+    - slug: qemu_arm64
+    - slug: qemu_arm
+    notes: 'pth_str02 hangs when using NFS filesystem. LKFT: linux-mainline: juno: x86:
+      ltp sched tests hang due to NFS not responding'
+    projects:
+    - lkft/linux-mainline-oe
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.16-oe
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-4.15-oe
+    - lkft/linux-next-oe
+    - lkft/linux-stable-rc-4.17-oe
+    - lkft/linux-stable-rc-4.14-oe
+    test_name: ltp-sched-tests/pth_str01
+    url: https://bugs.linaro.org/show_bug.cgi?id=3338
+    active: true
+    intermittent: false
+  - environments:
+    - slug: hi6220-hikey
+    - slug: juno-r2
+    - slug: x86
+    - slug: qemu_arm64
+    - slug: qemu_arm
+    notes: 'pth_str02 hangs when using NFS filesystem. LKFT: linux-mainline: juno: x86:
+      ltp sched tests hang due to NFS not responding'
+    projects:
+    - lkft/linux-mainline-oe
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.16-oe
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-4.15-oe
+    - lkft/linux-next-oe
+    - lkft/linux-stable-rc-4.17-oe
+    - lkft/linux-stable-rc-4.14-oe
+    test_name: ltp-sched-tests/pth_str02
+    url: https://bugs.linaro.org/show_bug.cgi?id=3338
+    active: true
+    intermittent: false
+  - environments:
+    - slug: hi6220-hikey
+    - slug: juno-r2
+    - slug: x86
+    - slug: qemu_arm64
+    - slug: qemu_arm
+    notes: 'pth_str02 hangs when using NFS filesystem. LKFT: linux-mainline: juno: x86:
+      ltp sched tests hang due to NFS not responding'
+    projects:
+    - lkft/linux-mainline-oe
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.16-oe
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-4.15-oe
+    - lkft/linux-next-oe
+    - lkft/linux-stable-rc-4.17-oe
+    - lkft/linux-stable-rc-4.14-oe
+    test_name: ltp-sched-tests/pth_str03
+    url: https://bugs.linaro.org/show_bug.cgi?id=3338
+    active: true
+    intermittent: false
+  - environments:
+    - slug: hi6220-hikey
+    - slug: juno-r2
+    - slug: x86
+    - slug: qemu_arm64
+    - slug: qemu_arm
+    notes: 'pth_str02 hangs when using NFS filesystem. LKFT: linux-mainline: juno: x86:
+      ltp sched tests hang due to NFS not responding'
+    projects:
+    - lkft/linux-mainline-oe
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.16-oe
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-4.15-oe
+    - lkft/linux-next-oe
+    - lkft/linux-stable-rc-4.17-oe
+    - lkft/linux-stable-rc-4.14-oe
+    test_name: ltp-sched-tests/time-schedule01
+    url: https://bugs.linaro.org/show_bug.cgi?id=3338
+    active: true
+    intermittent: false
+  - environments:
+    - slug: qemu_x86_64
+    - slug: qemu_arm64
+    - slug: qemu_arm
+    notes: 'LKFT: qemu: LTP skip failed timing test cases'
+    projects:
+    - lkft/linux-mainline-oe
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.16-oe
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-4.15-oe
+    - lkft/linux-next-oe
+    - lkft/linux-stable-rc-4.17-oe
+    - lkft/linux-stable-rc-4.14-oe
+    test_name: ltp-syscalls-tests/clock_nanosleep02
+    url: https://bugs.linaro.org/show_bug.cgi?id=3768
+    active: true
+    intermittent: false
+  - environments:
+    - slug: qemu_x86_64
+    - slug: qemu_arm64
+    - slug: qemu_arm
+    notes: 'LKFT: qemu: LTP skip failed timing test cases'
+    projects:
+    - lkft/linux-mainline-oe
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.16-oe
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-4.15-oe
+    - lkft/linux-next-oe
+    - lkft/linux-stable-rc-4.17-oe
+    - lkft/linux-stable-rc-4.14-oe
+    test_name: ltp-syscalls-tests/epoll_wait02
+    url: https://bugs.linaro.org/show_bug.cgi?id=3768
+    active: true
+    intermittent: false
+  - environments:
+    - slug: qemu_x86_64
+    - slug: qemu_arm64
+    - slug: qemu_arm
+    notes: 'LKFT: qemu: LTP skip failed timing test cases'
+    projects:
+    - lkft/linux-mainline-oe
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.16-oe
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-4.15-oe
+    - lkft/linux-next-oe
+    - lkft/linux-stable-rc-4.17-oe
+    - lkft/linux-stable-rc-4.14-oe
+    test_name: ltp-syscalls-tests/futex_wait05
+    url: https://bugs.linaro.org/show_bug.cgi?id=3768
+    active: true
+    intermittent: false
+  - environments:
+    - slug: qemu_x86_64
+    - slug: qemu_arm64
+    - slug: qemu_arm
+    notes: 'LKFT: qemu: LTP skip failed timing test cases'
+    projects:
+    - lkft/linux-mainline-oe
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.16-oe
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-4.15-oe
+    - lkft/linux-next-oe
+    - lkft/linux-stable-rc-4.17-oe
+    - lkft/linux-stable-rc-4.14-oe
+    test_name: ltp-syscalls-tests/nanosleep01
+    url: https://bugs.linaro.org/show_bug.cgi?id=3768
+    active: true
+    intermittent: false
+  - environments:
+    - slug: qemu_x86_64
+    - slug: qemu_arm64
+    - slug: qemu_arm
+    notes: 'LKFT: qemu: LTP skip failed timing test cases'
+    projects:
+    - lkft/linux-mainline-oe
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.16-oe
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-4.15-oe
+    - lkft/linux-next-oe
+    - lkft/linux-stable-rc-4.17-oe
+    - lkft/linux-stable-rc-4.14-oe
+    test_name: ltp-syscalls-tests/poll02
+    url: https://bugs.linaro.org/show_bug.cgi?id=3768
+    active: true
+    intermittent: false
+  - environments:
+    - slug: qemu_arm64
+    - slug: qemu_arm
+    notes: 'LKFT: LTP skip hackbench01/02 on qemu_arm and qemu_arm64 causing kernel
+      dump'
+    projects:
+    - lkft/linux-mainline-oe
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.16-oe
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-4.15-oe
+    - lkft/linux-next-oe
+    - lkft/linux-stable-rc-4.17-oe
+    - lkft/linux-stable-rc-4.14-oe
+    test_name: ltp-sched-tests/hackbench01
+    url: https://bugs.linaro.org/show_bug.cgi?id=3777
+    active: true
+    intermittent: false
+  - environments:
+    - slug: qemu_arm64
+    - slug: qemu_arm
+    notes: 'LKFT: LTP skip hackbench01/02 on qemu_arm and qemu_arm64 causing kernel
+      dump'
+    projects:
+    - lkft/linux-mainline-oe
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.16-oe
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-4.15-oe
+    - lkft/linux-next-oe
+    - lkft/linux-stable-rc-4.17-oe
+    - lkft/linux-stable-rc-4.14-oe
+    test_name: ltp-sched-tests/hackbench02
+    url: https://bugs.linaro.org/show_bug.cgi?id=3777
+    active: true
+    intermittent: false
+  - environments:
+    - slug: juno-r2
+    - slug: x15
+    - slug: x86
+    - slug: qemu_arm
+    - slug: qemu_arm64
+    notes: 'LTP CVE cve-2014-0196 newly running test case have different results on
+      different boards.'
+    projects:
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.14-oe
+    - lkft/linux-stable-rc-4.16-oe
+    - lkft/linux-stable-rc-4.17-oe
+    - lkft/linux-mainline-oe
+    test_name: ltp-cvs-tests/cve-2014-0196
+    url: https://bugs.linaro.org/show_bug.cgi?id=3858
+    active: true
+    intermittent: false
+  - environments:
+    - slug: x15
+    - slug: x86
+    - slug: qemu_arm
+    - slug: qemu_x86_64
+    notes: 'LKFT: LTP: CVE cve-2011-2183 test failed on x86_64 and arm32 x15 devices'
+    projects:
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.14-oe
+    - lkft/linux-stable-rc-4.16-oe
+    - lkft/linux-stable-rc-4.17-oe
+    - lkft/linux-mainline-oe
+    test_name: ltp-cve-tests/cve-2011-2183
+    url: https://bugs.linaro.org/show_bug.cgi?id=3857
+    active: true
+    intermittent: false
+  - environments:
+    - slug: qemu_arm64
+    - slug: qemu_arm
+    notes: 'LKFT: qemu_arm32/64: LTP cve-2016-7117 Test timeouted, sending SIGKILL!'
+    projects:
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.14-oe
+    - lkft/linux-stable-rc-4.16-oe
+    - lkft/linux-stable-rc-4.17-oe
+    - lkft/linux-mainline-oe
+    test_name: ltp-cve-tests/cve-2016-7117
+    url: https://bugs.linaro.org/show_bug.cgi?id=3884
+    active: true
+    intermittent: false
+  - environments:
+    - slug: qemu_arm
+    notes: 'LKFT: qemu_arm: LTP CVE cve-2015-7550 Test timeouted, sending SIGKILL!'
+    projects:
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.14-oe
+    - lkft/linux-stable-rc-4.16-oe
+    - lkft/linux-stable-rc-4.17-oe
+    - lkft/linux-mainline-oe
+    test_name: ltp-cve-tests/cve-2015-7550
+    url: https://bugs.linaro.org/show_bug.cgi?id=3883
+    active: true
+    intermittent: false
+  - environments:
+    - slug: qemu_arm
+    notes: 'LKFT: qemu_arm: LTP CVE cve-2015-7550 Test timeouted, sending SIGKILL!'
+    projects:
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.14-oe
+    - lkft/linux-stable-rc-4.16-oe
+    - lkft/linux-stable-rc-4.17-oe
+    - lkft/linux-mainline-oe
+    test_name: ltp-syscalls-tests/keyctl02
+    url: https://bugs.linaro.org/show_bug.cgi?id=3883
+    active: true
+    intermittent: false
+  - environments:
+    - slug: qemu_arm64
+    - slug: qemu_arm
+    notes: 'qemu_arm32/64: LTP select04 is not returning 0 on timeout'
+    projects:
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.14-oe
+    - lkft/linux-stable-rc-4.16-oe
+    - lkft/linux-stable-rc-4.17-oe
+    - lkft/linux-mainline-oe
+    test_name: ltp-syscalls-tests/select04
+    url: https://bugs.linaro.org/show_bug.cgi?id=3852
+    active: true
+    intermittent: false

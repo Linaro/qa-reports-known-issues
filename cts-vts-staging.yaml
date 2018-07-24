@@ -1,0 +1,147 @@
+projects:
+- name: AOSP-staging
+  projects:
+  - android-lkft/aosp-master-tracking
+  - android-lkft/android-8.1-tracking
+  url: https://staging-qa-reports.linaro.org
+  environments:
+  - architecture: arm64
+    slug: hi6220-hikey_4.4
+  - architecture: arm64
+    slug: hi6220-hikey_4.14
+  known_issues:
+  - environments:
+    - slug: hi6220-hikey_4.14
+    notes: null
+    projects:
+    - android-lkft/aosp-master-tracking
+    test_name: cts-lkft-armeabi-v7a/armeabi-v7a.CtsLibcoreTestCases/org.apache.harmony.tests.org.apache.harmony.kernel.dalvik.ThreadsTest.test_parkUntil_2
+    url: null
+    active: true
+    intermittent: false
+  - environments:
+    - slug: hi6220-hikey_4.14
+    notes: null
+    projects:
+    - android-lkft/aosp-master-tracking
+    test_name: cts-lkft-arm64-v8a/arm64-v8a.CtsLibcoreTestCases/org.apache.harmony.tests.java.lang.ProcessManagerTest.testHeavyLoad
+    url: null
+    active: true
+    intermittent: false
+  - environments:
+    - slug: hi6220-hikey_4.14
+    notes: null
+    projects:
+    - android-lkft/aosp-master-tracking
+    test_name: cts-lkft-arm64-v8a/arm64-v8a.CtsLibcoreTestCases/org.apache.harmony.tests.java.util.regex.MatcherTest.testAllCodePoints_p
+    url: null
+    active: true
+    intermittent: false
+  - environments:
+    - slug: hi6220-hikey_4.14
+    notes: null
+    projects:
+    - android-lkft/aosp-master-tracking
+    test_name: cts-lkft-armeabi-v7a/armeabi-v7a.CtsMonkeyTestCases/com.android.cts.monkey.MonkeyTest.testIsMonkey
+    url: null
+    active: true
+    intermittent: false
+  - environments:
+    - slug: hi6220-hikey_4.14
+    notes: null
+    projects:
+    - android-lkft/aosp-master-tracking
+    test_name: cts-lkft-armeabi-v7a/armeabi-v7a.CtsWebkitTestCases/android.webkit.cts.WebViewSslTest.testSslErrorProceedResponseReusedForSameHost
+    url: null
+    active: true
+    intermittent: false
+  - environments:
+    - slug: hi6220-hikey_4.14
+    notes: null
+    projects:
+    - android-lkft/aosp-master-tracking
+    test_name: vts-test/armeabi-v7a.VtsKernelNetTest/VtsKernelNetTest.testKernelNetworking
+    url: null
+    active: true
+    intermittent: false
+  - environments:
+    - slug: hi6220-hikey_4.4
+    notes: null
+    projects:
+    - android-lkft/aosp-master-tracking
+    test_name: vts-test/armeabi-v7a.VtsKernelLtp/VtsKernelLtp.syscalls.nanosleep01_32bit
+    url: null
+    active: true
+    intermittent: false
+  - environments:
+    - slug: hi6220-hikey_4.4
+    notes: null
+    projects:
+    - android-lkft/aosp-master-tracking
+    test_name: vts-test/armeabi-v7a.VtsKernelLtp/VtsKernelLtp.syscalls.nanosleep01_64bit
+    url: null
+    active: true
+    intermittent: false
+  - environments:
+    - slug: hi6220-hikey_4.4
+    notes: null
+    projects:
+    - android-lkft/aosp-master-tracking
+    test_name: cts-lkft-arm64-v8a/arm64-v8a.CtsWebkitTestCases/android.webkit.cts.WebViewSslTest.testSslErrorProceedResponseNotReusedForDifferentHost
+    url: null
+    active: true
+    intermittent: false
+  - environments:
+    - slug: hi6220-hikey_4.4
+    notes: null
+    projects:
+    - android-lkft/aosp-master-tracking
+    test_name: cts-lkft-armeabi-v7a/armeabi-v7a.CtsWebkitTestCases/android.webkit.cts.WebViewSslTest.testSslErrorProceedResponseNotReusedForDifferentHost
+    url: null
+    active: true
+    intermittent: false
+  - environments:
+    - slug: hi6220-hikey_4.4
+    notes: null
+    projects:
+    - android-lkft/aosp-master-tracking
+    test_name: cts-lkft-armeabi-v7a/armeabi-v7a.CtsOsTestCases/android.os.cts.MessengerTest.testSend
+    url: null
+    active: true
+    intermittent: false
+  - environments:
+    - slug: hi6220-hikey_4.4
+    notes: null
+    projects:
+    - android-lkft/aosp-master-tracking
+    test_name: vts-test/armeabi-v7a.KernelProcFileApiTest/KernelProcFileApiTest.testProcSysrqTrigger
+    url: null
+    active: true
+    intermittent: false
+  - environments:
+    - slug: hi6220-hikey_4.4
+    notes: null
+    projects:
+    - android-lkft/aosp-master-tracking
+    test_name: vts-test/armeabi-v7a.KernelProcFileApiTest/KernelProcFileApiTest.testProcUidProcstatSet
+    url: null
+    active: true
+    intermittent: false
+  - environments:
+    - slug: hi6220-hikey_4.4
+    notes: null
+    projects:
+    - android-lkft/android-8.1-tracking
+    test_name: cts-lkft-arm64-v8a/arm64-v8a.CtsLibcoreTestCases/org.apache.harmony.tests.org.apache.harmony.kernel.dalvik.ThreadsTest.test_parkFor_1
+    url: null
+    active: true
+    intermittent: false
+  - environments:
+    - slug: hi6220-hikey_4.4
+    notes: null
+    projects:
+    - android-lkft/android-8.1-tracking
+    test_name: cts-lkft-arm64-v8a/arm64-v8a.CtsOsTestCases/android.os.cts.PowerManagerTest.testPowerManager
+    url: null
+    active: true
+    intermittent: false
