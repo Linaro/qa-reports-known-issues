@@ -11,7 +11,7 @@ import yaml
 from urllib.parse import urlsplit, urlunsplit
 
 
-FORMAT = "%(funcName)20s() ] %(message)s"
+FORMAT = "[%(funcName)20s() ] %(message)s"
 logging.basicConfig(level=logging.DEBUG, format=FORMAT)
 logger = logging.getLogger(__name__)
 
