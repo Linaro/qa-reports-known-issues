@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 
+# Questions
+# Shouldn't sanity check always run? Why not?
+
 import argparse
 import logging
 import netrc
@@ -187,6 +190,18 @@ class SquadProject(object):
                 self.environment_architectures.update({arch_name: set([item.get('slug')])})
         self.known_issues = [SquadKnownIssue(conf, self, sanity_check) for conf in config.get('known_issues')]
 
+def parse_files(config_files):
+    config_data = {}
+    for f in config_files:
+        with open(f, 'r') as stream:
+            try:
+                loaded_config = yaml.load(stream)
+                for project in loaded_config.get('projects'):
+                    config_data.update({project['name']: project})
+            except yaml.YAMLError as exc:
+                logger.error(exc)
+                sys.exit(1)
+    return config_data
 
 def main():
     parser = argparse.ArgumentParser()
@@ -221,17 +236,7 @@ def main():
                         dest="debug")
 
     args = parser.parse_args()
-
-    config_data = {}
-    for f in args.config_files:
-        with open(f, 'r') as stream:
-            try:
-                loaded_config = yaml.load(stream)
-                for project in loaded_config.get('projects'):
-                    config_data.update({project['name']: project})
-            except yaml.YAMLError as exc:
-                logger.error(exc)
-                sys.exit(1)
+    config_data = parse_files(args.config_files)
 
     for project_name, project in config_data.items():
         s = SquadProject(project, args.passwords_file, args.sanity_check)
