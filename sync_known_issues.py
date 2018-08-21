@@ -1,8 +1,5 @@
 #!/usr/bin/python3
 
-# Questions
-# Shouldn't sanity check always run? Why not?
-
 import argparse
 import logging
 import netrc
@@ -15,7 +12,7 @@ from urllib.parse import urlsplit, urlunsplit
 
 
 FORMAT = "[%(funcName)20s() ] %(message)s"
-logging.basicConfig(level=logging.DEBUG, format=FORMAT)
+logging.basicConfig(level=logging.INFO, format=FORMAT)
 logger = logging.getLogger(__name__)
 
 
@@ -50,7 +47,7 @@ class SquadConnection(object):
         netrcauth = netrc.netrc(self.passwords_file)
         try:
             self.username, _, self.token = netrcauth.authenticators(self.base_url)
-            logger.info("Using username: %s" % self.username)
+            logger.debug("Using username: %s" % self.username)
             return self.token
         except TypeError:
             logger.error("No credentials found for %s" % self.base_url)
@@ -129,7 +126,7 @@ class SquadKnownIssueException(Exception):
 
 
 class SquadKnownIssue(object):
-    def __init__(self, config, squad_project, strict=False):
+    def __init__(self, config, squad_project):
         self.test_name = config.get('test_name')
         if self.test_name is None:
             raise SquadKnownIssueException("TestName not defined")
@@ -144,25 +141,31 @@ class SquadKnownIssue(object):
                 # ignore projects that are not defined
                 # in the SquadProject.projects
                 self.projects.remove(project)
-                if strict:
-                    raise SquadKnownIssueException("Project not defined: %s" % project)
+                raise SquadKnownIssueException("Project not defined: %s" % project)
         self.environments = set()
         for item in config.get('environments'):
-            if 'slug' in item.keys():
-                if item['slug'] in squad_project.environment_slugs:
-                    self.environments.add(item['slug'])
-                else:
-                    if strict:
-                        raise SquadKnownIssueException(
-                            "Incorrect environment: %s" % item['slug'])
-            if 'architecture' in item.keys():
-                if item['architecture'] in squad_project.environment_architectures.keys():
-                    for env in squad_project.environment_architectures[item['architecture']]:
-                        self.environments.add(env)
-                else:
-                    if strict:
-                        raise SquadKnownIssueException(
-                            "Unknown architecture: %s" % item['architecture'])
+            if item in squad_project.environments:
+                self.environments.add(item)
+            else:
+                raise SquadKnownIssueException(
+                    "Incorrect environment: %s" % item['slug'])
+
+    def __repr__(self):
+        return """    title: {}
+    url: {}
+    active: {}
+    intermittent: {}
+    projects:
+        {}
+    environments:
+        {}
+""".format(self.title,
+           self.url,
+           self.active,
+           self.intermittent,
+           pprint.pformat(self.projects, indent=8),
+           pprint.pformat(self.environments, indent=8)
+          )
 
 
 class SquadProjectException(Exception):
@@ -170,7 +173,7 @@ class SquadProjectException(Exception):
 
 
 class SquadProject(object):
-    def __init__(self, config, passwords_file, sanity_check=False):
+    def __init__(self, config, passwords_file):
         self.name = config.get('name')
         self.url = config.get('url')
         if self.url is None:
@@ -178,17 +181,7 @@ class SquadProject(object):
         self.connection = SquadConnection(self.url, passwords_file)
         self.projects = config.get('projects')
         self.environments = config.get('environments')
-        self.environment_slugs = set([item.get('slug') for item in self.environments])
-        self.environment_architectures = {}
-        for item in self.environments:
-            arch_name = item.get('architecture')
-            if arch_name is None:
-                continue
-            if arch_name in self.environment_architectures.keys():
-                self.environment_architectures[arch_name].add(item.get('slug'))
-            else:
-                self.environment_architectures.update({arch_name: set([item.get('slug')])})
-        self.known_issues = [SquadKnownIssue(conf, self, sanity_check) for conf in config.get('known_issues')]
+        self.known_issues = [SquadKnownIssue(conf, self) for conf in config.get('known_issues')]
 
 def parse_files(config_files):
     config_data = {}
@@ -222,12 +215,6 @@ def main():
                         default=False,
                         help="Dry run",
                         dest="dry_run")
-    parser.add_argument("-s",
-                        "--sanity-check",
-                        action="store_true",
-                        default=False,
-                        help="Sanity check. Implies dry run.",
-                        dest="sanity_check")
     parser.add_argument("-v",
                         "--debug",
                         action="store_true",
@@ -237,19 +224,24 @@ def main():
 
     args = parser.parse_args()
     config_data = parse_files(args.config_files)
+    if args.debug:
+        # Not sure how else to set the log level when using a global logger.
+        for handler in logging.root.handlers[:]:
+            logging.root.removeHandler(handler)
+        logging.basicConfig(level=logging.DEBUG, format=FORMAT)
 
     for project_name, project in config_data.items():
-        s = SquadProject(project, args.passwords_file, args.sanity_check)
-        if args.sanity_check:
-            # validate if projects defined in the instance exist
-            for squad_project in s.projects:
-                squad_project_group, squad_project_name = squad_project.split("/", 1)
-                api_project = s.connection.filter_object(
-                    'projects',
-                    {'group__slug': squad_project_group, 'slug': squad_project_name})
-                if api_project is None:
-                    raise SquadProjectException(
-                        "Project %s doesn't exist in the instance %s" % (squad_project, s.url))
+        s = SquadProject(project, args.passwords_file)
+
+        # validate if projects defined in the instance exist
+        for squad_project in s.projects:
+            squad_project_group, squad_project_name = squad_project.split("/", 1)
+            api_project = s.connection.filter_object(
+                'projects',
+                {'group__slug': squad_project_group, 'slug': squad_project_name})
+            if api_project is None:
+                raise SquadProjectException(
+                    "Project %s doesn't exist in the instance %s" % (squad_project, s.url))
 
         api_projects = {}
         for known_issue in s.known_issues:
@@ -284,35 +276,35 @@ def main():
                                 known_issue.title))
                         affected_environments.append(api_env)
 
-            if not args.dry_run:
-                known_issue_api_object = {
-                    'title': known_issue.title,
-                    'test_name': known_issue.test_name,
-                    'url': known_issue.url,
-                    'notes': known_issue.notes,
-                    'active': known_issue.active,
-                    'intermittent': known_issue.intermittent,
-                    'environment': [item['url'] for item in affected_environments]
-                }
+            known_issue_api_object = {
+                'title': known_issue.title,
+                'test_name': known_issue.test_name,
+                'url': known_issue.url,
+                'notes': known_issue.notes,
+                'active': known_issue.active,
+                'intermittent': known_issue.intermittent,
+                'environment': [item['url'] for item in affected_environments]
+            }
 
-                if api_known_issue is None:
+            if api_known_issue is None:
+                print("Adding issue:")
+                print(known_issue)
+                if not args.dry_run:
                     # create new KnownIssue
                     s.connection.post_object(
                         'knownissues',
                         known_issue_api_object
                     )
-                else:
+            else:
+                print("Updating issue:")
+                print(known_issue)
+                if not args.dry_run:
                     # update existing KnownIssue
                     api_known_issue.update(known_issue_api_object)
                     s.connection.put_object(
                         'knownissues',
                         api_known_issue
                     )
-            else:
-                pprint.pprint(known_issue.title)
-                pprint.pprint(known_issue.projects)
-                pprint.pprint(known_issue.environments)
-
 
 if __name__ == '__main__':
     main()
