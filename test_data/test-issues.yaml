@@ -1,39 +1,35 @@
+globals:
+  - environments: &environments_arm64
+    - hi6220-hikey
+    - juno-r2
+  - environments: &environments_x86_64
+    - x86
+
 projects:
 - name: LKFT-ltp-staging
-  projects:
-  - lkft/linux-mainline-oe
-  - lkft/linux-next-oe
-  - lkft/linux-stable-rc-4.17-oe
-  url: https://staging-qa-reports.linaro.org
-  environments:
-  - architecture: arm64
-    slug: hi6220-hikey
-  - architecture: arm64
-    slug: juno-r2
-  - architecture: x86_64
-    slug: x86
-  known_issues:
-  - environments:
-    - slug: hi6220-hikey
-    - slug: juno-r2
-    notes: 'LKFT: LTP: fork13: runs long and hangs machine on branches'
-    projects:
+  projects: &projects_all
     - lkft/linux-mainline-oe
     - lkft/linux-next-oe
     - lkft/linux-stable-rc-4.17-oe
+  url: https://staging-qa-reports.linaro.org
+  environments: &environments_all
+    - hi6220-hikey
+    - juno-r2
+    - x86
+  known_issues:
+  - environments: *environments_all
+    notes: 'LKFT: LTP: fork13: runs long and hangs machine on branches'
+    projects: *projects_all
     test_name: ltp-syscalls-tests/fork13
     url: https://bugs.linaro.org/show_bug.cgi?id=3719
     active: true
     intermittent: false
-  - environments:
-    - slug: hi6220-hikey
+  - environments: *environments_arm64
     notes: 'msgctl10/msgstress03 and msgct11/msgstress04 tests overheats HiKey board
       due to large number of fork() calls and message queues read/writes. [RPB] LTP:
       msgctl10 fork failed'
     projects:
-    - lkft/linux-mainline-oe
     - lkft/linux-next-oe
-    - lkft/linux-stable-rc-4.17-oe
     test_name: ltp-syscalls-tests/msgctl10
     url: https://bugs.linaro.org/show_bug.cgi?id=2355
     active: true
