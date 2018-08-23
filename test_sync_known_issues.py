@@ -20,7 +20,10 @@ def test_issue_equal_is_equal():
 
     b = a.copy()
     b['id'] = 10 # Set an 'id' field in b. Should still be equal
-    shuffle(b['environments']) # Randomize environments list order
+    b['environment'] = b['environments'] # The API has singular 'environment'
+    del b['environments']
+    shuffle(b['environment']) # Randomize environments list order
+    b['notes'] = b['notes']+"\n" # Add newline to b's 'note'
 
     is_equal = sync_known_issues.issues_equal(a, b)
     assert is_equal

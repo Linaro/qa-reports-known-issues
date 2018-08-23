@@ -202,18 +202,41 @@ def issues_equal(a, b):
     """
         Compare two known issue dictionaries,
         return True if equal, else False
+
+        Before comparing, normalization occurs:
+        - the 'id' field may exist in one but not the other
+          list, and shouldn't be used.
+        - the 'environment' field is plural in yaml, and singular
+          in the api
+        - the 'environment' field is a list and sort order may differ
+        - strip() notes field
+
+        Note that both inputs are normalized so that order doesn't
+        matter.
+
     """
 
     # Copy the dicts, so they may be modified
     x = a.copy()
     y = b.copy()
 
-    # Copy and remove 'id' for purpose of comparison
-    # Remove 'id' field
+    # Remove 'id' for purpose of comparison
     if 'id' in x: del x['id']
     if 'id' in y: del y['id']
 
-    # Sort lists for purpose of comparison
+    # Remove any trailing newlines in notes
+    x['notes'] = x['notes'].strip()
+    y['notes'] = y['notes'].strip()
+
+    # Normalize 'environment' and 'environments'
+    if 'environment' in x:
+        x['environments'] = x['environment']
+        del x['environment']
+    if 'environment' in y:
+        y['environments'] = y['environment']
+        del y['environment']
+
+    # Ensure consistent sort order
     x['environments'].sort()
     y['environments'].sort()
 
@@ -311,6 +334,8 @@ def main():
                 'notes': known_issue.notes,
                 'active': known_issue.active,
                 'intermittent': known_issue.intermittent,
+                # XXX Once https://github.com/Linaro/squad/pull/324 is deployed,
+                # s/environment/environments/ here, and clean up issues_equal().
                 'environment': [item['url'] for item in affected_environments]
             }
 
