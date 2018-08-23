@@ -6,7 +6,7 @@ that the failures were investigated.
 
 ## Known Issues sync
 
-sync-known-issues.py script is used to transfer the serialized objects to
+sync_known_issues.py script is used to transfer the serialized objects to
 qa-reports.linaro.org SQUAD instance. It takes the following parameters
 
 	usage: sync-known-issues.py [-h] -c CONFIG_FILES [CONFIG_FILES ...] -p
@@ -55,35 +55,26 @@ the following fileds:
 	  - lkft/linux-stable-rc-4.17-oe
 	  url: https://qa-reports.linaro.org
 	  environments:
-	  - architecture: arm64
-		slug: hi6220-hikey
-	  - architecture: arm64
-		slug: juno-r2
-	  - architecture: arm64
-		slug: dragonboard-410c
-	  - architecture: arm32
-		slug: x15
-	  - architecture: x86_64
-		slug: x86
-	  - architecture: x86_64
-		slug: qemu_x86_64
-	  - architecture: x86
-		slug: qemu_x86_32
-	  - architecture: arm32
-		slug: qemu_arm
-	  - architecture: arm64
-		slug: qemu_arm64
+	  - hi6220-hikey
+	  - juno-r2
+	  - dragonboard-410c
+	  - x15
+	  - x86
+	  - qemu_x86_64
+	  - qemu_x86_32
+	  - qemu_arm
+	  - qemu_arm64
 	  known_issues:
 	  - environments: &id_allboards_001
-		- slug: hi6220-hikey
-		- slug: juno-r2
-		- slug: dragonboard-410c
-		- slug: x15
-		- slug: x86
-		- slug: qemu_x86_64
-		- slug: qemu_x86_32
-		- slug: qemu_arm
-		- slug: qemu_arm64
+		- hi6220-hikey
+		- juno-r2
+		- dragonboard-410c
+		- x15
+		- x86
+		- qemu_x86_64
+		- qemu_x86_32
+		- qemu_arm
+		- qemu_arm64
 		notes: 'Adding skiplist according to the below ticket mainline kernel tests baselining'
 		projects:
 		- lkft/linux-stable-rc-4.4-oe
@@ -111,3 +102,19 @@ the following fileds:
 		active: true
 		intermittent: false
 
+## Caveats
+
+### .netrc
+
+If there is a ~/.netrc file, requests() will find it, try to use it, and fail with:
+
+```
+[         post_object() ] https://qa-reports.linaro.org/api/knownissues/
+[         post_object() ] {'title': 'LKFT-ltp/ltp-syscalls-tests/fork13', 'test_name': 'ltp-syscalls-tests/fork13', 'url': 'https://bugs.linaro.org/show_bug.cgi?id=3719', 'notes': 'LKFT: LTP: fork13: runs long and hangs machine on branches', 'active': True, 'intermittent': False, 'environment': ['https://qa-reports.linaro.org/api/environments/74/', 'https://qa-reports.linaro.org/api/environments/321/', 'https://qa-reports.linaro.org/api/environments/70/', 'https://qa-reports.linaro.org/api/environments/307/', 'https://qa-reports.linaro.org/api/environments/406/', 'https://qa-reports.linaro.org/api/environments/401/', 'https://qa-reports.linaro.org/api/environments/71/', 'https://qa-reports.linaro.org/api/environments/302/', 'https://qa-reports.linaro.org/api/environments/77/', 'https://qa-reports.linaro.org/api/environments/312/', 'https://qa-reports.linaro.org/api/environments/361/', 'https://qa-reports.linaro.org/api/environments/366/', 'https://qa-reports.linaro.org/api/environments/112/', 'https://qa-reports.linaro.org/api/environments/305/']}
+[         post_object() ] {'Authorization': 'Token XXXXXXX'}
+[           _new_conn() ] Starting new HTTPS connection (1): qa-reports.linaro.org
+[       _make_request() ] https://qa-reports.linaro.org:443 "POST /api/knownissues/ HTTP/1.1" 403 58
+[         post_object() ] {"detail":"Authentication credentials were not provided."}
+```
+
+The workaround is to literally move ~/.netrc to some other filename and reference it directly.
