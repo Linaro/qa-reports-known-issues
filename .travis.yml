@@ -1,0 +1,14 @@
+language: python
+python:
+  - "3.6"
+install:
+  - pip install -r requirements.txt
+script:
+  - pytest
+  #- dry-run
+#deploy:
+#  provider: script
+#  script: ./sync_known_issues.py
+#  -on:
+#    repo: linaro/qa-reports-known-issues
+#    branch: master
