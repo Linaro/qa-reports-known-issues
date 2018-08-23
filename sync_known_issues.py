@@ -8,6 +8,8 @@ import requests
 import sys
 import yaml
 
+from deepdiff import DeepDiff
+
 from urllib.parse import urlsplit, urlunsplit
 
 
@@ -196,6 +198,32 @@ def parse_files(config_files):
                 sys.exit(1)
     return config_data
 
+def issues_equal(a, b):
+    """
+        Compare two known issue dictionaries,
+        return True if equal, else False
+    """
+
+    # Copy the dicts, so they may be modified
+    x = a.copy()
+    y = b.copy()
+
+    # Copy and remove 'id' for purpose of comparison
+    # Remove 'id' field
+    if 'id' in x: del x['id']
+    if 'id' in y: del y['id']
+
+    # Sort lists for purpose of comparison
+    x['environments'].sort()
+    y['environments'].sort()
+
+    differences = DeepDiff(x, y)
+    if not differences:
+        return True
+
+    return False
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-c",
@@ -295,7 +323,11 @@ def main():
                         'knownissues',
                         known_issue_api_object
                     )
-            else:
+            else: # update case
+                if issues_equal(api_known_issue, known_issue_api_object):
+                    print("No changes to '{}'".format(api_known_issue['test_name']))
+                    continue
+
                 print("Updating issue:")
                 print(known_issue)
                 if not args.dry_run:
