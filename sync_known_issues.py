@@ -274,7 +274,7 @@ def main():
         for squad_project in s.projects:
             squad_project_group, squad_project_name = squad_project.split("/", 1)
             api_project = s.connection.filter_object(
-                'projects',
+                'projects/',
                 {'group__slug': squad_project_group, 'slug': squad_project_name})
             if api_project is None:
                 raise SquadProjectException(
@@ -286,7 +286,7 @@ def main():
             # for each project defined in the known_issue
             # get the environment IDs based on the environment name
             api_known_issue = s.connection.filter_object(
-                'knownissues',
+                'knownissues/',
                 {'title': known_issue.title, 'test_name': known_issue.test_name})
             affected_environments = []
             for known_issue_project in known_issue.projects:
@@ -294,7 +294,7 @@ def main():
                 api_project = api_projects.get(known_issue_project)
                 if api_project is None:
                     api_project = s.connection.filter_object(
-                        'projects',
+                        'projects/',
                         {'group__slug': group_name, 'slug': project_name})
                     api_projects[known_issue_project] = api_project
                 if api_project is None:
@@ -302,7 +302,7 @@ def main():
                 api_environments = api_projects[known_issue_project].get('environments')
                 if api_environments is None:
                     api_environments = s.connection.download_list(
-                        'environments',
+                        'environments/',
                         {'project': api_project['id']})
                     api_projects[known_issue_project].update({'environments': api_environments})
                 for api_env in api_environments:
