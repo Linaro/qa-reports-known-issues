@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 
 import argparse
 import logging
@@ -29,12 +29,15 @@ class SquadConnection(object):
         self.base_url = urlparts.netloc
         self.url_scheme = urlparts.scheme
 
-        if 'QA_REPORTS_KNOWN_ISSUE_TOKEN' not in os.environ:
-            sys.exit("Error: QA_REPORTS_KNOWN_ISSUE_TOKEN not provided")
-        connection_token = "Token %s" % os.environ['QA_REPORTS_KNOWN_ISSUE_TOKEN']
-        self.headers = {
-            "Authorization": connection_token
-        }
+        # Note that QA_REPORTS_KNOWN_ISSUE_TOKEN is optional;
+        # When unset, unauthenticated requests will still work (which are often
+        # sufficient for --dry-run).
+        self.headers = {}
+        if 'QA_REPORTS_KNOWN_ISSUE_TOKEN' in os.environ:
+            connection_token = "Token %s" % os.environ['QA_REPORTS_KNOWN_ISSUE_TOKEN']
+            self.headers = {
+                "Authorization": connection_token
+            }
 
     def get_prepared_request(self, endpoint, method):
         URL = urlunsplit(
