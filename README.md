@@ -16,11 +16,14 @@ qa-reports.linaro.org SQUAD instance. It takes the following parameters
 	  -h, --help            show this help message and exit
 	  -c CONFIG_FILES [CONFIG_FILES ...], --config-files CONFIG_FILES [CONFIG_FILES ...]
 							Instance config files
-	  -p PASSWORDS_FILE, --passwords-file PASSWORDS_FILE
-							Passwords file in the .netrc form
 	  -d, --dry-run         Dry run
-	  -s, --sanity-check    Sanity check. Implies dry run.
 	  -v, --debug           Enable debug
+
+## Authentication
+
+sync_known_issues.py expects environment variable named
+QA_REPORTS_KNOWN_ISSUE_TOKEN to exist and contain an authentication token to
+use against the squad URL in the given config file.
 
 ## YAML file format
 
@@ -101,20 +104,3 @@ the following fileds:
 		url: https://bugs.linaro.org/show_bug.cgi?id=3120
 		active: true
 		intermittent: false
-
-## Caveats
-
-### .netrc
-
-If there is a ~/.netrc file, requests() will find it, try to use it, and fail with:
-
-```
-[         post_object() ] https://qa-reports.linaro.org/api/knownissues/
-[         post_object() ] {'title': 'LKFT-ltp/ltp-syscalls-tests/fork13', 'test_name': 'ltp-syscalls-tests/fork13', 'url': 'https://bugs.linaro.org/show_bug.cgi?id=3719', 'notes': 'LKFT: LTP: fork13: runs long and hangs machine on branches', 'active': True, 'intermittent': False, 'environment': ['https://qa-reports.linaro.org/api/environments/74/', 'https://qa-reports.linaro.org/api/environments/321/', 'https://qa-reports.linaro.org/api/environments/70/', 'https://qa-reports.linaro.org/api/environments/307/', 'https://qa-reports.linaro.org/api/environments/406/', 'https://qa-reports.linaro.org/api/environments/401/', 'https://qa-reports.linaro.org/api/environments/71/', 'https://qa-reports.linaro.org/api/environments/302/', 'https://qa-reports.linaro.org/api/environments/77/', 'https://qa-reports.linaro.org/api/environments/312/', 'https://qa-reports.linaro.org/api/environments/361/', 'https://qa-reports.linaro.org/api/environments/366/', 'https://qa-reports.linaro.org/api/environments/112/', 'https://qa-reports.linaro.org/api/environments/305/']}
-[         post_object() ] {'Authorization': 'Token XXXXXXX'}
-[           _new_conn() ] Starting new HTTPS connection (1): qa-reports.linaro.org
-[       _make_request() ] https://qa-reports.linaro.org:443 "POST /api/knownissues/ HTTP/1.1" 403 58
-[         post_object() ] {"detail":"Authentication credentials were not provided."}
-```
-
-The workaround is to literally move ~/.netrc to some other filename and reference it directly.

@@ -2,7 +2,7 @@
 
 import argparse
 import logging
-import netrc
+import os
 import pprint
 import requests
 import sys
@@ -23,14 +23,15 @@ class SquadConnectionException(Exception):
 
 
 class SquadConnection(object):
-    def __init__(self, url, passwords_file):
+    def __init__(self, url):
         self.url = url
-        self.passwords_file = passwords_file
         urlparts = urlsplit(self.url)
         self.base_url = urlparts.netloc
         self.url_scheme = urlparts.scheme
 
-        connection_token = "Token %s" % self.__get_connection_token__(self.url)
+        if 'QA_REPORTS_KNOWN_ISSUE_TOKEN' not in os.environ:
+            sys.exit("Error: QA_REPORTS_KNOWN_ISSUE_TOKEN not provided")
+        connection_token = "Token %s" % os.environ['QA_REPORTS_KNOWN_ISSUE_TOKEN']
         self.headers = {
             "Authorization": connection_token
         }
@@ -44,16 +45,6 @@ class SquadConnection(object):
              None))
         req = requests.Request(method, URL, headers=self.headers)
         return req.prepare()
-
-    def __get_connection_token__(self, url):
-        netrcauth = netrc.netrc(self.passwords_file)
-        try:
-            self.username, _, self.token = netrcauth.authenticators(self.base_url)
-            logger.debug("Using username: %s" % self.username)
-            return self.token
-        except TypeError:
-            logger.error("No credentials found for %s" % self.base_url)
-            sys.exit(1)
 
     def download_list(self, endpoint, params=None):
         URL = urlunsplit(
@@ -175,12 +166,12 @@ class SquadProjectException(Exception):
 
 
 class SquadProject(object):
-    def __init__(self, config, passwords_file):
+    def __init__(self, config):
         self.name = config.get('name')
         self.url = config.get('url')
         if self.url is None:
             raise SquadProjectException("Project URL is empty")
-        self.connection = SquadConnection(self.url, passwords_file)
+        self.connection = SquadConnection(self.url)
         self.projects = config.get('projects')
         self.environments = config.get('environments')
         self.known_issues = [SquadKnownIssue(conf, self) for conf in config.get('known_issues')]
@@ -255,11 +246,6 @@ def main():
                         required=True,
                         help="Instance config files",
                         dest="config_files")
-    parser.add_argument("-p",
-                        "--passwords-file",
-                        required=True,
-                        help="Passwords file in the .netrc form",
-                        dest="passwords_file")
     parser.add_argument("-d",
                         "--dry-run",
                         action="store_true",
@@ -282,7 +268,7 @@ def main():
         logging.basicConfig(level=logging.DEBUG, format=FORMAT)
 
     for project_name, project in config_data.items():
-        s = SquadProject(project, args.passwords_file)
+        s = SquadProject(project)
 
         # validate if projects defined in the instance exist
         for squad_project in s.projects:
