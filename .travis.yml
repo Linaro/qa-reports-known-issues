@@ -6,6 +6,12 @@ install:
 script:
 - pytest
 - ./.travis_run.sh --dry-run
+deploy:
+  provider: script
+  script: ./.travis_run.sh
+  on:
+    branch: master
+    repo: Linaro/qa-reports-known-issues
 env:
   global:
     # Generated with i.e.
