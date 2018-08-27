@@ -1,0 +1,4 @@
+deepdiff
+pytest
+requests
+pyyaml

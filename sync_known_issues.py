@@ -1,18 +1,20 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 
 import argparse
 import logging
-import netrc
+import os
 import pprint
 import requests
 import sys
 import yaml
 
+from deepdiff import DeepDiff
+
 from urllib.parse import urlsplit, urlunsplit
 
 
 FORMAT = "[%(funcName)20s() ] %(message)s"
-logging.basicConfig(level=logging.DEBUG, format=FORMAT)
+logging.basicConfig(level=logging.INFO, format=FORMAT)
 logger = logging.getLogger(__name__)
 
 
@@ -21,14 +23,15 @@ class SquadConnectionException(Exception):
 
 
 class SquadConnection(object):
-    def __init__(self, url, passwords_file):
+    def __init__(self, url):
         self.url = url
-        self.passwords_file = passwords_file
         urlparts = urlsplit(self.url)
         self.base_url = urlparts.netloc
         self.url_scheme = urlparts.scheme
 
-        connection_token = "Token %s" % self.__get_connection_token__(self.url)
+        if 'QA_REPORTS_KNOWN_ISSUE_TOKEN' not in os.environ:
+            sys.exit("Error: QA_REPORTS_KNOWN_ISSUE_TOKEN not provided")
+        connection_token = "Token %s" % os.environ['QA_REPORTS_KNOWN_ISSUE_TOKEN']
         self.headers = {
             "Authorization": connection_token
         }
@@ -42,16 +45,6 @@ class SquadConnection(object):
              None))
         req = requests.Request(method, URL, headers=self.headers)
         return req.prepare()
-
-    def __get_connection_token__(self, url):
-        netrcauth = netrc.netrc(self.passwords_file)
-        try:
-            self.username, _, self.token = netrcauth.authenticators(self.base_url)
-            logger.info("Using username: %s" % self.username)
-            return self.token
-        except TypeError:
-            logger.error("No credentials found for %s" % self.base_url)
-            sys.exit(1)
 
     def download_list(self, endpoint, params=None):
         URL = urlunsplit(
@@ -126,7 +119,7 @@ class SquadKnownIssueException(Exception):
 
 
 class SquadKnownIssue(object):
-    def __init__(self, config, squad_project, strict=False):
+    def __init__(self, config, squad_project):
         self.test_name = config.get('test_name')
         if self.test_name is None:
             raise SquadKnownIssueException("TestName not defined")
@@ -141,25 +134,31 @@ class SquadKnownIssue(object):
                 # ignore projects that are not defined
                 # in the SquadProject.projects
                 self.projects.remove(project)
-                if strict:
-                    raise SquadKnownIssueException("Project not defined: %s" % project)
+                raise SquadKnownIssueException("Project not defined: %s" % project)
         self.environments = set()
         for item in config.get('environments'):
-            if 'slug' in item.keys():
-                if item['slug'] in squad_project.environment_slugs:
-                    self.environments.add(item['slug'])
-                else:
-                    if strict:
-                        raise SquadKnownIssueException(
-                            "Incorrect environment: %s" % item['slug'])
-            if 'architecture' in item.keys():
-                if item['architecture'] in squad_project.environment_architectures.keys():
-                    for env in squad_project.environment_architectures[item['architecture']]:
-                        self.environments.add(env)
-                else:
-                    if strict:
-                        raise SquadKnownIssueException(
-                            "Unknown architecture: %s" % item['architecture'])
+            if item in squad_project.environments:
+                self.environments.add(item)
+            else:
+                raise SquadKnownIssueException(
+                    "Incorrect environment: %s" % item['slug'])
+
+    def __repr__(self):
+        return """    title: {}
+    url: {}
+    active: {}
+    intermittent: {}
+    projects:
+        {}
+    environments:
+        {}
+""".format(self.title,
+           self.url,
+           self.active,
+           self.intermittent,
+           pprint.pformat(self.projects, indent=8),
+           pprint.pformat(self.environments, indent=8)
+          )
 
 
 class SquadProjectException(Exception):
@@ -167,25 +166,76 @@ class SquadProjectException(Exception):
 
 
 class SquadProject(object):
-    def __init__(self, config, passwords_file, sanity_check=False):
+    def __init__(self, config):
         self.name = config.get('name')
         self.url = config.get('url')
         if self.url is None:
             raise SquadProjectException("Project URL is empty")
-        self.connection = SquadConnection(self.url, passwords_file)
+        self.connection = SquadConnection(self.url)
         self.projects = config.get('projects')
         self.environments = config.get('environments')
-        self.environment_slugs = set([item.get('slug') for item in self.environments])
-        self.environment_architectures = {}
-        for item in self.environments:
-            arch_name = item.get('architecture')
-            if arch_name is None:
-                continue
-            if arch_name in self.environment_architectures.keys():
-                self.environment_architectures[arch_name].add(item.get('slug'))
-            else:
-                self.environment_architectures.update({arch_name: set([item.get('slug')])})
-        self.known_issues = [SquadKnownIssue(conf, self, sanity_check) for conf in config.get('known_issues')]
+        self.known_issues = [SquadKnownIssue(conf, self) for conf in config.get('known_issues')]
+
+def parse_files(config_files):
+    config_data = {}
+    for f in config_files:
+        with open(f, 'r') as stream:
+            try:
+                loaded_config = yaml.load(stream)
+                for project in loaded_config.get('projects'):
+                    config_data.update({project['name']: project})
+            except yaml.YAMLError as exc:
+                logger.error(exc)
+                sys.exit(1)
+    return config_data
+
+def issues_equal(a, b):
+    """
+        Compare two known issue dictionaries,
+        return True if equal, else False
+
+        Before comparing, normalization occurs:
+        - the 'id' field may exist in one but not the other
+          list, and shouldn't be used.
+        - the 'environment' field is plural in yaml, and singular
+          in the api
+        - the 'environment' field is a list and sort order may differ
+        - strip() notes field
+
+        Note that both inputs are normalized so that order doesn't
+        matter.
+
+    """
+
+    # Copy the dicts, so they may be modified
+    x = a.copy()
+    y = b.copy()
+
+    # Remove 'id' for purpose of comparison
+    if 'id' in x: del x['id']
+    if 'id' in y: del y['id']
+
+    # Remove any trailing newlines in notes
+    x['notes'] = x['notes'].strip()
+    y['notes'] = y['notes'].strip()
+
+    # Normalize 'environment' and 'environments'
+    if 'environment' in x:
+        x['environments'] = x['environment']
+        del x['environment']
+    if 'environment' in y:
+        y['environments'] = y['environment']
+        del y['environment']
+
+    # Ensure consistent sort order
+    x['environments'].sort()
+    y['environments'].sort()
+
+    differences = DeepDiff(x, y)
+    if not differences:
+        return True
+
+    return False
 
 
 def main():
@@ -196,23 +246,12 @@ def main():
                         required=True,
                         help="Instance config files",
                         dest="config_files")
-    parser.add_argument("-p",
-                        "--passwords-file",
-                        required=True,
-                        help="Passwords file in the .netrc form",
-                        dest="passwords_file")
     parser.add_argument("-d",
                         "--dry-run",
                         action="store_true",
                         default=False,
                         help="Dry run",
                         dest="dry_run")
-    parser.add_argument("-s",
-                        "--sanity-check",
-                        action="store_true",
-                        default=False,
-                        help="Sanity check. Implies dry run.",
-                        dest="sanity_check")
     parser.add_argument("-v",
                         "--debug",
                         action="store_true",
@@ -221,30 +260,25 @@ def main():
                         dest="debug")
 
     args = parser.parse_args()
-
-    config_data = {}
-    for f in args.config_files:
-        with open(f, 'r') as stream:
-            try:
-                loaded_config = yaml.load(stream)
-                for project in loaded_config.get('projects'):
-                    config_data.update({project['name']: project})
-            except yaml.YAMLError as exc:
-                logger.error(exc)
-                sys.exit(1)
+    config_data = parse_files(args.config_files)
+    if args.debug:
+        # Not sure how else to set the log level when using a global logger.
+        for handler in logging.root.handlers[:]:
+            logging.root.removeHandler(handler)
+        logging.basicConfig(level=logging.DEBUG, format=FORMAT)
 
     for project_name, project in config_data.items():
-        s = SquadProject(project, args.passwords_file, args.sanity_check)
-        if args.sanity_check:
-            # validate if projects defined in the instance exist
-            for squad_project in s.projects:
-                squad_project_group, squad_project_name = squad_project.split("/", 1)
-                api_project = s.connection.filter_object(
-                    'projects',
-                    {'group__slug': squad_project_group, 'slug': squad_project_name})
-                if api_project is None:
-                    raise SquadProjectException(
-                        "Project %s doesn't exist in the instance %s" % (squad_project, s.url))
+        s = SquadProject(project)
+
+        # validate if projects defined in the instance exist
+        for squad_project in s.projects:
+            squad_project_group, squad_project_name = squad_project.split("/", 1)
+            api_project = s.connection.filter_object(
+                'projects',
+                {'group__slug': squad_project_group, 'slug': squad_project_name})
+            if api_project is None:
+                raise SquadProjectException(
+                    "Project %s doesn't exist in the instance %s" % (squad_project, s.url))
 
         api_projects = {}
         for known_issue in s.known_issues:
@@ -279,35 +313,41 @@ def main():
                                 known_issue.title))
                         affected_environments.append(api_env)
 
-            if not args.dry_run:
-                known_issue_api_object = {
-                    'title': known_issue.title,
-                    'test_name': known_issue.test_name,
-                    'url': known_issue.url,
-                    'notes': known_issue.notes,
-                    'active': known_issue.active,
-                    'intermittent': known_issue.intermittent,
-                    'environment': [item['url'] for item in affected_environments]
-                }
+            known_issue_api_object = {
+                'title': known_issue.title,
+                'test_name': known_issue.test_name,
+                'url': known_issue.url,
+                'notes': known_issue.notes,
+                'active': known_issue.active,
+                'intermittent': known_issue.intermittent,
+                # XXX Once https://github.com/Linaro/squad/pull/324 is deployed,
+                # s/environment/environments/ here, and clean up issues_equal().
+                'environment': [item['url'] for item in affected_environments]
+            }
 
-                if api_known_issue is None:
+            if api_known_issue is None:
+                print("Adding issue:")
+                print(known_issue)
+                if not args.dry_run:
                     # create new KnownIssue
                     s.connection.post_object(
                         'knownissues',
                         known_issue_api_object
                     )
-                else:
+            else: # update case
+                if issues_equal(api_known_issue, known_issue_api_object):
+                    print("No changes to '{}'".format(api_known_issue['test_name']))
+                    continue
+
+                print("Updating issue:")
+                print(known_issue)
+                if not args.dry_run:
                     # update existing KnownIssue
                     api_known_issue.update(known_issue_api_object)
                     s.connection.put_object(
                         'knownissues',
                         api_known_issue
                     )
-            else:
-                pprint.pprint(known_issue.title)
-                pprint.pprint(known_issue.projects)
-                pprint.pprint(known_issue.environments)
-
 
 if __name__ == '__main__':
     main()

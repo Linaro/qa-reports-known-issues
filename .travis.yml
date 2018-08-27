@@ -1,0 +1,14 @@
+language: python
+python:
+- '3.6'
+install:
+- pip install -r requirements.txt
+script:
+- pytest
+- ./.travis_run.sh --dry-run
+env:
+  global:
+    # Generated with i.e.
+    # travis encrypt QA_REPORTS_KNOWN_ISSUE_TOKEN="<actual token here>" --add -r Linaro/qa-reports-known-issues
+    # This token belongs to qa-reports-known-issues-travis-ci user in https://qa-reports.linaro.org.
+    secure: VGI7i3BetP9c9U0WKZdwnUtvv6m0TUp5ak33zSABKywfZYpxz//sFjkPh3pUQJflYj+/UHsduGErHbD5LdKDfq9S90+z59X+fwnekYovc/QASAUUYZmIpGU+enNAF7cAvJBPh5FFZw8wSL7+6lB69Q74LYcrJSJ3gHHp4pL2zRHn8DGxgkQa2Ml/Br2IPAZR4tyYv/0fUkl/Qi4dQtJXt7ccNJD+//Alx/vk+zOJ9t3Q1XVcOI4Q+LIZ/FIgeaSL1j+BhaYAsxeki2l4+lXk45Nw2Jl/iY8yc0Q/dtvm5Uv+8MRnMaT6ShOCLZ09V88eU1/8BnaP5bJYNseRHIGMMD1XxJIWxdknsJsdEH6UPmOGcRlwOTHPAVy4K6Nj8fV6nOrdhLMuo8q3z2QgGVgYOq2sFAtr38awP7t/+LRNrVUZVkXU4ZlNr3xYE5fg9jj3QPyHAKyx0eNAGcSXf6ZFNR2rHd1u2d7NN6GF7ZTKA7nk2EG56rCnyl+2smUQmzKzv4sV/wKiopSJCUShglKtrUEESLnsbE+WWfGVhK92A/0z87EnQC5ZZUDbXdb7//tiifuvfmKxZGbzMGzkb63YBOIAYg1dr0VlZvVQh8s0sBjwruWWjeHmgL0AOtkMJO/BU7vHyntcbF6XeYV6FzCKPBhSyUECkTUNZqPnHwCliB0=
