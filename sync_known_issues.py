@@ -6,6 +6,7 @@ import os
 import pprint
 import requests
 import sys
+import textwrap
 import yaml
 
 from deepdiff import DeepDiff
@@ -147,21 +148,15 @@ class SquadKnownIssue(object):
                     "Incorrect environment: %s" % item['slug'])
 
     def __repr__(self):
-        return """    title: {}
-    url: {}
-    active: {}
-    intermittent: {}
-    projects:
-        {}
-    environments:
-        {}
-""".format(self.title,
-           self.url,
-           self.active,
-           self.intermittent,
-           pprint.pformat(self.projects, indent=8),
-           pprint.pformat(self.environments, indent=8)
-          )
+        return yaml.dump({'title': self.title,
+                          'url': self.url,
+                          'active': self.active,
+                          'intermittent': self.intermittent,
+                          'projects': self.projects,
+                          'environments': list(self.environments),
+                         },
+                         indent=4,
+                         width=80)
 
 
 class SquadProjectException(Exception):
@@ -330,7 +325,7 @@ def main():
 
             if api_known_issue is None:
                 print("Adding issue:")
-                print(known_issue)
+                print(textwrap.indent(str(known_issue), "    "))
                 if not args.dry_run:
                     # create new KnownIssue
                     s.connection.post_object(
@@ -343,7 +338,7 @@ def main():
                     continue
 
                 print("Updating issue:")
-                print(known_issue)
+                print(textwrap.indent(str(known_issue), "    "))
                 if not args.dry_run:
                     # update existing KnownIssue
                     api_known_issue.update(known_issue_api_object)
