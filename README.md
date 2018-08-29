@@ -1,12 +1,14 @@
 # Known Issues for qa-reports.linaro.org
 
+[![Build Status](https://travis-ci.com/Linaro/qa-reports-known-issues.svg?branch=master)](https://travis-ci.com/Linaro/qa-reports-known-issues)
+
 This repository contains YAML files with serialized known issues. Known issues
 are meant to highlight failed tests in qa-reports.linaro.org so it is clear
 that the failures were investigated.
 
 ## Known Issues sync
 
-sync-known-issues.py script is used to transfer the serialized objects to
+sync_known_issues.py script is used to transfer the serialized objects to
 qa-reports.linaro.org SQUAD instance. It takes the following parameters
 
 	usage: sync-known-issues.py [-h] -c CONFIG_FILES [CONFIG_FILES ...] -p
@@ -16,11 +18,14 @@ qa-reports.linaro.org SQUAD instance. It takes the following parameters
 	  -h, --help            show this help message and exit
 	  -c CONFIG_FILES [CONFIG_FILES ...], --config-files CONFIG_FILES [CONFIG_FILES ...]
 							Instance config files
-	  -p PASSWORDS_FILE, --passwords-file PASSWORDS_FILE
-							Passwords file in the .netrc form
 	  -d, --dry-run         Dry run
-	  -s, --sanity-check    Sanity check. Implies dry run.
 	  -v, --debug           Enable debug
+
+## Authentication
+
+sync_known_issues.py expects environment variable named
+QA_REPORTS_KNOWN_ISSUE_TOKEN to exist and contain an authentication token to
+use against the squad URL in the given config file.
 
 ## YAML file format
 
@@ -55,35 +60,26 @@ the following fileds:
 	  - lkft/linux-stable-rc-4.17-oe
 	  url: https://qa-reports.linaro.org
 	  environments:
-	  - architecture: arm64
-		slug: hi6220-hikey
-	  - architecture: arm64
-		slug: juno-r2
-	  - architecture: arm64
-		slug: dragonboard-410c
-	  - architecture: arm32
-		slug: x15
-	  - architecture: x86_64
-		slug: x86
-	  - architecture: x86_64
-		slug: qemu_x86_64
-	  - architecture: x86
-		slug: qemu_x86_32
-	  - architecture: arm32
-		slug: qemu_arm
-	  - architecture: arm64
-		slug: qemu_arm64
+	  - hi6220-hikey
+	  - juno-r2
+	  - dragonboard-410c
+	  - x15
+	  - x86
+	  - qemu_x86_64
+	  - qemu_x86_32
+	  - qemu_arm
+	  - qemu_arm64
 	  known_issues:
 	  - environments: &id_allboards_001
-		- slug: hi6220-hikey
-		- slug: juno-r2
-		- slug: dragonboard-410c
-		- slug: x15
-		- slug: x86
-		- slug: qemu_x86_64
-		- slug: qemu_x86_32
-		- slug: qemu_arm
-		- slug: qemu_arm64
+		- hi6220-hikey
+		- juno-r2
+		- dragonboard-410c
+		- x15
+		- x86
+		- qemu_x86_64
+		- qemu_x86_32
+		- qemu_arm
+		- qemu_arm64
 		notes: 'Adding skiplist according to the below ticket mainline kernel tests baselining'
 		projects:
 		- lkft/linux-stable-rc-4.4-oe
@@ -110,4 +106,3 @@ the following fileds:
 		url: https://bugs.linaro.org/show_bug.cgi?id=3120
 		active: true
 		intermittent: false
-
