@@ -145,7 +145,7 @@ class SquadKnownIssue(object):
                 self.environments.add(item)
             else:
                 raise SquadKnownIssueException(
-                    "Incorrect environment: %s" % item['slug'])
+                    "Incorrect environment: %s" % item)
 
     def __repr__(self):
         return yaml.dump({'title': self.title,
