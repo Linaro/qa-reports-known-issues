@@ -39,3 +39,16 @@ def test_issue_equal_not_equal():
     is_equal = sync_known_issues.issues_equal(a, b)
     assert not is_equal
 
+def test_issue_url_note_null():
+    config_file = "test_data/test-issues.yaml"
+    config_data = sync_known_issues.parse_files([config_file])
+
+    a = config_data['LKFT-ltp-staging']['known_issues'][0]
+
+    b = a.copy()
+    b['url'] = None
+    b['notes'] = None
+
+    is_equal = sync_known_issues.issues_equal(a, b)
+    assert not is_equal
+
