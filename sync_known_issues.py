@@ -212,8 +212,10 @@ def issues_equal(a, b):
     if 'id' in y: del y['id']
 
     # Remove any trailing newlines in notes
-    x['notes'] = x['notes'].strip()
-    y['notes'] = y['notes'].strip()
+    if x['notes'] is not None:
+        x['notes'] = x['notes'].strip()
+    if y['notes'] is not None:
+        y['notes'] = y['notes'].strip()
 
     # Ensure consistent sort order
     x['environments'].sort()
