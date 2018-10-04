@@ -1,0 +1,42 @@
+projects:
+- name: LKFT-ltp
+  projects: &projects_all
+    - lkft/linux-next-oe
+    - lkft/linux-mainline-oe
+    - lkft/linux-stable-rc-4.18-oe
+    - lkft/linux-stable-rc-4.14-oe
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linaro-hikey-stable-rc-4.4-oe
+  url: https://qa-reports.linaro.org
+  environments: &environments_all
+  - dragonboard-410c
+  - hi6220-hikey
+  - i386
+  - juno-r2
+  - qemu_x86_64
+  - qemu_i386
+  - qemu_arm
+  - qemu_arm64
+  - x15
+  - x86
+  known_issues:
+  - environments: *environments_all
+    notes: >
+      LKFT: libhugetlbfs: heapshrink-2M-64 failed and
+      fix patch is in latest release of libhugetlbfs repo
+    projects: *projects_all
+    test_name: libhugetlbfs/LD_PRELOAD_libhugetlbfs.so-libheapshrink.so-HUGETLB_MORECORE_SHRINK_yes-HUGETLB_MORECORE_yes-heapshrink-2M-64 
+    url: https://bugs.linaro.org/show_bug.cgi?id=3950
+    active: true
+    intermittent: false
+  - environments:
+    - dragonboard-410c
+    notes: >
+      LKFT: db410c: libhugetlbfs: "heap-overflow-2M-64" failed
+      db410c is 1GB arm64 systems so it could of course be related to memory size
+    projects: *projects_all
+    test_name: libhugetlbfs/HUGETLB_VERBOSE_1-HUGETLB_MORECORE_yes-heap-overflow-2M-64
+    url: https://bugs.linaro.org/show_bug.cgi?id=3655
+    active: true
+    intermittent: false
