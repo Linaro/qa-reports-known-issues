@@ -38,6 +38,15 @@ globals:
     - qemu_arm64
     - qemu_arm
     - x15
+  - environments: &environments_arm64_arm32_i386
+    - dragonboard-410c
+    - hi6220-hikey
+    - juno-r2
+    - qemu_arm64
+    - qemu_arm
+    - x15
+    - i386
+    - qemu_i386
 
 projects:
 - name: LKFT
@@ -178,11 +187,27 @@ projects:
   - environments:
     - x86
     notes: >
-      LKFT: 4.4-rc 4.9-rc 4.13-rc 4.14-rc: x86: kselftest mpx-mini-test_64 - no
-      MPX support - failed - 3869 Aborted (core dumped)
+      kselftest mpx-mini-test_64 - no MPX support-failed-Aborted (core dumped)
     projects: *projects_all
-    test_name: kselftest/mpx-mini-test_64
+    test_name: kselftest/x86_mpx-mini-test_64
     url: https://bugs.linaro.org/show_bug.cgi?id=3497
+    active: true
+    intermittent: false
+  - environments:
+    - i386
+    notes: >
+      kselftest mpx-mini-test_32 - no MPX support-failed-Aborted (core dumped)
+    projects: *projects_all
+    test_name: kselftest/x86_mpx-mini-test_32
+    url: https://bugs.linaro.org/show_bug.cgi?id=3497
+    active: true
+    intermittent: false
+  - environments: *environments_i386
+    notes: >
+      kselftest: size: get_size Segmentation fault on i386
+    projects: *projects_all
+    test_name: kselftest/size_get_size
+    url: https://bugs.linaro.org/show_bug.cgi?id=3992
     active: true
     intermittent: false
   - environments:
@@ -869,27 +894,66 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=3520
     active: true
     intermittent: false
-  - environments: *environments_arm64_arm32
+  - environments: *environments_arm64_arm32_i386
     notes: >
       LKFT: mainline: hikey: kvm ./set_sregs_test: No such file or directory
+      KVM test cases do not build for arm/arm64 and i386.
     projects: *projects_all
     test_name: kselftest/kvm_set_sregs_test
     url: https://bugs.linaro.org/show_bug.cgi?id=3741
     active: true
     intermittent: false
-  - environments: *environments_arm64_arm32
+  - environments: *environments_arm64_arm32_i386
     notes: >
       LKFT: mainline: hikey: kvm ./set_sregs_test: No such file or directory
+      KVM test cases do not build for arm/arm64 and i386.
     projects: *projects_all
     test_name: kselftest/kvm_sync_regs_test
     url: https://bugs.linaro.org/show_bug.cgi?id=3741
     active: true
     intermittent: false
-  - environments: *environments_arm64_arm32
+  - environments: *environments_arm64_arm32_i386
     notes: >
       LKFT: mainline: hikey: kvm ./set_sregs_test: No such file or directory
+      KVM test cases do not build for arm/arm64 and i386.
     projects: *projects_all
-    test_name: kselftest/vmx_tsc_adjust_test
+    test_name: kselftest/kvm_vmx_tsc_adjust_test
+    url: https://bugs.linaro.org/show_bug.cgi?id=3741
+    active: true
+    intermittent: false
+  - environments: *environments_arm64_arm32_i386
+    notes: >
+      LKFT: mainline: hikey: kvm ./set_sregs_test: No such file or directory
+      KVM test cases do not build for arm/arm64 and i386.
+    projects: *projects_all
+    test_name: kselftest/kvm_cr4_cpuid_sync_test
+    url: https://bugs.linaro.org/show_bug.cgi?id=3741
+    active: true
+    intermittent: false
+  - environments: *environments_arm64_arm32_i386
+    notes: >
+      LKFT: mainline: hikey: kvm ./set_sregs_test: No such file or directory
+      KVM test cases do not build for arm/arm64 and i386.
+    projects: *projects_all
+    test_name: kselftest/kvm_state_test
+    url: https://bugs.linaro.org/show_bug.cgi?id=3741
+    active: true
+    intermittent: false
+  - environments: *environments_arm64_arm32_i386
+    notes: >
+      LKFT: mainline: hikey: kvm ./set_sregs_test: No such file or directory
+      KVM test cases do not build for arm/arm64 and i386.
+    projects: *projects_all
+    test_name: kselftest/kvm_dirty_log_test
+    url: https://bugs.linaro.org/show_bug.cgi?id=3741
+    active: true
+    intermittent: false
+  - environments: *environments_arm64_arm32_i386
+    notes: >
+      LKFT: mainline: hikey: kvm ./set_sregs_test: No such file or directory
+      KVM test cases do not build for arm/arm64 and i386.
+    projects: *projects_all
+    test_name: kselftest/kvm_platform_info_test
     url: https://bugs.linaro.org/show_bug.cgi?id=3741
     active: true
     intermittent: false
@@ -918,5 +982,194 @@ projects:
     projects: *projects_all
     test_name: kselftest/pmtu.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=3830
+    active: true
+    intermittent: false
+  - environments: *environments_all
+    notes: >
+      LKFT: bpf: get_cgroup_id_user failed errno 2 on all devices
+      This expected file not found,
+      /sys/kernel/debug/tracing/events/syscalls/sys_enter_nanosleep/id
+    projects: *projects_all
+    test_name: kselftest/get_cgroup_id_user
+    url: https://bugs.linaro.org/show_bug.cgi?id=3920
+    active: true
+    intermittent: false
+  - environments: *environments_all
+    notes: >
+      LKFT: bpf: get_cgroup_id_user failed errno 2 on all devices
+      This expected file not found,
+      /sys/kernel/debug/tracing/events/syscalls/sys_enter_nanosleep/id
+    projects: *projects_all
+    test_name: kselftest/bpf_get_cgroup_id_user
+    url: https://bugs.linaro.org/show_bug.cgi?id=3920
+    active: true
+    intermittent: false
+  - environments: *environments_all
+    notes: >
+      test_lirc_mode2_user failed on all devices
+      Test should be called from a script file with a required parameter.
+      Need a Makefile fix for this case
+    projects: *projects_all
+    test_name: kselftest/test_lirc_mode2_user
+    url: https://bugs.linaro.org/show_bug.cgi?id=3918
+    active: true
+    intermittent: false
+  - environments: *environments_all
+    notes: >
+      test_lirc_mode2_user failed on all devices
+      Test should be called from a script file with a required parameter.
+      Need a Makefile fix for this case
+    projects: *projects_all
+    test_name: kselftest/bpf_test_lirc_mode2_user
+    url: https://bugs.linaro.org/show_bug.cgi?id=3918
+    active: true
+    intermittent: false
+  - environments: *environments_all
+    notes: >
+      LKFT: bpf: test_lwt_seg6local.sh CONFIG_LWTUNNEL is not enabled in this kernel
+      When enable CONFIG_LWTUNNEL=y
+      ./test_lwt_seg6local.sh
+      Program section 'encap_srh' not found in ELF file!
+      Error fetching program/map!
+      Failed to parse eBPF program: Operation not permitted
+    projects: *projects_all
+    test_name: kselftest/test_lwt_seg6local.sh
+    url: https://bugs.linaro.org/show_bug.cgi?id=3919
+    active: true
+    intermittent: false
+  - environments: *environments_all
+    notes: >
+      LKFT: bpf: test_lwt_seg6local.sh CONFIG_LWTUNNEL is not enabled in this kernel
+      When enable CONFIG_LWTUNNEL=y
+      ./test_lwt_seg6local.sh
+      Program section 'encap_srh' not found in ELF file!
+      Error fetching program/map!
+      Failed to parse eBPF program: Operation not permitted
+    projects: *projects_all
+    test_name: kselftest/bpf_test_lwt_seg6local.sh
+    url: https://bugs.linaro.org/show_bug.cgi?id=3919
+    active: true
+    intermittent: false
+  - environments: *environments_all
+    notes: >
+      test_select_reuseport failed on all devices.
+      prepare_bpf_obj(100):FAIL:get first bpf_program !prog
+      Error fetching program/map!
+    projects: *projects_all
+    test_name: kselftest/test_select_reuseport
+    url: https://bugs.linaro.org/show_bug.cgi?id=3974
+    active: true
+    intermittent: false
+  - environments: *environments_all
+    notes: >
+      test_select_reuseport failed on all devices.
+      prepare_bpf_obj(100):FAIL:get first bpf_program !prog
+      Error fetching program/map!
+    projects: *projects_all
+    test_name: kselftest/bpf_test_select_reuseport
+    url: https://bugs.linaro.org/show_bug.cgi?id=3974
+    active: true
+    intermittent: false
+  - environments:
+    - qemu_arm
+    - qemu_arm64
+    - qemu_x86_64
+    - x15
+    - x86
+    notes: >
+      bpf: test_skb_cgroup_id.sh Error fetching program/map
+    projects: *projects_all
+    test_name: kselftest/bpf_test_skb_cgroup_id.sh
+    url: https://bugs.linaro.org/show_bug.cgi?id=3975
+    active: true
+    intermittent: true
+  - environments:
+    - qemu_arm
+    - qemu_i386
+    - qemu_x86_64
+    - x15
+    - x86
+    notes: >
+      bpf: test_socket_cookie failed on x86_64 and arm32
+      libbpf: ./socket_cookie_prog.o doesn't provide kernel version
+      (test_socket_cookie.c:154: errno: No such file or directory) Failed to load ./socket_cookie_prog.o
+    projects: *projects_all
+    test_name: kselftest/bpf_test_socket_cookie
+    url: https://bugs.linaro.org/show_bug.cgi?id=3976
+    active: true
+    intermittent: true
+  - environments: *environments_all
+    notes: >
+      BPF test_sockmap failed on all devices.
+      libbpf: test_sockmap_kern.o doesn't provide kernel version
+      ERROR: (-1) load bpf failed
+      Unable to load eBPF objects in file 'test_sockmap_kern.o' : 'version' section incorrect or lost
+    projects: *projects_all
+    test_name: kselftest/bpf_test_sockmap
+    url: https://bugs.linaro.org/show_bug.cgi?id=3977
+    active: true
+    intermittent: false
+  - environments: *environments_all
+    notes: >
+      LKFT: cgroup: test_core: test_cgcore_internal_process_constraint
+      not ok 1 test_cgcore_internal_process_constraint
+      ok 2 test_cgcore_top_down_constraint_enable
+      not ok 3 test_cgcore_top_down_constraint_disable
+    projects: *projects_all
+    test_name: kselftest/cgroup_test_core
+    url: https://bugs.linaro.org/show_bug.cgi?id=3981
+    active: true
+    intermittent: false
+  - environments: *environments_arm32
+    notes: >
+      LKFT: net: msg_zerocopy.sh failed on x15 and qemu_arm on all kernels
+      and for all devices running 4.4 n 4.9 kernel
+    projects: *projects_all
+    test_name: kselftest/net_msg_zerocopy.sh
+    url: https://bugs.linaro.org/show_bug.cgi?id=3928
+    active: true
+    intermittent: false
+  - environments: *environments_all
+    notes: >
+      LKFT: net: msg_zerocopy.sh failed on x15 and qemu_arm on all kernels
+      and for all devices running 4.4 n 4.9 kernel
+    projects:
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linaro-hikey-stable-rc-4.4-oe
+    test_name: kselftest/net_msg_zerocopy.sh
+    url: https://bugs.linaro.org/show_bug.cgi?id=3928
+    active: true
+    intermittent: false
+  - environments: *environments_all
+    notes: >
+      LKFT: net: psock_snd: recv: Resource temporarily unavailable on all devices
+    projects: *projects_all
+    test_name: kselftest/psock_snd.sh
+    url: https://bugs.linaro.org/show_bug.cgi?id=3925
+    active: true
+    intermittent: false
+  - environments: *environments_all
+    notes: >
+      LKFT: net: psock_snd: recv: Resource temporarily unavailable on all devices
+    projects: *projects_all
+    test_name: kselftest/net_psock_snd.sh
+    url: https://bugs.linaro.org/show_bug.cgi?id=3925
+    active: true
+    intermittent: false
+  - environments: *environments_all
+    notes: >
+      LKFT: net: psock_snd: recv: Resource temporarily unavailable on all devices
+    projects: *projects_all
+    test_name: kselftest/net_psock_snd.sh
+    url: https://bugs.linaro.org/show_bug.cgi?id=3925
+    active: true
+    intermittent: false
+  - environments: *environments_all
+    notes: >
+      net: tls: tls.recv_peek_multiple_records failed on all devices and all kernel except next
+    projects: *projects_all
+    test_name: kselftest/net_tls
+    url: https://bugs.linaro.org/show_bug.cgi?id=3925
     active: true
     intermittent: false
