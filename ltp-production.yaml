@@ -449,3 +449,13 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=3965
     active: true
     intermittent: true
+  - environments:
+    - hi6220-hikey
+    notes: >
+      LKFT: hikey: LTP: FS: read_all: kernel BUG: sleeping function called
+      from invalid context percpu-rwsem.h:34 - regmap_mmio_read32le+0x24/0x38
+    projects: *projects_all
+    test_name: ltp-fs-tests/read_all_sys
+    url: https://bugs.linaro.org/show_bug.cgi?id=3903
+    active: true
+    intermittent: true
