@@ -1,3 +1,7 @@
+globals:
+  - environments: &environments_arm32
+    - x15
+    - qemu_arm
 projects:
 - name: LKFT-ltp
   projects: &projects_all
@@ -38,5 +42,22 @@ projects:
     projects: *projects_all
     test_name: libhugetlbfs/HUGETLB_VERBOSE_1-HUGETLB_MORECORE_yes-heap-overflow-2M-64
     url: https://bugs.linaro.org/show_bug.cgi?id=3655
+    active: true
+    intermittent: false
+  - environments: *environments_arm32
+    notes: >
+      LKFT: libhugetlbfs: heapshrink-2M-64 and heapshrink-2M-32 on arm32 failed.
+    projects: *projects_all
+    test_name: libhugetlbfs/LD_PRELOAD_libhugetlbfs.so-libheapshrink.so-HUGETLB_MORECORE_SHRINK_yes-HUGETLB_MORECORE_yes-heapshrink-2M-32
+    url: https://bugs.linaro.org/show_bug.cgi?id=3950
+    active: true
+    intermittent: false
+  - environments:
+    - qemu_i386
+    notes: >
+      LKFT: libhugetlbfs: heapshrink-4M-32 on qemu_i386 failed.
+    projects: *projects_all
+    test_name: libhugetlbfs/LD_PRELOAD_libhugetlbfs.so-libheapshrink.so-HUGETLB_MORECORE_SHRINK_yes-HUGETLB_MORECORE_yes-heapshrink-4M-32
+    url: https://bugs.linaro.org/show_bug.cgi?id=3950
     active: true
     intermittent: false
