@@ -459,3 +459,12 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=3903
     active: true
     intermittent: true
+  - environments:
+    - dragonboard-410c
+    notes: >
+      db410c: LTP: hugetlb hugemmap06 nr_hugepages = 226, but expect 255
+    projects: *projects_all
+    test_name: ltp-hugetlb-tests/hugemmap06
+    url: https://bugs.linaro.org/show_bug.cgi?id=4023
+    active: true
+    intermittent: true
