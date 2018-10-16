@@ -1159,3 +1159,43 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=3925
     active: true
     intermittent: false
+  - environments: *environments_arm64
+    notes: >
+      LKFT: Kselftest: rseq: tests not building for arm64 for mainline but test pass on -next
+    projects: *projects_all
+    test_name: kselftest/rseq_basic_percpu_ops_test
+    url: https://bugs.linaro.org/show_bug.cgi?id=3923
+    active: true
+    intermittent: false
+  - environments: *environments_arm64
+    notes: >
+      LKFT: Kselftest: rseq: tests not building for arm64 for mainline but test pass on -next
+    projects: *projects_all
+    test_name: kselftest/rseq_basic_test
+    url: https://bugs.linaro.org/show_bug.cgi?id=3923
+    active: true
+    intermittent: false
+  - environments: *environments_arm64
+    notes: >
+      LKFT: Kselftest: rseq: tests not building for arm64 for mainline but test pass on -next
+    projects: *projects_all
+    test_name: kselftest/rseq_param_test
+    url: https://bugs.linaro.org/show_bug.cgi?id=3923
+    active: true
+    intermittent: false
+  - environments: *environments_arm64
+    notes: >
+      LKFT: Kselftest: rseq: tests not building for arm64 for mainline but test pass on -next
+    projects: *projects_all
+    test_name: kselftest/rseq_param_test_benchmark
+    url: https://bugs.linaro.org/show_bug.cgi?id=3923
+    active: true
+    intermittent: false
+  - environments: *environments_arm64
+    notes: >
+      LKFT: Kselftest: rseq: tests not building for arm64 for mainline but test pass on -next
+    projects: *projects_all
+    test_name: kselftest/rseq_param_test_compare_twice
+    url: https://bugs.linaro.org/show_bug.cgi?id=3923
+    active: true
+    intermittent: false
