@@ -450,34 +450,20 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=3564
     active: true
     intermittent: false
-  - environments:
-    - juno-r2
+  - environments: *environments_all
     notes: >
       LKFT: linux-stable-rc-4.4: Juno: kselftest cpufreq test failed - No cpu
       is managed by cpufreq core, exiting
-    projects:
-    - lkft/linux-stable-rc-4.4-oe
-    - lkft/linaro-hikey-stable-rc-4.4-oe
-    test_name: kselftest/main.sh
-    url: https://bugs.linaro.org/show_bug.cgi?id=3489
-    active: true
-    intermittent: false
-  - environments:
-    - juno-r2
-    notes: >
-      LKFT: linux-stable-rc-4.4: Juno: kselftest cpufreq test failed - No cpu
-      is managed by cpufreq core, exiting
-    projects:
-    - lkft/linux-stable-rc-4.4-oe
-    - lkft/linaro-hikey-stable-rc-4.4-oe
+    projects: *projects_all
     test_name: kselftest/cpufreq_main.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=3489
     active: true
     intermittent: false
   - environments:
-    - dragonboard-410c
+    - juno-r2
     - qemu_arm
     - qemu_arm64
+    - qemu_i386
     - qemu_x86_64
     notes: >
       LKFT: linux-stable-rc-4.4: Juno: kselftest cpufreq test failed - No cpu
