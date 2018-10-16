@@ -459,3 +459,14 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=3903
     active: true
     intermittent: true
+  - environments:
+    - qemu_arm
+    - qemu_arm64
+    notes: >
+      LKFT: LTP: cve-2017-2671 times out for mainline in qemu_arm and
+      qemu_arm64. consider known issue until qemu in arm has accel.
+    projects: *projects_all
+    test_name: ltp-cve-tests/cve-2017-2671
+    url: https://bugs.linaro.org/show_bug.cgi?id=4024
+    active: true
+    intermittent: true
