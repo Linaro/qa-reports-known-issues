@@ -52,6 +52,7 @@ projects:
 - name: LKFT
   projects: &projects_all
     - lkft/linux-mainline-oe
+    - lkft/linux-stable-rc-4.19-oe
     - lkft/linux-stable-rc-4.18-oe
     - lkft/linux-stable-rc-4.14-oe
     - lkft/linux-stable-rc-4.9-oe
@@ -344,6 +345,7 @@ projects:
       LKFT: linux-mainline: x15: printf.sh bitmap.sh netns_netlink - section 4
       reloc 2 sym memset relocation 28 out of range (0xbf046044 -> 0xc109f720)
     projects:
+    - lkft/linux-stable-rc-4.19-oe
     - lkft/linux-stable-rc-4.18-oe
     test_name: kselftest/lib_bitmap.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=3484
@@ -735,6 +737,7 @@ projects:
       LKFT: linux-next: gpio: gpio-mockup-chardev: No such file or directory -
       Build failed.
     projects:
+    - lkft/linux-stable-rc-4.19-oe
     - lkft/linux-stable-rc-4.18-oe
     test_name: kselftest/gpio-mockup.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=3122
@@ -745,6 +748,7 @@ projects:
       LKFT: linux-next: gpio: gpio-mockup-chardev: No such file or directory -
       Build failed.
     projects:
+    - lkft/linux-stable-rc-4.19-oe
     - lkft/linux-stable-rc-4.18-oe
     test_name: kselftest/gpio_gpio-mockup.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=3122
