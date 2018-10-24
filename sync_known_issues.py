@@ -272,7 +272,7 @@ def main():
 
         api_projects = {}
         for known_issue in s.known_issues:
-            # create/uptade the issues in remote instance
+            # create/update the issues in remote instance
             # for each project defined in the known_issue
             # get the environment IDs based on the environment name
             api_known_issue = s.connection.filter_object(
@@ -287,8 +287,7 @@ def main():
                         'projects/',
                         {'group__slug': group_name, 'slug': project_name})
                     api_projects[known_issue_project] = api_project
-                if api_project is None:
-                    continue
+                assert api_project is not None, "api_project {} not found".format(known_issue_project)
                 api_environments = api_projects[known_issue_project].get('environments')
                 if api_environments is None:
                     api_environments = s.connection.download_list(
