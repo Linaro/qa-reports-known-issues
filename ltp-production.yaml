@@ -74,7 +74,28 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=2962
     active: true
     intermittent: false
-
+  - environments: *environments_all
+    notes: >
+      New test case bind03 failed
+      LTP: 4.4: bind03.c:55: FAIL: expected EINVAL: EADDRINUSE
+    projects:
+      - lkft/linux-stable-rc-4.4-oe
+      - lkft/linaro-hikey-stable-rc-4.4-oe
+    test_name: ltp-syscalls-tests/bind03
+    url: https://bugs.linaro.org/show_bug.cgi?id=4042
+    active: true
+    intermittent: false
+  - environments: *environments_all
+    notes: >
+      New test case mlock203 failed
+      LTP: 4.4: mlock203.c:63: FAIL: Locking one memory again increased VmLck
+    projects:
+      - lkft/linux-stable-rc-4.4-oe
+      - lkft/linaro-hikey-stable-rc-4.4-oe
+    test_name: ltp-syscalls-tests/mlock203
+    url: https://bugs.linaro.org/show_bug.cgi?id=4043
+    active: true
+    intermittent: false
   - environments:
     - hi6220-hikey
     - x15
@@ -316,13 +337,7 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=3777
     active: true
     intermittent: false
-  - environments:
-    - dragonboard-410c
-    - juno-r2
-    - x15
-    - x86
-    - qemu_arm64
-    - qemu_arm
+  - environments: *environments_all
     notes: >
       LTP CVE cve-2014-0196 newly running test case have different results on
       different boards.
@@ -471,3 +486,45 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=4024
     active: true
     intermittent: true
+  - environments: *environments_all
+    notes: >
+      LTP: fsetxattr02 and fgetxattr02 failed with error ENXIO
+      (No such device or address)
+    projects: *projects_all
+    test_name: ltp-syscalls-tests/fsetxattr02
+    url: https://bugs.linaro.org/show_bug.cgi?id=4011
+    active: true
+    intermittent: false
+  - environments: *environments_all
+    notes: >
+      LTP: fsetxattr02 and fgetxattr02 failed with error ENXIO
+      (No such device or address)
+    projects: *projects_all
+    test_name: ltp-syscalls-tests/fgetxattr02
+    url: https://bugs.linaro.org/show_bug.cgi?id=4011
+    active: true
+    intermittent: false
+  - environments: *environments_all
+    notes: >
+      LTP: statx04 STATX_ATTR_COMPRESSED flag is not set for ext2
+    projects: *projects_all
+    test_name: ltp-syscalls-tests/statx04
+    url: https://bugs.linaro.org/show_bug.cgi?id=4012
+    active: true
+    intermittent: false
+  - environments: *environments_all
+    notes: >
+      LTP: execveat03.c:74: FAIL: execveat() returned unexpected errno: EINVAL
+    projects: *projects_all
+    test_name: ltp-syscalls-tests/execveat03
+    url: https://bugs.linaro.org/show_bug.cgi?id=4010
+    active: true
+    intermittent: false
+  - environments: *environments_all
+    notes: >
+      keyctl05: use data that passes dns_resolver_preparse() check
+    projects: *projects_all
+    test_name: ltp-syscalls-tests/keyctl05
+    url: http://lists.linux.it/pipermail/ltp/2018-October/009752.html
+    active: true
+    intermittent: false
