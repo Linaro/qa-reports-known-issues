@@ -976,6 +976,15 @@ projects:
     intermittent: false
   - environments: *environments_all
     notes: >
+      LKFT: net: pmtu.sh: vti4 and vti6 not supported - RTNETLINK answers: Operation
+      not supported
+    projects: *projects_all
+    test_name: kselftest/net_pmtu.sh
+    url: https://bugs.linaro.org/show_bug.cgi?id=3830
+    active: true
+    intermittent: false
+  - environments: *environments_all
+    notes: >
       LKFT: bpf: get_cgroup_id_user failed errno 2 on all devices
       This expected file not found,
       /sys/kernel/debug/tracing/events/syscalls/sys_enter_nanosleep/id
