@@ -1304,6 +1304,17 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=3923
     active: true
     intermittent: false
+  - environments: *environments_all
+    notes: >
+      selftests: proc: fd-003-kthread test_lookup_fail: Assertion
+      on 4.4 and 4.9 for all devices
+    projects:
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.4-oe
+    test_name: kselftest/proc_fd-003-kthread
+    url: https://bugs.linaro.org/show_bug.cgi?id=4039
+    active: true
+    intermittent: false
   - environments:
     - qemu_i386
     notes: >
