@@ -441,6 +441,34 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=2950
     active: true
     intermittent: false
+  - environments: *environments_i386
+    notes: >
+      kselftests: x86_syscall_nt_32 fails on i386 and qemu_i386 for 4.4
+    projects:
+    - lkft/linux-stable-rc-4.4-oe
+    test_name: kselftest/x86_test_mremap_vdso_32
+    url: https://bugs.linaro.org/show_bug.cgi?id=4047
+    active: true
+    intermittent: false
+  - environments: *environments_i386
+    notes: >
+      kselftests: x86_syscall_nt_32 fails on i386 and qemu_i386 for 4.4
+    projects:
+    - lkft/linux-stable-rc-4.4-oe
+    test_name: kselftest/x86_syscall_nt_32
+    url: https://bugs.linaro.org/show_bug.cgi?id=4046
+    active: true
+    intermittent: false
+  - environments: *environments_i386
+    notes: >
+      kselftests: ldt_gdt_32 fails on i386 and qemu_i386
+    projects:
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.4-oe
+    test_name: kselftest/x86_ldt_gdt_32
+    url: https://bugs.linaro.org/show_bug.cgi?id=3993
+    active: true
+    intermittent: false
   - environments: *environments_x86_64
     notes: >
       kselftests: ldt_gdt_64 fails on x86
