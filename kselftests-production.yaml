@@ -748,7 +748,7 @@ projects:
     notes: >
       LKFT: linux-mainline: all: net fib-onlink-tests.sh and fib_tests.sh failed
     projects: *projects_all
-    test_name: kselftest/fib-onlink-tests.sh
+    test_name: kselftest/net_fib-onlink-tests.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=3742
     active: true
     intermittent: false
@@ -756,7 +756,7 @@ projects:
     notes: >
       LKFT: linux-mainline: all: net fib-onlink-tests.sh and fib_tests.sh failed
     projects: *projects_all
-    test_name: kselftest/fib_tests.sh
+    test_name: kselftest/net_fib_tests.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=3742
     active: true
     intermittent: false
