@@ -947,6 +947,15 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=3741
     active: true
     intermittent: false
+  - environments: *environments_arm64_arm32_i386
+    notes: >
+      LKFT: mainline: hikey: kvm ./set_sregs_test: No such file or directory
+      KVM test cases do not build for arm/arm64 and i386.
+    projects: *projects_all
+    test_name: kselftest/kvm_evmcs_test
+    url: https://bugs.linaro.org/show_bug.cgi?id=3741
+    active: true
+    intermittent: false
   - environments: *environments_all
     notes: >
       LKFT: kselftest: test_progs: libbpf: failed to open ./test_pkt_access.o:
