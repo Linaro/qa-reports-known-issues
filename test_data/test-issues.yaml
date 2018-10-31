@@ -46,3 +46,17 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=3719
     active: true
     intermittent: false
+
+  # Define a test with different combinations of environments and projects
+  - test_name: ltp-syscalls-tests/fork10
+    notes: 'LKFT: LTP: fork10: runs long and hangs machine on branches'
+    url: https://bugs.linaro.org/show_bug.cgi?id=3719
+    active: true
+    matrix_apply: # Apply to hikey on all branches, and x86 on mainline.
+      - environments:
+        - hi6220-hikey
+        projects: *projects_all
+      - environments: *environments_all
+        projects:
+        - lkft/linux-mainline-oe
+
