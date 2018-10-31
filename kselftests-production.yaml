@@ -73,14 +73,6 @@ projects:
   known_issues:
   - environments: *environments_all
     notes: >
-      Adding skiplist according to the below ticket mainline kernel tests baselining
-    projects: *projects_all
-    test_name: kselftest/test_maps
-    url: https://projects.linaro.org/projects/CTT/queues/issue/CTT-585
-    active: true
-    intermittent: false
-  - environments: *environments_all
-    notes: >
       LKFT: kselftest: test_progs: libbpf: failed to open ./test_pkt_access.o:
       No such file or directory
     projects: *projects_all
@@ -101,6 +93,17 @@ projects:
       LKFT: linux-next: x86: kselftest: pstore_tests failed
     projects: *projects_all
     test_name: kselftest/pstore_tests
+    url: https://bugs.linaro.org/show_bug.cgi?id=3222
+    active: true
+    intermittent: false
+  - environments: *environments_all
+    notes: >
+      LKFT: linux-stable: linux-4.4.y: pstore_post_reboot_tests failed on
+      Hikey and x86
+    projects: *projects_all
+    test_names:
+    - kselftest/pstore_post_reboot_tests
+    - kselftest/pstore_pstore_post_reboot_tests
     url: https://bugs.linaro.org/show_bug.cgi?id=3222
     active: true
     intermittent: false
@@ -141,50 +144,17 @@ projects:
     notes: >
       Adding skiplist according to the below ticket mainline kernel tests baselining
     projects: *projects_all
-    test_name: kselftest/test_tag
     url: https://projects.linaro.org/projects/CTT/queues/issue/CTT-585
     active: true
     intermittent: false
-  - environments: *environments_all
-    notes: >
-      Adding skiplist according to the below ticket mainline kernel tests baselining
-    projects: *projects_all
-    test_name: kselftest/test_lru_map
-    url: https://projects.linaro.org/projects/CTT/queues/issue/CTT-585
-    active: true
-    intermittent: false
-  - environments: *environments_all
-    notes: >
-      Adding skiplist according to the below ticket mainline kernel tests baselining
-    projects: *projects_all
-    test_name: kselftest/test_lpm_map
-    url: https://projects.linaro.org/projects/CTT/queues/issue/CTT-585
-    active: true
-    intermittent: false
-  - environments: *environments_all
-    notes: >
-      Adding skiplist according to the below ticket mainline kernel tests baselining
-    projects: *projects_all
-    test_name: kselftest/run.sh
-    url: https://projects.linaro.org/projects/CTT/queues/issue/CTT-585
-    active: true
-    intermittent: false
-  - environments: *environments_all
-    notes: >
-      Adding skiplist according to the below ticket mainline kernel tests baselining
-    projects: *projects_all
-    test_name: kselftest/run_fuse_test.sh
-    url: https://projects.linaro.org/projects/CTT/queues/issue/CTT-585
-    active: true
-    intermittent: false
-  - environments: *environments_all
-    notes: >
-      Adding skiplist according to the below ticket mainline kernel tests baselining
-    projects: *projects_all
-    test_name: kselftest/run_vmtests
-    url: https://projects.linaro.org/projects/CTT/queues/issue/CTT-585
-    active: true
-    intermittent: false
+    test_names:
+    - kselftest/test_maps
+    - kselftest/test_tag
+    - kselftest/test_lru_map
+    - kselftest/test_lpm_map
+    - kselftest/run.sh
+    - kselftest/run_fuse_test.sh
+    - kselftest/run_vmtests
   - environments:
     - x86
     notes: >
@@ -211,34 +181,28 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=3992
     active: true
     intermittent: false
-  - environments:
-    - dragonboard-410c
-    - juno-r2
-    - qemu_arm
-    - x15
-    - x86
-    - qemu_x86_64
+  - test_names:
+    - kselftest/firmware_fw_run_tests.sh
+    - kselftest/fw_run_tests.sh
     notes: >
       LKFT: linux-mainline: x86, x15, juno-r2: kselftest fw_filesystem.sh failed
-    projects: *projects_all
-    test_name: kselftest/fw_run_tests.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=3503
     active: true
     intermittent: false
-  - environments:
-    - dragonboard-410c
-    - juno-r2
-    - qemu_arm
-    - x15
-    - x86
-    - qemu_x86_64
-    notes: >
-      LKFT: linux-mainline: x86, x15, juno-r2: kselftest fw_filesystem.sh failed
-    projects: *projects_all
-    test_name: kselftest/firmware_fw_run_tests.sh
-    url: https://bugs.linaro.org/show_bug.cgi?id=3503
-    active: true
-    intermittent: false
+    matrix_apply:
+    - environments:
+      - dragonboard-410c
+      - juno-r2
+      - qemu_arm
+      - x15
+      - x86
+      - qemu_x86_64
+      projects: *projects_all
+    - environments: *environments_all
+      projects:
+      - lkft/linux-stable-rc-4.9-oe
+      - lkft/linux-stable-rc-4.4-oe
+      - lkft/linaro-hikey-stable-rc-4.4-oe
   - environments: *environments_x86_64
     notes: >
       LKFT: mainline: x86: kselftests fsgsbase_64 failed - GS/BASE changed from
@@ -248,87 +212,40 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=3596
     active: true
     intermittent: false
-  - environments: *environments_all
+  - test_name: kselftest/net_reuseport_bpf_numa
     notes: >
       LKFT: linux-mainline: x15: kselfteest NET reuseport_bpf_numa failed
-    projects:
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.4-oe
-    - lkft/linaro-hikey-stable-rc-4.4-oe
-    test_name: kselftest/net_reuseport_bpf_numa
     url: https://bugs.linaro.org/show_bug.cgi?id=3501
     active: true
     intermittent: false
-  - environments: *environments_arm32
-    notes: >
-      LKFT: linux-mainline: x15: kselfteest NET reuseport_bpf_numa failed
-    projects: *projects_all
-    test_name: kselftest/net_reuseport_bpf_numa
-    url: https://bugs.linaro.org/show_bug.cgi?id=3501
-    active: true
-    intermittent: false
-  - environments: *environments_all
-    notes: >
-      LKFT: linux-next, 4.9 and 4.4: bpf: test_align and test_verifier:
-      No such file or directory
-    projects:
-    - lkft/linux-stable-rc-4.14-oe
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.4-oe
-    - lkft/linaro-hikey-stable-rc-4.4-oe
-    test_name: kselftest/test_align
-    url: https://bugs.linaro.org/show_bug.cgi?id=3170
-    active: true
-    intermittent: false
-  - environments: *environments_all
+    matrix_apply:
+    - environments: *environments_all
+      projects:
+      - lkft/linux-stable-rc-4.9-oe
+      - lkft/linux-stable-rc-4.4-oe
+      - lkft/linaro-hikey-stable-rc-4.4-oe
+    - environments: *environments_arm32
+      projects: *projects_all
+  - test_names:
+    - kselftest/test_align
+    - kselftest/test_verifier
+    - kselftest/bpf_test_align
+    - kselftest/bpf_test_verifier
     notes: >
       LKFT: linux-next, 4.9 and 4.4: bpf: test_align and test_verifier:
       No such file or directory
-    projects:
-    - lkft/linux-stable-rc-4.14-oe
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.4-oe
-    - lkft/linaro-hikey-stable-rc-4.4-oe
-    test_name: kselftest/test_verifier
     url: https://bugs.linaro.org/show_bug.cgi?id=3170
     active: true
     intermittent: false
-  - environments: *environments_32bit
-    notes: >
-      LKFT: linux-next, 4.9 and 4.4: bpf: test_align and test_verifier:
-      No such file or directory
-    projects: *projects_all
-    test_name: kselftest/test_align
-    url: https://bugs.linaro.org/show_bug.cgi?id=3170
-    active: true
-    intermittent: false
-  - environments: *environments_32bit
-    notes: >
-      LKFT: linux-next, 4.9 and 4.4: bpf: test_align and test_verifier:
-      No such file or directory
-    projects: *projects_all
-    test_name: kselftest/bpf_test_align
-    url: https://bugs.linaro.org/show_bug.cgi?id=3170
-    active: true
-    intermittent: false
-  - environments: *environments_32bit
-    notes: >
-      LKFT: linux-next, 4.9 and 4.4: bpf: test_align and test_verifier:
-      No such file or directory
-    projects: *projects_all
-    test_name: kselftest/test_verifier
-    url: https://bugs.linaro.org/show_bug.cgi?id=3170
-    active: true
-    intermittent: false
-  - environments: *environments_32bit
-    notes: >
-      LKFT: linux-next, 4.9 and 4.4: bpf: test_align and test_verifier:
-      No such file or directory
-    projects: *projects_all
-    test_name: kselftest/bpf_test_verifier
-    url: https://bugs.linaro.org/show_bug.cgi?id=3170
-    active: true
-    intermittent: false
+    matrix_apply:
+    - environments: *environments_all
+      projects:
+      - lkft/linux-stable-rc-4.14-oe
+      - lkft/linux-stable-rc-4.9-oe
+      - lkft/linux-stable-rc-4.4-oe
+      - lkft/linaro-hikey-stable-rc-4.4-oe
+    - environments: *environments_32bit
+      projects: *projects_all
   - environments: *environments_all
     notes: >
       LKFT: linux-mainline: x15: printf.sh bitmap.sh netns_netlink - section 4
@@ -358,65 +275,28 @@ projects:
     - lkft/linux-stable-rc-4.9-oe
     - lkft/linux-stable-rc-4.4-oe
     - lkft/linaro-hikey-stable-rc-4.4-oe
-    test_name: kselftest/mem-on-off-test.sh
+    test_names:
+    - kselftest/mem-on-off-test.sh
+    - kselftest/memory-hotplug_mem-on-off-test.sh
     url: null
     active: true
     intermittent: false
-  - environments: *environments_all
-    notes: >
-      skip all tests memory hotplug is not supported
-    projects:
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.4-oe
-    - lkft/linaro-hikey-stable-rc-4.4-oe
-    test_name: kselftest/memory-hotplug_mem-on-off-test.sh
-    url: null
-    active: true
-    intermittent: false
-  - environments: *environments_all
+  - test_name: kselftest/efivarfs.sh
     notes: >
       skip all tests efivarfs is not mounted on /sys/firmware/efi/efivars
-    projects:
-    - lkft/linux-stable-rc-4.9-oe
-    test_name: kselftest/efivarfs.sh
     url: null
     active: true
     intermittent: false
-  - environments:
-    - dragonboard-410c
-    - hi6220-hikey
-    notes: >
-      skip all tests efivarfs is not mounted on /sys/firmware/efi/efivars
-    projects:
-    - lkft/linux-stable-rc-4.4-oe
-    - lkft/linaro-hikey-stable-rc-4.4-oe
-    test_name: kselftest/efivarfs.sh
-    url: null
-    active: true
-    intermittent: false
-  - environments: *environments_all
-    notes: >
-      LKFT: linux-next: gpio: gpio-mockup-chardev: No such file or directory -
-      Build failed.
-    projects:
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.4-oe
-    - lkft/linaro-hikey-stable-rc-4.4-oe
-    test_name: kselftest/gpio-mockup.sh
-    url: https://bugs.linaro.org/show_bug.cgi?id=3122
-    active: true
-    intermittent: false
-  - environments: *environments_all
-    notes: >
-      LKFT: linux-mainline: x86, x15, juno-r2: kselftest fw_filesystem.sh failed
-    projects:
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.4-oe
-    - lkft/linaro-hikey-stable-rc-4.4-oe
-    test_name: kselftest/firmware_fw_run_tests.sh
-    url: https://bugs.linaro.org/show_bug.cgi?id=3503
-    active: true
-    intermittent: false
+    matrix_apply:
+    - environments: *environments_all
+      projects:
+      - lkft/linux-stable-rc-4.9-oe
+    - environments:
+      - dragonboard-410c
+      - hi6220-hikey
+      projects:
+      - lkft/linux-stable-rc-4.4-oe
+      - lkft/linaro-hikey-stable-rc-4.4-oe
   - environments: *environments_all
     notes: >
       LKFT: 4.9-rc: Hikey: sysctl.sh need CONFIG_TEST_SYSCTL=y
@@ -480,15 +360,6 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=3564
     active: true
     intermittent: false
-  - environments: *environments_all
-    notes: >
-      LKFT: linux-stable-rc-4.4: Juno: kselftest cpufreq test failed - No cpu
-      is managed by cpufreq core, exiting
-    projects: *projects_all
-    test_name: kselftest/cpufreq_main.sh
-    url: https://bugs.linaro.org/show_bug.cgi?id=3489
-    active: true
-    intermittent: false
   - environments:
     - juno-r2
     - qemu_arm
@@ -499,7 +370,9 @@ projects:
       LKFT: linux-stable-rc-4.4: Juno: kselftest cpufreq test failed - No cpu
       is managed by cpufreq core, exiting
     projects: *projects_all
-    test_name: kselftest/main.sh
+    test_names:
+    - kselftest/cpufreq_main.sh
+    - kselftest/main.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=3489
     active: true
     intermittent: false
@@ -510,60 +383,12 @@ projects:
     projects:
     - lkft/linux-stable-rc-4.4-oe
     - lkft/linaro-hikey-stable-rc-4.4-oe
-    test_name: kselftest/owner
+    test_names:
+    - kselftest/owner
+    - kselftest/pidns
+    - kselftest/nsfs_owner
+    - kselftest/nsfs_pidns
     url: https://bugs.linaro.org/show_bug.cgi?id=3090
-    active: true
-    intermittent: false
-  - environments: *environments_all
-    notes: >
-      LKFT: nsfs: owner and pidns failed - main:57:Unable to open
-      /proc/2829/ns/uts: No such file or director
-    projects:
-    - lkft/linux-stable-rc-4.4-oe
-    - lkft/linaro-hikey-stable-rc-4.4-oe
-    test_name: kselftest/pidns
-    url: https://bugs.linaro.org/show_bug.cgi?id=3090
-    active: true
-    intermittent: false
-  - environments: *environments_all
-    notes: >
-      LKFT: nsfs: owner and pidns failed - main:57:Unable to open
-      /proc/2829/ns/uts: No such file or director
-    projects:
-    - lkft/linux-stable-rc-4.4-oe
-    - lkft/linaro-hikey-stable-rc-4.4-oe
-    test_name: kselftest/nsfs_owner
-    url: https://bugs.linaro.org/show_bug.cgi?id=3090
-    active: true
-    intermittent: false
-  - environments: *environments_all
-    notes: >
-      LKFT: nsfs: owner and pidns failed - main:57:Unable to open
-      /proc/2829/ns/uts: No such file or director
-    projects:
-    - lkft/linux-stable-rc-4.4-oe
-    - lkft/linaro-hikey-stable-rc-4.4-oe
-    test_name: kselftest/nsfs_pidns
-    url: https://bugs.linaro.org/show_bug.cgi?id=3090
-    active: true
-    intermittent: false
-  - environments: *environments_all
-    notes: >
-      LKFT: linux-stable: linux-4.4.y: pstore_post_reboot_tests failed on
-      Hikey and x86
-    projects:
-    - lkft/linux-stable-rc-4.4-oe
-    test_name: kselftest/pstore_post_reboot_tests
-    url: https://bugs.linaro.org/show_bug.cgi?id=3222
-    active: true
-    intermittent: false
-  - environments: *environments_all
-    notes: >
-      LKFT: linux-stable: linux-4.4.y: pstore_post_reboot_tests failed on
-      Hikey and x86
-    projects: *projects_all
-    test_name: kselftest/pstore_pstore_post_reboot_tests
-    url: https://bugs.linaro.org/show_bug.cgi?id=3222
     active: true
     intermittent: false
   - environments: *environments_all
@@ -604,33 +429,12 @@ projects:
       LKFT: linux-mainline, 4.9 and 4.4: x15: rtcpie - PIE delta error: 0.018197
       should be close to 0.015625
     projects: *projects_all
-    test_name: kselftest/rtcpie
+    test_names:
+    - kselftest/rtcpie
+    - kselftest/timers_rtcpie
     url: https://bugs.linaro.org/show_bug.cgi?id=3402
     active: true
     intermittent: true
-  - environments:
-    - dragonboard-410c
-    - x15
-    - qemu_x86_64
-    - qemu_arm64
-    - qemu_arm
-    - qemu_i386
-    notes: >
-      LKFT: linux-mainline, 4.9 and 4.4: x15: rtcpie - PIE delta error: 0.018197
-      should be close to 0.015625
-    projects: *projects_all
-    test_name: kselftest/timers_rtcpie
-    url: https://bugs.linaro.org/show_bug.cgi?id=3402
-    active: true
-    intermittent: true
-  - environments: *environments_x86_64
-    notes: null
-    projects:
-    - lkft/linux-stable-rc-4.4-oe
-    test_name: kselftest/sigreturn_64
-    url: null
-    active: true
-    intermittent: false
   - environments: *environments_x86_64
     notes: null
     projects:
@@ -675,25 +479,10 @@ projects:
       LKFT: BPF: test_tcpbpf_user test_libbpf.sh failed - test_tcpbpf_kern.o open
       test_l4lb.o : No such file or directory
     projects: *projects_all
-    test_name: kselftest/test_libbpf.sh
-    url: https://bugs.linaro.org/show_bug.cgi?id=3636
-    active: true
-    intermittent: false
-  - environments: *environments_all
-    notes: >
-      LKFT: BPF: test_tcpbpf_user test_libbpf.sh failed - test_tcpbpf_kern.o open
-      test_l4lb.o : No such file or directory
-    projects: *projects_all
-    test_name: kselftest/test_offload.py
-    url: https://bugs.linaro.org/show_bug.cgi?id=3636
-    active: true
-    intermittent: false
-  - environments: *environments_all
-    notes: >
-      LKFT: BPF: test_tcpbpf_user test_libbpf.sh failed - test_tcpbpf_kern.o open
-      test_l4lb.o : No such file or directory
-    projects: *projects_all
-    test_name: kselftest/test_tcpbpf_user
+    test_names:
+    - kselftest/test_libbpf.sh
+    - kselftest/test_offload.py
+    - kselftest/test_tcpbpf_user
     url: https://bugs.linaro.org/show_bug.cgi?id=3636
     active: true
     intermittent: false
@@ -713,75 +502,66 @@ projects:
     url: null
     active: true
     intermittent: false
-  - environments: *environments_qemu
-    notes: null
-    projects:
-    - lkft/linux-mainline-oe
-    test_name: kselftest/printf.sh
-    url: null
-    active: true
-    intermittent: false
-  - environments:
-    - x15
-    - qemu_arm
-    - qemu_arm64
-    - qemu_x86_64
-    - qemu_i386
+  - test_name: kselftest/printf.sh
     notes: >
       LKFT: linux-mainline: x15: printf.sh bitmap.sh zram.sh netns_netlink - section
       4 reloc 2 sym memset: relocation 28 out of range (0xbf046044 -> 0xc109f720)
-    projects: *projects_all
-    test_name: kselftest/printf.sh
-    url: https://bugs.linaro.org/show_bug.cgi?id=3484
+    url: null
     active: true
     intermittent: false
-  - environments:
-    - qemu_x86_64
+    matrix_apply:
+    - environments: *environments_qemu
+      projects:
+      - lkft/linux-mainline-oe
+    - environments:
+      - x15
+      - qemu_arm
+      - qemu_arm64
+      - qemu_x86_64
+      - qemu_i386
+      projects: *projects_all
+  - test_name: kselftest/sigreturn_64
     notes: >
       LKFT: kselftest: sigreturn_64 intermittent failure on qemu_x86_64
-    projects: *projects_all
-    test_name: kselftest/sigreturn_64
     url: https://bugs.linaro.org/show_bug.cgi?id=3684
     active: true
     intermittent: true
+    matrix_apply:
+    - environments:
+      - qemu_x86_64
+      projects: *projects_all
+    - environments: *environments_x86_64
+      projects:
+      - lkft/linux-stable-rc-4.4-oe
   - environments: *environments_all
     notes: >
       LKFT: linux-mainline: all: net fib-onlink-tests.sh and fib_tests.sh failed
     projects: *projects_all
-    test_name: kselftest/net_fib-onlink-tests.sh
+    test_names:
+    - kselftest/net_fib-onlink-tests.sh
+    - kselftest/net_fib_tests.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=3742
     active: true
     intermittent: false
-  - environments: *environments_all
-    notes: >
-      LKFT: linux-mainline: all: net fib-onlink-tests.sh and fib_tests.sh failed
-    projects: *projects_all
-    test_name: kselftest/net_fib_tests.sh
-    url: https://bugs.linaro.org/show_bug.cgi?id=3742
-    active: true
-    intermittent: false
-  - environments: *environments_arm32
+  - test_names:
+    - kselftest/gpio-mockup.sh
+    - kselftest/gpio_gpio-mockup.sh
     notes: >
       LKFT: linux-next: gpio: gpio-mockup-chardev: No such file or directory -
       Build failed.
-    projects:
-    - lkft/linux-stable-rc-4.19-oe
-    - lkft/linux-stable-rc-4.18-oe
-    test_name: kselftest/gpio-mockup.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=3122
     active: true
     intermittent: false
-  - environments: *environments_arm32
-    notes: >
-      LKFT: linux-next: gpio: gpio-mockup-chardev: No such file or directory -
-      Build failed.
-    projects:
-    - lkft/linux-stable-rc-4.19-oe
-    - lkft/linux-stable-rc-4.18-oe
-    test_name: kselftest/gpio_gpio-mockup.sh
-    url: https://bugs.linaro.org/show_bug.cgi?id=3122
-    active: true
-    intermittent: false
+    matrix_apply:
+    - environments: *environments_arm32
+      projects:
+      - lkft/linux-stable-rc-4.19-oe
+      - lkft/linux-stable-rc-4.18-oe
+    - environments: *environments_all
+      projects:
+      - lkft/linux-stable-rc-4.9-oe
+      - lkft/linux-stable-rc-4.4-oe
+      - lkft/linaro-hikey-stable-rc-4.4-oe
   - environments: *environments_all
     notes: >
       LKFT: LKFT: 4.14 4.9 4.4 : membarrier_test test failed on all devices when
@@ -790,19 +570,9 @@ projects:
     - lkft/linux-stable-rc-4.14-oe
     - lkft/linux-stable-rc-4.9-oe
     - lkft/linux-stable-rc-4.4-oe
-    test_name: kselftest/membarrier_test
-    url: https://bugs.linaro.org/show_bug.cgi?id=3771
-    active: true
-    intermittent: false
-  - environments: *environments_all
-    notes: >
-      LKFT: LKFT: 4.14 4.9 4.4 : membarrier_test test failed on all devices when
-      kselftest upgrade to 4.16
-    projects:
-    - lkft/linux-stable-rc-4.14-oe
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.4-oe
-    test_name: kselftest/membarrier_membarrier_test
+    test_names:
+    - kselftest/membarrier_test
+    - kselftest/membarrier_membarrier_test
     url: https://bugs.linaro.org/show_bug.cgi?id=3771
     active: true
     intermittent: false
@@ -834,48 +604,23 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=3732
     active: true
     intermittent: false
-  - environments: *environments_all
+  - test_names:
+    - kselftest/proc-self-map-files-002
+    - kselftest/proc_proc-self-map-files-002
     notes: >
       LKFT: all-dev: kselftest proc selftests: proc-self-map-files-002 failed
       on 4.16 to 4.4 kernels.
-    projects:
-    - lkft/linux-stable-rc-4.4-oe
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.14-oe
-    test_name: kselftest/proc-self-map-files-002
     url: https://bugs.linaro.org/show_bug.cgi?id=3782
     active: true
     intermittent: false
-  - environments: *environments_all
-    notes: >
-      LKFT: all-dev: kselftest proc selftests: proc-self-map-files-002 failed
-      on 4.16 to 4.4 kernels.
-    projects:
-    - lkft/linux-stable-rc-4.4-oe
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.14-oe
-    test_name: kselftest/proc_proc-self-map-files-002
-    url: https://bugs.linaro.org/show_bug.cgi?id=3782
-    active: true
-    intermittent: false
-  - environments: *environments_arm32
-    notes: >
-      LKFT: arm32: kselftest proc selftests: proc-self-map-files-002 failed on
-      4.17 and above kernels.
-    projects: *projects_all
-    test_name: kselftest/proc-self-map-files-002
-    url: https://bugs.linaro.org/show_bug.cgi?id=3782
-    active: true
-    intermittent: false
-  - environments: *environments_arm32
-    notes: >
-      LKFT: arm32: kselftest proc selftests: proc-self-map-files-002 failed on
-      4.17 and above kernels.
-    projects: *projects_all
-    test_name: kselftest/proc_proc-self-map-files-002
-    url: https://bugs.linaro.org/show_bug.cgi?id=3782
-    active: true
-    intermittent: false
+    matrix_apply:
+    - environments: *environments_all
+      projects:
+      - lkft/linux-stable-rc-4.4-oe
+      - lkft/linux-stable-rc-4.9-oe
+      - lkft/linux-stable-rc-4.14-oe
+    - environments: *environments_arm32
+      projects: *projects_all
   - environments: *environments_all
     notes: >
       LKFT: kselftest: proc-self-map-files-001 failed on all devices
@@ -898,17 +643,9 @@ projects:
     projects:
     - lkft/linux-stable-rc-4.4-oe
     - lkft/linaro-hikey-stable-rc-4.4-oe
-    test_name: kselftest/reuseport_bpf
-    url: https://bugs.linaro.org/show_bug.cgi?id=3520
-    active: true
-    intermittent: false
-  - environments: *environments_all
-    notes: >
-      LKFT: 4.4: Juno: Hikey: x15: x86 reuseport_bpf reuseport_bpf_cpu failed
-    projects:
-    - lkft/linux-stable-rc-4.4-oe
-    - lkft/linaro-hikey-stable-rc-4.4-oe
-    test_name: kselftest/reuseport_bpf_cpu
+    test_names:
+    - kselftest/reuseport_bpf
+    - kselftest/reuseport_bpf_cpu
     url: https://bugs.linaro.org/show_bug.cgi?id=3520
     active: true
     intermittent: false
@@ -917,70 +654,15 @@ projects:
       LKFT: mainline: hikey: kvm ./set_sregs_test: No such file or directory
       KVM test cases do not build for arm/arm64 and i386.
     projects: *projects_all
-    test_name: kselftest/kvm_set_sregs_test
-    url: https://bugs.linaro.org/show_bug.cgi?id=3741
-    active: true
-    intermittent: false
-  - environments: *environments_arm64_arm32_i386
-    notes: >
-      LKFT: mainline: hikey: kvm ./set_sregs_test: No such file or directory
-      KVM test cases do not build for arm/arm64 and i386.
-    projects: *projects_all
-    test_name: kselftest/kvm_sync_regs_test
-    url: https://bugs.linaro.org/show_bug.cgi?id=3741
-    active: true
-    intermittent: false
-  - environments: *environments_arm64_arm32_i386
-    notes: >
-      LKFT: mainline: hikey: kvm ./set_sregs_test: No such file or directory
-      KVM test cases do not build for arm/arm64 and i386.
-    projects: *projects_all
-    test_name: kselftest/kvm_vmx_tsc_adjust_test
-    url: https://bugs.linaro.org/show_bug.cgi?id=3741
-    active: true
-    intermittent: false
-  - environments: *environments_arm64_arm32_i386
-    notes: >
-      LKFT: mainline: hikey: kvm ./set_sregs_test: No such file or directory
-      KVM test cases do not build for arm/arm64 and i386.
-    projects: *projects_all
-    test_name: kselftest/kvm_cr4_cpuid_sync_test
-    url: https://bugs.linaro.org/show_bug.cgi?id=3741
-    active: true
-    intermittent: false
-  - environments: *environments_arm64_arm32_i386
-    notes: >
-      LKFT: mainline: hikey: kvm ./set_sregs_test: No such file or directory
-      KVM test cases do not build for arm/arm64 and i386.
-    projects: *projects_all
-    test_name: kselftest/kvm_state_test
-    url: https://bugs.linaro.org/show_bug.cgi?id=3741
-    active: true
-    intermittent: false
-  - environments: *environments_arm64_arm32_i386
-    notes: >
-      LKFT: mainline: hikey: kvm ./set_sregs_test: No such file or directory
-      KVM test cases do not build for arm/arm64 and i386.
-    projects: *projects_all
-    test_name: kselftest/kvm_dirty_log_test
-    url: https://bugs.linaro.org/show_bug.cgi?id=3741
-    active: true
-    intermittent: false
-  - environments: *environments_arm64_arm32_i386
-    notes: >
-      LKFT: mainline: hikey: kvm ./set_sregs_test: No such file or directory
-      KVM test cases do not build for arm/arm64 and i386.
-    projects: *projects_all
-    test_name: kselftest/kvm_platform_info_test
-    url: https://bugs.linaro.org/show_bug.cgi?id=3741
-    active: true
-    intermittent: false
-  - environments: *environments_arm64_arm32_i386
-    notes: >
-      LKFT: mainline: hikey: kvm ./set_sregs_test: No such file or directory
-      KVM test cases do not build for arm/arm64 and i386.
-    projects: *projects_all
-    test_name: kselftest/kvm_evmcs_test
+    test_names:
+    - kselftest/kvm_set_sregs_test
+    - kselftest/kvm_sync_regs_test
+    - kselftest/kvm_vmx_tsc_adjust_test
+    - kselftest/kvm_cr4_cpuid_sync_test
+    - kselftest/kvm_state_test
+    - kselftest/kvm_dirty_log_test
+    - kselftest/kvm_platform_info_test
+    - kselftest/kvm_evmcs_test
     url: https://bugs.linaro.org/show_bug.cgi?id=3741
     active: true
     intermittent: false
@@ -989,34 +671,20 @@ projects:
       LKFT: kselftest: test_progs: libbpf: failed to open ./test_pkt_access.o:
       No such file or directory
     projects: *projects_all
-    test_name: kselftest/bpf_test_sock_addr.sh
+    test_names:
+    - kselftest/bpf_test_sock_addr.sh
+    - kselftest/test_sock
     url: https://bugs.linaro.org/show_bug.cgi?id=3912
     active: true
     intermittent: true
   - environments: *environments_all
     notes: >
-      LKFT: kselftest: test_progs: libbpf: failed to open ./test_pkt_access.o:
-      No such file or directory
-    projects: *projects_all
-    test_name: kselftest/test_sock
-    url: https://bugs.linaro.org/show_bug.cgi?id=3912
-    active: true
-    intermittent: false
-  - environments: *environments_all
-    notes: >
       LKFT: net: pmtu.sh: vti4 and vti6 not supported - RTNETLINK answers: Operation
       not supported
     projects: *projects_all
-    test_name: kselftest/pmtu.sh
-    url: https://bugs.linaro.org/show_bug.cgi?id=3830
-    active: true
-    intermittent: false
-  - environments: *environments_all
-    notes: >
-      LKFT: net: pmtu.sh: vti4 and vti6 not supported - RTNETLINK answers: Operation
-      not supported
-    projects: *projects_all
-    test_name: kselftest/net_pmtu.sh
+    test_names:
+    - kselftest/pmtu.sh
+    - kselftest/net_pmtu.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=3830
     active: true
     intermittent: false
@@ -1026,17 +694,9 @@ projects:
       This expected file not found,
       /sys/kernel/debug/tracing/events/syscalls/sys_enter_nanosleep/id
     projects: *projects_all
-    test_name: kselftest/get_cgroup_id_user
-    url: https://bugs.linaro.org/show_bug.cgi?id=3920
-    active: true
-    intermittent: false
-  - environments: *environments_all
-    notes: >
-      LKFT: bpf: get_cgroup_id_user failed errno 2 on all devices
-      This expected file not found,
-      /sys/kernel/debug/tracing/events/syscalls/sys_enter_nanosleep/id
-    projects: *projects_all
-    test_name: kselftest/bpf_get_cgroup_id_user
+    test_names:
+    - kselftest/get_cgroup_id_user
+    - kselftest/bpf_get_cgroup_id_user
     url: https://bugs.linaro.org/show_bug.cgi?id=3920
     active: true
     intermittent: false
@@ -1046,17 +706,9 @@ projects:
       Test should be called from a script file with a required parameter.
       Need a Makefile fix for this case
     projects: *projects_all
-    test_name: kselftest/test_lirc_mode2_user
-    url: https://bugs.linaro.org/show_bug.cgi?id=3918
-    active: true
-    intermittent: false
-  - environments: *environments_all
-    notes: >
-      test_lirc_mode2_user failed on all devices
-      Test should be called from a script file with a required parameter.
-      Need a Makefile fix for this case
-    projects: *projects_all
-    test_name: kselftest/bpf_test_lirc_mode2_user
+    test_names:
+    - kselftest/test_lirc_mode2_user
+    - kselftest/bpf_test_lirc_mode2_user
     url: https://bugs.linaro.org/show_bug.cgi?id=3918
     active: true
     intermittent: false
@@ -1069,20 +721,9 @@ projects:
       Error fetching program/map!
       Failed to parse eBPF program: Operation not permitted
     projects: *projects_all
-    test_name: kselftest/test_lwt_seg6local.sh
-    url: https://bugs.linaro.org/show_bug.cgi?id=3919
-    active: true
-    intermittent: false
-  - environments: *environments_all
-    notes: >
-      LKFT: bpf: test_lwt_seg6local.sh CONFIG_LWTUNNEL is not enabled in this kernel
-      When enable CONFIG_LWTUNNEL=y
-      ./test_lwt_seg6local.sh
-      Program section 'encap_srh' not found in ELF file!
-      Error fetching program/map!
-      Failed to parse eBPF program: Operation not permitted
-    projects: *projects_all
-    test_name: kselftest/bpf_test_lwt_seg6local.sh
+    test_names:
+    - kselftest/test_lwt_seg6local.sh
+    - kselftest/bpf_test_lwt_seg6local.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=3919
     active: true
     intermittent: false
@@ -1092,17 +733,9 @@ projects:
       prepare_bpf_obj(100):FAIL:get first bpf_program !prog
       Error fetching program/map!
     projects: *projects_all
-    test_name: kselftest/test_select_reuseport
-    url: https://bugs.linaro.org/show_bug.cgi?id=3974
-    active: true
-    intermittent: false
-  - environments: *environments_all
-    notes: >
-      test_select_reuseport failed on all devices.
-      prepare_bpf_obj(100):FAIL:get first bpf_program !prog
-      Error fetching program/map!
-    projects: *projects_all
-    test_name: kselftest/bpf_test_select_reuseport
+    test_names:
+    - kselftest/test_select_reuseport
+    - kselftest/bpf_test_select_reuseport
     url: https://bugs.linaro.org/show_bug.cgi?id=3974
     active: true
     intermittent: false
@@ -1156,51 +789,31 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=3981
     active: true
     intermittent: false
-  - environments: *environments_arm32
+  - test_name: kselftest/net_msg_zerocopy.sh
     notes: >
       LKFT: net: msg_zerocopy.sh failed on x15 and qemu_arm on all kernels
       and for all devices running 4.4 n 4.9 kernel
-    projects: *projects_all
-    test_name: kselftest/net_msg_zerocopy.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=3928
     active: true
     intermittent: false
-  - environments: *environments_all
-    notes: >
-      LKFT: net: msg_zerocopy.sh failed on x15 and qemu_arm on all kernels
-      and for all devices running 4.4 n 4.9 kernel
-    projects:
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.4-oe
-    - lkft/linaro-hikey-stable-rc-4.4-oe
-    test_name: kselftest/net_msg_zerocopy.sh
-    url: https://bugs.linaro.org/show_bug.cgi?id=3928
-    active: true
-    intermittent: false
-  - environments: *environments_all
+    matrix_apply:
+    - environments: *environments_arm32
+      projects: *projects_all
+    - environments: *environments_all
+      projects:
+      - lkft/linux-stable-rc-4.9-oe
+      - lkft/linux-stable-rc-4.4-oe
+      - lkft/linaro-hikey-stable-rc-4.4-oe
+  - test_names:
+    - kselftest/psock_snd.sh
+    - kselftest/net_psock_snd.sh
     notes: >
       LKFT: net: psock_snd: recv: Resource temporarily unavailable on all devices
-    projects: *projects_all
-    test_name: kselftest/psock_snd.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=3925
     active: true
     intermittent: false
-  - environments: *environments_all
-    notes: >
-      LKFT: net: psock_snd: recv: Resource temporarily unavailable on all devices
+    environments: *environments_all
     projects: *projects_all
-    test_name: kselftest/net_psock_snd.sh
-    url: https://bugs.linaro.org/show_bug.cgi?id=3925
-    active: true
-    intermittent: false
-  - environments: *environments_all
-    notes: >
-      LKFT: net: psock_snd: recv: Resource temporarily unavailable on all devices
-    projects: *projects_all
-    test_name: kselftest/net_psock_snd.sh
-    url: https://bugs.linaro.org/show_bug.cgi?id=3925
-    active: true
-    intermittent: false
   - environments: *environments_all
     notes: >
       net: tls: tls.recv_peek_multiple_records failed on all devices and all kernel except next
@@ -1209,101 +822,39 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=3925
     active: true
     intermittent: false
-  - environments: *environments_arm64
+  - test_name: kselftest/rseq_basic_percpu_ops_test
     notes: >
       LKFT: Kselftest: rseq: tests not building for arm64 for mainline but test pass on -next
-    projects: *projects_all
-    test_name: kselftest/rseq_basic_percpu_ops_test
     url: https://bugs.linaro.org/show_bug.cgi?id=3923
     active: true
     intermittent: false
-  - environments: *environments_arm64
+    matrix_apply:
+    - environments: *environments_arm64
+      projects: *projects_all
+    - environments: *environments_all
+      projects:
+      - lkft/linux-stable-rc-4.14-oe
+      - lkft/linux-stable-rc-4.9-oe
+      - lkft/linux-stable-rc-4.4-oe
+  - test_names:
+      - kselftest/rseq_param_test
+      - kselftest/rseq_param_test_benchmark
+      - kselftest/rseq_param_test_compare_twice
+      - kselftest/rseq_basic_test
     notes: >
       LKFT: Kselftest: rseq: tests not building for arm64 for mainline but test pass on -next
-    projects: *projects_all
-    test_name: kselftest/rseq_basic_test
-    url: https://bugs.linaro.org/show_bug.cgi?id=3923
-    active: true
-    intermittent: false
-  - environments: *environments_arm64
-    notes: >
-      LKFT: Kselftest: rseq: tests not building for arm64 for mainline but test pass on -next
-    projects: *projects_all
-    test_name: kselftest/rseq_param_test
-    url: https://bugs.linaro.org/show_bug.cgi?id=3923
-    active: true
-    intermittent: false
-  - environments: *environments_arm64
-    notes: >
-      LKFT: Kselftest: rseq: tests not building for arm64 for mainline but test pass on -next
-    projects: *projects_all
-    test_name: kselftest/rseq_param_test_benchmark
-    url: https://bugs.linaro.org/show_bug.cgi?id=3923
-    active: true
-    intermittent: false
-  - environments: *environments_arm64
-    notes: >
-      LKFT: Kselftest: rseq: tests not building for arm64 for mainline but test pass on -next
-    projects: *projects_all
-    test_name: kselftest/rseq_param_test_compare_twice
-    url: https://bugs.linaro.org/show_bug.cgi?id=3923
-    active: true
-    intermittent: false
-  - environments: *environments_all
-    notes: >
       LKFT: Kselftest: rseq: : Function not implemented on older kernel
-    projects:
-    - lkft/linux-stable-rc-4.14-oe
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.4-oe
-    test_name: kselftest/rseq_basic_percpu_ops_test
     url: https://bugs.linaro.org/show_bug.cgi?id=3923
     active: true
     intermittent: false
-  - environments: *environments_all
-    notes: >
-      LKFT: Kselftest: rseq: : Function not implemented on older kernel
-    projects:
-    - lkft/linux-stable-rc-4.14-oe
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.4-oe
-    test_name: kselftest/rseq_basic_test
-    url: https://bugs.linaro.org/show_bug.cgi?id=3923
-    active: true
-    intermittent: false
-  - environments: *environments_all
-    notes: >
-      LKFT: Kselftest: rseq: : Function not implemented on older kernel
-    projects:
-    - lkft/linux-stable-rc-4.14-oe
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.4-oe
-    test_name: kselftest/rseq_param_test
-    url: https://bugs.linaro.org/show_bug.cgi?id=3923
-    active: true
-    intermittent: false
-  - environments: *environments_all
-    notes: >
-      LKFT: Kselftest: rseq: : Function not implemented on older kernel
-    projects:
-    - lkft/linux-stable-rc-4.14-oe
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.4-oe
-    test_name: kselftest/rseq_param_test_benchmark
-    url: https://bugs.linaro.org/show_bug.cgi?id=3923
-    active: true
-    intermittent: false
-  - environments: *environments_all
-    notes: >
-      LKFT: Kselftest: rseq: : Function not implemented on older kernel
-    projects:
-    - lkft/linux-stable-rc-4.14-oe
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.4-oe
-    test_name: kselftest/rseq_param_test_compare_twice
-    url: https://bugs.linaro.org/show_bug.cgi?id=3923
-    active: true
-    intermittent: false
+    matrix_apply:
+    - environments: *environments_arm64
+      projects: *projects_all
+    - environments: *environments_all
+      projects:
+      - lkft/linux-stable-rc-4.14-oe
+      - lkft/linux-stable-rc-4.9-oe
+      - lkft/linux-stable-rc-4.4-oe
   - environments: *environments_all
     notes: >
       selftests: proc: fd-003-kthread test_lookup_fail: Assertion
