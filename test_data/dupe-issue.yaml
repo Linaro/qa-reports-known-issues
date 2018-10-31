@@ -1,0 +1,42 @@
+globals:
+  - environments: &environments_arm64
+    - hi6220-hikey
+    - juno-r2
+  - environments: &environments_x86_64
+    - x86
+
+projects:
+- name: LKFT-ltp-staging
+  projects: &projects_all
+    - lkft/linux-mainline-oe
+    - lkft/linux-next-oe
+    - lkft/linux-stable-rc-4.17-oe
+  url: https://staging-qa-reports.linaro.org
+  environments: &environments_all
+    - hi6220-hikey
+    - juno-r2
+    - x86
+  known_issues:
+  - environments: *environments_all
+    notes: 'LKFT: LTP: fork13: runs long and hangs machine on branches'
+    projects: *projects_all
+    test_name: ltp-syscalls-tests/fork13
+    url: https://bugs.linaro.org/show_bug.cgi?id=3719
+    active: true
+    intermittent: false
+
+  # Define a test with different combinations of environments and projects
+  - test_names:
+      - ltp-syscalls-tests/fork10
+      - ltp-syscalls-tests/fork13
+    notes: 'LKFT: LTP: fork10: runs long and hangs machine on branches'
+    url: https://bugs.linaro.org/show_bug.cgi?id=3719
+    active: true
+    matrix_apply: # Apply to hikey on all branches, and x86 on mainline.
+      - environments:
+        - hi6220-hikey
+        projects: *projects_all
+      - environments: *environments_all
+        projects:
+        - lkft/linux-mainline-oe
+

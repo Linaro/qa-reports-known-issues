@@ -1,5 +1,6 @@
 import sync_known_issues
 import pdb
+import pytest
 from random import shuffle
 
 import yaml
@@ -63,18 +64,6 @@ def test_squad_known_issue_happy_path():
     assert a.environments == ['hi6220-hikey', 'juno-r2', 'x86']
     assert len(a.known_issues) == 6
 
-#  - test_name: ltp-syscalls-tests/fork10
-#    notes: 'LKFT: LTP: fork10: runs long and hangs machine on branches'
-#    url: https://bugs.linaro.org/show_bug.cgi?id=3719
-#    active: true
-#    matrix_apply: # Apply to hikey on all branches, and x86 on mainline.
-#      - environments:
-#        - hi6220-hikey
-#        projects: *projects_all
-#      - environments: *environments_all
-#        projects:
-#        - lkft/linux-mainline-oe
-
 def test_squad_known_issue_happy_path():
     config_file = "test_data/test-issues.yaml"
     config_data = sync_known_issues.parse_files([config_file])
@@ -90,5 +79,12 @@ def test_squad_known_issue_happy_path():
                 'lkft/linux-stable-rc-4.17-oe': {'hi6220-hikey'}
             }
 
+def test_squad_known_issue_dupe_detection():
+    config_file = "test_data/dupe-issue.yaml"
+    config_data = sync_known_issues.parse_files([config_file])
+
+    with pytest.raises(AssertionError,
+         message="Error, test name ltp-syscalls-tests/fork13 defined twice"):
+        a = sync_known_issues.SquadProject(config_data['LKFT-ltp-staging'])
 
 

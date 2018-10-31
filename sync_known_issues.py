@@ -220,6 +220,15 @@ class SquadProject(object):
             for test_name in test_names:
                 self.known_issues.append(SquadKnownIssue(conf, test_name, self))
 
+        self.check_for_dupe_tests()
+
+    def check_for_dupe_tests(self):
+        test_names = []
+        for known_issue in self.known_issues:
+            tn = known_issue.test_name
+            assert tn not in test_names, "Error, test name {} defined twice".format(tn)
+            test_names.append(tn)
+
 
 def parse_files(config_files):
     config_data = {}
