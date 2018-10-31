@@ -123,8 +123,8 @@ class SquadKnownIssueException(Exception):
 
 
 class SquadKnownIssue(object):
-    def __init__(self, config, squad_project):
-        self.test_name = config.get('test_name')
+    def __init__(self, config, test_name, squad_project):
+        self.test_name = test_name
         if self.test_name is None:
             raise SquadKnownIssueException("TestName not defined")
         self.title = squad_project.name + "/" + self.test_name
@@ -172,7 +172,19 @@ class SquadProject(object):
         self.connection = SquadConnection(self.url)
         self.projects = config.get('projects')
         self.environments = config.get('environments')
-        self.known_issues = [SquadKnownIssue(conf, self) for conf in config.get('known_issues')]
+
+        self.known_issues = []
+        for conf in config.get('known_issues'):
+            test_names = conf.get('test_names', [])
+            test_name = conf.get('test_name')
+            if test_name is not None:
+                assert isinstance(test_name, str), "Error, test_name {} is not a string".format(test_name)
+                test_names.append(test_name)
+            if len(test_names) == 0:
+                raise SquadKnownIssueException("test_name or test_names not defined")
+            for test_name in test_names:
+                self.known_issues.append(SquadKnownIssue(conf, test_name, self))
+
 
 def parse_files(config_files):
     config_data = {}

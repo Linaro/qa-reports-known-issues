@@ -61,5 +61,5 @@ def test_squad_known_issue_happy_path():
                           'lkft/linux-next-oe',
                           'lkft/linux-stable-rc-4.17-oe']
     assert a.environments == ['hi6220-hikey', 'juno-r2', 'x86']
-    assert len(a.known_issues) == 2
+    assert len(a.known_issues) == 5
 
