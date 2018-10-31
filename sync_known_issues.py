@@ -132,28 +132,63 @@ class SquadKnownIssue(object):
         self.notes = config.get('notes')
         self.active = config.get('active')
         self.intermittent = config.get('intermittent')
-        self.projects = config.get('projects')
-        for project in self.projects:
-            if project not in squad_project.projects:
-                # ignore projects that are not defined
-                # in the SquadProject.projects
-                self.projects.remove(project)
-                raise SquadKnownIssueException("Project not defined: %s" % project)
-        self.environments = set()
-        for item in config.get('environments'):
-            if item in squad_project.environments:
-                self.environments.add(item)
-            else:
-                raise SquadKnownIssueException(
-                    "Incorrect environment: %s" % item)
+#        self.projects = config.get('projects')
+#        for project in self.projects:
+#            if project not in squad_project.projects:
+#                # ignore projects that are not defined
+#                # in the SquadProject.projects
+#                self.projects.remove(project)
+#                raise SquadKnownIssueException("Project not defined: %s" % project)
+#        self.environments = set()
+#        for item in config.get('environments'):
+#            if item in squad_project.environments:
+#                self.environments.add(item)
+#            else:
+#                raise SquadKnownIssueException(
+#                    "Incorrect environment: %s" % item)
+
+        # XXX I think this is what's going on:
+        # right now, it's getting a list of projects and a separate list of environments.
+        # Then, in SquadProject it multiplies the two.
+        # Instead, here, we need to create a list of project+environment combinations here.
+
+        # Environments belong to projects and may differ by project.
+        self.projects_environments = {}
+
+        matrix_apply = config.get('matrix_apply')
+        if matrix_apply:
+            for matrix in matrix_apply:
+                self.projects = matrix.get('projects')
+                for project in self.projects:
+                    assert project in squad_project.projects, "Project not defined: %s" % project
+
+                    self.projects_environments[project] = set()
+                    for item in matrix.get('environments'):
+                        if item in squad_project.environments:
+                            self.projects_environments[project].add(item)
+                        else:
+                            raise SquadKnownIssueException(
+                                "Incorrect environment: %s" % item)
+
+        else:
+            self.projects = config.get('projects')
+            for project in self.projects:
+                assert project in squad_project.projects, "Project not defined: %s" % project
+
+                self.projects_environments[project] = set()
+                for item in config.get('environments'):
+                    if item in squad_project.environments:
+                        self.projects_environments[project].add(item)
+                    else:
+                        raise SquadKnownIssueException(
+                            "Incorrect environment: %s" % item)
 
     def __repr__(self):
         return yaml.dump({'title': self.title,
                           'url': self.url,
                           'active': self.active,
                           'intermittent': self.intermittent,
-                          'projects': self.projects,
-                          'environments': list(self.environments),
+                          'projects_environments': self.projects_environments,
                          },
                          indent=4,
                          width=80)
@@ -291,7 +326,7 @@ def main():
                 'knownissues/',
                 {'title': known_issue.title, 'test_name': known_issue.test_name})
             affected_environments = []
-            for known_issue_project in known_issue.projects:
+            for known_issue_project, known_issue_project_environments in known_issue.projects_environments.items():
                 group_name, project_name = known_issue_project.split('/', 1)
                 api_project = api_projects.get(known_issue_project)
                 if api_project is None:
@@ -307,7 +342,7 @@ def main():
                         {'project': api_project['id']})
                     api_projects[known_issue_project].update({'environments': api_environments})
                 for api_env in api_environments:
-                    if api_env['slug'] in known_issue.environments:
+                    if api_env['slug'] in known_issue_project_environments:
                         logger.debug(
                             "Adding env: %s to known issue: %s" % (
                                 api_env['slug'],

@@ -39,7 +39,9 @@ currently support architectures, it's just a convenient way of defining groups
 of environments. Environment slugs should come from SQUAD instance
 * known_issues - list of actual tests to highlight. Each known issue should contain
 the following fields:
-    * environments - list of environment slugs or architectures defined in the project
+    * environments - list of environments to apply known issue to
+    * projects - list of projects to apply known issue to
+    * matrix_apply - list of projects/environments to apply known issue to
     * notes - free form text
     * url - optional URL to be used in SQUAD UI
     * test_name - name of the test to highlight. It should include the suite name
@@ -49,64 +51,4 @@ the following fields:
 
 ## Example
 
-    projects:
-    - name: LKFT
-      projects:
-      - lkft/linux-mainline-oe
-      - lkft/linux-next-oe
-      - lkft/linux-stable-rc-4.4-oe
-      - lkft/linux-stable-rc-4.9-oe
-      - lkft/linux-stable-rc-4.14-oe
-      - lkft/linux-stable-rc-4.16-oe
-      - lkft/linux-stable-rc-4.17-oe
-      url: https://qa-reports.linaro.org
-      environments:
-      - hi6220-hikey
-      - juno-r2
-      - dragonboard-410c
-      - x15
-      - x86
-      - qemu_x86_64
-      - qemu_x86_32
-      - qemu_arm
-      - qemu_arm64
-      known_issues:
-      - environments: &id_allboards_001
-        - hi6220-hikey
-        - juno-r2
-        - dragonboard-410c
-        - x15
-        - x86
-        - qemu_x86_64
-        - qemu_x86_32
-        - qemu_arm
-        - qemu_arm64
-        notes: 'Adding skiplist according to the below ticket mainline kernel tests baselining'
-        projects:
-        - lkft/linux-stable-rc-4.4-oe
-        - lkft/linux-stable-rc-4.9-oe
-        - lkft/linux-stable-rc-4.14-oe
-        - lkft/linux-stable-rc-4.16-oe
-        - lkft/linux-stable-rc-4.17-oe
-        - lkft/linux-mainline-oe
-        test_names:
-          - kselftests/test_maps
-          - kselftests/test_progs
-        test_name: kselftests/test_maps
-        url: https://projects.linaro.org/projects/CTT/queues/issue/CTT-585
-        active: true
-        intermittent: false
-      - environments: *id_allboards_001
-        notes: 'LKFT: kselftest: test_progs: libbpf: failed to open ./test_pkt_access.o:
-          No such file or directory'
-        projects:
-        - lkft/linux-stable-rc-4.4-oe
-        - lkft/linux-stable-rc-4.9-oe
-        - lkft/linux-stable-rc-4.14-oe
-        - lkft/linux-stable-rc-4.16-oe
-        - lkft/linux-stable-rc-4.17-oe
-        - lkft/linux-mainline-oe
-        test_name: kselftests/test_progs
-        url: https://bugs.linaro.org/show_bug.cgi?id=3120
-        active: true
-        intermittent: false
+See test_data/test-issues.yaml or one of the yaml files in this directory.
