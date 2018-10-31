@@ -132,25 +132,7 @@ class SquadKnownIssue(object):
         self.notes = config.get('notes')
         self.active = config.get('active')
         self.intermittent = config.get('intermittent')
-#        self.projects = config.get('projects')
-#        for project in self.projects:
-#            if project not in squad_project.projects:
-#                # ignore projects that are not defined
-#                # in the SquadProject.projects
-#                self.projects.remove(project)
-#                raise SquadKnownIssueException("Project not defined: %s" % project)
-#        self.environments = set()
-#        for item in config.get('environments'):
-#            if item in squad_project.environments:
-#                self.environments.add(item)
-#            else:
-#                raise SquadKnownIssueException(
-#                    "Incorrect environment: %s" % item)
-
-        # XXX I think this is what's going on:
-        # right now, it's getting a list of projects and a separate list of environments.
-        # Then, in SquadProject it multiplies the two.
-        # Instead, here, we need to create a list of project+environment combinations here.
+        self.squad_project = squad_project
 
         # Environments belong to projects and may differ by project.
         self.projects_environments = {}
@@ -158,30 +140,24 @@ class SquadKnownIssue(object):
         matrix_apply = config.get('matrix_apply')
         if matrix_apply:
             for matrix in matrix_apply:
-                self.projects = matrix.get('projects')
-                for project in self.projects:
-                    assert project in squad_project.projects, "Project not defined: %s" % project
-
-                    self.projects_environments[project] = set()
-                    for item in matrix.get('environments'):
-                        if item in squad_project.environments:
-                            self.projects_environments[project].add(item)
-                        else:
-                            raise SquadKnownIssueException(
-                                "Incorrect environment: %s" % item)
-
+                self._get_environments(matrix)
+            assert config.get('projects') is None, "Error, matrix_apply and projects defined in {}".format(self.__repr__())
+            assert config.get('environments') is None, "Error, matrix_apply and projects defined in {}".format(self.__repr__())
         else:
-            self.projects = config.get('projects')
-            for project in self.projects:
-                assert project in squad_project.projects, "Project not defined: %s" % project
+            self._get_environments(config)
 
-                self.projects_environments[project] = set()
-                for item in config.get('environments'):
-                    if item in squad_project.environments:
-                        self.projects_environments[project].add(item)
-                    else:
-                        raise SquadKnownIssueException(
-                            "Incorrect environment: %s" % item)
+    def _get_environments(self, config):
+        self.projects = config.get('projects')
+        for project in self.projects:
+            assert project in self.squad_project.projects, "Project not defined: %s" % project
+
+            self.projects_environments[project] = set()
+            for item in config.get('environments'):
+                if item not in self.squad_project.environments:
+                    raise SquadKnownIssueException(
+                        "Incorrect environment: %s" % item)
+                self.projects_environments[project].add(item)
+
 
     def __repr__(self):
         return yaml.dump({'title': self.title,
