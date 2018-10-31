@@ -34,3 +34,15 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=2355
     active: true
     intermittent: false
+
+  # Test multiple test_names
+  - environments: *environments_all
+    notes: 'LKFT: LTP: fork: runs long and hangs machine on branches'
+    projects: *projects_all
+    test_names:
+      - ltp-syscalls-tests/fork14
+      - ltp-syscalls-tests/fork15
+      - ltp-syscalls-tests/fork16
+    url: https://bugs.linaro.org/show_bug.cgi?id=3719
+    active: true
+    intermittent: false
