@@ -450,10 +450,6 @@ projects:
     intermittent: false
     matrix_apply:
     - environments:
-      - dragonboard-410c
-      projects:
-      - lkft/linux-stable-rc-4.4-oe
-    - environments:
       - hi6220-hikey
       projects:
       - lkft/linaro-hikey-stable-rc-4.4-oe
