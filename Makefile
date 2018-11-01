@@ -4,6 +4,7 @@ test:
 	pytest
 
 dry-run:
-	./sync_known_issues.py -c kselftests-production.yaml --dry-run
-	./sync_known_issues.py -c ltp-production.yaml --dry-run
-	./sync_known_issues.py -c libhugetlbfs-production.yaml --dry-run
+	./.travis_run.sh --dry-run
+
+dry-run-verbose:
+	./.travis_run.sh --dry-run -v
