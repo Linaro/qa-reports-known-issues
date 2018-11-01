@@ -8,7 +8,7 @@ script:
 - ./.travis_run.sh --dry-run
 deploy:
   provider: script
-  script: ./.travis_run.sh
+  script: ./.travis_run.sh -v
   on:
     branch: master
     repo: Linaro/qa-reports-known-issues
