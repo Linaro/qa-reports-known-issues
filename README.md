@@ -52,3 +52,10 @@ the following fields:
 ## Example
 
 See test_data/test-issues.yaml or one of the yaml files in this directory.
+
+## Developing
+
+See Makefile rules 'test' and 'dry-run'. Best practice is to simply run 'make'
+before committing a change, which will run all unit tests and also run with
+--dry-run against the local yaml files. --dry-run does not require
+authentication to qa-reports.
