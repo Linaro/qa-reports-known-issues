@@ -48,6 +48,7 @@ class SquadConnection(object):
              None,
              None))
         req = requests.Request(method, URL, headers=self.headers)
+        req.raise_for_status()
         return req.prepare()
 
     def download_list(self, endpoint, params=None):
@@ -59,30 +60,25 @@ class SquadConnection(object):
              None))
         logger.debug(URL)
         response = requests.get(URL, params=params, headers=self.headers)
+        response.raise_for_status()
         result_list = []
-        if response.status_code == 200:
-            response_json = response.json()
-            result_list = response_json['results']
-            while response_json['next'] is not None:
-                response = requests.get(response_json['next'], headers=self.headers)
-                if response.status_code == 200:
-                    response_json = response.json()
-                    result_list = result_list + response_json['results']
-                else:
-                    break
-        else:
-            logger.error(URL)
-            logger.error(response.status_code)
-            logger.error(response.text)
+        response_json = response.json()
+        result_list = response_json['results']
+        while response_json['next'] is not None:
+            response = requests.get(response_json['next'], headers=self.headers)
+            if response.status_code == 200:
+                response_json = response.json()
+                result_list = result_list + response_json['results']
+            else:
+                break
         return result_list
 
     def download_object(self, url):
         if url is None:
             return None
         response = requests.get(url, headers=self.headers)
-        if response.status_code == 200:
-            return response.json()
-        return None
+        response.raise_for_status()
+        return response.json()
 
     def filter_object(self, endpoint, params):
         old_configs = self.download_list(endpoint, params)
@@ -106,16 +102,14 @@ class SquadConnection(object):
         logger.debug(URL)
         logger.debug(config)
         response = requests.put(URL, data=config, headers=self.headers)
-        if response.status_code != 200:
-            logger.error(response.text)
+        response.raise_for_status()
 
     def post_object(self, endpoint, config):
         URL = urlunsplit((self.url_scheme, self.base_url, "api/%s/" % endpoint, None, None))
         logger.debug(URL)
         logger.debug(config)
         response = requests.post(URL, data=config, headers=self.headers)
-        if response.status_code != 201:
-            logger.error(response.text)
+        response.raise_for_status()
 
 
 class SquadKnownIssueException(Exception):
@@ -333,6 +327,7 @@ def main():
                                 api_env['slug'],
                                 known_issue.title))
                         affected_environments.append(api_env)
+            assert len(affected_environments) > 0, "Error, no affected environments found for {}".format(known_issue)
 
             known_issue_api_object = {
                 'title': known_issue.title,
