@@ -255,6 +255,9 @@ def issues_equal(a, b):
 
 
 def main():
+
+    assert not os.path.isfile(os.environ.get("HOME")+"/.netrc"), "Error - remove ~/.netrc - see https://github.com/requests/requests/issues/3929"
+
     parser = argparse.ArgumentParser()
     parser.add_argument("-c",
                         "--config-files",
