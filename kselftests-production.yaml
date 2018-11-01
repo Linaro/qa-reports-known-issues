@@ -413,7 +413,7 @@ projects:
       LKFT: linux-mainline, 4.9 and 4.4: x15: rtctest - PIE delta error: 0.018197
       should be close to 0.015625
     projects:
-    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linaro-hikey-stable-rc-4.4-oe
     test_name: kselftest/rtctest
     url: https://bugs.linaro.org/show_bug.cgi?id=3402
     active: true
@@ -443,16 +443,20 @@ projects:
     url: null
     active: true
     intermittent: false
-  - environments:
-    - dragonboard-410c
-    - hi6220-hikey
+  - test_name: kselftest/test_bpf.sh
     notes: null
-    projects:
-    - lkft/linux-stable-rc-4.4-oe
-    test_name: kselftest/test_bpf.sh
     url: null
     active: true
     intermittent: false
+    matrix_apply:
+    - environments:
+      - dragonboard-410c
+      projects:
+      - lkft/linux-stable-rc-4.4-oe
+    - environments:
+      - hi6220-hikey
+      projects:
+      - lkft/linaro-hikey-stable-rc-4.4-oe
   - environments: *environments_qemu
     notes: null
     projects: *projects_all
@@ -506,7 +510,7 @@ projects:
     notes: >
       LKFT: linux-mainline: x15: printf.sh bitmap.sh zram.sh netns_netlink - section
       4 reloc 2 sym memset: relocation 28 out of range (0xbf046044 -> 0xc109f720)
-    url: null
+    url: https://bugs.linaro.org/show_bug.cgi?id=3484
     active: true
     intermittent: false
     matrix_apply:
