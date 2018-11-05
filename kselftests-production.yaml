@@ -868,3 +868,15 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=4025
     active: true
     intermittent: true
+  - environments: *environments_all
+    notes: >
+      LKFT: BPF test_btf PASS on 4.18 and failed on 4.17 and below
+    projects:
+    - lkft/linux-stable-rc-4.14-oe
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linaro-hikey-stable-rc-4.4-oe
+    test_name: kselftest/bpf_test_btf
+    url: https://bugs.linaro.org/show_bug.cgi?id=3979
+    active: true
+    intermittent: false
