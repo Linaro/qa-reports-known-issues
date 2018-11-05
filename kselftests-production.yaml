@@ -730,19 +730,26 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=3974
     active: true
     intermittent: false
-  - environments:
-    - qemu_arm
-    - qemu_arm64
-    - qemu_x86_64
-    - x15
-    - x86
+  - test_name: kselftest/bpf_test_skb_cgroup_id.sh
     notes: >
       bpf: test_skb_cgroup_id.sh Error fetching program/map
-    projects: *projects_all
-    test_name: kselftest/bpf_test_skb_cgroup_id.sh
+      FAILs on 4.19, 4.18, 4.14, 4.9 and 4.4 kernels on all devices.
+      PASS on mainline and next for arm64, arm and i386.
+      FAILs on x86_64 and qemu_x86_64 for all kernel branches.
     url: https://bugs.linaro.org/show_bug.cgi?id=3975
     active: true
     intermittent: true
+    matrix_apply:
+    - environments: *environments_x86_64
+      projects: *projects_all
+    - environments: *environments_all
+      projects:
+      - lkft/linux-stable-rc-4.19-oe
+      - lkft/linux-stable-rc-4.18-oe
+      - lkft/linux-stable-rc-4.14-oe
+      - lkft/linux-stable-rc-4.9-oe
+      - lkft/linux-stable-rc-4.4-oe
+      - lkft/linaro-hikey-stable-rc-4.4-oe
   - environments:
     - qemu_arm
     - qemu_i386
