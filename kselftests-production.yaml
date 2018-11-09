@@ -245,28 +245,22 @@ projects:
       - lkft/linaro-hikey-stable-rc-4.4-oe
     - environments: *environments_32bit
       projects: *projects_all
-  - environments: *environments_all
+  - test_name: kselftest/lib_bitmap.sh
     notes: >
       LKFT: linux-mainline: x15: printf.sh bitmap.sh netns_netlink - section 4
       reloc 2 sym memset relocation 28 out of range (0xbf046044 -> 0xc109f720)
-    projects:
-    - lkft/linux-stable-rc-4.4-oe
-    - lkft/linaro-hikey-stable-rc-4.4-oe
-    test_name: kselftest/lib_bitmap.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=3484
     active: true
     intermittent: false
-  - environments: *environments_arm32
-    notes: >
-      LKFT: linux-mainline: x15: printf.sh bitmap.sh netns_netlink - section 4
-      reloc 2 sym memset relocation 28 out of range (0xbf046044 -> 0xc109f720)
-    projects:
-    - lkft/linux-stable-rc-4.19-oe
-    - lkft/linux-stable-rc-4.18-oe
-    test_name: kselftest/lib_bitmap.sh
-    url: https://bugs.linaro.org/show_bug.cgi?id=3484
-    active: true
-    intermittent: false
+    matrix_apply:
+    - environments: *environments_all
+      projects:
+      - lkft/linux-stable-rc-4.4-oe
+      - lkft/linaro-hikey-stable-rc-4.4-oe
+    - environments: *environments_arm32
+      projects:
+      - lkft/linux-stable-rc-4.19-oe
+      - lkft/linux-stable-rc-4.18-oe
   - environments: *environments_all
     notes: >
       skip all tests memory hotplug is not supported
@@ -616,11 +610,11 @@ projects:
   - environments: *environments_all
     notes: >
       LKFT: kselftest: proc-self-map-files-001 failed on all devices
-      projects:
-      - lkft/linaro-hikey-stable-rc-4.4-oe
-      - lkft/linux-stable-rc-4.4-oe
-      - lkft/linux-stable-rc-4.9-oe
-      - lkft/linux-stable-rc-4.14-oe
+    projects:
+    - lkft/linaro-hikey-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.14-oe
     test_name: kselftest/proc_proc-self-map-files-001
     url: https://bugs.linaro.org/show_bug.cgi?id=3908
     active: true
