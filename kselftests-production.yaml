@@ -49,7 +49,7 @@ globals:
     - qemu_i386
 
 projects:
-- name: LKFT
+- name: LKFT-kselftest
   projects: &projects_all
     - lkft/linux-mainline-oe
     - lkft/linux-stable-rc-4.19-oe
