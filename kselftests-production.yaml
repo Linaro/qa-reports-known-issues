@@ -76,7 +76,10 @@ projects:
       LKFT: kselftest: test_progs: libbpf: failed to open ./test_pkt_access.o:
       No such file or directory
     projects: *projects_all
-    test_name: kselftest/bpf_test_progs
+    test_names:
+    - kselftest/bpf_test_progs
+    - kselftest-vsyscall-mode-none/bpf_test_progs
+    - kselftest-vsyscall-mode-native/bpf_test_progs
     url: https://bugs.linaro.org/show_bug.cgi?id=3120
     active: true
     intermittent: false
@@ -92,7 +95,10 @@ projects:
     notes: >
       LKFT: linux-next: x86: kselftest: pstore_tests failed
     projects: *projects_all
-    test_name: kselftest/pstore_pstore_tests
+    test_names:
+    - kselftest/pstore_pstore_tests
+    - kselftest-vsyscall-mode-none/pstore_pstore_tests
+    - kselftest-vsyscall-mode-native/pstore_pstore_tests
     url: https://bugs.linaro.org/show_bug.cgi?id=3222
     active: true
     intermittent: false
@@ -148,6 +154,8 @@ projects:
     intermittent: false
     test_names:
     - kselftest/bpf_test_maps
+    - kselftest-vsyscall-mode-none/bpf_test_maps
+    - kselftest-vsyscall-mode-native/bpf_test_maps
     - kselftest/bpf_test_tag
     - kselftest/bpf_test_lru_map
     - kselftest/bpf_test_lpm_map
@@ -156,12 +164,17 @@ projects:
     - kselftest/android_run.sh
     - kselftest/memfd_run_fuse_test.sh
     - kselftest/vm_run_vmtests
+    - kselftest-vsyscall-mode-none/vm_run_vmtests
+    - kselftest-vsyscall-mode-native/vm_run_vmtests
   - environments:
     - x86
     notes: >
       kselftest mpx-mini-test_64 - no MPX support-failed-Aborted (core dumped)
     projects: *projects_all
-    test_name: kselftest/x86_mpx-mini-test_64
+    test_names:
+    - kselftest/x86_mpx-mini-test_64
+    - kselftest-vsyscall-mode-none/x86_mpx-mini-test_64
+    - kselftest-vsyscall-mode-native/x86_mpx-mini-test_64
     url: https://bugs.linaro.org/show_bug.cgi?id=3497
     active: true
     intermittent: false
@@ -184,6 +197,8 @@ projects:
     intermittent: false
   - test_names:
     - kselftest/firmware_fw_run_tests.sh
+    - kselftest-vsyscall-mode-none/firmware_fw_run_tests.sh
+    - kselftest-vsyscall-mode-native/firmware_fw_run_tests.sh
     - kselftest/firmware_fw_fallback.sh
     notes: >
       LKFT: linux-mainline: x86, x15, juno-r2: kselftest fw_filesystem.sh failed
@@ -213,7 +228,10 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=3596
     active: true
     intermittent: false
-  - test_name: kselftest/net_reuseport_bpf_numa
+  - test_names:
+    - kselftest/net_reuseport_bpf_numa
+    - kselftest-vsyscall-mode-none/bpf_test_select_reuseport
+    - kselftest-vsyscall-mode-native/bpf_test_select_reuseport
     notes: >
       LKFT: linux-mainline: x15: kselfteest NET reuseport_bpf_numa failed
     url: https://bugs.linaro.org/show_bug.cgi?id=3501
@@ -473,8 +491,12 @@ projects:
     projects: *projects_all
     test_names:
     - kselftest/bpf_test_libbpf.sh
+    - kselftest-vsyscall-mode-none/bpf_test_libbpf.sh
+    - kselftest-vsyscall-mode-native/bpf_test_libbpf.sh
     - kselftest/bpf_test_offload.py
     - kselftest/bpf_test_tcpbpf_user
+    - kselftest-vsyscall-mode-none/bpf_test_tcpbpf_user
+    - kselftest-vsyscall-mode-native/bpf_test_tcpbpf_user
     url: https://bugs.linaro.org/show_bug.cgi?id=3636
     active: true
     intermittent: false
@@ -663,6 +685,8 @@ projects:
     projects: *projects_all
     test_names:
     - kselftest/bpf_test_sock_addr.sh
+    - kselftest-vsyscall-mode-none/bpf_test_sock_addr.sh
+    - kselftest-vsyscall-mode-native/bpf_test_sock_addr.sh
     - kselftest/bpf_test_sock
     url: https://bugs.linaro.org/show_bug.cgi?id=3912
     active: true
@@ -685,6 +709,8 @@ projects:
     projects: *projects_all
     test_names:
     - kselftest/bpf_get_cgroup_id_user
+    - kselftest-vsyscall-mode-none/bpf_get_cgroup_id_user
+    - kselftest-vsyscall-mode-native/bpf_get_cgroup_id_user
     url: https://bugs.linaro.org/show_bug.cgi?id=3920
     active: true
     intermittent: false
@@ -696,6 +722,8 @@ projects:
     projects: *projects_all
     test_names:
     - kselftest/bpf_test_lirc_mode2_user
+    - /kselftest-vsyscall-mode-none/bpf_test_lirc_mode2_user
+    - kselftest-vsyscall-mode-native/bpf_test_lirc_mode2_user
     url: https://bugs.linaro.org/show_bug.cgi?id=3918
     active: true
     intermittent: false
@@ -710,6 +738,8 @@ projects:
     projects: *projects_all
     test_names:
     - kselftest/bpf_test_lwt_seg6local.sh
+    - kselftest-vsyscall-mode-none/bpf_test_lwt_seg6local.sh
+    - kselftest-vsyscall-mode-native/bpf_test_lwt_seg6local.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=3919
     active: true
     intermittent: false
@@ -724,7 +754,10 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=3974
     active: true
     intermittent: false
-  - test_name: kselftest/bpf_test_skb_cgroup_id.sh
+  - test_names:
+    - kselftest/bpf_test_skb_cgroup_id.sh
+    - kselftest-vsyscall-mode-none/bpf_test_skb_cgroup_id.sh
+    - kselftest-vsyscall-mode-native/bpf_test_skb_cgroup_id.sh
     notes: >
       bpf: test_skb_cgroup_id.sh Error fetching program/map
       FAILs on 4.19, 4.18, 4.14, 4.9 and 4.4 kernels on all devices.
@@ -755,7 +788,10 @@ projects:
       libbpf: ./socket_cookie_prog.o doesn't provide kernel version
       (test_socket_cookie.c:154: errno: No such file or directory) Failed to load ./socket_cookie_prog.o
     projects: *projects_all
-    test_name: kselftest/bpf_test_socket_cookie
+    test_names:
+    - kselftest/bpf_test_socket_cookie
+    - kselftest-vsyscall-mode-none/bpf_test_socket_cookie
+    - kselftest-vsyscall-mode-native/bpf_test_socket_cookie
     url: https://bugs.linaro.org/show_bug.cgi?id=3976
     active: true
     intermittent: true
@@ -766,7 +802,10 @@ projects:
       ERROR: (-1) load bpf failed
       Unable to load eBPF objects in file 'test_sockmap_kern.o' : 'version' section incorrect or lost
     projects: *projects_all
-    test_name: kselftest/bpf_test_sockmap
+    test_names:
+    - kselftest/bpf_test_sockmap
+    - kselftest-vsyscall-mode-none/bpf_test_sockmap
+    - kselftest-vsyscall-mode-native/bpf_test_sockmap
     url: https://bugs.linaro.org/show_bug.cgi?id=3977
     active: true
     intermittent: false
@@ -777,7 +816,10 @@ projects:
       ok 2 test_cgcore_top_down_constraint_enable
       not ok 3 test_cgcore_top_down_constraint_disable
     projects: *projects_all
-    test_name: kselftest/cgroup_test_core
+    test_names:
+    - kselftest/cgroup_test_core
+    - kselftest-vsyscall-mode-none/cgroup_test_core
+    - kselftest-vsyscall-mode-native/cgroup_test_core
     url: https://bugs.linaro.org/show_bug.cgi?id=3981
     active: true
     intermittent: false
@@ -798,6 +840,8 @@ projects:
       - lkft/linaro-hikey-stable-rc-4.4-oe
   - test_names:
     - kselftest/net_psock_snd.sh
+    - kselftest-vsyscall-mode-none/net_psock_snd.sh
+    - kselftest-vsyscall-mode-native/net_psock_snd.sh
     notes: >
       LKFT: net: psock_snd: recv: Resource temporarily unavailable on all devices
     url: https://bugs.linaro.org/show_bug.cgi?id=3925
@@ -809,7 +853,10 @@ projects:
     notes: >
       net: tls: tls.recv_peek_multiple_records failed on all devices and all kernel except next
     projects: *projects_all
-    test_name: kselftest/net_tls
+    test_names:
+    - kselftest/net_tls
+    - kselftest-vsyscall-mode-none/net_tls
+    - kselftest-vsyscall-mode-native/net_tls
     url: https://bugs.linaro.org/show_bug.cgi?id=3925
     active: true
     intermittent: false
