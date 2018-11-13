@@ -586,6 +586,7 @@ projects:
   - environments:
     - dragonboard-410c
     - hi6220-hikey
+    - x86
     notes: >
       LKFT: LKFT: mainline: dragon board 410c: proc read failed - ICMPv6: process
       read is using deprecated sysctl
