@@ -514,19 +514,6 @@ projects:
     url: null
     active: true
     intermittent: false
-  - test_name: kselftest/lib_printf.sh
-    notes: >
-      LKFT: linux-mainline: x15: printf.sh bitmap.sh zram.sh netns_netlink - section
-      4 reloc 2 sym memset: relocation 28 out of range (0xbf046044 -> 0xc109f720)
-    url: https://bugs.linaro.org/show_bug.cgi?id=3484
-    active: true
-    intermittent: false
-    matrix_apply:
-    - environments: *environments_qemu
-      projects: *projects_all
-    - environments:
-      - x15
-      projects: *projects_all
   - test_name: kselftest/x86_sigreturn_64
     notes: >
       LKFT: kselftest: sigreturn_64 intermittent failure on qemu_x86_64
