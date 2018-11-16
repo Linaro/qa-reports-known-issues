@@ -4,6 +4,7 @@ python:
 install:
 - pip install -r requirements.txt
 script:
+- flake8
 - pytest
 - "./.travis_run.sh --dry-run"
 deploy:
