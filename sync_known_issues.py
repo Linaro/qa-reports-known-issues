@@ -199,6 +199,11 @@ class SquadProject(object):
             assert tn not in test_names, "Error, test name {} defined twice".format(tn)
             test_names.append(tn)
 
+    def has_known_issue(self, title):
+        for known_issue in self.known_issues:
+            if known_issue.title == title:
+                return True
+        return False
 
 def parse_files(config_files):
     config_data = {}
@@ -253,39 +258,7 @@ def issues_equal(a, b):
 
     return False
 
-
-def main():
-
-    assert not os.path.isfile(os.environ.get("HOME")+"/.netrc"), "Error - remove ~/.netrc - see https://github.com/requests/requests/issues/3929"
-
-    parser = argparse.ArgumentParser()
-    parser.add_argument("-c",
-                        "--config-files",
-                        nargs="+",
-                        required=True,
-                        help="Instance config files",
-                        dest="config_files")
-    parser.add_argument("-d",
-                        "--dry-run",
-                        action="store_true",
-                        default=False,
-                        help="Dry run",
-                        dest="dry_run")
-    parser.add_argument("-v",
-                        "--debug",
-                        action="store_true",
-                        default=False,
-                        help="Enable debug",
-                        dest="debug")
-
-    args = parser.parse_args()
-    config_data = parse_files(args.config_files)
-    if args.debug:
-        # Not sure how else to set the log level when using a global logger.
-        for handler in logging.root.handlers[:]:
-            logging.root.removeHandler(handler)
-        logging.basicConfig(level=logging.DEBUG, format=FORMAT)
-
+def sync_known_issues(config_data, dry_run=True):
     for project_name, project in config_data.items():
         s = SquadProject(project)
 
@@ -345,7 +318,7 @@ def main():
             if api_known_issue is None:
                 print("Adding issue:")
                 print(textwrap.indent(str(known_issue), "    "))
-                if not args.dry_run:
+                if not dry_run:
                     # create new KnownIssue
                     s.connection.post_object(
                         'knownissues',
@@ -358,13 +331,82 @@ def main():
 
                 print("Updating issue:")
                 print(textwrap.indent(str(known_issue), "    "))
-                if not args.dry_run:
+                if not dry_run:
                     # update existing KnownIssue
                     api_known_issue.update(known_issue_api_object)
                     s.connection.put_object(
                         'knownissues',
                         api_known_issue
                     )
+
+def prune_known_issues(config_data, dry_run=True):
+    """
+        For each known issue in qa-reports, verify there is a matching known
+        issue in the known issue file given. If there are any known issues in
+        qa-reports that don't have a match in config_data (and are in the same
+        project), report. Eventually, delete automatically instead of report.
+    """
+
+    all_api_known_issues = {} # Cache api_known_issue lists here, based on project['url']
+
+    for project_name, project in config_data.items():
+        s = SquadProject(project)
+
+        # Since I can't figure out how to filter on a partial title, retrieve all
+        # known issues for a given url. Cache them so that subsequent projects won't
+        # refetch the same list.
+        if project['url'] not in all_api_known_issues:
+            all_api_known_issues[project['url']] = s.connection.download_list(
+                'knownissues/')
+
+        for api_known_issue in all_api_known_issues[project['url']]:
+            if api_known_issue['title'].split('/')[0] != project_name:
+                # Only compare when project name matches
+                continue
+            if not s.has_known_issue(api_known_issue['title']):
+                # XXX: This could be a delete instead. It doesn't seem supported in
+                # the API.
+                logger.warning("{} is in {} but not defined in project {}".format(
+                    api_known_issue['title'],
+                    project['url'],
+                    project_name,
+                    ))
+
+
+def main():
+
+    assert not os.path.isfile(os.environ.get("HOME")+"/.netrc"), "Error - remove ~/.netrc - see https://github.com/requests/requests/issues/3929"
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-c",
+                        "--config-files",
+                        nargs="+",
+                        required=True,
+                        help="Instance config files",
+                        dest="config_files")
+    parser.add_argument("-d",
+                        "--dry-run",
+                        action="store_true",
+                        default=False,
+                        help="Dry run",
+                        dest="dry_run")
+    parser.add_argument("-v",
+                        "--debug",
+                        action="store_true",
+                        default=False,
+                        help="Enable debug",
+                        dest="debug")
+
+    args = parser.parse_args()
+    config_data = parse_files(args.config_files)
+    if args.debug:
+        # Not sure how else to set the log level when using a global logger.
+        for handler in logging.root.handlers[:]:
+            logging.root.removeHandler(handler)
+        logging.basicConfig(level=logging.DEBUG, format=FORMAT)
+
+    sync_known_issues(config_data, args.dry_run)
+    prune_known_issues(config_data, dry_run=True) # delete not yet supported
 
 if __name__ == '__main__':
     main()
