@@ -3,7 +3,6 @@
 import argparse
 import logging
 import os
-import pprint
 import requests
 import sys
 import textwrap
@@ -135,8 +134,10 @@ class SquadKnownIssue(object):
         if matrix_apply:
             for matrix in matrix_apply:
                 self._get_environments(matrix)
-            assert config.get('projects') is None, "Error, matrix_apply and projects defined in {}".format(self.__repr__())
-            assert config.get('environments') is None, "Error, matrix_apply and projects defined in {}".format(self.__repr__())
+            assert config.get('projects') is None, (
+                "Error, matrix_apply and projects defined in {}".format(self.__repr__()))
+            assert config.get('environments') is None, (
+                "Error, matrix_apply and projects defined in {}".format(self.__repr__()))
         else:
             self._get_environments(config)
 
@@ -152,14 +153,13 @@ class SquadKnownIssue(object):
                         "Incorrect environment: %s" % item)
                 self.projects_environments[project].add(item)
 
-
     def __repr__(self):
         return yaml.dump({'title': self.title,
                           'url': self.url,
                           'active': self.active,
                           'intermittent': self.intermittent,
                           'projects_environments': self.projects_environments,
-                         },
+                          },
                          indent=4,
                          width=80)
 
@@ -205,6 +205,7 @@ class SquadProject(object):
                 return True
         return False
 
+
 def parse_files(config_files):
     config_data = {}
     for f in config_files:
@@ -217,6 +218,7 @@ def parse_files(config_files):
                 logger.error(exc)
                 sys.exit(1)
     return config_data
+
 
 def issues_equal(a, b):
     """
@@ -239,8 +241,10 @@ def issues_equal(a, b):
     y = b.copy()
 
     # Remove 'id' for purpose of comparison
-    if 'id' in x: del x['id']
-    if 'id' in y: del y['id']
+    if 'id' in x:
+        del x['id']
+    if 'id' in y:
+        del y['id']
 
     # Remove any trailing newlines in notes
     if x['notes'] is not None:
@@ -257,6 +261,7 @@ def issues_equal(a, b):
         return True
 
     return False
+
 
 def sync_known_issues(config_data, dry_run=True):
     for project_name, project in config_data.items():
@@ -324,7 +329,7 @@ def sync_known_issues(config_data, dry_run=True):
                         'knownissues',
                         known_issue_api_object
                     )
-            else: # update case
+            else:  # update case
                 if issues_equal(api_known_issue, known_issue_api_object):
                     print("No changes to '{}'".format(api_known_issue['test_name']))
                     continue
@@ -339,6 +344,7 @@ def sync_known_issues(config_data, dry_run=True):
                         api_known_issue
                     )
 
+
 def prune_known_issues(config_data, dry_run=True):
     """
         For each known issue in qa-reports, verify there is a matching known
@@ -347,7 +353,7 @@ def prune_known_issues(config_data, dry_run=True):
         project), report. Eventually, delete automatically instead of report.
     """
 
-    all_api_known_issues = {} # Cache api_known_issue lists here, based on project['url']
+    all_api_known_issues = {}  # Cache api_known_issue lists here, based on project['url']
 
     for project_name, project in config_data.items():
         s = SquadProject(project)
@@ -375,7 +381,8 @@ def prune_known_issues(config_data, dry_run=True):
 
 def main():
 
-    assert not os.path.isfile(os.environ.get("HOME")+"/.netrc"), "Error - remove ~/.netrc - see https://github.com/requests/requests/issues/3929"
+    assert not os.path.isfile(os.environ.get("HOME")+"/.netrc"), (
+        "Error - remove ~/.netrc - see https://github.com/requests/requests/issues/3929")
 
     parser = argparse.ArgumentParser()
     parser.add_argument("-c",
@@ -406,7 +413,8 @@ def main():
         logging.basicConfig(level=logging.DEBUG, format=FORMAT)
 
     sync_known_issues(config_data, args.dry_run)
-    prune_known_issues(config_data, dry_run=True) # delete not yet supported
+    prune_known_issues(config_data, dry_run=True)  # delete not yet supported
+
 
 if __name__ == '__main__':
     main()

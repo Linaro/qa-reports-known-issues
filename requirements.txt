@@ -2,3 +2,4 @@ deepdiff
 pytest
 requests
 pyyaml
+flake8

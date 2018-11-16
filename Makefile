@@ -1,7 +1,10 @@
-all: test dry-run
+all: flake8 test dry-run
 
 test:
 	pytest
+
+flake8:
+	flake8
 
 dry-run:
 	./.travis_run.sh --dry-run

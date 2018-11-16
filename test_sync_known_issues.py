@@ -1,9 +1,7 @@
 import sync_known_issues
-import pdb
 import pytest
 from random import shuffle
 
-import yaml
 
 def test_parse_files():
     config_file = "test_data/test-issues.yaml"
@@ -13,6 +11,7 @@ def test_parse_files():
     assert len(config_data['LKFT-ltp-staging']['environments']) == 3
     assert 'known_issues' in config_data['LKFT-ltp-staging']
 
+
 def test_issue_equal_is_equal():
     config_file = "test_data/test-issues.yaml"
     config_data = sync_known_issues.parse_files([config_file])
@@ -20,12 +19,13 @@ def test_issue_equal_is_equal():
     a = config_data['LKFT-ltp-staging']['known_issues'][0]
 
     b = a.copy()
-    b['id'] = 10 # Set an 'id' field in b. Should still be equal
-    shuffle(b['environments']) # Randomize environments list order
-    b['notes'] = b['notes']+"\n" # Add newline to b's 'note'
+    b['id'] = 10  # Set an 'id' field in b. Should still be equal
+    shuffle(b['environments'])  # Randomize environments list order
+    b['notes'] = b['notes']+"\n"  # Add newline to b's 'note'
 
     is_equal = sync_known_issues.issues_equal(a, b)
     assert is_equal
+
 
 def test_issue_equal_not_equal():
     config_file = "test_data/test-issues.yaml"
@@ -34,11 +34,12 @@ def test_issue_equal_not_equal():
     a = config_data['LKFT-ltp-staging']['known_issues'][0]
 
     b = a.copy()
-    b['id'] = 10 # Set an 'id' field in b. Should still be equal
+    b['id'] = 10  # Set an 'id' field in b. Should still be equal
     b['title'] = "Foo is my Title"
 
     is_equal = sync_known_issues.issues_equal(a, b)
     assert not is_equal
+
 
 def test_issue_url_note_null():
     config_file = "test_data/test-issues.yaml"
@@ -53,6 +54,7 @@ def test_issue_url_note_null():
     is_equal = sync_known_issues.issues_equal(a, b)
     assert not is_equal
 
+
 def test_squad_known_issue_happy_path():
     config_file = "test_data/test-issues.yaml"
     config_data = sync_known_issues.parse_files([config_file])
@@ -64,7 +66,8 @@ def test_squad_known_issue_happy_path():
     assert a.environments == ['hi6220-hikey', 'juno-r2', 'x86']
     assert len(a.known_issues) == 6
 
-def test_squad_known_issue_happy_path():
+
+def test_squad_known_issue_happy_path_2():
     config_file = "test_data/test-issues.yaml"
     config_data = sync_known_issues.parse_files([config_file])
 
@@ -79,12 +82,11 @@ def test_squad_known_issue_happy_path():
                 'lkft/linux-stable-rc-4.17-oe': {'hi6220-hikey'}
             }
 
+
 def test_squad_known_issue_dupe_detection():
     config_file = "test_data/dupe-issue.yaml"
     config_data = sync_known_issues.parse_files([config_file])
 
     with pytest.raises(AssertionError,
-         message="Error, test name ltp-syscalls-tests/fork13 defined twice"):
-        a = sync_known_issues.SquadProject(config_data['LKFT-ltp-staging'])
-
-
+                       message="Error, test name ltp-syscalls-tests/fork13 defined twice"):
+        sync_known_issues.SquadProject(config_data['LKFT-ltp-staging'])
