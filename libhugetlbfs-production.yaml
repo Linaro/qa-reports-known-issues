@@ -3,7 +3,7 @@ globals:
     - x15
     - qemu_arm
 projects:
-- name: LKFT-ltp
+- name: LKFT-libhugetlbfs
   projects: &projects_all
     - lkft/linux-next-oe
     - lkft/linux-mainline-oe
