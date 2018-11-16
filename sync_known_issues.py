@@ -372,7 +372,7 @@ def prune_known_issues(config_data, dry_run=True):
             if not s.has_known_issue(api_known_issue['title']):
                 # XXX: This could be a delete instead. It doesn't seem supported in
                 # the API.
-                logger.warning("{} is in {} but not defined in project {}".format(
+                print("{} is in {} but not defined in project {}".format(
                     api_known_issue['title'],
                     project['url'],
                     project_name,
