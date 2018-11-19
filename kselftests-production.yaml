@@ -666,7 +666,7 @@ projects:
     notes: >
       LKFT: mainline: kselftest proc selftests: proc-self-syscall failed on arm32
     projects: *projects_all
-    test_name: kselftest/proc-self-syscall
+    test_name: kselftest/proc_proc-self-syscall
     url: https://bugs.linaro.org/show_bug.cgi?id=3783
     active: true
     intermittent: false
