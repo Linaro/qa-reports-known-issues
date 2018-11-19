@@ -222,6 +222,8 @@ projects:
       - x15
       - x86
       - qemu_x86_64
+      - i386
+      - qemu_i386
       projects: *projects_all
     - environments: *environments_all
       projects:
