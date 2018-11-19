@@ -245,7 +245,7 @@ projects:
       LKFT: linux-mainline: x15: kselfteest NET reuseport_bpf_numa failed
     url: https://bugs.linaro.org/show_bug.cgi?id=3501
     active: true
-    intermittent: false
+    intermittent: true
     matrix_apply:
     - environments: *environments_all
       projects:
@@ -254,6 +254,10 @@ projects:
       - lkft/linaro-hikey-stable-rc-4.4-oe
     - environments: *environments_arm32
       projects: *projects_all
+    - environments:
+      - x86
+      projects:
+      - lkft/linux-mainline-oe
   - test_names:
     - kselftest/bpf_test_align
     - kselftest-vsyscall-mode-none/bpf_test_align
