@@ -103,6 +103,19 @@ class SquadConnection(object):
         response = requests.put(URL, data=config, headers=self.headers)
         response.raise_for_status()
 
+    def delete_object(self, endpoint, config):
+        object_id = config.get('id')
+        URL = urlunsplit(
+            (self.url_scheme,
+             self.base_url,
+             "api/%s/%s/" % (endpoint, object_id),
+             None,
+             None))
+        logger.debug(URL)
+        logger.debug(config)
+        response = requests.delete(URL, data=config, headers=self.headers)
+        response.raise_for_status()
+
     def post_object(self, endpoint, config):
         URL = urlunsplit((self.url_scheme, self.base_url, "api/%s/" % endpoint, None, None))
         logger.debug(URL)
@@ -367,16 +380,24 @@ def prune_known_issues(config_data, dry_run=True):
 
         for api_known_issue in all_api_known_issues[project['url']]:
             if api_known_issue['title'].split('/')[0] != project_name:
-                # Only compare when project name matches
+                # Ensure project name matches
                 continue
             if not s.has_known_issue(api_known_issue['title']):
-                # XXX: This could be a delete instead. It doesn't seem supported in
-                # the API.
-                print("{} is in {} but not defined in project {}".format(
-                    api_known_issue['title'],
-                    project['url'],
-                    project_name,
-                    ))
+                if dry_run:
+                    print("{} is in {} but not defined in project {}".format(
+                        api_known_issue['title'],
+                        project['url'],
+                        project_name,
+                        ))
+                else:
+                    print("Deleting '{}'".format(
+                        api_known_issue['title'],
+                        ))
+                    # delete KnownIssue
+                    s.connection.delete_object(
+                        'knownissues',
+                        api_known_issue
+                    )
 
 
 def main():
@@ -413,7 +434,7 @@ def main():
         logging.basicConfig(level=logging.DEBUG, format=FORMAT)
 
     sync_known_issues(config_data, args.dry_run)
-    prune_known_issues(config_data, dry_run=True)  # delete not yet supported
+    prune_known_issues(config_data, dry_run=args.dry_run)
 
 
 if __name__ == '__main__':
