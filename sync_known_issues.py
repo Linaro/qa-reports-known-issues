@@ -129,16 +129,17 @@ class SquadKnownIssueException(Exception):
 
 
 class SquadKnownIssue(object):
-    def __init__(self, config, test_name, squad_project):
+    def __init__(self, config, test_name, squad_project_name, squad_projects, squad_environments):
         self.test_name = test_name
         if self.test_name is None:
             raise SquadKnownIssueException("TestName not defined")
-        self.title = squad_project.name + "/" + self.test_name
+        self.title = squad_project_name + "/" + self.test_name
         self.url = config.get('url')
         self.notes = config.get('notes')
         self.active = config.get('active')
         self.intermittent = config.get('intermittent')
-        self.squad_project = squad_project
+        self.squad_projects = squad_projects
+        self.squad_environments = squad_environments
 
         # Environments belong to projects and may differ by project.
         self.projects_environments = {}
@@ -157,12 +158,12 @@ class SquadKnownIssue(object):
     def _build_environments_set(self, config):
         self.projects = config.get('projects')
         for project in self.projects:
-            assert project in self.squad_project.projects, "Project not defined: %s" % project
+            assert project in self.squad_projects, "Project not defined: %s" % project
 
             if project not in self.projects_environments:
                 self.projects_environments[project] = set()
             for item in config.get('environments'):
-                if item not in self.squad_project.environments:
+                if item not in self.squad_environments:
                     raise SquadKnownIssueException(
                         "Incorrect environment: %s" % item)
                 self.projects_environments[project].add(item)
@@ -203,7 +204,7 @@ class SquadProject(object):
             if len(test_names) == 0:
                 raise SquadKnownIssueException("test_name or test_names not defined")
             for test_name in test_names:
-                self.known_issues.append(SquadKnownIssue(conf, test_name, self))
+                self.known_issues.append(SquadKnownIssue(conf, test_name, self.name, self.projects, self.environments))
 
         self.check_for_dupe_tests()
 
