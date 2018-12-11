@@ -72,15 +72,21 @@ def test_squad_known_issue_happy_path_2():
     config_data = sync_known_issues.parse_files([config_file])
 
     a = sync_known_issues.SquadProject(config_data['LKFT-ltp-staging'])
-    for known_issue in a.known_issues:
-        if known_issue.test_name == 'ltp-syscalls-tests/fork10':
-            assert known_issue.active
-            assert known_issue.intermittent is None
-            assert known_issue.projects_environments == {
-                'lkft/linux-mainline-oe': {'x86', 'hi6220-hikey', 'juno-r2'},
-                'lkft/linux-next-oe': {'hi6220-hikey'},
-                'lkft/linux-stable-rc-4.17-oe': {'hi6220-hikey'}
-            }
+
+    # Find issue named ltp-syscalls-tests/fork10 in the list
+    for issue in a.known_issues:
+        if issue.test_name == 'ltp-syscalls-tests/fork10':
+            break
+    else:
+        assert False, "test_name ltp-syscalls-tests/fork10 not found"
+
+    assert issue.active
+    assert issue.intermittent is None
+    assert issue.projects_environments == {
+        'lkft/linux-mainline-oe': {'x86', 'hi6220-hikey', 'juno-r2'},
+        'lkft/linux-next-oe': {'hi6220-hikey'},
+        'lkft/linux-stable-rc-4.17-oe': {'hi6220-hikey'}
+    }
 
 
 def test_squad_known_issue_dupe_detection():
@@ -89,4 +95,45 @@ def test_squad_known_issue_dupe_detection():
 
     with pytest.raises(AssertionError,
                        message="Error, test name ltp-syscalls-tests/fork13 defined twice"):
+        sync_known_issues.SquadProject(config_data['LKFT-ltp-staging'])
+
+
+def test_matrix_apply_kselftest_bug():
+    config_file = "test_data/test-issues-2.yaml"
+    config_data = sync_known_issues.parse_files([config_file])
+
+    a = sync_known_issues.SquadProject(config_data['LKFT'])
+
+    # Find issue named ltp-syscalls-tests/fork10 in the list
+    for issue in a.known_issues:
+        if issue.test_name == 'kselftest/bpf_test_align':
+            break
+    else:
+        assert False, "test_name kselftest/bpf_test_align not found"
+
+    assert issue.projects_environments == {
+        'lkft/linux-stable-rc-4.14-oe':
+            {'dragonboard-410c', 'hi6220-hikey', 'i386', 'x86', 'qemu_arm64',
+             'qemu_x86_64', 'qemu_arm', 'qemu_i386', 'x15', 'juno-r2'},
+        'lkft/linux-stable-rc-4.9-oe':
+            {'dragonboard-410c', 'hi6220-hikey', 'i386', 'x86', 'qemu_arm64',
+             'qemu_x86_64', 'qemu_arm', 'qemu_i386', 'x15', 'juno-r2'},
+        'lkft/linux-stable-rc-4.4-oe':
+            {'dragonboard-410c', 'hi6220-hikey', 'i386', 'x86', 'qemu_arm64',
+             'qemu_x86_64', 'qemu_arm', 'qemu_i386', 'x15', 'juno-r2'},
+        'lkft/linaro-hikey-stable-rc-4.4-oe':
+            {'dragonboard-410c', 'hi6220-hikey', 'i386', 'x86', 'qemu_arm64',
+             'qemu_x86_64', 'qemu_arm', 'qemu_i386', 'x15', 'juno-r2'},
+        'lkft/linux-mainline-oe': {'qemu_i386', 'x15', 'qemu_arm', 'i386'},
+        'lkft/linux-stable-rc-4.19-oe': {'qemu_i386', 'x15', 'qemu_arm', 'i386'},
+        'lkft/linux-stable-rc-4.18-oe': {'qemu_i386', 'x15', 'qemu_arm', 'i386'}
+        }
+
+
+def test_test_names_as_string():
+    config_file = "test_data/test-names-as-string.yaml"
+    config_data = sync_known_issues.parse_files([config_file])
+
+    with pytest.raises(AssertionError,
+                       message="Error, string (not list) passed to test_names"):
         sync_known_issues.SquadProject(config_data['LKFT-ltp-staging'])

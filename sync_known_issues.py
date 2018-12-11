@@ -146,20 +146,21 @@ class SquadKnownIssue(object):
         matrix_apply = config.get('matrix_apply')
         if matrix_apply:
             for matrix in matrix_apply:
-                self._get_environments(matrix)
+                self._build_environments_set(matrix)
             assert config.get('projects') is None, (
                 "Error, matrix_apply and projects defined in {}".format(self.__repr__()))
             assert config.get('environments') is None, (
                 "Error, matrix_apply and projects defined in {}".format(self.__repr__()))
         else:
-            self._get_environments(config)
+            self._build_environments_set(config)
 
-    def _get_environments(self, config):
+    def _build_environments_set(self, config):
         self.projects = config.get('projects')
         for project in self.projects:
             assert project in self.squad_project.projects, "Project not defined: %s" % project
 
-            self.projects_environments[project] = set()
+            if project not in self.projects_environments:
+                self.projects_environments[project] = set()
             for item in config.get('environments'):
                 if item not in self.squad_project.environments:
                     raise SquadKnownIssueException(
@@ -194,6 +195,7 @@ class SquadProject(object):
         self.known_issues = []
         for conf in config.get('known_issues'):
             test_names = conf.get('test_names', [])
+            assert isinstance(test_names, list), "Error, string (not list) passed to test_names"
             test_name = conf.get('test_name')
             if test_name is not None:
                 assert isinstance(test_name, str), "Error, test_name {} is not a string".format(test_name)
