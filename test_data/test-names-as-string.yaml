@@ -1,0 +1,21 @@
+projects:
+- name: LKFT-ltp-staging
+  projects: &projects_all
+    - lkft/linux-mainline-oe
+    - lkft/linux-next-oe
+    - lkft/linux-stable-rc-4.17-oe
+  url: https://staging-qa-reports.linaro.org
+  environments: &environments_all
+    - hi6220-hikey
+    - juno-r2
+    - x86
+  known_issues:
+  # Pass a string to test_names, instead of a list (oops!)
+  - test_names: ltp-syscalls-tests/fork10
+    notes: 'LKFT: LTP: fork10: runs long and hangs machine on branches'
+    url: https://bugs.linaro.org/show_bug.cgi?id=3719
+    active: true
+    environments:
+    - hi6220-hikey
+    projects: *projects_all
+
