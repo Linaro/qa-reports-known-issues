@@ -27,6 +27,10 @@ sync_known_issues.py expects environment variable named
 QA_REPORTS_KNOWN_ISSUE_TOKEN to exist and contain an authentication token to
 use against the squad URL in the given config file.
 
+In travis-ci, QA_REPORTS_KNOWN_ISSUE_TOKEN is set in [repo
+settings](https://travis-ci.com/Linaro/qa-reports-known-issues/settings) to use
+qa-reports.linaro.org's qa-reports-known-issues-travis-ci's token.
+
 ## YAML file format
 
 Main key in the YAML file is `projects`. Each file may contain a list of projects.
