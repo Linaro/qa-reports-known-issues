@@ -13,10 +13,3 @@ deploy:
   on:
     branch: master
     repo: Linaro/qa-reports-known-issues
-
-# Generated with i.e.
-# travis encrypt QA_REPORTS_KNOWN_ISSUE_TOKEN="<actual token here>" --add -r Linaro/qa-reports-known-issues
-# This token belongs to qa-reports-known-issues-travis-ci user in https://qa-reports.linaro.org.
-env:
-  global:
-  - secure: k83oeHJ9FxxcKmg7yzYzEpohUW4dvNSadllobriYd98G9pcihVlCZyNdt94ex2RMo68C6OrXpHg2ZRDmJD7R5B/4SM4tDw3HxGONxlrGqOdhHpRivyWSCfFDYb9pT/KspQrpqkmd1OgWZUztU6nTY/s3gQKzec+mPgWevEG1FcPeeQRQiTC8CdOaEsRnf8x125TDwak/ySdAui2XbQQA1sDSf7Ww5fX2pRN/CPEup6EM0d68JHsZ8HRqQL7zI3iWLNG4XqVPTwYmMStXl7xXGIy8y1F0CUHS2sUPaCl/8GOOVfxU7oDrv8jyYaK1HUFxVPBj4oAHzDO2rCO2iNIMhfL9eenNkLHZ1rDJ6yusly2TxgFiOcWajPKrF1lmS8fyRvHStGPuVHX7AUhjbdzv8PbU6iji5NLEgGPDpImZ8rFNYSmgI9sqcToWMnlsdO3NqO7AWaZp7dV0OjazTsEQR5TyNj3phltV9otAmZ/0dppXXHzmjaWHIvp5G/WeFJiRj9QAJxwV1a5eNxYdX3Cv2YGfqHGD42J1ys2IgblmeARpxEJZSYzoZAOI0PP4IYo+JmwiYLW2XLSlPpPgT6w8Sy8mvYTRR02TlEeAIPmnN/Ga42/Gpz++awPiclPwGhwvzzR4D1N5m0ucaJIL9P/AlNlxFLHBRp5pBfjq0S0aFgo=
