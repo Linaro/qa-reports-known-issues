@@ -238,7 +238,7 @@ projects:
     test_name: kselftest/x86_fsgsbase_64
     url: https://bugs.linaro.org/show_bug.cgi?id=3596
     active: true
-    intermittent: false
+    intermittent: true
   - test_names:
     - kselftest/net_reuseport_bpf_numa
     - kselftest-vsyscall-mode-none/net_reuseport_bpf_numa
