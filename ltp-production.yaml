@@ -378,12 +378,12 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=3852
     active: true
     intermittent: false
-  - environments: *environments_intel
+  - environments: *environments_all
     notes: >
-      LKFT: LTP: cve-2015-3290 failed intermittently on qemu_x86_64
+      LKFT: LTP: cve-2015-3290 should be skipped in all
     projects: *projects_all
     test_name: ltp-cve-tests/cve-2015-3290
-    url: https://bugs.linaro.org/show_bug.cgi?id=3910
+    url: https://bugs.linaro.org/show_bug.cgi?id=3991
     active: true
     intermittent: true
   - environments: *environments_all
