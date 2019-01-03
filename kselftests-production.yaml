@@ -52,6 +52,7 @@ projects:
 - name: LKFT
   projects: &projects_all
     - lkft/linux-mainline-oe
+    - lkft/linux-stable-rc-4.20-oe
     - lkft/linux-stable-rc-4.19-oe
     - lkft/linux-stable-rc-4.18-oe
     - lkft/linux-stable-rc-4.14-oe
@@ -296,6 +297,7 @@ projects:
       - lkft/linaro-hikey-stable-rc-4.4-oe
     - environments: *environments_arm32
       projects:
+      - lkft/linux-stable-rc-4.20-oe
       - lkft/linux-stable-rc-4.19-oe
       - lkft/linux-stable-rc-4.18-oe
   - environments: *environments_all
@@ -571,6 +573,7 @@ projects:
     matrix_apply:
     - environments: *environments_arm32
       projects:
+      - lkft/linux-stable-rc-4.20-oe
       - lkft/linux-stable-rc-4.19-oe
       - lkft/linux-stable-rc-4.18-oe
     - environments: *environments_all
@@ -793,6 +796,7 @@ projects:
       projects: *projects_all
     - environments: *environments_all
       projects:
+      - lkft/linux-stable-rc-4.20-oe
       - lkft/linux-stable-rc-4.19-oe
       - lkft/linux-stable-rc-4.18-oe
       - lkft/linux-stable-rc-4.14-oe
