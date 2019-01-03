@@ -692,6 +692,7 @@ projects:
     - kselftest/kvm_state_test
     - kselftest/kvm_dirty_log_test
     - kselftest/kvm_clear_dirty_log_test
+    - kselftest/kvm_hyperv_cpuid
     - kselftest/kvm_platform_info_test
     - kselftest/kvm_evmcs_test
     url: https://bugs.linaro.org/show_bug.cgi?id=3741
