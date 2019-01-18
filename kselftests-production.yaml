@@ -1044,3 +1044,20 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=3739
     active: true
     intermittent: false
+  - environments: *environments_all
+    notes: >
+      LKFT: bpf test_flow_dissector.sh libbpf: object file doesn't contain
+      bpf program failed on all devices
+      Here is the fix patch for this bug,
+      test_flow_dissector.sh depends on both with_addr.sh and with_tunnels.sh
+      However, we install only with_addr.sh.
+      Add with_tunnels.sh to TEST_PROGS_EXTENDED to make sure it gets
+      installed as well
+    projects: *projects_all
+    test_names:
+    - kselftest/bpf_test_flow_dissector.sh
+    - kselftest-vsyscall-mode-none/bpf_test_flow_dissector.sh
+    - kselftest-vsyscall-mode-native/bpf_test_flow_dissector.sh
+    url: https://bugs.linaro.org/show_bug.cgi?id=4036
+    active: true
+    intermittent: false
