@@ -807,6 +807,7 @@ projects:
     - qemu_x86_64
     - x15
     - x86
+    - i386
     notes: >
       bpf: test_socket_cookie failed on x86_64 and arm32
       libbpf: ./socket_cookie_prog.o doesn't provide kernel version
