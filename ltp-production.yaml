@@ -537,3 +537,12 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=3973
     active: true
     intermittent: true
+  - environments: *environments_all
+    notes: >
+      LTP: mm: vma05 1 TFAIL: [vdso] bug not patched
+      There are missing symbols due to binary stripped
+    projects: *projects_all
+    test_name: ltp-mm-tests/vma05
+    url: https://bugs.linaro.org/show_bug.cgi?id=4256
+    active: true
+    intermittent: true
