@@ -561,3 +561,14 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=4257
     active: true
     intermittent: true
+  - environments: *environments_all
+    notes: >
+      LTP: mm: mem.c:782: BROK: mount /dev/cgroup: ENOENT
+      Need CONFIG_MEMCG in all config fragments for all kernels in all boards
+    projects: *projects_all
+    test_names:
+    - ltp-mm-tests/ksm03
+    - ltp-mm-tests/ksm03_1
+    url: https://bugs.linaro.org/show_bug.cgi?id=4255
+    active: true
+    intermittent: true
