@@ -1057,13 +1057,21 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=4036
     active: true
     intermittent: false
-  - environments: *environments_i386
+  - test_names:
+    - kselftest/bpf_test_netcnt
     notes: >
        kselftest: i386: bpf: test_netcnt : libbpf: failed to create map
        (name: 'percpu_netcnt'): Invalid argument
-    projects: *projects_all
-    test_names:
-    - kselftest/bpf_test_netcnt
     url: https://bugs.linaro.org/show_bug.cgi?id=4245
     active: true
     intermittent: false
+    matrix_apply:
+    - environments: *environments_i386
+      projects: *projects_all
+    - environments: *environments_all
+      projects:
+      - lkft/linux-stable-rc-4.19-oe
+      - lkft/linux-stable-rc-4.14-oe
+      - lkft/linux-stable-rc-4.9-oe
+      - lkft/linux-stable-rc-4.4-oe
+      - lkft/linaro-hikey-stable-rc-4.4-oe
