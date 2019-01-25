@@ -889,7 +889,7 @@ projects:
     - kselftest-vsyscall-mode-none/net_tls
     - kselftest-vsyscall-mode-native/net_tls
     url: https://bugs.linaro.org/show_bug.cgi?id=3925
-    active: true
+    active: false
     intermittent: false
   - test_names:
     - kselftest/rseq_basic_percpu_ops_test
