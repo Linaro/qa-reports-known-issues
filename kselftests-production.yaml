@@ -801,22 +801,25 @@ projects:
       - lkft/linux-stable-rc-4.9-oe
       - lkft/linux-stable-rc-4.4-oe
       - lkft/linaro-hikey-stable-rc-4.4-oe
-  - environments:
-    - qemu_arm
-    - qemu_i386
-    - qemu_x86_64
-    - x15
-    - x86
-    - i386
+  - test_names:
+    - kselftest/bpf_test_socket_cookie
+    - kselftest-vsyscall-mode-none/bpf_test_socket_cookie
+    - kselftest-vsyscall-mode-native/bpf_test_socket_cookie
+    matrix_apply:
+    - environments: *environments_32bit
+      projects: *projects_all
+    - environments: *environments_all
+      projects:
+      - lkft/linux-stable-rc-4.20-oe
+      - lkft/linux-stable-rc-4.19-oe
+      - lkft/linux-stable-rc-4.14-oe
+      - lkft/linux-stable-rc-4.9-oe
+      - lkft/linux-stable-rc-4.4-oe
+      - lkft/linaro-hikey-stable-rc-4.4-oe
     notes: >
       bpf: test_socket_cookie failed on x86_64 and arm32
       libbpf: ./socket_cookie_prog.o doesn't provide kernel version
       (test_socket_cookie.c:154: errno: No such file or directory) Failed to load ./socket_cookie_prog.o
-    projects: *projects_all
-    test_names:
-    - kselftest/bpf_test_socket_cookie
-    - kselftest-vsyscall-mode-none/bpf_test_socket_cookie
-    - kselftest-vsyscall-mode-native/bpf_test_socket_cookie
     url: https://bugs.linaro.org/show_bug.cgi?id=3976
     active: true
     intermittent: true
