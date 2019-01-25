@@ -572,3 +572,17 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=4255
     active: true
     intermittent: true
+  - environments:
+    - hi6220-hikey
+    - juno-r2
+    - qemu_x86_64
+    - qemu_i386
+    - x86
+    notes: >
+      LTP: cpuhotplug05: TBROK: Field 3 is '(hikey)', '0.00' expected
+    projects: *projects_all
+    test_names:
+    - ltp-cpuhotplug-tests/cpuhotplug05
+    url: https://bugs.linaro.org/show_bug.cgi?id=4264
+    active: true
+    intermittent: true
