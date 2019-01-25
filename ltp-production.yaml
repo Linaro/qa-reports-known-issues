@@ -552,7 +552,7 @@ projects:
     test_name: ltp-mm-tests/vma05
     url: https://bugs.linaro.org/show_bug.cgi?id=4256
     active: true
-    intermittent: true
+    intermittent: false
   - environments: *environments_64bit
     notes: >
       LTP: mm: overcommit_memory.c:237: BROK: Unexpected error: CommitLimit < Committed_AS
@@ -560,7 +560,7 @@ projects:
     test_name: ltp-mm-tests/overcommit_memory02
     url: https://bugs.linaro.org/show_bug.cgi?id=4257
     active: true
-    intermittent: true
+    intermittent: false
   - environments: *environments_all
     notes: >
       LTP: mm: mem.c:782: BROK: mount /dev/cgroup: ENOENT
@@ -571,7 +571,7 @@ projects:
     - ltp-mm-tests/ksm03_1
     url: https://bugs.linaro.org/show_bug.cgi?id=4255
     active: true
-    intermittent: true
+    intermittent: false
   - environments:
     - hi6220-hikey
     - juno-r2
