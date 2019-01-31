@@ -586,3 +586,14 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=4264
     active: true
     intermittent: true
+  - environments: *environments_arm64
+    notes: >
+      LTP: fanotify09.c:202: FAIL: first group got more than 2 events (72 > 48)
+      Backport missing on 4.14 for arm64 architecture
+    projects:
+    - lkft/linux-stable-rc-4.14-oe
+    test_names:
+    - ltp-syscalls-tests/fanotify09
+    url: https://bugs.linaro.org/show_bug.cgi?id=4271
+    active: true
+    intermittent: false
