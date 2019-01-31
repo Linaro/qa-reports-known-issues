@@ -597,3 +597,15 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=4271
     active: true
     intermittent: false
+  - environments:
+    - hi6220-hikey
+    - dragonboard-410c
+    notes: >
+      fanotify01.c:256: FAIL: got event: mask=2 (expected 20) pid=3248 fd=8
+      fanotify01 failed on hikey and dragonboard410c boards all kernel versions
+    projects: *projects_all
+    test_names:
+    - ltp-syscalls-tests/fanotify01
+    url: https://bugs.linaro.org/show_bug.cgi?id=4261
+    active: true
+    intermittent: false
