@@ -437,8 +437,8 @@ def main():
         logging.basicConfig(level=logging.DEBUG, format=FORMAT)
 
     if not args.dry_run and 'QA_REPORTS_KNOWN_ISSUE_TOKEN' not in os.environ:
-            logger.error('Error: QA_REPORTS_KNOWN_ISSUE_TOKEN not set in environment')
-            sys.exit(1)
+        logger.error('Error: QA_REPORTS_KNOWN_ISSUE_TOKEN not set in environment')
+        sys.exit(1)
 
     sync_known_issues(config_data, args.dry_run)
     prune_known_issues(config_data, dry_run=args.dry_run)
