@@ -973,6 +973,7 @@ projects:
     notes: >
       LKFT: BPF test_btf PASS on 4.18 and failed on 4.17 and below
     projects:
+    - lkft/linux-stable-rc-4.19-oe
     - lkft/linux-stable-rc-4.14-oe
     - lkft/linux-stable-rc-4.9-oe
     - lkft/linux-stable-rc-4.4-oe
