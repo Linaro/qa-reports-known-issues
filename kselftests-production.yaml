@@ -944,6 +944,9 @@ projects:
     notes: >
       selftests: proc: fd-003-kthread test_lookup_fail: Assertion
       on 4.4 and 4.9 for all devices
+      statx syscall isn't available in kernels 4.4 and 4.9 according to strace
+      and ENOSYS. And it is likely that it won't be added to v4.4 and v4.9.
+      This test should continue be marked as known issue for those kernels.
     projects:
     - lkft/linux-stable-rc-4.9-oe
     - lkft/linux-stable-rc-4.4-oe
