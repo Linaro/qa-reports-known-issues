@@ -242,7 +242,7 @@ projects:
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_name: ltp-syscalls-tests/inotify08
     url: https://bugs.linaro.org/show_bug.cgi?id=3881
-    active: true
+    active: false
     intermittent: false
   - environments: *environments_all
     notes: >
