@@ -90,7 +90,7 @@ projects:
       - lkft/linaro-hikey-stable-rc-4.4-oe
     test_name: ltp-syscalls-tests/bind03
     url: https://bugs.linaro.org/show_bug.cgi?id=4042
-    active: true
+    active: false
     intermittent: false
   - environments: *environments_all
     notes: >
