@@ -609,3 +609,13 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=4261
     active: true
     intermittent: false
+  - environments:
+    - x15
+    notes: >
+      CONFIG_TASKSTATS and CONFIG_TASK_IO_ACCOUNTING to be set in kernel config
+    projects: *projects_all
+    test_names:
+    - ltp-syscalls-tests/readahead02
+    url: https://bugs.linaro.org/show_bug.cgi?id=4262
+    active: true
+    intermittent: false
