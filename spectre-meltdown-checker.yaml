@@ -1,0 +1,71 @@
+globals:
+  - environments: &environments_arm32
+    - x15
+    - qemu_arm
+  - environments: &environments_i386
+    - i386
+    - qemu_i386
+projects:
+- name: LKFT-spectre-meltdown-checker
+  projects: &projects_all
+    - lkft/linux-next-oe
+    - lkft/linux-mainline-oe
+    - lkft/linux-stable-rc-4.20-oe
+    - lkft/linux-stable-rc-4.19-oe
+    - lkft/linux-stable-rc-4.14-oe
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linaro-hikey-stable-rc-4.4-oe
+  url: https://qa-reports.linaro.org
+  environments: &environments_all
+  - dragonboard-410c
+  - hi6220-hikey
+  - i386
+  - juno-r2
+  - qemu_x86_64
+  - qemu_i386
+  - qemu_arm
+  - qemu_arm64
+  - x15
+  - x86
+  known_issues:
+  - environments: *environments_i386
+    notes: >
+      CVE-2017-5754: VULN PTI is needed to mitigate the vulnerability
+      CVE-2018-3620: VULN Vulnerable
+    projects: *projects_all
+    test_names:
+    - spectre-meltdown-checker-test/CVE-2017-5754
+    - spectre-meltdown-checker-test/CVE-2018-3620
+    url: null
+    active: true
+    intermittent: false
+  - environments:
+    - x86
+    - i386
+    notes: >
+      CVE-2018-3615: VULN your CPU supports SGX and the microcode is not up
+      to date
+    projects: *projects_all
+    test_names:
+    - spectre-meltdown-checker-test/CVE-2018-3615
+    url: null
+    active: true
+    intermittent: false
+  - environments:
+    - juno-r2
+    - i386
+    - x86
+    - qemu_x86_64
+    - qemu_i386
+    notes: >
+      CVE-2018-3639: VULN Your CPU doesn't support SSBD
+      CVE-2018-3640: VULN an up-to-date CPU microcode is needed to mitigate
+      this vulnerability
+    projects: *projects_all
+    test_names:
+    - spectre-meltdown-checker-test/CVE-2018-3639
+    - spectre-meltdown-checker-test/CVE-2018-3640
+    url: null
+    active: true
+    intermittent: false
