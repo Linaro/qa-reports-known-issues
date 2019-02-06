@@ -103,34 +103,6 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=4043
     active: true
     intermittent: false
-  - environments:
-    - hi6220-hikey
-    - x15
-    - qemu_arm
-    - qemu_arm64
-    - qemu_i386
-    - qemu_x86_64
-    notes: >
-      LKFT: LTP: pselect01_64: slept for too long
-    projects: *projects_all
-    test_name: ltp-syscalls-tests/pselect01
-    url: https://bugs.linaro.org/show_bug.cgi?id=3089
-    active: true
-    intermittent: false
-  - environments:
-    - hi6220-hikey
-    - x15
-    - qemu_arm
-    - qemu_arm64
-    - qemu_i386
-    - qemu_x86_64
-    notes: >
-      LKFT: LTP: pselect01_64: slept for too long
-    projects: *projects_all
-    test_name: ltp-syscalls-tests/pselect01_64
-    url: https://bugs.linaro.org/show_bug.cgi?id=3089
-    active: true
-    intermittent: false
   - environments: *environments_arm64_arm32
     notes: >
       mainline kernel tests baselining
@@ -271,15 +243,6 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=3327
     active: true
     intermittent: false
-  - environments: *environments_32bit
-    notes: >
-      Test is inconsistent on x15
-      Intermittent failures on qemu_arm and i386
-    projects: *projects_all
-    test_name: ltp-syscalls-tests/fcntl36
-    url: https://bugs.linaro.org/show_bug.cgi?id=3339
-    active: true
-    intermittent: true
   - environments: *environments_arm32
     notes: >
       LKFT: netns_netlink fails on x15 in mainline and 4.15
@@ -411,20 +374,6 @@ projects:
     projects: *projects_all
     test_name: ltp-syscalls-tests/creat08
     url: https://bugs.linaro.org/show_bug.cgi?id=3940
-    active: true
-    intermittent: false
-  - environments:
-    - i386
-    - qemu_x86_64
-    - qemu_arm64
-    - qemu_arm
-    - qemu_i386
-    notes: >
-      LKFT: next: LTP open11 failed - Got:
-      TEST_ERRNO=EACCES(13): Permission denied instead of errno 0
-    projects: *projects_all
-    test_name: ltp-syscalls-tests/open11
-    url: https://bugs.linaro.org/show_bug.cgi?id=3948
     active: true
     intermittent: false
   - environments: *environments_all
