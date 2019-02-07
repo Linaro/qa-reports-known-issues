@@ -1084,3 +1084,21 @@ projects:
       - lkft/linux-stable-rc-4.9-oe
       - lkft/linux-stable-rc-4.4-oe
       - lkft/linaro-hikey-stable-rc-4.4-oe
+  - environments: *environments_all
+    notes: >
+      LKFT: selftests: net: test_vxlan_fdb_changelink.sh
+      expected two remotes after link set FAIL
+      FAILED on 4.18, 4.14, 4.9 and 4.4 on all devices.
+    projects:
+    - lkft/linux-stable-rc-4.19-oe
+    - lkft/linux-stable-rc-4.14-oe
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linaro-hikey-stable-rc-4.4-oe
+    test_names:
+    - kselftest/net_test_vxlan_fdb_changelink.sh
+    - kselftest-vsyscall-mode-none/net_test_vxlan_fdb_changelink.sh
+    - kselftest-vsyscall-mode-native/net_test_vxlan_fdb_changelink.sh
+    url: https://bugs.linaro.org/show_bug.cgi?id=4266
+    active: true
+    intermittent: false
