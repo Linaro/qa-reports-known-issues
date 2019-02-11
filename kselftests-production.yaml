@@ -652,11 +652,15 @@ projects:
       - lkft/linux-stable-rc-4.14-oe
     - environments: *environments_arm32
       projects: *projects_all
-  - environments: *environments_arm64_arm32
+  - environments: *environments_all
     notes: >
       LKFT: kselftest: proc-self-map-files-001 not made for ARM
       proc-self-map-files-002 is the same test and works for ARM.
-    projects: *projects_all
+    projects:
+    - lkft/linaro-hikey-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.14-oe
     test_names:
     - kselftest/proc_proc-self-map-files-001
     - kselftest-vsyscall-mode-none/proc_proc-self-map-files-001
