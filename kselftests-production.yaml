@@ -235,7 +235,10 @@ projects:
       LKFT: mainline: x86: kselftests fsgsbase_64 failed - GS/BASE changed from
       0x1/0x0 to 0x0/0x0 Fails intermittently
     projects: *projects_all
-    test_name: kselftest/x86_fsgsbase_64
+    test_names:
+    - kselftest/x86_fsgsbase_64
+    - kselftest-vsyscall-mode-none/x86_fsgsbase_64
+    - kselftest-vsyscall-mode-native/x86_fsgsbase_64
     url: https://bugs.linaro.org/show_bug.cgi?id=3596
     active: true
     intermittent: true
