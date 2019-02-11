@@ -568,3 +568,13 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=4262
     active: true
     intermittent: false
+  - environments: *environments_arm64
+    notes: >
+      LTP memory test case mtest06/mmap1 longs for 15 minutes and more and
+      failures few times and it is an intermittent issue.
+      Test frequently fails on qemu_arm64, dragonboard, hikey and Juno.
+    projects: *projects_all
+    test_name: ltp-mm-tests/mtest06
+    url: https://bugs.linaro.org/show_bug.cgi?id=4273
+    active: true
+    intermittent: true
