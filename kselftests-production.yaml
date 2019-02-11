@@ -1084,6 +1084,8 @@ projects:
     intermittent: false
   - test_names:
     - kselftest/bpf_test_netcnt
+    - kselftest-vsyscall-mode-none/bpf_test_netcnt
+    - kselftest-vsyscall-mode-native/bpf_test_netcnt
     notes: >
        kselftest: i386: bpf: test_netcnt : libbpf: failed to create map
        (name: 'percpu_netcnt'): Invalid argument
