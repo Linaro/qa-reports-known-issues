@@ -725,6 +725,8 @@ projects:
     projects: *projects_all
     test_names:
     - kselftest/net_pmtu.sh
+    - kselftest-vsyscall-mode-none/net_pmtu.sh
+    - kselftest-vsyscall-mode-native/net_pmtu.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=3830
     active: true
     intermittent: false
