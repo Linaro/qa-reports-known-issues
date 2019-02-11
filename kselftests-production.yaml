@@ -141,10 +141,17 @@ projects:
     intermittent: false
   - environments: *environments_all
     notes: >
-      LKFT: linux-mainline: kselftest BPF test_dev_cgroup failed
+      LKFT: kselftest BPF test_dev_cgroup failed on 4.14 and below
       on all devices
-    projects: *projects_all
-    test_name: kselftest/bpf_test_dev_cgroup
+    projects:
+    - lkft/linux-stable-rc-4.14-oe
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linaro-hikey-stable-rc-4.4-oe
+    test_names:
+    - kselftest/bpf_test_dev_cgroup
+    - kselftest-vsyscall-mode-none/bpf_test_dev_cgroup
+    - kselftest-vsyscall-mode-native/bpf_test_dev_cgroup
     url: https://bugs.linaro.org/show_bug.cgi?id=3500
     active: true
     intermittent: false
