@@ -1122,3 +1122,22 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=4266
     active: true
     intermittent: false
+  - environments: *environments_all
+    notes: >
+      selftests/net/ip_defrag.sh : ./ip_defrag: recv: expected timeout; got 2272
+      FAILED on 4.20, 4.19, 4.14, 4.9 and 4.4 on all devices.
+      Fixed and PASS on mainline
+    projects:
+    - lkft/linux-stable-rc-4.20-oe
+    - lkft/linux-stable-rc-4.19-oe
+    - lkft/linux-stable-rc-4.14-oe
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linaro-hikey-stable-rc-4.4-oe
+    test_names:
+    - kselftest/net_ip_defrag.sh
+    - kselftest-vsyscall-mode-none/net_ip_defrag.sh
+    - kselftest-vsyscall-mode-native/net_ip_defrag.sh
+    url: https://bugs.linaro.org/show_bug.cgi?id=4214
+    active: true
+    intermittent: false
