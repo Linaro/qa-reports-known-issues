@@ -442,6 +442,22 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=4024
     active: true
     intermittent: true
+  - environments:
+    - i386
+    notes: >
+      meltdown.c:373: FAIL: I was able to read your kernel memory!!!
+      Decide if we want to have PAGE TABLE ISOLATION configured for our i386 builds or not.
+      If yes, then enable 3 config options
+      CONFIG_PAGE_TABLE_ISOLATION
+      CONFIG_X86_PAE
+      CONFIG_HIGHMEM64G
+      in our build recipes.
+      If not, mark this test as known issue for i386.
+    projects: *projects_all
+    test_name: ltp-cve-tests/cve-2017-5754
+    url: https://bugs.linaro.org/show_bug.cgi?id=4135
+    active: true
+    intermittent: true
   - environments: *environments_all
     notes: >
       LTP: fsetxattr02 and fgetxattr02 failed with error ENXIO
