@@ -1142,3 +1142,20 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=4214
     active: true
     intermittent: false
+  - environments: *environments_all
+    notes: >
+      LKFT: 4.14 4.4: BPF: test_xdp_redirect.sh and test_xdp_meta.sh skipped
+      Could not run test without the ip xdpgeneric support
+      FAILED on  4.14 and 4.4 on all devices.
+      PASS on 4.9, 4.19, 4.20 mainline and -next
+    projects:
+    - lkft/linux-stable-rc-4.14-oe
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linaro-hikey-stable-rc-4.4-oe
+    test_names:
+    - kselftest/bpf_test_xdp_meta.sh
+    - kselftest-vsyscall-mode-none/bpf_test_xdp_meta.sh
+    - kselftest-vsyscall-mode-native/bpf_test_xdp_meta.sh
+    url: https://bugs.linaro.org/show_bug.cgi?id=3630
+    active: true
+    intermittent: false
