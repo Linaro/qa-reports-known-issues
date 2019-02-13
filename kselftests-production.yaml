@@ -1159,3 +1159,22 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=3630
     active: true
     intermittent: false
+  - test_names:
+    - kselftest/bpf_test_xdp_vlan.sh
+    - kselftest-vsyscall-mode-none/bpf_test_xdp_vlan.sh
+    - kselftest-vsyscall-mode-native/bpf_test_xdp_vlan.sh
+    notes: >
+      selftest: bpf_test_xdp_vlan.sh ping fails
+      failed for all 32bit devices on all branches
+      failed on 4.14 and 4.4 on all devices.
+    matrix_apply:
+    - environments: *environments_32bit
+      projects: *projects_all
+    - environments: *environments_all
+      projects:
+      - lkft/linux-stable-rc-4.14-oe
+      - lkft/linux-stable-rc-4.4-oe
+      - lkft/linaro-hikey-stable-rc-4.4-oe
+    url: https://bugs.linaro.org/show_bug.cgi?id=4285
+    active: true
+    intermittent: false
