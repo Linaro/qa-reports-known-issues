@@ -579,3 +579,19 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=4273
     active: true
     intermittent: true
+  - environments:
+    - i386
+    - qemu_x86_64
+    - qemu_i386
+    - qemu_arm
+    - x15
+    - x86
+    notes: >
+      LTP: fanotify option FAN_REPORT_TID is missing
+      fanotify11.c:68: CONF: FAN_REPORT_TID not supported in kernel?
+    projects: *projects_all
+    test_names:
+    - ltp-syscalls-tests/fanotify11
+    url: https://bugs.linaro.org/show_bug.cgi?id=4246
+    active: true
+    intermittent: false
