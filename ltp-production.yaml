@@ -560,6 +560,7 @@ projects:
     intermittent: false
   - environments:
     - x15
+    - qemu_arm
     notes: >
       CONFIG_TASKSTATS and CONFIG_TASK_IO_ACCOUNTING to be set in kernel config
     projects: *projects_all
