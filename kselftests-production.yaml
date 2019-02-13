@@ -1021,9 +1021,10 @@ projects:
   - environments: *environments_all
     notes: >
       LKFT: selftests: bpf: test_cgroup_storage Failed to create map: Invalid argument
-      PASS on 4.19 mainline and -next.
-      FAILED on 4.18, 4.14, 4.9 and 4.4 on all devices.
+      PASS on 4.20 mainline and -next.
+      FAILED on 4.19, 4.14, 4.9 and 4.4 on all devices.
     projects:
+    - lkft/linux-stable-rc-4.19-oe
     - lkft/linux-stable-rc-4.14-oe
     - lkft/linux-stable-rc-4.9-oe
     - lkft/linux-stable-rc-4.4-oe
