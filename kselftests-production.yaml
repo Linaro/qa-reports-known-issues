@@ -742,7 +742,7 @@ projects:
     - kselftest-vsyscall-mode-native/net_pmtu.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=3830
     active: true
-    intermittent: false
+    intermittent: true
   - environments: *environments_all
     notes: >
       LKFT: bpf: get_cgroup_id_user failed errno 2 on all devices
@@ -856,7 +856,7 @@ projects:
     - kselftest-vsyscall-mode-native/bpf_test_sockmap
     url: https://bugs.linaro.org/show_bug.cgi?id=3977
     active: true
-    intermittent: false
+    intermittent: true
   - environments: *environments_all
     notes: >
       LKFT: cgroup: test_core: test_cgcore_internal_process_constraint
