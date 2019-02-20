@@ -103,6 +103,34 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=4043
     active: true
     intermittent: false
+  - environments:
+    - hi6220-hikey
+    - x15
+    - qemu_arm
+    - qemu_arm64
+    - qemu_i386
+    - qemu_x86_64
+    notes: >
+      LKFT: LTP: pselect01_64: slept for too long
+    projects: *projects_all
+    test_name: ltp-syscalls-tests/pselect01
+    url: https://bugs.linaro.org/show_bug.cgi?id=3089
+    active: true
+    intermittent: true
+  - environments:
+    - hi6220-hikey
+    - x15
+    - qemu_arm
+    - qemu_arm64
+    - qemu_i386
+    - qemu_x86_64
+    notes: >
+      LKFT: LTP: pselect01_64: slept for too long
+    projects: *projects_all
+    test_name: ltp-syscalls-tests/pselect01_64
+    url: https://bugs.linaro.org/show_bug.cgi?id=3089
+    active: true
+    intermittent: true
   - environments: *environments_arm64_arm32
     notes: >
       mainline kernel tests baselining
