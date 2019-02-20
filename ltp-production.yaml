@@ -266,7 +266,7 @@ projects:
     test_name: ltp-syscalls-tests/epoll_wait02
     url: https://bugs.linaro.org/show_bug.cgi?id=3768
     active: true
-    intermittent: false
+    intermittent: true
   - environments: *environments_qemu
     notes: >
       LKFT: qemu: LTP skip failed timing test cases
@@ -444,6 +444,7 @@ projects:
     intermittent: true
   - environments:
     - i386
+    - qemu_i386
     notes: >
       meltdown.c:373: FAIL: I was able to read your kernel memory!!!
       Decide if we want to have PAGE TABLE ISOLATION configured for our i386 builds or not.
