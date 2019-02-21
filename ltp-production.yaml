@@ -651,3 +651,15 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=4246
     active: true
     intermittent: false
+  - environments: *environments_all
+    notes: >
+      LTP syscalls test preadv201/ preadv201_64 failed on 4.4 on all devices.
+    projects:
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linaro-hikey-stable-rc-4.4-oe
+    test_names:
+    - ltp-syscalls-tests/preadv201
+    - ltp-syscalls-tests/preadv201_64
+    url: https://bugs.linaro.org/show_bug.cgi?id=4291
+    active: true
+    intermittent: false
