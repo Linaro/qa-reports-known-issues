@@ -602,6 +602,21 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=4271
     active: true
     intermittent: false
+  - environments: *environments_all
+    notes: >
+      Newly added LTP syscalls test case fanotify10 with ext2 opts failed
+      on 4.9 and 4.4 kernel branch.
+      fanotify10.c:293: FAIL: group 0 (prio 1) with FAN_MARK_INODE and
+      FAN_MARK_MOUNT ignore mask got event
+    projects:
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linaro-hikey-stable-rc-4.4-oe
+    test_names:
+    - ltp-syscalls-tests/fanotify10
+    url: https://bugs.linaro.org/show_bug.cgi?id=4292
+    active: true
+    intermittent: false
   - environments:
     - hi6220-hikey
     - dragonboard-410c
