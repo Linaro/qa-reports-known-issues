@@ -1159,6 +1159,21 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=3630
     active: true
     intermittent: false
+  - environments: *environments_all
+    notes: >
+      LKFT: 4.4: BPF: test_xdp_redirect.sh
+      Prog section 'redirect_to_222' rejected: Invalid argument (22)!
+      FAILED on 4.4 on all devices.
+    projects:
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linaro-hikey-stable-rc-4.4-oe
+    test_names:
+    - kselftest/bpf_test_xdp_redirect.sh
+    - kselftest-vsyscall-mode-none/bpf_test_xdp_redirect.sh
+    - kselftest-vsyscall-mode-native/bpf_test_xdp_redirect.sh
+    url: https://bugs.linaro.org/show_bug.cgi?id=3630
+    active: true
+    intermittent: false
   - test_names:
     - kselftest/bpf_test_xdp_vlan.sh
     - kselftest-vsyscall-mode-none/bpf_test_xdp_vlan.sh
