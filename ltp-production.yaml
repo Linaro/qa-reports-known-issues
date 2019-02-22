@@ -451,6 +451,7 @@ projects:
     intermittent: true
   - environments:
     - hi6220-hikey
+    - dragonboard-410c
     notes: >
       LKFT: hikey: LTP: FS: read_all: kernel BUG: sleeping function called
       from invalid context percpu-rwsem.h:34 - regmap_mmio_read32le+0x24/0x38
