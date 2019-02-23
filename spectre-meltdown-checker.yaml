@@ -39,7 +39,7 @@ projects:
     - spectre-meltdown-checker-test/CVE-2018-3620
     url: null
     active: true
-    intermittent: false
+    intermittent: true
   - environments:
     - x86
     - i386
@@ -68,4 +68,4 @@ projects:
     - spectre-meltdown-checker-test/CVE-2018-3640
     url: null
     active: true
-    intermittent: false
+    intermittent: true
