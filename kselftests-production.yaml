@@ -812,12 +812,10 @@ projects:
     active: true
     intermittent: true
     matrix_apply:
-    - environments: *environments_x86_64
+    - environments: *environments_32bit
       projects: *projects_all
     - environments: *environments_all
       projects:
-      - lkft/linux-stable-rc-4.20-oe
-      - lkft/linux-stable-rc-4.19-oe
       - lkft/linux-stable-rc-4.14-oe
       - lkft/linux-stable-rc-4.9-oe
       - lkft/linux-stable-rc-4.4-oe
