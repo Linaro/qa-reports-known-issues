@@ -679,3 +679,12 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=4291
     active: true
     intermittent: false
+  - environments: *environments_all
+    notes: >
+      LTP commands mkswap01_sh failed on all devices - intermittent timeout
+    projects: *projects_all
+    test_names:
+    - ltp-commands-tests/mkswap01_sh
+    url: https://bugs.linaro.org/show_bug.cgi?id=4303
+    active: true
+    intermittent: true
