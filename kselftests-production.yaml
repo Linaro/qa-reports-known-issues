@@ -158,9 +158,9 @@ projects:
     intermittent: false
   - environments: *environments_all
     notes: >
-      Adding skiplist according to the below ticket mainline kernel tests baselining
+      Slow running test cases timedout on qemu are marked as known issues
     projects: *projects_all
-    url: https://projects.linaro.org/projects/CTT/queues/issue/CTT-585
+    url: https://bugs.linaro.org/show_bug.cgi?id=4306
     active: true
     intermittent: false
     test_names:
