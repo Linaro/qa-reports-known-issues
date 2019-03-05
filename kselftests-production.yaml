@@ -618,7 +618,10 @@ projects:
       LKFT: LKFT: mainline: dragon board 410c: proc read failed - ICMPv6: process
       read is using deprecated sysctl
     projects: *projects_all
-    test_name: kselftest/proc_read
+    test_names:
+    - kselftest/proc_read
+    - kselftest-vsyscall-mode-none/proc_read
+    - kselftest-vsyscall-mode-native/proc_read
     url: https://bugs.linaro.org/show_bug.cgi?id=3744
     active: true
     intermittent: true
