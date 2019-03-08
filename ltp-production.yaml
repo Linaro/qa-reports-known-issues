@@ -689,3 +689,14 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=4303
     active: true
     intermittent: true
+  - environments:
+    - qemu_arm
+    notes: >
+      LTP: dio: dio13 No space left on device
+      This is a limitation of qemu_arm32
+    projects: *projects_all
+    test_names:
+    - ltp-dio-tests/dio13
+    url: https://bugs.linaro.org/show_bug.cgi?id=4304
+    active: true
+    intermittent: false
