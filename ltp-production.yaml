@@ -376,7 +376,7 @@ projects:
     test_name: ltp-syscalls-tests/select04
     url: https://bugs.linaro.org/show_bug.cgi?id=3852
     active: true
-    intermittent: false
+    intermittent: true
   - environments: *environments_all
     notes: >
       LKFT: LTP: cve-2015-3290 should be skipped in all
@@ -579,17 +579,14 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=4255
     active: true
     intermittent: false
-  - environments:
-    - hi6220-hikey
-    - juno-r2
-    - qemu_x86_64
-    - qemu_i386
-    - x86
+  - environments: *environments_all
     notes: >
       LTP: cpuhotplug05: TBROK: Field 3 is '(hikey)', '0.00' expected
+      cpuhotplug03:  No cpuhotplug_do_spin_loop processes found on CPU1
     projects: *projects_all
     test_names:
     - ltp-cpuhotplug-tests/cpuhotplug05
+    - ltp-cpuhotplug-tests/cpuhotplug03
     url: https://bugs.linaro.org/show_bug.cgi?id=4264
     active: true
     intermittent: true
@@ -630,7 +627,7 @@ projects:
     - ltp-syscalls-tests/fanotify01
     url: https://bugs.linaro.org/show_bug.cgi?id=4261
     active: true
-    intermittent: false
+    intermittent: true
   - environments:
     - x15
     - qemu_arm
