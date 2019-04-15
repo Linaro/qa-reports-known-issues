@@ -1195,3 +1195,15 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=4285
     active: true
     intermittent: false
+  - environments: *environments_all
+    notes: >
+      bpf: test_lwt_ip_encap.sh: ip6_tunnel: gre6_dev xmit: Local address
+      not yet configured
+    projects: *projects_all
+    test_names:
+    - kselftest/bpf_test_lwt_ip_encap.sh
+    - kselftest-vsyscall-mode-none/bpf_test_lwt_ip_encap.sh
+    - kselftest-vsyscall-mode-native/bpf_test_lwt_ip_encap.sh
+    url: https://bugs.linaro.org/show_bug.cgi?id=4346
+    active: true
+    intermittent: false
