@@ -697,3 +697,14 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=4304
     active: true
     intermittent: false
+  - environments: *environments_all
+    notes: >
+      LTP: mount02 was expected EINVAL(22) but got ENOENT(2): No such file or directory
+      Both new error codes EINVAL and ENOTBLK to be added to test case
+    projects:
+    - lkft/linux-mainline-oe
+    test_names:
+    - ltp-syscalls-tests/mount02
+    url: https://bugs.linaro.org/show_bug.cgi?id=4310
+    active: true
+    intermittent: false
