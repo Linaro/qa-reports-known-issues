@@ -253,16 +253,22 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=3318
     active: true
     intermittent: false
-  - environments: *environments_arm64
+  - test_names:
+    - ltp-fs-tests/quota_remount_test01
     notes: >
       LKFT: arm64: Hikey: Juno: db410c:
       ltp-fs-tests/quota_remount_test01
       quotaon: Quota format not supported in kernel
-    projects: *projects_all
-    test_name: ltp-fs-tests/quota_remount_test01
+    matrix_apply:
+    - environments: *environments_arm64
+      projects: *projects_all
+    - environments:
+      - qemu_i386
+      - qemu_x86_64
+      projects: *projects_all
     url: https://bugs.linaro.org/show_bug.cgi?id=3354
     active: true
-    intermittent: false
+    intermittent: true
   - environments: *environments_all
     notes: >
       LKFT: linux-mainline: HiKey and Juno: ltp-containers Network Namespaces
