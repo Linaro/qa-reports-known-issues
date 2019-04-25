@@ -325,7 +325,7 @@ projects:
     test_name: ltp-syscalls-tests/poll02
     url: https://bugs.linaro.org/show_bug.cgi?id=3768
     active: true
-    intermittent: false
+    intermittent: true
   - environments: *environments_qemu_arm
     notes: >
       LKFT: LTP skip hackbench01/02 on qemu_arm and qemu_arm64 causing kernel

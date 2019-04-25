@@ -162,7 +162,7 @@ projects:
     projects: *projects_all
     url: https://bugs.linaro.org/show_bug.cgi?id=4306
     active: true
-    intermittent: false
+    intermittent: true
     test_names:
     - kselftest/bpf_test_maps
     - kselftest-vsyscall-mode-none/bpf_test_maps
@@ -572,7 +572,7 @@ projects:
     - kselftest-vsyscall-mode-native/net_fib_tests.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=3742
     active: true
-    intermittent: false
+    intermittent: true
   - test_names:
     - kselftest/gpio_gpio-mockup.sh
     notes: >
