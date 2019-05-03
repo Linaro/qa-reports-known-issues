@@ -1,0 +1,90 @@
+globals:
+  - environments: &environments_arm32
+    - x15
+    - qemu_arm
+  - environments: &environments_i386
+    - i386
+    - qemu_i386
+projects:
+- name: LKFT-v4l2-compliance
+  projects: &projects_all
+    - lkft/linux-next-oe
+    - lkft/linux-mainline-oe
+    - lkft/linux-stable-rc-5.0-oe
+    - lkft/linux-stable-rc-4.20-oe
+    - lkft/linux-stable-rc-4.19-oe
+    - lkft/linux-stable-rc-4.14-oe
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linaro-hikey-stable-rc-4.4-oe
+  url: https://qa-reports.linaro.org
+  environments: &environments_all
+  - dragonboard-410c
+  - hi6220-hikey
+  - i386
+  - juno-r2
+  - qemu_x86_64
+  - qemu_i386
+  - qemu_arm
+  - qemu_arm64
+  - x15
+  - x86
+  known_issues:
+  - environments: *environments_all
+    notes: >
+       Buffer ioctls (Input 0):
+       info: test buftype Video Capture
+       fail: ../../../v4l-utils-1.16.0/utils/v4l2-compliance/v4l2-test-buffers.cpp(485):
+       check_0(reqbufs.reserved, sizeof(reqbufs.reserved))
+       test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: FAIL
+    projects:
+    - lkft/linux-next-oe
+    - lkft/linux-mainline-oe
+    - lkft/linux-stable-rc-5.0-oe
+    test_names:
+    - v4l2-compliance/VIDIOC_REQBUFS-CREATE_BUFS-QUERYBUF
+    url: https://bugs.linaro.org/show_bug.cgi?id=4639
+    active: true
+    intermittent: false
+  - environments: *environments_all
+    notes: >
+      v4l2-compliance summary failed
+      this is a not real test case
+    projects: *projects_all
+    test_names:
+    - v4l2-compliance/v4l2-compliance
+    url: null
+    active: true
+    intermittent: false
+  - environments: *environments_all
+    notes: >
+      fail: ../../../v4l-utils-1.16.0/utils/v4l2-compliance/v4l2-test-formats.cpp(1425): doioctl(node, VIDIOC_CROPCAP, &cap)
+      fail: ../../../v4l-utils-1.16.0/utils/v4l2-compliance/v4l2-test-formats.cpp(1447): testLegacyCrop(node)
+      test Cropping: FAIL
+    projects:
+    - lkft/linux-stable-rc-4.19-oe
+    - lkft/linux-stable-rc-4.14-oe
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linaro-hikey-stable-rc-4.4-oe
+    test_names:
+    - v4l2-compliance/Cropping
+    url: https://bugs.linaro.org/show_bug.cgi?id=4638
+    active: true
+    intermittent: false
+  - environments: *environments_all
+    notes: >
+      test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: OK
+      fail: ../../../v4l-utils-1.16.0/utils/v4l2-compliance/v4l2-test-formats.cpp(1132): reserved not zeroed
+      test VIDIOC_G/S_PARM: FAIL
+    projects:
+    - lkft/linux-stable-rc-4.19-oe
+    - lkft/linux-stable-rc-4.14-oe
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linaro-hikey-stable-rc-4.4-oe
+    test_names:
+    - v4l2-compliance/VIDIOC_G-S_PARM
+    url: https://bugs.linaro.org/show_bug.cgi?id=4637
+    active: true
+    intermittent: false
