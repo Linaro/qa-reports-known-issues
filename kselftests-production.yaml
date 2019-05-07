@@ -52,6 +52,7 @@ projects:
 - name: LKFT
   projects: &projects_all
     - lkft/linux-mainline-oe
+    - lkft/linux-stable-rc-5.1-oe
     - lkft/linux-stable-rc-5.0-oe
     - lkft/linux-stable-rc-4.20-oe
     - lkft/linux-stable-rc-4.19-oe
@@ -271,6 +272,7 @@ projects:
       - x86
       projects:
       - lkft/linux-mainline-oe
+      - lkft/linux-stable-rc-5.1-oe
   - test_names:
     - kselftest/bpf_test_align
     - kselftest-vsyscall-mode-none/bpf_test_align
