@@ -53,7 +53,7 @@ projects:
     - spectre-meltdown-checker-test/CVE-2018-3615
     url: null
     active: true
-    intermittent: false
+    intermittent: true
   - environments:
     - juno-r2
     - i386

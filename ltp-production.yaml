@@ -294,7 +294,7 @@ projects:
     test_name: ltp-syscalls-tests/clock_nanosleep02
     url: https://bugs.linaro.org/show_bug.cgi?id=3768
     active: true
-    intermittent: false
+    intermittent: true
   - environments: *environments_qemu
     notes: >
       LKFT: qemu: LTP skip failed timing test cases
@@ -496,9 +496,7 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=4135
     active: true
     intermittent: true
-  - environments:
-    - i386
-    - qemu_i386
+  - environments: *environments_qemu
     notes: >
       LTP CVE cve-2017-17053 fails intermittently.
       Marking this test as known issue for i386 and qemu_i386.
