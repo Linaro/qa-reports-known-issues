@@ -718,3 +718,15 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=4310
     active: true
     intermittent: false
+  - environments:
+    - juno-r2
+    - x15
+    notes: >
+      LTP: getrusage04 failed - stime increased > 6000u
+      intermittently failed on x15 and juno-r2
+    projects: *projects_all
+    test_names:
+    - ltp-syscalls-tests/getrusage04
+    url: https://bugs.linaro.org/show_bug.cgi?id=3507
+    active: true
+    intermittent: true
