@@ -58,6 +58,7 @@ projects:
     - juno-r2
     - i386
     - x86
+    - x15
     - qemu_x86_64
     - qemu_i386
     notes: >
