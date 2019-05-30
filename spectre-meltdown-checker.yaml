@@ -72,3 +72,13 @@ projects:
     url: null
     active: true
     intermittent: true
+  - environments:
+    - x15
+    notes: >
+      CVE-2017-5753: VULN (Kernel source needs to be patched to mitigate the vulnerability)
+    projects: *projects_all
+    test_names:
+    - spectre-meltdown-checker-test/CVE-2017-5753
+    url: null
+    active: true
+    intermittent: true
