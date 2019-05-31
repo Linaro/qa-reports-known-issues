@@ -689,6 +689,18 @@ projects:
     intermittent: false
   - environments: *environments_all
     notes: >
+      LTP syscalls test pwritev201/ pwritev201_64 failed on 4.4 on all devices.
+    projects:
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linaro-hikey-stable-rc-4.4-oe
+    test_names:
+    - ltp-syscalls-tests/pwritev201
+    - ltp-syscalls-tests/pwritev201_64
+    url: https://bugs.linaro.org/show_bug.cgi?id=5298
+    active: true
+    intermittent: false
+  - environments: *environments_all
+    notes: >
       LTP commands mkswap01_sh failed on all devices - intermittent timeout
     projects: *projects_all
     test_names:
@@ -730,3 +742,34 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=3507
     active: true
     intermittent: true
+  - environments: *environments_arm64
+    notes: >
+      From LTP 20190517 release these new test cases got added and on all arm64 devices
+      ioctl_ns05 and ioctl_ns06 getting failed
+      tst_checkpoint.c:162 BROK ioctl_ns05.c:83 tst_checkpoint_wake(0, 1, 10000) ETIMEDOUT
+    projects: *projects_all
+    test_names:
+    - ltp-syscalls-tests/ioctl_ns05
+    - ltp-syscalls-tests/ioctl_ns06
+    url: https://bugs.linaro.org/show_bug.cgi?id=5296
+    active: true
+    intermittent: false
+  - environments: *environments_qemu
+    notes: >
+      LTP io tests aio02 is getting failed on all qemu devices
+      safe_macros.c:225 BROK aio02.c:119 open(file,16961,0644) failed EINVAL
+    projects: *projects_all
+    test_names:
+    - ltp-io-tests/aio02
+    url: https://bugs.linaro.org/show_bug.cgi?id=5295
+    active: true
+    intermittent: false
+  - environments: *environments_arm32
+    notes: >
+      LTP: acct01.c:70: CONF: acct() system call isn't configured in kernel
+    projects: *projects_all
+    test_names:
+    - ltp-syscalls-tests/acct01
+    url: https://bugs.linaro.org/show_bug.cgi?id=5297
+    active: true
+    intermittent: false
