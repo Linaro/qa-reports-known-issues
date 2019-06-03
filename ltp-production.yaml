@@ -211,7 +211,7 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=3721
     active: true
     intermittent: false
-  - environments: *environments_arm64
+  - environments: *environments_arm64_arm32
     notes: >
       ustat01 and ustat02 failed only on Juno, because this syscall not
       implemented on arm-64 architecture.
