@@ -1276,3 +1276,14 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5301
     active: true
     intermittent: false
+  - environments: *environments_all
+    notes: >
+      Newly added test kvm vmx_close_while_nested_test skipped on x86_64 and build failed on all other devices.
+    projects: *projects_all
+    test_names:
+    - kselftest/kvm_vmx_close_while_nested_test
+    - kselftest-vsyscall-mode-none/kvm_vmx_close_while_nested_test
+    - kselftest-vsyscall-mode-native/kvm_vmx_close_while_nested_test
+    url: https://bugs.linaro.org/show_bug.cgi?id=5302
+    active: true
+    intermittent: false
