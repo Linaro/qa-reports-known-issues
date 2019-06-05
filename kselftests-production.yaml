@@ -1226,3 +1226,17 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=4317
     active: true
     intermittent: false
+  - environments: *environments_all
+    notes: >
+      selftests: bpf: test_sock_fields
+      libbpf: failed to create map (name: 'sk_pkt_out_cnt'): Invalid argument
+      libbpf: failed to load object 'test_sock_fields_kern.o'
+      main(438):FAIL:bpf_prog_load_xattr() err:-22
+    projects: *projects_all
+    test_names:
+    - kselftest/bpf_test_sock_fields
+    - kselftest-vsyscall-mode-none/bpf_test_sock_fields
+    - kselftest-vsyscall-mode-native/bpf_test_sock_fields
+    url: https://bugs.linaro.org/show_bug.cgi?id=4644
+    active: true
+    intermittent: false
