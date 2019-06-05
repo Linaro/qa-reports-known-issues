@@ -1287,3 +1287,14 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5302
     active: true
     intermittent: false
+  - environments: *environments_all
+    notes: >
+      Newly added test net test_vxlan_under_vrf.sh Check VM connectivity through VXLAN underlay in a VRF FAIL
+    projects: *projects_all
+    test_names:
+    - kselftest/net_test_vxlan_under_vrf.sh
+    - kselftest-vsyscall-mode-none/net_test_vxlan_under_vrf.sh
+    - kselftest-vsyscall-mode-native/net_test_vxlan_under_vrf.sh
+    url: https://bugs.linaro.org/show_bug.cgi?id=5303
+    active: true
+    intermittent: false
