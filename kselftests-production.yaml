@@ -1298,3 +1298,16 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5303
     active: true
     intermittent: false
+  - environments: *environments_all
+    notes: >
+      Newly added test case selftests tpm2_test_space.sh failed on all device running
+      mainline kernel due to python dependency.
+      ImportError: No module named tpm2_tests
+    projects: *projects_all
+    test_names:
+    - kselftest/tpm2_test_space.sh
+    - kselftest-vsyscall-mode-none/tpm2_test_space.sh
+    - kselftest-vsyscall-mode-native/tpm2_test_space.sh
+    url: https://bugs.linaro.org/show_bug.cgi?id=4640
+    active: true
+    intermittent: false
