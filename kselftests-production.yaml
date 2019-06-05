@@ -1265,3 +1265,14 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5299
     active: true
     intermittent: false
+  - environments: *environments_all
+    notes: >
+      Newly added selftests kvm smm_test build failed for arm / arm64 and skipped on x86_64.
+    projects: *projects_all
+    test_names:
+    - kselftest/kvm_smm_test
+    - kselftest-vsyscall-mode-none/kvm_smm_test
+    - kselftest-vsyscall-mode-native/kvm_smm_test
+    url: https://bugs.linaro.org/show_bug.cgi?id=5301
+    active: true
+    intermittent: false
