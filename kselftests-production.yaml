@@ -1253,3 +1253,15 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=4211
     active: true
     intermittent: false
+  - environments: *environments_all
+    notes: >
+      Newly added test case bpf: test_btf_dump failed on all devices.
+      Test case btf_dump_test_case_syntax test_btf_dump_case 71 FAIL failed to load test BTF -2
+    projects: *projects_all
+    test_names:
+    - kselftest/bpf_test_btf_dump
+    - kselftest-vsyscall-mode-none/bpf_test_btf_dump
+    - kselftest-vsyscall-mode-native/bpf_test_btf_dump
+    url: https://bugs.linaro.org/show_bug.cgi?id=5299
+    active: true
+    intermittent: false
