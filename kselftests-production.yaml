@@ -1240,3 +1240,16 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=4644
     active: true
     intermittent: false
+  - environments: *environments_all
+    notes: >
+      CONFIG_UDMABUF=y is missing in kernel config
+      selftests: dma-buf: udmabuf
+      drivers/dma-buf/udmabuf: [skip,no-udmabuf]
+    projects: *projects_all
+    test_names:
+    - kselftest/dma-buf_udmabuf
+    - kselftest-vsyscall-mode-none/dma-buf_udmabuf
+    - kselftest-vsyscall-mode-native/dma-buf_udmabuf
+    url: https://bugs.linaro.org/show_bug.cgi?id=4211
+    active: true
+    intermittent: false
