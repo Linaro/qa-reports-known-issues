@@ -1209,3 +1209,20 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=4346
     active: true
     intermittent: false
+  - environments: *environments_32bit
+    notes: >
+      Newly added test case selftests: bpf: test_tcpnotify_user is getting failed on 32bit
+      architectures x15 and i386.
+      selftests: bpf: test_tcpnotify_user
+      libbpf: object file doesn't contain bpf program
+      FAILED: load_bpf_file failed for: test_tcpnotify_kern.o
+      PASSED on linux next 20190605 default in tree source.
+      close this known issues when we upgrade to 5.2 kselftest version and 5.2 kernel.
+    projects: *projects_all
+    test_names:
+    - kselftest/bpf_test_tcpnotify_user
+    - kselftest-vsyscall-mode-none/bpf_test_tcpnotify_user
+    - kselftest-vsyscall-mode-native/bpf_test_tcpnotify_user
+    url: https://bugs.linaro.org/show_bug.cgi?id=4317
+    active: true
+    intermittent: false
