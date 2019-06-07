@@ -665,6 +665,8 @@ projects:
       - lkft/linux-stable-rc-4.4-oe
       - lkft/linux-stable-rc-4.9-oe
       - lkft/linux-stable-rc-4.14-oe
+      - lkft/linux-stable-rc-4.19-oe
+      - lkft/linux-stable-rc-5.1-oe
     - environments: *environments_arm32
       projects: *projects_all
   - environments: *environments_all
