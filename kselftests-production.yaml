@@ -1313,3 +1313,15 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=4640
     active: true
     intermittent: false
+  - environments: *environments_all
+    notes: >
+      net: run_netsocktests: expected err (Address family not supported by protocol)
+      got (Socket type not supported)
+    projects: *projects_all
+    test_names:
+    - kselftest/net_run_netsocktests
+    - kselftest-vsyscall-mode-none/net_run_netsocktests
+    - kselftest-vsyscall-mode-native/net_run_netsocktests
+    url: https://bugs.linaro.org/show_bug.cgi?id=5306
+    active: true
+    intermittent: false
