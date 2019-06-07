@@ -1341,3 +1341,14 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5307
     active: true
     intermittent: false
+  - environments: *environments_all
+    notes: >
+      ./run_kselftest.sh: line 323: 8681 Aborted (core dumped) ./memfd_test >> $OUTPUT 2>&1
+    projects: *projects_all
+    test_names:
+    - kselftest/memfd_memfd_test
+    - kselftest-vsyscall-mode-none/memfd_memfd_test
+    - kselftest-vsyscall-mode-native/memfd_memfd_test
+    url: https://bugs.linaro.org/show_bug.cgi?id=5308
+    active: true
+    intermittent: false
