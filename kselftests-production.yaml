@@ -1315,6 +1315,9 @@ projects:
     - kselftest/tpm2_test_space.sh
     - kselftest-vsyscall-mode-none/tpm2_test_space.sh
     - kselftest-vsyscall-mode-native/tpm2_test_space.sh
+    - kselftest/tpm2_test_smoke.sh
+    - kselftest-vsyscall-mode-none/tpm2_test_smoke.sh
+    - kselftest-vsyscall-mode-native/tpm2_test_smoke.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=4640
     active: true
     intermittent: false
