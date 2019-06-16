@@ -773,3 +773,12 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5297
     active: true
     intermittent: false
+  - environments: *environments_all
+    notes: >
+      LTP: tgkill03 failed intermittently on all devices
+    projects: *projects_all
+    test_names:
+    - ltp-syscalls-tests/tgkill03
+    url: https://bugs.linaro.org/show_bug.cgi?id=5312
+    active: true
+    intermittent: true
