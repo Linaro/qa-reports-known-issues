@@ -520,18 +520,21 @@ projects:
     intermittent: false
   - environments: *environments_all
     notes: >
-      LKFT: BPF: test_tcpbpf_user test_libbpf.sh failed - test_tcpbpf_kern.o open
-      test_l4lb.o : No such file or directory
-    projects: *projects_all
+      (cgroup_helpers.c:62: errno: No such device) mount cgroup2
+      (cgroup_helpers.c:97: errno: No such file or directory) Opening
+      Cgroup Procs: /mnt/cgroup.procs
+    projects:
+      - lkft/linux-stable-rc-5.1-oe
+      - lkft/linux-stable-rc-4.19-oe
+      - lkft/linux-stable-rc-4.14-oe
+      - lkft/linux-stable-rc-4.9-oe
+      - lkft/linux-stable-rc-4.4-oe
+      - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
-    - kselftest/bpf_test_libbpf.sh
-    - kselftest-vsyscall-mode-none/bpf_test_libbpf.sh
-    - kselftest-vsyscall-mode-native/bpf_test_libbpf.sh
-    - kselftest/bpf_test_offload.py
     - kselftest/bpf_test_tcpbpf_user
     - kselftest-vsyscall-mode-none/bpf_test_tcpbpf_user
     - kselftest-vsyscall-mode-native/bpf_test_tcpbpf_user
-    url: https://bugs.linaro.org/show_bug.cgi?id=3636
+    url: https://bugs.linaro.org/show_bug.cgi?id=3964
     active: true
     intermittent: false
   - environments: *environments_qemu
