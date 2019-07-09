@@ -1354,3 +1354,15 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5308
     active: true
     intermittent: false
+  - environments: *environments_all
+    notes: >
+      Cgroup /sys/fs/cgroup/unified/cg_test_ptrace isn't frozen
+      not ok 6 test_cgfreezer_ptrace
+    projects: *projects_all
+    test_names:
+    - kselftest/cgroup_test_freezer
+    - kselftest-vsyscall-mode-none/cgroup_test_freezer
+    - kselftest-vsyscall-mode-native/cgroup_test_freezer
+    url: https://bugs.linaro.org/show_bug.cgi?id=5318
+    active: true
+    intermittent: true
