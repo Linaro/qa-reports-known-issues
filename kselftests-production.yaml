@@ -52,9 +52,8 @@ projects:
 - name: LKFT
   projects: &projects_all
     - lkft/linux-mainline-oe
+    - lkft/linux-stable-rc-5.2-oe
     - lkft/linux-stable-rc-5.1-oe
-    - lkft/linux-stable-rc-5.0-oe
-    - lkft/linux-stable-rc-4.20-oe
     - lkft/linux-stable-rc-4.19-oe
     - lkft/linux-stable-rc-4.14-oe
     - lkft/linux-stable-rc-4.9-oe
@@ -272,6 +271,7 @@ projects:
       - x86
       projects:
       - lkft/linux-mainline-oe
+      - lkft/linux-stable-rc-5.2-oe
       - lkft/linux-stable-rc-5.1-oe
   - test_names:
     - kselftest/bpf_test_align
@@ -289,7 +289,6 @@ projects:
     matrix_apply:
     - environments: *environments_all
       projects:
-      - lkft/linux-stable-rc-4.20-oe
       - lkft/linux-stable-rc-4.19-oe
       - lkft/linux-stable-rc-4.14-oe
       - lkft/linux-stable-rc-4.9-oe
@@ -311,7 +310,6 @@ projects:
       - lkft/linaro-hikey-stable-rc-4.4-oe
     - environments: *environments_arm32
       projects:
-      - lkft/linux-stable-rc-4.20-oe
       - lkft/linux-stable-rc-4.19-oe
   - environments: *environments_all
     notes: >
@@ -524,6 +522,7 @@ projects:
       (cgroup_helpers.c:97: errno: No such file or directory) Opening
       Cgroup Procs: /mnt/cgroup.procs
     projects:
+      - lkft/linux-stable-rc-5.2-oe
       - lkft/linux-stable-rc-5.1-oe
       - lkft/linux-stable-rc-4.19-oe
       - lkft/linux-stable-rc-4.14-oe
@@ -589,7 +588,6 @@ projects:
     matrix_apply:
     - environments: *environments_arm32
       projects:
-      - lkft/linux-stable-rc-4.20-oe
       - lkft/linux-stable-rc-4.19-oe
     - environments: *environments_all
       projects:
@@ -670,6 +668,7 @@ projects:
       - lkft/linux-stable-rc-4.14-oe
       - lkft/linux-stable-rc-4.19-oe
       - lkft/linux-stable-rc-5.1-oe
+      - lkft/linux-stable-rc-5.2-oe
     - environments: *environments_arm32
       projects: *projects_all
   - environments: *environments_all
@@ -839,7 +838,6 @@ projects:
       projects: *projects_all
     - environments: *environments_all
       projects:
-      - lkft/linux-stable-rc-4.20-oe
       - lkft/linux-stable-rc-4.19-oe
       - lkft/linux-stable-rc-4.14-oe
       - lkft/linux-stable-rc-4.9-oe
@@ -895,6 +893,7 @@ projects:
       projects: *projects_all
     - environments: *environments_all
       projects:
+      - lkft/linux-stable-rc-5.2-oe
       - lkft/linux-stable-rc-5.1-oe
       - lkft/linux-stable-rc-4.19-oe
       - lkft/linux-stable-rc-4.14-oe
@@ -1054,6 +1053,7 @@ projects:
       PASS on mainline and -next.
       FAILED on 5.1, 4.19, 4.14, 4.9 and 4.4 on all devices.
     projects:
+    - lkft/linux-stable-rc-5.2-oe
     - lkft/linux-stable-rc-5.1-oe
     - lkft/linux-stable-rc-4.19-oe
     - lkft/linux-stable-rc-4.14-oe
@@ -1143,7 +1143,6 @@ projects:
       FAILED on 4.20, 4.19, 4.14, 4.9 and 4.4 on all devices.
       Fixed and PASS on mainline
     projects:
-    - lkft/linux-stable-rc-4.20-oe
     - lkft/linux-stable-rc-4.19-oe
     - lkft/linux-stable-rc-4.14-oe
     - lkft/linux-stable-rc-4.9-oe
