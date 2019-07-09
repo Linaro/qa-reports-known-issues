@@ -10,9 +10,8 @@ projects:
   projects: &projects_all
     - lkft/linux-next-oe
     - lkft/linux-mainline-oe
-    - lkft/linux-stable-rc-5.0-oe
+    - lkft/linux-stable-rc-5.2-oe
     - lkft/linux-stable-rc-5.1-oe
-    - lkft/linux-stable-rc-4.20-oe
     - lkft/linux-stable-rc-4.19-oe
     - lkft/linux-stable-rc-4.14-oe
     - lkft/linux-stable-rc-4.9-oe
@@ -41,7 +40,8 @@ projects:
     projects:
     - lkft/linux-next-oe
     - lkft/linux-mainline-oe
-    - lkft/linux-stable-rc-5.0-oe
+    - lkft/linux-stable-rc-5.2-oe
+    - lkft/linux-stable-rc-5.1-oe
     test_names:
     - v4l2-compliance/VIDIOC_REQBUFS-CREATE_BUFS-QUERYBUF
     url: https://bugs.linaro.org/show_bug.cgi?id=4639
