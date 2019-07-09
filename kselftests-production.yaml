@@ -1155,7 +1155,7 @@ projects:
     - kselftest-vsyscall-mode-native/net_ip_defrag.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=4214
     active: true
-    intermittent: false
+    intermittent: true
   - environments: *environments_all
     notes: >
       LKFT: 4.14 4.4: BPF: test_xdp_redirect.sh and test_xdp_meta.sh skipped
