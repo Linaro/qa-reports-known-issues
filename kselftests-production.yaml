@@ -707,7 +707,7 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=3520
     active: true
     intermittent: false
-  - environments: *environments_arm64_arm32_i386
+  - environments: *environments_all
     notes: >
       LKFT: mainline: hikey: kvm ./set_sregs_test: No such file or directory
       KVM test cases do not build for arm/arm64 and i386.
