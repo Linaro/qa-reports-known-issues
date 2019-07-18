@@ -1385,3 +1385,25 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5304
     active: true
     intermittent: true
+  - environments: *environments_all
+    notes: >
+      udp gso and gro - over veth touching data
+      ./udpgso_bench_rx: setsockopt UDP_GRO: Protocol not available
+      ./udpgso_bench_tx: sendmsg: Connection refused
+      net_udpgro_bench.sh test got failed on
+        - 4.19
+        - 4.14
+        - 4.9
+      And intermittent failure on
+        - 5.1
+        - 5.2
+        - mainline
+        - next
+    projects: *projects_all
+    test_names:
+    - kselftest/net_udpgro_bench.sh
+    - kselftest-vsyscall-mode-none/net_udpgro_bench.sh
+    - kselftest-vsyscall-mode-native/net_udpgro_bench.sh
+    url: https://bugs.linaro.org/show_bug.cgi?id=4315
+    active: true
+    intermittent: true
