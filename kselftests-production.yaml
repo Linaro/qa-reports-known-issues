@@ -1407,3 +1407,14 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=4315
     active: true
     intermittent: true
+  - environments: *environments_intel
+    notes: >
+      net_xfrm_policy.sh test got failed on x86_64 and i386 for all branches
+    projects: *projects_all
+    test_names:
+    - kselftest/net_xfrm_policy.sh
+    - kselftest-vsyscall-mode-none/net_xfrm_policy.sh
+    - kselftest-vsyscall-mode-native/net_xfrm_policy.sh
+    url: https://bugs.linaro.org/show_bug.cgi?id=5327
+    active: true
+    intermittent: false
