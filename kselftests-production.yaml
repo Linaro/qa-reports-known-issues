@@ -1365,3 +1365,23 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5318
     active: true
     intermittent: true
+  - environments: *environments_all
+    notes: >
+      net: UDP IPv4 reuseport_addr_any: received on an unexpected socket
+      net_reuseport_addr_any.sh test got failed on
+        - 4.19
+        - 4.14
+        - 4.9
+      And intermittent failure on
+        - 5.1
+        - 5.2
+        - mainline
+        - next
+    projects: *projects_all
+    test_names:
+    - kselftest/net_reuseport_addr_any.sh
+    - kselftest-vsyscall-mode-none/net_reuseport_addr_any.sh
+    - kselftest-vsyscall-mode-native/net_reuseport_addr_any.sh
+    url: https://bugs.linaro.org/show_bug.cgi?id=5304
+    active: true
+    intermittent: true
