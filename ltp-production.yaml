@@ -781,3 +781,21 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5312
     active: true
     intermittent: true
+  - environments: *environments_all
+    notes: >
+      [PATCH] shmctl01: don't use hardcoded index == 0 for SHM_STAT test
+
+      This fixes the test case problem.
+      We have to wait for the next version of LTP to be released or cherry-pick into OE builds.
+
+      ref link
+      http://lists.linux.it/pipermail/ltp/2019-May/012072.html
+    projects:
+    - lkft/linux-next-oe
+    - lkft/linux-mainline-oe
+    - lkft/linux-stable-rc-5.2-oe
+    test_names:
+    - ltp-syscalls-tests/shmctl01
+    url: https://bugs.linaro.org/show_bug.cgi?id=5313
+    active: true
+    intermittent: false
