@@ -1418,3 +1418,18 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5327
     active: true
     intermittent: false
+  - environments: *environments_x86_64
+    notes: >
+      proc_proc-pid-vm test got failed on x86_64 and qemu_x86_64 for 4.14 and below
+    projects:
+    - lkft/linux-stable-rc-4.14-oe
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linaro-hikey-stable-rc-4.4-oe
+    test_names:
+    - kselftest/proc_proc-pid-vm
+    - kselftest-vsyscall-mode-none/proc_proc-pid-vm
+    - kselftest-vsyscall-mode-native/proc_proc-pid-vm
+    url: https://bugs.linaro.org/show_bug.cgi?id=5329
+    active: true
+    intermittent: false
