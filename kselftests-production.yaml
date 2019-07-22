@@ -1433,3 +1433,18 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5329
     active: true
     intermittent: false
+  - environments: *environments_all
+    notes: >
+      proc_setns-dcache test got failed on all devices for 4.14 and below
+    projects:
+    - lkft/linux-stable-rc-4.14-oe
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linaro-hikey-stable-rc-4.4-oe
+    test_names:
+    - kselftest/proc_setns-dcache
+    - kselftest-vsyscall-mode-none/proc_setns-dcache
+    - kselftest-vsyscall-mode-native/proc_setns-dcache
+    url: https://bugs.linaro.org/show_bug.cgi?id=5330
+    active: true
+    intermittent: false
