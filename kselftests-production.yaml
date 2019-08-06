@@ -1448,3 +1448,15 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5330
     active: true
     intermittent: false
+  - environments: *environments_all
+    notes: >
+      test case txtimestamp.sh got failed due to
+      ERROR delay 6751 expected between 6000 and 6500
+    projects: *projects_all
+    test_names:
+    - kselftest/timestamping_txtimestamp.sh
+    - kselftest-vsyscall-mode-none/timestamping_txtimestamp.sh
+    - kselftest-vsyscall-mode-native/timestamping_txtimestamp.sh
+    url: https://bugs.linaro.org/show_bug.cgi?id=5300
+    active: true
+    intermittent: false
