@@ -1460,3 +1460,19 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5300
     active: true
     intermittent: false
+  - environments: *environments_all
+    notes: >
+      Newly added test case selftests net so_txtime.sh fails intermittently
+      on x15 and qemu. The reason for failure seems to be due to slowness
+      of the device x15 and emulator qemu_arm and qemu_x86_64.
+      ./so_txtime exceeds variance (2000 us)
+      exceeds: variance_(2000 us)
+      [FAIL] 28 selftests net so_txtime.sh
+    projects: *projects_all
+    test_names:
+    - kselftest/net_so_txtime.sh
+    - kselftest-vsyscall-mode-none/net_so_txtime.sh
+    - kselftest-vsyscall-mode-native/net_so_txtime.sh
+    url: https://bugs.linaro.org/show_bug.cgi?id=5331
+    active: true
+    intermittent: false
