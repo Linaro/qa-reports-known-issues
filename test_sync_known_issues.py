@@ -127,7 +127,8 @@ def test_matrix_apply_kselftest_bug():
         'lkft/linux-mainline-oe': {'qemu_i386', 'x15', 'qemu_arm', 'i386'},
         'lkft/linux-stable-rc-4.19-oe': {'qemu_i386', 'x15', 'qemu_arm', 'i386'},
         'lkft/linux-stable-rc-5.1-oe': {'qemu_i386', 'x15', 'qemu_arm', 'i386'},
-        'lkft/linux-stable-rc-5.2-oe': {'qemu_i386', 'x15', 'qemu_arm', 'i386'}
+        'lkft/linux-stable-rc-5.2-oe': {'qemu_i386', 'x15', 'qemu_arm', 'i386'},
+        'lkft/linux-stable-rc-5.3-oe': {'qemu_i386', 'x15', 'qemu_arm', 'i386'}
         }
 
 
