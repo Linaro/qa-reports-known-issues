@@ -649,7 +649,7 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=4262
     active: true
     intermittent: false
-  - environments: *environments_arm64
+  - environments: *environments_all
     notes: >
       LTP memory test case mtest06/mmap1 longs for 15 minutes and more and
       failures few times and it is an intermittent issue.
