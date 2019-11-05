@@ -801,3 +801,12 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5313
     active: true
     intermittent: false
+  - environments: *environments_arm64_arm32
+    notes: >
+      LTP: sync_file_range02 failed intermittently on all devices
+    projects: *projects_all
+    test_names:
+    - ltp-syscalls-tests/sync_file_range02
+    url: https://bugs.linaro.org/show_bug.cgi?id=5472
+    active: true
+    intermittent: true
