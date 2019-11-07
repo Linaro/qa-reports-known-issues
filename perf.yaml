@@ -1,0 +1,94 @@
+globals:
+  - environments: &environments_arm32
+    - x15
+    - qemu_arm
+  - environments: &environments_i386
+    - i386
+    - qemu_i386
+  - environments: &environments_32bit
+    - i386
+    - qemu_i386
+    - qemu_arm
+    - x15
+projects:
+- name: LKFT-perf
+  projects: &projects_all
+    - lkft/linux-next-oe
+    - lkft/linux-mainline-oe
+    - lkft/linux-stable-rc-5.3-oe
+    - lkft/linux-stable-rc-4.19-oe
+    - lkft/linux-stable-rc-4.14-oe
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linaro-hikey-stable-rc-4.4-oe
+  url: https://qa-reports.linaro.org
+  environments: &environments_all
+  - dragonboard-410c
+  - hi6220-hikey
+  - i386
+  - juno-r2
+  - qemu_x86_64
+  - qemu_i386
+  - qemu_arm
+  - qemu_arm64
+  - x15
+  - x86
+  known_issues:
+  - environments:
+    - qemu_i386
+    notes: >
+       qemu_i386: perf record and report test fail
+       unchecked MSR access error: WRMSR to 0xc0010200
+       These are intermittent failures
+    projects: *projects_all
+    test_names:
+    - perf/perf_record_test
+    - perf/perf_report_test
+    url: https://bugs.linaro.org/show_bug.cgi?id=5478
+    active: true
+    intermittent: true
+  - environments: *environments_all
+    notes: >
+      perf test case Object code reading: FAILED
+
+      test child forked, pid 601
+      Looking at the vmlinux_path (8 entries long)
+      symsrc__init cannot get elf header.
+      Failed to open /proc/kcore. Note /proc/kcore requires CAP_SYS_RAWIO capability to access.
+      Using /proc/kallsyms for symbols
+      Parsing event 'cycles:u'
+      perf_evlist__open() failed!
+      No such file or directory
+      test child finished with -1
+
+      Test results showing failed on all arm64 and arm.
+      intermittent failure on i386.
+    projects: *projects_all
+    test_names:
+    - perf/Object-code-reading
+    url: https://bugs.linaro.org/show_bug.cgi?id=5470
+    active: true
+    intermittent: true
+  - environments: *environments_32bit
+    notes: >
+      perf test case Read backward ring buffer failed on 32bit arch.
+      failed on arm32 x15 device, qemu_arm32 and qemu_i386.
+      intermittent failure on i386.
+
+      50 Read backward ring buffer
+      --- start ---
+      test child forked, pid 510
+      Using CPUID GenuineIntel-6-9E-9
+      mmap size 1052672B
+      mmap size 8192B
+      Finished reading overwrite ring buffer rewind
+      free() invalid next size (fast)
+      test child interrupted
+      ---- end ----
+      Read backward ring buffer FAILED!
+    projects: *projects_all
+    test_names:
+    - perf/Read-backward-ring-buffer
+    url: https://bugs.linaro.org/show_bug.cgi?id=5471
+    active: true
+    intermittent: true
