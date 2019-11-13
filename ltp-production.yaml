@@ -810,3 +810,13 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5472
     active: true
     intermittent: true
+  - environments:
+    - dragonboard-410c
+    notes: >
+     max_map_count.c:202: FAIL: 63231 map entries in total, but expected 65536 entries
+    projects: *projects_all
+    test_names:
+    - ltp-mm-tests/max_map_count
+    url: https://bugs.linaro.org/show_bug.cgi?id=5494
+    active: true
+    intermittent: true
