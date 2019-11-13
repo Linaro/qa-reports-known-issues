@@ -1483,7 +1483,7 @@ projects:
     - kselftest-vsyscall-mode-native/net_so_txtime.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=5331
     active: true
-    intermittent: false
+    intermittent: true
   - environments: *environments_all
     notes: >
       selftests pidfd_pidfd_tests fails intermittently on x86_64, i386 and x15
