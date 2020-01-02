@@ -459,6 +459,18 @@ projects:
     active: true
     intermittent: true
   - environments:
+    - i386
+    - x86
+    notes: >
+      LKFT: LTP: open posix: schedule_1-1 intermittent failures on x86 and i386
+      running 4.14 stable kernel.
+    projects:
+    - lkft/linux-stable-rc-4.14-oe
+    test_name: ltp-open-posix-tests/schedule_1-1
+    url: https://bugs.linaro.org/show_bug.cgi?id=5528
+    active: true
+    intermittent: true
+  - environments:
     - hi6220-hikey
     - dragonboard-410c
     notes: >
