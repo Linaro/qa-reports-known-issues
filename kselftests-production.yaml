@@ -1505,3 +1505,44 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5331
     active: true
     intermittent: true
+  - environments: *environments_all
+    notes: >
+      selftests net traceroute.sh fails intermittently
+      SKIP Could not run IPV6 test without traceroute6
+    projects: *projects_all
+    test_names:
+    - kselftest/net traceroute.sh
+    - kselftest-vsyscall-mode-none/net traceroute.sh
+    - kselftest-vsyscall-mode-native/net traceroute.sh
+    url: https://bugs.linaro.org/show_bug.cgi?id=5530
+    active: true
+    intermittent: true
+  - environments: *environments_all
+    notes: >
+      selftests net tcp_fastopen_backup_key.sh failing always on arm64, arm.
+      And intermittently failed on qemu and i386.
+    projects: *projects_all
+    test_names:
+    - kselftest/net tcp_fastopen_backup_key.sh
+    - kselftest-vsyscall-mode-none/net tcp_fastopen_backup_key.sh
+    - kselftest-vsyscall-mode-native/net tcp_fastopen_backup_key.sh
+    url: https://bugs.linaro.org/show_bug.cgi?id=5531
+    active: true
+    intermittent: true
+  - environments: *environments_all
+    notes: >
+      selftests pidfd_open_test and pidfd_poll_test didn't included
+      in the rootfs.
+      Warning file pidfd_open_test is missing
+      Warning file pidfd_poll_test is missing
+    projects: *projects_all
+    test_names:
+    - kselftest/pidfd_pidfd_poll_test
+    - kselftest-vsyscall-mode-none/pidfd_pidfd_poll_test
+    - kselftest-vsyscall-mode-native/pidfd_pidfd_poll_test
+    - kselftest/pidfd_pidfd_open_test
+    - kselftest-vsyscall-mode-none/pidfd_pidfd_open_test
+    - kselftest-vsyscall-mode-native/pidfd_pidfd_open_test
+    url: https://bugs.linaro.org/show_bug.cgi?id=5532
+    active: true
+    intermittent: false
