@@ -1546,3 +1546,15 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5532
     active: true
     intermittent: false
+  - environments: *environments_all
+    notes: >
+      LKFT: selftests: seccomp_benchmark fails intermittently
+      [FAIL] 2 selftests seccomp seccomp_benchmark TIMEOUT
+    projects: *projects_all
+    test_names:
+    - kselftest/seccomp_seccomp_benchmark
+    - kselftest-vsyscall-mode-none/seccomp_seccomp_benchmark
+    - kselftest-vsyscall-mode-native/seccomp_seccomp_benchmark
+    url: https://bugs.linaro.org/show_bug.cgi?id=5536
+    active: true
+    intermittent: true
