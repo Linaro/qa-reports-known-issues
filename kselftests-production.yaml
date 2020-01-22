@@ -73,6 +73,7 @@ projects:
   - qemu_arm64
   - x15
   - x86
+  - nxp-ls2088
   known_issues:
   - environments: *environments_all
     notes: >
