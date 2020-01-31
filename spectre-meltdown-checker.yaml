@@ -10,6 +10,7 @@ projects:
   projects: &projects_all
     - lkft/linux-next-oe
     - lkft/linux-mainline-oe
+    - lkft/linux-stable-rc-5.5-oe
     - lkft/linux-stable-rc-5.4-oe
     - lkft/linux-stable-rc-5.3-oe
     - lkft/linux-stable-rc-5.2-oe
