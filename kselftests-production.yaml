@@ -1499,7 +1499,8 @@ projects:
     intermittent: true
   - environments: *environments_all
     notes: >
-      selftests pidfd_pidfd_tests fails intermittently on x86_64, i386 and x15
+      selftests pidfd_pidfd_tests fails intermittently on x86_64, i386.
+      always failed on arm x15 and arm64 devices.
       selftests pidfd pidfd_test
       pidfd: pidfd_test
       [FAIL] 1 selftests pidfd pidfd_test TIMEOUT
@@ -1509,7 +1510,7 @@ projects:
     - kselftest/pidfd_pidfd_test
     - kselftest-vsyscall-mode-none/pidfd_pidfd_test
     - kselftest-vsyscall-mode-native/pidfd_pidfd_test
-    url: https://bugs.linaro.org/show_bug.cgi?id=5331
+    url: https://bugs.linaro.org/show_bug.cgi?id=5542
     active: true
     intermittent: true
   - environments: *environments_all
