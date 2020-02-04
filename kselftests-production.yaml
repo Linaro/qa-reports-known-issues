@@ -1411,6 +1411,8 @@ projects:
       ./udpgso_bench_rx: setsockopt UDP_GRO: Protocol not available
       ./udpgso_bench_tx: sendmsg: Connection refused
       net_udpgro_bench.sh test got failed on
+      selftests net udpgro_bench.sh and udpgro.sh failed due to
+      Missing xdp_dummy helper.
         - 4.19
         - 4.14
         - 4.9
@@ -1621,3 +1623,15 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5544
     active: true
     intermittent: true
+  - environments: *environments_all
+    notes: >
+      selftests net udpgro_bench.sh and udpgro.sh failed due to
+      Missing xdp_dummy helper.
+    projects: *projects_all
+    test_names:
+    - kselftest/net_udpgro.sh
+    - kselftest-vsyscall-mode-none/net_udpgro.sh
+    - kselftest-vsyscall-mode-native/net_udpgro.sh
+    url: https://bugs.linaro.org/show_bug.cgi?id=5545
+    active: true
+    intermittent: false
