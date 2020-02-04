@@ -837,3 +837,17 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5494
     active: true
     intermittent: true
+  - environments:
+    - qemu_arm64
+    notes: >
+     utimensat01 fails due to expected error not found
+     EXPECTED is EPERM but RESULT is SUCCES
+     chattr reading flags on
+     /tmp/ltp-jK51LpYYqK/utimensat_tests/utimensat.test_file
+     Inappropriate ioctl for device
+    projects: *projects_all
+    test_names:
+    - ltp-syscalls-tests/utimensat01
+    url: https://bugs.linaro.org/show_bug.cgi?id=5546
+    active: true
+    intermittent: false
