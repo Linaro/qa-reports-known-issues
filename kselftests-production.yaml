@@ -1533,9 +1533,9 @@ projects:
       And intermittently failed on qemu and i386.
     projects: *projects_all
     test_names:
-    - kselftest/net tcp_fastopen_backup_key.sh
-    - kselftest-vsyscall-mode-none/net tcp_fastopen_backup_key.sh
-    - kselftest-vsyscall-mode-native/net tcp_fastopen_backup_key.sh
+    - kselftest/net_tcp_fastopen_backup_key.sh
+    - kselftest-vsyscall-mode-none/net_tcp_fastopen_backup_key.sh
+    - kselftest-vsyscall-mode-native/net_tcp_fastopen_backup_key.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=5531
     active: true
     intermittent: true
