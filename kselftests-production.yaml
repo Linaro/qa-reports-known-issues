@@ -1595,3 +1595,16 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5541
     active: true
     intermittent: false
+  - environments: *environments_all
+    notes: >
+      selftests pidfd pidfd_fdinfo_test failed due to below error
+      Bail out! pidfd check for NSpid in fdinfo test Fatal
+      waitpid failed (ret -1, errno 0)
+    projects: *projects_all
+    test_names:
+    - kselftest/pidfd_pidfd_fdinfo_test
+    - kselftest-vsyscall-mode-none/pidfd_pidfd_fdinfo_test
+    - kselftest-vsyscall-mode-native/pidfd_pidfd_fdinfo_test
+    url: https://bugs.linaro.org/show_bug.cgi?id=5543
+    active: true
+    intermittent: true
