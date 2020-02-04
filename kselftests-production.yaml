@@ -1608,3 +1608,16 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5543
     active: true
     intermittent: true
+  - environments: *environments_all
+    notes: >
+      selftests pidfd pidfd_wait failed due to below error
+      Bail out! pidfd wait simple test failed to create new process
+      Function not implemented
+    projects: *projects_all
+    test_names:
+    - kselftest/pidfd_pidfd_wait
+    - kselftest-vsyscall-mode-none/pidfd_pidfd_wait
+    - kselftest-vsyscall-mode-native/pidfd_pidfd_wait
+    url: https://bugs.linaro.org/show_bug.cgi?id=5544
+    active: true
+    intermittent: true
