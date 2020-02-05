@@ -851,3 +851,22 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5546
     active: true
     intermittent: false
+  - environments: *environments_all
+    notes: >
+     sysctl02 TFAIL /proc/sys/fs/file-max overflows and is set to 0
+     ltp-commands-tests/sysctl02_sh failed on 4.19, 4.14, 4.9 and 4.4
+     Where as it get PASSED on stable rc 5.4 and 5.5 and mainline and linux-next
+
+     sysctl02 1 TINFO trying to set fs.file-max=18446744073709551616
+     sysctl02 1 TFAIL /proc/sys/fs/file-max overflows and is set to 0
+    projects:
+    - lkft/linux-stable-rc-4.19-oe
+    - lkft/linux-stable-rc-4.14-oe
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linaro-hikey-stable-rc-4.4-oe
+    test_names:
+    - ltp-commands-tests/sysctl02_sh
+    url: https://bugs.linaro.org/show_bug.cgi?id=5547
+    active: true
+    intermittent: false
