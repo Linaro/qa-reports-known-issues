@@ -870,3 +870,15 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5547
     active: true
     intermittent: false
+  - environments: *environments_all
+    notes: >
+      LTP CVE new test case cve-2017-1000380 detecting kernel warnings and
+      reports as failed as below. Which is good sign to catch kernel warning
+
+      tst_taint.c:88 BROK Kernel is already tainted
+
+    projects: *projects_all
+    test_name: ltp-cve-tests/cve-2017-1000380
+    url: https://bugs.linaro.org/show_bug.cgi?id=5550
+    active: true
+    intermittent: true
