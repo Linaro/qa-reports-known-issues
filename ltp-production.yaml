@@ -882,3 +882,14 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5550
     active: true
     intermittent: true
+  - environments: *environments_all
+    notes: >
+      LTP accept02 failed on qemu devices and hikey
+      accept02.c:52 setsockopt(6, 0, 42, 0xffffa8572f78, 136) failed ENODEV (19)
+
+      It is possible that sometimes start tests before network is up
+    projects: *projects_all
+    test_name: ltp-syscalls-tests/accept02
+    url: https://bugs.linaro.org/show_bug.cgi?id=5551
+    active: true
+    intermittent: true
