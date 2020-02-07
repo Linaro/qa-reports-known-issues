@@ -893,3 +893,27 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5551
     active: true
     intermittent: true
+  - environments:
+    - x15
+    - i386
+    - qemu_arm
+    - qemu_arm64
+    - qemu_i386
+    notes: >
+      LTP copy_file_range02 failed on i386, qemu_i386, qemu_x86_64, qemu_arm and x15 device.
+      copy_file_range returned wrong value 32
+      chattr: reading flags on file_immutable: Inappropriate ioctl for device
+      Setting up swapspace version 1, size = 36 KiB (36864 bytes)
+      no label, UUID=894a656e-edd1-4bf4-9c76-4af1b94d810a
+      swapon: /tmp/ltp-r5k08q4rwB/V5UKv6/file_swap: swapon failed: Invalid argument
+      copy_file_range02.c:136: FAIL: copy_file_range returned wrong value: 32
+      copy_file_range02.c:136: FAIL: copy_file_range returned wrong value: 16
+
+    projects:
+    - lkft/linux-mainline-oe
+    - lkft/linux-stable-rc-5.5-oe
+    - lkft/linux-stable-rc-5.4-oe
+    test_name: ltp-syscalls-tests/copy_file_range02
+    url: https://bugs.linaro.org/show_bug.cgi?id=5554
+    active: true
+    intermittent: false
