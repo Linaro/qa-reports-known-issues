@@ -917,3 +917,14 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5554
     active: true
     intermittent: false
+  - environments:
+    - hi6220-hikey
+    - dragonboard-410c
+    notes: >
+      LTP syscalls test case acct02 getting failed on Dragonboard 410c,
+      Hikey Board on multiple linux stable rc branches.
+    projects: *projects_all
+    test_name: ltp-syscalls-tests/acct02
+    url: https://bugs.linaro.org/show_bug.cgi?id=5555
+    active: true
+    intermittent: false
