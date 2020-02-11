@@ -1,0 +1,62 @@
+globals:
+  - environments: &environments_arm64
+    - hi6220-hikey
+    - juno-r2
+    - dragonboard-410c
+    - qemu_arm64
+  - environments: &environments_arm32
+    - x15
+    - qemu_arm
+projects:
+- name: LKFT-kvm-unit-tests
+  projects: &projects_all
+    - lkft/linux-next-oe
+    - lkft/linux-mainline-oe
+    - lkft/linux-stable-rc-5.5-oe
+    - lkft/linux-stable-rc-5.4-oe
+    - lkft/linux-stable-rc-5.3-oe
+    - lkft/linux-stable-rc-5.2-oe
+    - lkft/linux-stable-rc-5.1-oe
+    - lkft/linux-stable-rc-4.19-oe
+    - lkft/linux-stable-rc-4.14-oe
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linaro-hikey-stable-rc-4.4-oe
+  url: https://qa-reports.linaro.org
+  environments: &environments_all
+  - dragonboard-410c
+  - hi6220-hikey
+  - i386
+  - juno-r2
+  - qemu_x86_64
+  - qemu_i386
+  - qemu_arm
+  - qemu_arm64
+  - x15
+  - x86
+  - nxp-ls2088
+  known_issues:
+  - environments: *environments_arm64
+    notes: >
+      LKFT: kvm-unit-tests timer test got TIME OUT and failed intermittently
+      TESTNAME=timer TIMEOUT=2s ACCEL= ./arm/run arm/timer.flat -smp 1
+      FAIL timer (timeout; duration=2s)
+    projects: *projects_all
+    test_name: kvm-unit-tests/timer
+    url: https://bugs.linaro.org/show_bug.cgi?id=5556
+    active: true
+    intermittent: true
+  - environments: *environments_arm64
+    notes: >
+      LKFT: kvm-unit-tests pmu failed - FAIL pmu (3 tests, 2 unexpected failures)
+      This test always failed on juno running different branches of Linux kernel.
+
+      TESTNAME=pmu TIMEOUT=90s ACCEL= ./arm/run arm/pmu.flat -smp 1
+      FAIL pmu (3 tests, 2 unexpected failures)
+    projects: *projects_all
+    test_name: kvm-unit-tests/pmu
+    url: https://bugs.linaro.org/show_bug.cgi?id=5557
+    active: true
+    intermittent: false
+
+
