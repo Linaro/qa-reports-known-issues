@@ -1635,3 +1635,15 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5545
     active: true
     intermittent: false
+  - environments: *environments_all
+    notes: >
+      Newly added kselftest net mptcp_mptcp_connect.sh test case
+      timeouts and fails intermittently on all devices.
+    projects: *projects_all
+    test_names:
+    - kselftest/net/mptcp_mptcp_connect.sh
+    - kselftest-vsyscall-mode-none/net/mptcp_mptcp_connect.sh
+    - kselftest-vsyscall-mode-native/net/mptcp_mptcp_connect.sh
+    url: https://bugs.linaro.org/show_bug.cgi?id=5565
+    active: true
+    intermittent: true
