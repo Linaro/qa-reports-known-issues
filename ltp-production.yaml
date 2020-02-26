@@ -907,6 +907,7 @@ projects:
     - qemu_arm
     - qemu_arm64
     - qemu_i386
+    - juno-r2
     notes: >
       LTP copy_file_range02 failed on i386, qemu_i386, qemu_x86_64, qemu_arm and x15 device.
       copy_file_range returned wrong value 32
@@ -917,11 +918,10 @@ projects:
       copy_file_range02.c:136: FAIL: copy_file_range returned wrong value: 32
       copy_file_range02.c:136: FAIL: copy_file_range returned wrong value: 16
 
-    projects:
-    - lkft/linux-mainline-oe
-    - lkft/linux-stable-rc-5.5-oe
-    - lkft/linux-stable-rc-5.4-oe
-    test_name: ltp-syscalls-tests/copy_file_range02
+    projects: *projects_all
+    test_names:
+    - ltp-syscalls-tests/copy_file_range02
+    - ltp-syscalls-compat-tests/copy_file_range02
     url: https://bugs.linaro.org/show_bug.cgi?id=5554
     active: true
     intermittent: false
