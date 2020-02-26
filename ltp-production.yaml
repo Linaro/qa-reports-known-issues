@@ -539,7 +539,11 @@ projects:
       LTP: fsetxattr02 and fgetxattr02 failed with error ENXIO
       (No such device or address)
     projects: *projects_all
-    test_name: ltp-syscalls-tests/fgetxattr02
+    test_names:
+    - ltp-syscalls-tests/fgetxattr02
+    - ltp-syscalls-compat-tests/fgetxattr02
+    - ltp-syscalls-64k-page_size-tests/fgetxattr02
+    - ltp-syscalls-kasan-tests/fgetxattr02
     url: https://bugs.linaro.org/show_bug.cgi?id=4011
     active: true
     intermittent: false
