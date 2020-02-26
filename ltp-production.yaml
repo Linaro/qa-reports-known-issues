@@ -140,7 +140,11 @@ projects:
     notes: >
       mainline kernel tests baselining
     projects: *projects_all
-    test_name: ltp-syscalls-tests/quotactl01
+    test_names:
+    - ltp-syscalls-tests/quotactl01
+    - ltp-syscalls-compat-tests/quotactl01
+    - ltp-syscalls-64k-page_size-tests/quotactl01
+    - ltp-syscalls-kasan-tests/quotactl01
     url: https://projects.linaro.org/projects/CTT/queues/issue/CTT-585
     active: true
     intermittent: false
