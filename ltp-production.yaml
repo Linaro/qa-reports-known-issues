@@ -4,6 +4,7 @@ globals:
     - juno-r2
     - dragonboard-410c
     - qemu_arm64
+    - nxp-ls2088
   - environments: &environments_arm32
     - x15
     - qemu_arm
@@ -38,6 +39,7 @@ globals:
     - qemu_arm64
     - qemu_arm
     - x15
+    - nxp-ls2088
   - environments: &environments_64bit
     - dragonboard-410c
     - hi6220-hikey
@@ -45,6 +47,7 @@ globals:
     - qemu_x86_64
     - qemu_arm64
     - x86
+    - nxp-ls2088
 
 projects:
 - name: LKFT-ltp
@@ -934,5 +937,20 @@ projects:
     projects: *projects_all
     test_name: ltp-syscalls-tests/acct02
     url: https://bugs.linaro.org/show_bug.cgi?id=5555
+    active: true
+    intermittent: false
+  - environments:
+    - nxp-ls2088
+    notes: >
+      These listed test cases failed on nxp-ls2088
+      because tests running on nfs mounted rootfs.
+    projects: *projects_all
+    test_names:
+    - ltp-commands-tests/ar_sh
+    - ltp-syscalls-tests/renameat201
+    - ltp-syscalls-tests/renameat202
+    - ltp-syscalls-tests/utime01
+    - ltp-syscalls-tests/utime02
+    url: https://bugs.linaro.org/show_bug.cgi?id=5567
     active: true
     intermittent: false

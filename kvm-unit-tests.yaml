@@ -4,6 +4,7 @@ globals:
     - juno-r2
     - dragonboard-410c
     - qemu_arm64
+    - nxp-ls2088
   - environments: &environments_arm32
     - x15
     - qemu_arm

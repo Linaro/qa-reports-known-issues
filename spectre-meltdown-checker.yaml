@@ -64,6 +64,7 @@ projects:
     - x15
     - qemu_x86_64
     - qemu_i386
+    - nxp-ls2088
     notes: >
       CVE-2018-3639: VULN Your CPU doesn't support SSBD
       CVE-2018-3640: VULN an up-to-date CPU microcode is needed to mitigate
