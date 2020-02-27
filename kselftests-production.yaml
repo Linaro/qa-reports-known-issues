@@ -462,17 +462,13 @@ projects:
       should be close to 0.015625
     url: https://bugs.linaro.org/show_bug.cgi?id=3402
     active: true
-    intermittent: false
+    intermittent: true
     matrix_apply:
     - environments:
       - hi6220-hikey
       projects:
       - lkft/linaro-hikey-stable-rc-4.4-oe
-    - environments: *environments_qemu
-      projects: *projects_all
-    - environments:
-      - dragonboard-410c
-      - x15
+    - environments: *environments_all
       projects: *projects_all
   - environments:
     - dragonboard-410c
