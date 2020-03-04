@@ -612,6 +612,7 @@ projects:
     test_names:
     - ltp-mm-tests/ksm03
     - ltp-mm-tests/ksm03_1
+    - ltp-mm-64k-page_size-tests/ksm03_1
     url: https://bugs.linaro.org/show_bug.cgi?id=4255
     active: true
     intermittent: false
@@ -731,6 +732,9 @@ projects:
     projects: *projects_all
     test_names:
     - ltp-commands-tests/mkswap01_sh
+    - ltp-commands-64k-page_size-tests/mkswap01_sh
+    - ltp-commands-kasan-tests/mkswap01_sh
+    - ltp-commands-compat-tests/mkswap01_sh
     url: https://bugs.linaro.org/show_bug.cgi?id=4303
     active: true
     intermittent: true
@@ -835,6 +839,8 @@ projects:
     projects: *projects_all
     test_names:
     - ltp-syscalls-tests/sync_file_range02
+    - lltp-syscalls-kasan-tests/sync_file_range02
+    - ltp-syscalls-64k-page_size-tests/sync_file_range02
     url: https://bugs.linaro.org/show_bug.cgi?id=5472
     active: true
     intermittent: true
