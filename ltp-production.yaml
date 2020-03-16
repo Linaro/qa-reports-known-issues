@@ -884,6 +884,9 @@ projects:
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
     - ltp-commands-tests/sysctl02_sh
+    - ltp-commands-64k-page_size-tests/sysctl02_sh
+    - ltp-commands-kasan-tests/sysctl02_sh
+    - ltp-commands-compat-tests/sysctl02_sh
     url: https://bugs.linaro.org/show_bug.cgi?id=5547
     active: true
     intermittent: false
