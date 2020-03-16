@@ -558,7 +558,11 @@ projects:
     notes: >
       LTP: statx04 STATX_ATTR_COMPRESSED flag is not set for ext2
     projects: *projects_all
-    test_name: ltp-syscalls-tests/statx04
+    test_names:
+    - ltp-syscalls-tests/statx04
+    - ltp-syscalls-compat-tests/statx04
+    - ltp-syscalls-kasan-tests/statx04
+    - ltp-syscalls-64k-page_size-tests/statx04
     url: https://bugs.linaro.org/show_bug.cgi?id=4012
     active: true
     intermittent: false
