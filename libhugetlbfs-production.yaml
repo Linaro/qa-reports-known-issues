@@ -23,6 +23,7 @@ projects:
   - hi6220-hikey
   - i386
   - juno-r2
+  - juno-r2-kasan
   - qemu_x86_64
   - qemu_i386
   - qemu_arm
