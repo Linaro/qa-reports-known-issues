@@ -33,6 +33,7 @@ projects:
   - qemu_arm64
   - x15
   - x86
+  - x86-kasan
   - nxp-ls2088
   known_issues:
   - environments: *environments_i386
@@ -48,6 +49,7 @@ projects:
     intermittent: true
   - environments:
     - x86
+    - x86-kasan
     - i386
     notes: >
       CVE-2018-3615: VULN your CPU supports SGX and the microcode is not up
@@ -63,6 +65,7 @@ projects:
     - juno-r2-kasan
     - i386
     - x86
+    - x86-kasan
     - x15
     - qemu_x86_64
     - qemu_i386

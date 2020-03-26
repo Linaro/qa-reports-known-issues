@@ -11,6 +11,7 @@ globals:
     - qemu_arm
   - environments: &environments_x86_64
     - x86
+    - x86-kasan
     - qemu_x86_64
   - environments: &environments_i386
     - i386
@@ -33,6 +34,7 @@ globals:
     - qemu_i386
     - qemu_x86_64
     - x86
+    - x86-kasan
   - environments: &environments_arm64_arm32
     - dragonboard-410c
     - hi6220-hikey
@@ -81,6 +83,7 @@ projects:
   - qemu_arm64
   - x15
   - x86
+  - x86-kasan
   - nxp-ls2088
   known_issues:
   - environments: *environments_all
@@ -196,6 +199,7 @@ projects:
     - kselftest-vsyscall-mode-native/vm_run_vmtests
   - environments:
     - x86
+    - x86-kasan
     notes: >
       kselftest mpx-mini-test_64 - no MPX support-failed-Aborted (core dumped)
     projects: *projects_all
@@ -241,6 +245,7 @@ projects:
       - qemu_arm
       - x15
       - x86
+      - x86-kasan
       - qemu_x86_64
       - i386
       - qemu_i386
@@ -282,6 +287,7 @@ projects:
       projects: *projects_all
     - environments:
       - x86
+      - x86-kasan
       projects:
       - lkft/linux-mainline-oe
       - lkft/linux-stable-rc-5.5-oe
@@ -633,6 +639,7 @@ projects:
     - juno-r2
     - juno-r2-kasan
     - x86
+    - x86-kasan
     - qemu_x86_64
     - nxp-ls2088
     notes: >
@@ -1096,6 +1103,7 @@ projects:
     intermittent: false
   - environments:
     - x86
+    - x86-kasan
     notes: >
       LKFT: 4.9 and 4.4: x86: breakpoint step_after_suspend_tests
       Bail out! Failed to enter Suspend state
