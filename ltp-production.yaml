@@ -3,6 +3,7 @@ globals:
     - hi6220-hikey
     - juno-r2
     - juno-r2-kasan
+    - juno-r2-compat
     - dragonboard-410c
     - qemu_arm64
     - nxp-ls2088
@@ -40,6 +41,7 @@ globals:
     - hi6220-hikey
     - juno-r2
     - juno-r2-kasan
+    - juno-r2-compat
     - qemu_arm64
     - qemu_arm
     - x15
@@ -49,6 +51,7 @@ globals:
     - hi6220-hikey
     - juno-r2
     - juno-r2-kasan
+    - juno-r2-compat
     - qemu_x86_64
     - qemu_arm64
     - x86
@@ -78,6 +81,7 @@ projects:
   - i386
   - juno-r2
   - juno-r2-kasan
+  - juno-r2-compat
   - qemu_x86_64
   - qemu_i386
   - qemu_arm
@@ -778,6 +782,7 @@ projects:
   - environments:
     - juno-r2
     - juno-r2-kasan
+    - juno-r2-compat
     - x15
     notes: >
       LTP: getrusage04 failed - stime increased > 6000u
@@ -938,6 +943,7 @@ projects:
     - qemu_i386
     - juno-r2
     - juno-r2-kasan
+    - juno-r2-compat
     notes: >
       LTP copy_file_range02 failed on i386, qemu_i386, qemu_x86_64, qemu_arm and x15 device.
       copy_file_range returned wrong value 32
