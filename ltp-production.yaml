@@ -399,7 +399,7 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=3883
     active: true
     intermittent: false
-  - environments: *environments_qemu
+  - environments: *environments_all
     notes: >
       qemu_arm32/64: LTP select04 is not returning 0 on timeout
     projects: *projects_all
