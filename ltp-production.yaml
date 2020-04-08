@@ -987,3 +987,12 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5567
     active: true
     intermittent: false
+  - environments: *environments_all
+    notes: >
+      INFO Starting crypto_user larval deletion test.  May crash buggy kernels.
+      BROK unexpected error from tst_crypto_del_alg() EBUSY (16)
+    projects: *projects_all
+    test_name: ltp-crypto-tests/crypto_user02
+    url: https://bugs.linaro.org/show_bug.cgi?id=5579
+    active: true
+    intermittent: true
