@@ -72,10 +72,11 @@ projects:
     projects: *projects_all
     test_names:
     - perf/Object-code-reading
+    - perf/Test-object-code-reading
     url: https://bugs.linaro.org/show_bug.cgi?id=5470
     active: true
     intermittent: true
-  - environments: *environments_32bit
+  - environments: *environments_all
     notes: >
       perf test case Read backward ring buffer failed on 32bit arch.
       failed on arm32 x15 device, qemu_arm32 and qemu_i386.
@@ -95,6 +96,7 @@ projects:
     projects: *projects_all
     test_names:
     - perf/Read-backward-ring-buffer
+    - perf/Test-backward-reading-from-ring-buffer
     url: https://bugs.linaro.org/show_bug.cgi?id=5471
     active: true
     intermittent: true
