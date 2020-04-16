@@ -963,12 +963,15 @@ projects:
     - kselftest-vsyscall-mode-none/rseq_basic_percpu_ops_test
     - kselftest-vsyscall-mode-native/rseq_basic_percpu_ops_test
     notes: >
-      LKFT: Kselftest: rseq: tests not building for arm64 for mainline but test pass on -next
+      LKFT: Kselftest: rseq: tests getting timeout
+      FAIL 2 selftests rseq basic_percpu_ops_test  TIMEOUT
     url: https://bugs.linaro.org/show_bug.cgi?id=3923
     active: true
-    intermittent: false
+    intermittent: true
     matrix_apply:
     - environments: *environments_arm64
+      projects: *projects_all
+    - environments: *environments_32bit
       projects: *projects_all
     - environments: *environments_all
       projects:
