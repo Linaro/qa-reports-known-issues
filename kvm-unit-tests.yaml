@@ -63,5 +63,14 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5557
     active: true
     intermittent: false
+  - environments: *environments_arm64
+    notes: >
+      micro-bench test fails intermittently on arm64
 
-
+      TESTNAME=micro-bench TIMEOUT=90s ACCEL=kvm ./arm/run arm/micro-bench.flat -smp 2
+      FAIL micro-bench (timeout; duration=90s)
+    projects: *projects_all
+    test_name: kvm-unit-tests/micro-bench
+    url: https://bugs.linaro.org/show_bug.cgi?id=5610
+    active: true
+    intermittent: true
