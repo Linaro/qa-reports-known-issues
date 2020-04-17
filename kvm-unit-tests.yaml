@@ -74,3 +74,16 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5610
     active: true
     intermittent: true
+  - environments:
+    - i386
+    notes: >
+      kvm unit test case fails on i386 device
+      PASS on x86_64
+
+      TESTNAME=vmexit_inl_pmtimer TIMEOUT=90s ACCEL= ./x86/run x86/vmexit.flat -smp 1 -append 'inl_from_pmtimer'
+      FAIL vmexit_inl_pmtimer
+    projects: *projects_all
+    test_name: kvm-unit-tests/vmexit_inl_pmtimer
+    url: https://bugs.linaro.org/show_bug.cgi?id=5611
+    active: true
+    intermittent: false
