@@ -503,7 +503,7 @@ projects:
     notes: null
     url: null
     active: true
-    intermittent: false
+    intermittent: true
     matrix_apply:
     - environments:
       - dragonboard-410c
@@ -511,6 +511,8 @@ projects:
       projects:
       - lkft/linux-stable-rc-4.4-oe
       - lkft/linaro-hikey-stable-rc-4.4-oe
+    - environments: *environments_all
+      projects: *projects_all
   - environments: *environments_qemu
     notes: null
     projects: *projects_all
