@@ -466,7 +466,10 @@ projects:
     url: null
     active: true
     intermittent: false
-  - test_name: kselftest/rtc_rtctest
+  - test_names:
+    - kselftest/rtc_rtctest
+    - kselftest-vsyscall-mode-none/rtc_rtctest
+    - kselftest-vsyscall-mode-native/rtc_rtctest
     notes: >
       LKFT: linux-mainline, 4.9 and 4.4: x15: rtctest - PIE delta error: 0.018197
       should be close to 0.015625
