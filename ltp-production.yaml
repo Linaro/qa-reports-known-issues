@@ -998,3 +998,14 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5640
     active: true
     intermittent: true
+  - environments:
+    - juno-r2
+    - juno-r2-kasan
+    - juno-r2-compat
+    notes: >
+      LTP: clock_gettime01 failed on Juno-r2 - intermittently
+    projects: *projects_all
+    test_name: ltp-syscalls-tests/clock_gettime01
+    url: https://bugs.linaro.org/show_bug.cgi?id=5643
+    active: true
+    intermittent: true
