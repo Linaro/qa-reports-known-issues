@@ -60,6 +60,7 @@ projects:
 - name: LKFT
   projects: &projects_all
     - lkft/linux-mainline-oe
+    - lkft/linux-stable-rc-5.7-oe
     - lkft/linux-stable-rc-5.6-oe
     - lkft/linux-stable-rc-5.4-oe
     - lkft/linux-stable-rc-4.19-oe
@@ -287,6 +288,7 @@ projects:
       - x86-kasan
       projects:
       - lkft/linux-mainline-oe
+      - lkft/linux-stable-rc-5.7-oe
       - lkft/linux-stable-rc-5.6-oe
       - lkft/linux-stable-rc-5.4-oe
   - test_names:
@@ -540,6 +542,7 @@ projects:
       (cgroup_helpers.c:97: errno: No such file or directory) Opening
       Cgroup Procs: /mnt/cgroup.procs
     projects:
+      - lkft/linux-stable-rc-5.7-oe
       - lkft/linux-stable-rc-5.6-oe
       - lkft/linux-stable-rc-5.4-oe
       - lkft/linux-stable-rc-4.19-oe
@@ -690,6 +693,7 @@ projects:
       - lkft/linux-stable-rc-4.19-oe
       - lkft/linux-stable-rc-5.4-oe
       - lkft/linux-stable-rc-5.6-oe
+      - lkft/linux-stable-rc-5.7-oe
     - environments: *environments_arm32
       projects: *projects_all
   - environments: *environments_all
@@ -914,6 +918,7 @@ projects:
       projects: *projects_all
     - environments: *environments_all
       projects:
+      - lkft/linux-stable-rc-5.7-oe
       - lkft/linux-stable-rc-5.6-oe
       - lkft/linux-stable-rc-5.4-oe
       - lkft/linux-stable-rc-4.19-oe
@@ -1077,6 +1082,7 @@ projects:
       PASS on mainline and -next.
       FAILED on 5.1, 4.19, 4.14, 4.9 and 4.4 on all devices.
     projects:
+    - lkft/linux-stable-rc-5.7-oe
     - lkft/linux-stable-rc-5.6-oe
     - lkft/linux-stable-rc-5.4-oe
     - lkft/linux-stable-rc-4.19-oe
