@@ -1011,3 +1011,12 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5643
     active: true
     intermittent: true
+  - environments: *environments_all
+    notes: >
+      LTP hugetlb test case hugeshmat04 fails intermittenly on nxp-ls2088, Juno
+      and qemu_arm64. On mainline and other branches also.
+    projects: *projects_all
+    test_name: ltp-hugetlb-tests/hugeshmat04
+    url: https://bugs.linaro.org/show_bug.cgi?id=5644
+    active: true
+    intermittent: true
