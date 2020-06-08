@@ -1020,3 +1020,14 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5644
     active: true
     intermittent: true
+  - environments:
+    - qemu_arm
+    - qemu_arm64
+    notes: >
+      LTP syscalls test case prctl09 failed on qemu_arm64 and qemu_arm on
+      all branches intermittently.
+    projects: *projects_all
+    test_name:   ltp-syscalls-tests/prctl09
+    url: https://bugs.linaro.org/show_bug.cgi?id=5645
+    active: true
+    intermittent: true
