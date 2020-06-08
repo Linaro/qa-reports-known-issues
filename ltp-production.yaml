@@ -1031,3 +1031,14 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5645
     active: true
     intermittent: true
+  - environments: *environments_all
+    notes: >
+      LTP syscalls test case mknod07 failed on mainline kernel.
+      Test case code to be updated.
+    projects:
+    - lkft/linux-next-oe
+    - lkft/linux-mainline-oe
+    test_name:   ltp-syscalls-tests/mknod07
+    url: https://bugs.linaro.org/show_bug.cgi?id=5646
+    active: true
+    intermittent: true
