@@ -1027,7 +1027,7 @@ projects:
       LTP syscalls test case prctl09 failed on qemu_arm64 and qemu_arm on
       all branches intermittently.
     projects: *projects_all
-    test_name:   ltp-syscalls-tests/prctl09
+    test_name: ltp-syscalls-tests/prctl09
     url: https://bugs.linaro.org/show_bug.cgi?id=5645
     active: true
     intermittent: true
@@ -1038,7 +1038,7 @@ projects:
     projects:
     - lkft/linux-next-oe
     - lkft/linux-mainline-oe
-    test_name:   ltp-syscalls-tests/mknod07
+    test_name: ltp-syscalls-tests/mknod07
     url: https://bugs.linaro.org/show_bug.cgi?id=5646
     active: true
     intermittent: true
