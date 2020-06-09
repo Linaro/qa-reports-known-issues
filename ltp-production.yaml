@@ -1042,3 +1042,23 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5646
     active: true
     intermittent: true
+  - environments:
+    - i386
+    - x15
+    notes: >
+      LTP open-posix test case clocks_invaliddates fails intermittently
+      on arm x15 and i386 on all the stable branches and mainline and next.
+    projects: *projects_all
+    test_name: ltp-open-posix-tests/clocks_invaliddates
+    url: https://bugs.linaro.org/show_bug.cgi?id=5647
+    active: true
+    intermittent: true
+  - environments: *environments_all
+    notes: >
+      LTP open-posix test case clocks_twopsetclock fails on all devices
+      on all the stable branches and mainline and next.
+    projects: *projects_all
+    test_name: ltp-open-posix-tests/clocks_twopsetclock
+    url: https://bugs.linaro.org/show_bug.cgi?id=5648
+    active: true
+    intermittent: false
