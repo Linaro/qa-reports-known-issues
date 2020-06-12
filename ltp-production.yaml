@@ -1064,3 +1064,14 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5648
     active: true
     intermittent: false
+  - environments:
+    - qemu_arm
+    - x15
+    notes: >
+      LTP syscalls test case getrlimit03 test failed on arm x15 device and qemu_arm.
+       BROK Test killed by SIGILL!
+    projects: *projects_all
+    test_name: ltp-syscalls-tests/getrlimit03
+    url: https://bugs.linaro.org/show_bug.cgi?id=5638
+    active: true
+    intermittent: true
