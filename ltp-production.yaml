@@ -996,7 +996,9 @@ projects:
       LTP test case clock_gettime03 failed intermittently on the slow qemu_i386.
       Same test failure noticed on x86 kasan build.
     projects: *projects_all
-    test_name: ltp-syscalls-tests/clock_gettime03
+    test_names:
+    - ltp-syscalls-tests/clock_gettime03
+    - ltp-containers-tests/clock_gettime03
     url: https://bugs.linaro.org/show_bug.cgi?id=5640
     active: true
     intermittent: true
