@@ -1075,3 +1075,31 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5638
     active: true
     intermittent: true
+  - environments: *environments_all
+    notes: >
+      LTP controllers memcg_move_charge_at_immigrate_test is a known
+      intermittent failure. Process 19742 exited with 1 after warm up
+    projects: *projects_all
+    test_name: ltp-controllers-tests/memcg_move_charge_at_immigrate
+    url: https://bugs.linaro.org/show_bug.cgi?id=5652
+    active: true
+    intermittent: true
+  - environments: *environments_all
+    notes: >
+      LTP controllers memcg_stat_rss test fails intermittently
+      Process 19346 exited with 1 after warm up
+    projects: *projects_all
+    test_name: ltp-controllers-tests/memcg_stat_rss
+    url: https://bugs.linaro.org/show_bug.cgi?id=5653
+    active: true
+    intermittent: true
+  - environments: *environments_all
+    notes: >
+      LTP memcg_usage_in_bytes_test fails on most of the devices
+      in few cases pass on Juno-r2.
+      memory.usage_in_bytes is 4325376, 4194304 expected
+    projects: *projects_all
+    test_name: ltp-controllers-tests/memcg_usage_in_bytes
+    url: https://bugs.linaro.org/show_bug.cgi?id=5653
+    active: true
+    intermittent: true
