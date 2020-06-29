@@ -1,0 +1,44 @@
+globals:
+projects:
+- name: LKFT-network-basic-tests
+  projects: &projects_all
+    - lkft/linux-next-oe
+    - lkft/linux-mainline-oe
+    - lkft/linux-stable-rc-5.7-oe
+    - lkft/linux-stable-rc-5.6-oe
+    - lkft/linux-stable-rc-5.4-oe
+    - lkft/linux-stable-rc-4.19-oe
+    - lkft/linux-stable-rc-4.14-oe
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linaro-hikey-stable-rc-4.4-oe
+  url: https://qa-reports.linaro.org
+  environments: &environments_all
+  - dragonboard-410c
+  - hi6220-hikey
+  - i386
+  - juno-r2
+  - juno-r2-kasan
+  - qemu_x86_64
+  - qemu_i386
+  - qemu_arm
+  - qemu_arm64
+  - x15
+  - x86
+  - x86-kasan
+  - nxp-ls2088
+  known_issues:
+  - environments:
+    - hi6220-hikey
+    notes: >
+      On hikey device the network interface does not raise itself.
+      Due to this network-basic-tests are getting failed intermittently.
+       * ip-link-interface-up fail
+       * ping-gateway fail
+    projects: *projects_all
+    test_names:
+    - network-basic-tests/ip-link-interface-up
+    - network-basic-tests/ping-gateway
+    url: https://bugs.linaro.org/show_bug.cgi?id=5658
+    active: true
+    intermittent: true
