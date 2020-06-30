@@ -1105,3 +1105,30 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5653
     active: true
     intermittent: true
+  - environments: *environments_all
+    notes: >
+      memcg_subgroup_charge FAIL rss is 0, 135168 expected
+      test failure is intermittent
+    projects: *projects_all
+    test_name: ltp-controllers-tests/memcg_subgroup_charge
+    url: https://bugs.linaro.org/show_bug.cgi?id=5655
+    active: true
+    intermittent: true
+  - environments: *environments_all
+    notes: >
+      LTP controllers memcg_max_usage_in_bytes FAIL memory.max_usage_in_bytes
+      is 4325376, 4194304 expected
+    projects: *projects_all
+    test_name: ltp-controllers-tests/memcg_max_usage_in_bytes
+    url: https://bugs.linaro.org/show_bug.cgi?id=5660
+    active: true
+    intermittent: true
+  - environments: *environments_all
+    notes: >
+      LTP controllers memcg_use_hierarchy_test FAIL echo 1 >
+      memory.use_hierarchy passed unexpectedly.
+    projects: *projects_all
+    test_name: ltp-controllers-tests/memcg_use_hierarchy
+    url: https://bugs.linaro.org/show_bug.cgi?id=5661
+    active: true
+    intermittent: true
