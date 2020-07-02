@@ -1132,3 +1132,17 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5661
     active: true
     intermittent: true
+  - environments: *environments_all
+    notes: >
+      LTP af_alg02  test case fails on stable 4.9 and stable 4.4
+      af_alg02.c:52 BROK Timed out while reading from request socket.
+    projects:
+    - lkft/linux-stable-rc-4.9-oe
+    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linaro-hikey-stable-rc-4.4-oe
+    test_names:
+    - ltp-crypto-tests/af_alg02
+    - ltp-cve-tests/cve-2017-17805
+    url: https://bugs.linaro.org/show_bug.cgi?id=5664
+    active: true
+    intermittent: true
