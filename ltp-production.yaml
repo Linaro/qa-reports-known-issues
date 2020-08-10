@@ -63,6 +63,7 @@ projects:
   projects: &projects_all
     - lkft/linux-next-oe
     - lkft/linux-mainline-oe
+    - lkft/linux-stable-rc-5.8-oe
     - lkft/linux-stable-rc-5.7-oe
     - lkft/linux-stable-rc-5.6-oe
     - lkft/linux-stable-rc-5.4-oe
@@ -847,6 +848,7 @@ projects:
     - lkft/linux-stable-rc-5.4-oe
     - lkft/linux-stable-rc-5.6-oe
     - lkft/linux-stable-rc-5.7-oe
+    - lkft/linux-stable-rc-5.8-oe
     test_names:
     - ltp-syscalls-tests/shmctl01
     url: https://bugs.linaro.org/show_bug.cgi?id=5313
