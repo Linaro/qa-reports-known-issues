@@ -18,9 +18,9 @@ projects:
     - x86
   known_issues:
   - environments: *environments_all
-    notes: 'LKFT: LTP: fork13: runs long and hangs machine on branches'
+    notes: 'LKFT: LTP: forkxx13: runs long and hangs machine on branches'
     projects: *projects_all
-    test_name: ltp-syscalls-tests/fork13
+    test_name: ltp-syscalls-tests/forkxx13
     url: https://bugs.linaro.org/show_bug.cgi?id=3719
     active: true
     intermittent: false
@@ -28,7 +28,7 @@ projects:
   # Define a test with different combinations of environments and projects
   - test_names:
       - ltp-syscalls-tests/fork10
-      - ltp-syscalls-tests/fork13
+      - ltp-syscalls-tests/forkx13
     notes: 'LKFT: LTP: fork10: runs long and hangs machine on branches'
     url: https://bugs.linaro.org/show_bug.cgi?id=3719
     active: true
