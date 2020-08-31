@@ -8,7 +8,7 @@ globals:
 projects:
 - name: LKFT-v4l2-compliance
   projects: &projects_all
-    - lkft/linux-next-oe
+    - lkft/linux-next-master
     - lkft/linux-mainline-oe
     - lkft/linux-stable-rc-5.8-oe
     - lkft/linux-stable-rc-5.7-oe
@@ -43,7 +43,7 @@ projects:
        check_0(reqbufs.reserved, sizeof(reqbufs.reserved))
        test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: FAIL
     projects:
-    - lkft/linux-next-oe
+    - lkft/linux-next-master
     - lkft/linux-mainline-oe
     - lkft/linux-stable-rc-5.8-oe
     - lkft/linux-stable-rc-5.7-oe

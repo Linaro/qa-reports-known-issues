@@ -2,7 +2,7 @@ globals:
 projects:
 - name: LKFT-network-basic-tests
   projects: &projects_all
-    - lkft/linux-next-oe
+    - lkft/linux-next-master
     - lkft/linux-mainline-oe
     - lkft/linux-stable-rc-5.8-oe
     - lkft/linux-stable-rc-5.7-oe
