@@ -61,7 +61,7 @@ globals:
 projects:
 - name: LKFT-ltp
   projects: &projects_all
-    - lkft/linux-next-oe
+    - lkft/linux-next-master
     - lkft/linux-mainline-oe
     - lkft/linux-stable-rc-5.8-oe
     - lkft/linux-stable-rc-5.7-oe
@@ -843,7 +843,7 @@ projects:
       ref link
       http://lists.linux.it/pipermail/ltp/2019-May/012072.html
     projects:
-    - lkft/linux-next-oe
+    - lkft/linux-next-master
     - lkft/linux-mainline-oe
     - lkft/linux-stable-rc-5.4-oe
     - lkft/linux-stable-rc-5.6-oe
@@ -1042,7 +1042,7 @@ projects:
       LTP syscalls test case mknod07 failed on mainline kernel.
       Test case code to be updated.
     projects:
-    - lkft/linux-next-oe
+    - lkft/linux-next-master
     - lkft/linux-mainline-oe
     test_name: ltp-syscalls-tests/mknod07
     url: https://bugs.linaro.org/show_bug.cgi?id=5646
