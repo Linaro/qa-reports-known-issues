@@ -1,4 +1,4 @@
-all: flake8 test dry-run
+all: test dry-run flake8
 
 test:
 	pytest
