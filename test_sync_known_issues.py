@@ -93,9 +93,9 @@ def test_squad_known_issue_dupe_detection():
     config_file = "test_data/dupe-issue.yaml"
     config_data = sync_known_issues.parse_files([config_file])
 
-    with pytest.raises(AssertionError,
-                       message="Error, test name ltp-syscalls-tests/fork13 defined twice"):
+    with pytest.raises(AssertionError) as exc_info:
         sync_known_issues.SquadProject(config_data['LKFT-ltp-staging'])
+    assert "Error, test name ltp-syscalls-tests/fork13 defined twice" in str(exc_info)
 
 
 def test_matrix_apply_kselftest_bug():
@@ -136,6 +136,6 @@ def test_test_names_as_string():
     config_file = "test_data/test-names-as-string.yaml"
     config_data = sync_known_issues.parse_files([config_file])
 
-    with pytest.raises(AssertionError,
-                       message="Error, string (not list) passed to test_names"):
+    with pytest.raises(AssertionError) as exc_info:
         sync_known_issues.SquadProject(config_data['LKFT-ltp-staging'])
+    assert "Error, string (not list) passed to test_names" in str(exc_info)
