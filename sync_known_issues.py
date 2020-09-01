@@ -227,7 +227,7 @@ def parse_files(config_files):
     for f in config_files:
         with open(f, 'r') as stream:
             try:
-                loaded_config = yaml.load(stream)
+                loaded_config = yaml.load(stream, Loader=yaml.SafeLoader)
                 for project in loaded_config.get('projects'):
                     config_data.update({project['name']: project})
             except yaml.YAMLError as exc:
