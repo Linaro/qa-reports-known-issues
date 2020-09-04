@@ -59,7 +59,7 @@ globals:
 projects:
 - name: LKFT
   projects: &projects_all
-    - lkft/linux-mainline-oe
+    - lkft/linux-mainline-master
     - lkft/linux-stable-rc-5.8-oe
     - lkft/linux-stable-rc-5.7-oe
     - lkft/linux-stable-rc-5.6-oe
@@ -288,7 +288,7 @@ projects:
       - x86
       - x86-kasan
       projects:
-      - lkft/linux-mainline-oe
+      - lkft/linux-mainline-master
       - lkft/linux-stable-rc-5.8-oe
       - lkft/linux-stable-rc-5.7-oe
       - lkft/linux-stable-rc-5.6-oe

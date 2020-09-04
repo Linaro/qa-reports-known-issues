@@ -9,7 +9,7 @@ projects:
 - name: LKFT-v4l2-compliance
   projects: &projects_all
     - lkft/linux-next-master
-    - lkft/linux-mainline-oe
+    - lkft/linux-mainline-master
     - lkft/linux-stable-rc-5.8-oe
     - lkft/linux-stable-rc-5.7-oe
     - lkft/linux-stable-rc-5.6-oe
@@ -44,7 +44,7 @@ projects:
        test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: FAIL
     projects:
     - lkft/linux-next-master
-    - lkft/linux-mainline-oe
+    - lkft/linux-mainline-master
     - lkft/linux-stable-rc-5.8-oe
     - lkft/linux-stable-rc-5.7-oe
     - lkft/linux-stable-rc-5.6-oe
