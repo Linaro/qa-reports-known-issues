@@ -62,7 +62,7 @@ projects:
 - name: LKFT-ltp
   projects: &projects_all
     - lkft/linux-next-master
-    - lkft/linux-mainline-oe
+    - lkft/linux-mainline-master
     - lkft/linux-stable-rc-5.8-oe
     - lkft/linux-stable-rc-5.7-oe
     - lkft/linux-stable-rc-5.6-oe
@@ -773,7 +773,7 @@ projects:
       LTP: mount02 was expected EINVAL(22) but got ENOENT(2): No such file or directory
       Both new error codes EINVAL and ENOTBLK to be added to test case
     projects:
-    - lkft/linux-mainline-oe
+    - lkft/linux-mainline-master
     test_names:
     - ltp-syscalls-tests/mount02
     url: https://bugs.linaro.org/show_bug.cgi?id=4310
@@ -844,7 +844,7 @@ projects:
       http://lists.linux.it/pipermail/ltp/2019-May/012072.html
     projects:
     - lkft/linux-next-master
-    - lkft/linux-mainline-oe
+    - lkft/linux-mainline-master
     - lkft/linux-stable-rc-5.4-oe
     - lkft/linux-stable-rc-5.6-oe
     - lkft/linux-stable-rc-5.7-oe
@@ -1043,7 +1043,7 @@ projects:
       Test case code to be updated.
     projects:
     - lkft/linux-next-master
-    - lkft/linux-mainline-oe
+    - lkft/linux-mainline-master
     test_name: ltp-syscalls-tests/mknod07
     url: https://bugs.linaro.org/show_bug.cgi?id=5646
     active: true
