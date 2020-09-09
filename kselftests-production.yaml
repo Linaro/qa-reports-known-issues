@@ -60,14 +60,14 @@ projects:
 - name: LKFT
   projects: &projects_all
     - lkft/linux-mainline-master
-    - lkft/linux-stable-rc-5.8-oe
+    - lkft/linux-stable-rc-linux-5.8.y
     - lkft/linux-stable-rc-5.7-oe
     - lkft/linux-stable-rc-5.6-oe
-    - lkft/linux-stable-rc-5.4-oe
-    - lkft/linux-stable-rc-4.19-oe
-    - lkft/linux-stable-rc-4.14-oe
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-linux-5.4.y
+    - lkft/linux-stable-rc-linux-4.19.y
+    - lkft/linux-stable-rc-linux-4.14.y
+    - lkft/linux-stable-rc-linux-4.9.y
+    - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
   url: https://qa-reports.linaro.org
   environments: &environments_all
@@ -158,9 +158,9 @@ projects:
       LKFT: kselftest BPF test_dev_cgroup failed on 4.14 and below
       on all devices
     projects:
-    - lkft/linux-stable-rc-4.14-oe
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-linux-4.14.y
+    - lkft/linux-stable-rc-linux-4.9.y
+    - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
     - kselftest/bpf_test_dev_cgroup
@@ -252,8 +252,8 @@ projects:
       projects: *projects_all
     - environments: *environments_all
       projects:
-      - lkft/linux-stable-rc-4.9-oe
-      - lkft/linux-stable-rc-4.4-oe
+      - lkft/linux-stable-rc-linux-4.9.y
+      - lkft/linux-stable-rc-linux-4.4.y
       - lkft/linaro-hikey-stable-rc-4.4-oe
   - environments: *environments_x86_64
     notes: >
@@ -279,8 +279,8 @@ projects:
     matrix_apply:
     - environments: *environments_all
       projects:
-      - lkft/linux-stable-rc-4.9-oe
-      - lkft/linux-stable-rc-4.4-oe
+      - lkft/linux-stable-rc-linux-4.9.y
+      - lkft/linux-stable-rc-linux-4.4.y
       - lkft/linaro-hikey-stable-rc-4.4-oe
     - environments: *environments_arm32
       projects: *projects_all
@@ -289,10 +289,10 @@ projects:
       - x86-kasan
       projects:
       - lkft/linux-mainline-master
-      - lkft/linux-stable-rc-5.8-oe
+      - lkft/linux-stable-rc-linux-5.8.y
       - lkft/linux-stable-rc-5.7-oe
       - lkft/linux-stable-rc-5.6-oe
-      - lkft/linux-stable-rc-5.4-oe
+      - lkft/linux-stable-rc-linux-5.4.y
   - test_names:
     - kselftest/bpf_test_align
     - kselftest-vsyscall-mode-none/bpf_test_align
@@ -309,10 +309,10 @@ projects:
     matrix_apply:
     - environments: *environments_all
       projects:
-      - lkft/linux-stable-rc-4.19-oe
-      - lkft/linux-stable-rc-4.14-oe
-      - lkft/linux-stable-rc-4.9-oe
-      - lkft/linux-stable-rc-4.4-oe
+      - lkft/linux-stable-rc-linux-4.19.y
+      - lkft/linux-stable-rc-linux-4.14.y
+      - lkft/linux-stable-rc-linux-4.9.y
+      - lkft/linux-stable-rc-linux-4.4.y
       - lkft/linaro-hikey-stable-rc-4.4-oe
     - environments: *environments_32bit
       projects: *projects_all
@@ -326,17 +326,17 @@ projects:
     matrix_apply:
     - environments: *environments_all
       projects:
-      - lkft/linux-stable-rc-4.4-oe
+      - lkft/linux-stable-rc-linux-4.4.y
       - lkft/linaro-hikey-stable-rc-4.4-oe
     - environments: *environments_arm32
       projects:
-      - lkft/linux-stable-rc-4.19-oe
+      - lkft/linux-stable-rc-linux-4.19.y
   - environments: *environments_all
     notes: >
       skip all tests memory hotplug is not supported
     projects:
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-linux-4.9.y
+    - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
     - kselftest/memory-hotplug_mem-on-off-test.sh
@@ -352,19 +352,19 @@ projects:
     matrix_apply:
     - environments: *environments_all
       projects:
-      - lkft/linux-stable-rc-4.9-oe
+      - lkft/linux-stable-rc-linux-4.9.y
     - environments:
       - dragonboard-410c
       - hi6220-hikey
       projects:
-      - lkft/linux-stable-rc-4.4-oe
+      - lkft/linux-stable-rc-linux-4.4.y
       - lkft/linaro-hikey-stable-rc-4.4-oe
   - environments: *environments_all
     notes: >
       LKFT: 4.9-rc: Hikey: sysctl.sh need CONFIG_TEST_SYSCTL=y
     projects:
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-linux-4.9.y
+    - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_name: kselftest/sysctl_sysctl.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=3251
@@ -376,8 +376,8 @@ projects:
     notes: >
       LKFT: timer: inconsistency-check failed on Hikey
     projects:
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-linux-4.9.y
+    - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_name: kselftest/timer_inconsistency-check
     url: https://bugs.linaro.org/show_bug.cgi?id=2950
@@ -387,7 +387,7 @@ projects:
     notes: >
       kselftests: x86_syscall_nt_32 fails on i386 and qemu_i386 for 4.4
     projects:
-    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-linux-4.4.y
     test_name: kselftest/x86_test_mremap_vdso_32
     url: https://bugs.linaro.org/show_bug.cgi?id=4047
     active: true
@@ -396,7 +396,7 @@ projects:
     notes: >
       kselftests: x86_syscall_nt_32 fails on i386 and qemu_i386 for 4.4
     projects:
-    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-linux-4.4.y
     test_name: kselftest/x86_syscall_nt_32
     url: https://bugs.linaro.org/show_bug.cgi?id=4046
     active: true
@@ -405,8 +405,8 @@ projects:
     notes: >
       kselftests: ldt_gdt_32 fails on i386 and qemu_i386
     projects:
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-linux-4.9.y
+    - lkft/linux-stable-rc-linux-4.4.y
     test_name: kselftest/x86_ldt_gdt_32
     url: https://bugs.linaro.org/show_bug.cgi?id=3993
     active: true
@@ -415,8 +415,8 @@ projects:
     notes: >
       kselftests: ldt_gdt_64 fails on x86
     projects:
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-linux-4.9.y
+    - lkft/linux-stable-rc-linux-4.4.y
     test_name: kselftest/x86_ldt_gdt_64
     url: https://bugs.linaro.org/show_bug.cgi?id=3564
     active: true
@@ -444,7 +444,7 @@ projects:
       LKFT: nsfs: owner and pidns failed - main:57:Unable to open
       /proc/2829/ns/uts: No such file or director
     projects:
-    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
     - kselftest/nsfs_owner
@@ -455,7 +455,7 @@ projects:
   - environments: *environments_all
     notes: null
     projects:
-    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_name: kselftest/net_run_afpackettests
     url: null
@@ -464,7 +464,7 @@ projects:
   - environments: *environments_all
     notes: null
     projects:
-    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_name: kselftest/sigaltstack_sas
     url: null
@@ -513,7 +513,7 @@ projects:
       - dragonboard-410c
       - hi6220-hikey
       projects:
-      - lkft/linux-stable-rc-4.4-oe
+      - lkft/linux-stable-rc-linux-4.4.y
       - lkft/linaro-hikey-stable-rc-4.4-oe
     - environments: *environments_all
       projects: *projects_all
@@ -544,14 +544,14 @@ projects:
       (cgroup_helpers.c:97: errno: No such file or directory) Opening
       Cgroup Procs: /mnt/cgroup.procs
     projects:
-      - lkft/linux-stable-rc-5.8-oe
+      - lkft/linux-stable-rc-linux-5.8.y
       - lkft/linux-stable-rc-5.7-oe
       - lkft/linux-stable-rc-5.6-oe
-      - lkft/linux-stable-rc-5.4-oe
-      - lkft/linux-stable-rc-4.19-oe
-      - lkft/linux-stable-rc-4.14-oe
-      - lkft/linux-stable-rc-4.9-oe
-      - lkft/linux-stable-rc-4.4-oe
+      - lkft/linux-stable-rc-linux-5.4.y
+      - lkft/linux-stable-rc-linux-4.19.y
+      - lkft/linux-stable-rc-linux-4.14.y
+      - lkft/linux-stable-rc-linux-4.9.y
+      - lkft/linux-stable-rc-linux-4.4.y
       - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
     - kselftest/bpf_test_tcpbpf_user
@@ -586,7 +586,7 @@ projects:
       projects: *projects_all
     - environments: *environments_x86_64
       projects:
-      - lkft/linux-stable-rc-4.4-oe
+      - lkft/linux-stable-rc-linux-4.4.y
   - environments: *environments_all
     notes: >
       LKFT: linux-mainline: all: net fib-onlink-tests.sh and fib_tests.sh failed
@@ -612,21 +612,21 @@ projects:
     matrix_apply:
     - environments: *environments_arm32
       projects:
-      - lkft/linux-stable-rc-4.19-oe
+      - lkft/linux-stable-rc-linux-4.19.y
     - environments: *environments_all
       projects:
-      - lkft/linux-stable-rc-4.14-oe
-      - lkft/linux-stable-rc-4.9-oe
-      - lkft/linux-stable-rc-4.4-oe
+      - lkft/linux-stable-rc-linux-4.14.y
+      - lkft/linux-stable-rc-linux-4.9.y
+      - lkft/linux-stable-rc-linux-4.4.y
       - lkft/linaro-hikey-stable-rc-4.4-oe
   - environments: *environments_all
     notes: >
       LKFT: LKFT: 4.14 4.9 4.4 : membarrier_test test failed on all devices when
       kselftest upgrade to 4.16
     projects:
-    - lkft/linux-stable-rc-4.14-oe
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-linux-4.14.y
+    - lkft/linux-stable-rc-linux-4.9.y
+    - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
     - kselftest/membarrier_membarrier_test
@@ -690,14 +690,14 @@ projects:
     - environments: *environments_all
       projects:
       - lkft/linaro-hikey-stable-rc-4.4-oe
-      - lkft/linux-stable-rc-4.4-oe
-      - lkft/linux-stable-rc-4.9-oe
-      - lkft/linux-stable-rc-4.14-oe
-      - lkft/linux-stable-rc-4.19-oe
-      - lkft/linux-stable-rc-5.4-oe
+      - lkft/linux-stable-rc-linux-4.4.y
+      - lkft/linux-stable-rc-linux-4.9.y
+      - lkft/linux-stable-rc-linux-4.14.y
+      - lkft/linux-stable-rc-linux-4.19.y
+      - lkft/linux-stable-rc-linux-5.4.y
       - lkft/linux-stable-rc-5.6-oe
       - lkft/linux-stable-rc-5.7-oe
-      - lkft/linux-stable-rc-5.8-oe
+      - lkft/linux-stable-rc-linux-5.8.y
     - environments: *environments_arm32
       projects: *projects_all
   - environments: *environments_all
@@ -706,9 +706,9 @@ projects:
       proc-self-map-files-002 is the same test and works for ARM.
     projects:
     - lkft/linaro-hikey-stable-rc-4.4-oe
-    - lkft/linux-stable-rc-4.4-oe
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.14-oe
+    - lkft/linux-stable-rc-linux-4.4.y
+    - lkft/linux-stable-rc-linux-4.9.y
+    - lkft/linux-stable-rc-linux-4.14.y
     test_names:
     - kselftest/proc_proc-self-map-files-001
     - kselftest-vsyscall-mode-none/proc_proc-self-map-files-001
@@ -728,7 +728,7 @@ projects:
     notes: >
       LKFT: 4.4: Juno: Hikey: x15: x86 reuseport_bpf reuseport_bpf_cpu failed
     projects:
-    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
     - kselftest/net_reuseport_bpf
@@ -854,9 +854,9 @@ projects:
       projects: *projects_all
     - environments: *environments_all
       projects:
-      - lkft/linux-stable-rc-4.14-oe
-      - lkft/linux-stable-rc-4.9-oe
-      - lkft/linux-stable-rc-4.4-oe
+      - lkft/linux-stable-rc-linux-4.14.y
+      - lkft/linux-stable-rc-linux-4.9.y
+      - lkft/linux-stable-rc-linux-4.4.y
       - lkft/linaro-hikey-stable-rc-4.4-oe
   - test_names:
     - kselftest/bpf_test_socket_cookie
@@ -867,10 +867,10 @@ projects:
       projects: *projects_all
     - environments: *environments_all
       projects:
-      - lkft/linux-stable-rc-4.19-oe
-      - lkft/linux-stable-rc-4.14-oe
-      - lkft/linux-stable-rc-4.9-oe
-      - lkft/linux-stable-rc-4.4-oe
+      - lkft/linux-stable-rc-linux-4.19.y
+      - lkft/linux-stable-rc-linux-4.14.y
+      - lkft/linux-stable-rc-linux-4.9.y
+      - lkft/linux-stable-rc-linux-4.4.y
       - lkft/linaro-hikey-stable-rc-4.4-oe
     notes: >
       bpf: test_socket_cookie failed on x86_64 and arm32
@@ -922,14 +922,14 @@ projects:
       projects: *projects_all
     - environments: *environments_all
       projects:
-      - lkft/linux-stable-rc-5.8-oe
+      - lkft/linux-stable-rc-linux-5.8.y
       - lkft/linux-stable-rc-5.7-oe
       - lkft/linux-stable-rc-5.6-oe
-      - lkft/linux-stable-rc-5.4-oe
-      - lkft/linux-stable-rc-4.19-oe
-      - lkft/linux-stable-rc-4.14-oe
-      - lkft/linux-stable-rc-4.9-oe
-      - lkft/linux-stable-rc-4.4-oe
+      - lkft/linux-stable-rc-linux-5.4.y
+      - lkft/linux-stable-rc-linux-4.19.y
+      - lkft/linux-stable-rc-linux-4.14.y
+      - lkft/linux-stable-rc-linux-4.9.y
+      - lkft/linux-stable-rc-linux-4.4.y
       - lkft/linaro-hikey-stable-rc-4.4-oe
   - test_names:
     - kselftest/net_psock_snd.sh
@@ -970,9 +970,9 @@ projects:
       projects: *projects_all
     - environments: *environments_all
       projects:
-      - lkft/linux-stable-rc-4.14-oe
-      - lkft/linux-stable-rc-4.9-oe
-      - lkft/linux-stable-rc-4.4-oe
+      - lkft/linux-stable-rc-linux-4.14.y
+      - lkft/linux-stable-rc-linux-4.9.y
+      - lkft/linux-stable-rc-linux-4.4.y
       - lkft/linaro-hikey-stable-rc-4.4-oe
   - test_names:
       - kselftest/rseq_param_test
@@ -1001,9 +1001,9 @@ projects:
       projects: *projects_all
     - environments: *environments_all
       projects:
-      - lkft/linux-stable-rc-4.14-oe
-      - lkft/linux-stable-rc-4.9-oe
-      - lkft/linux-stable-rc-4.4-oe
+      - lkft/linux-stable-rc-linux-4.14.y
+      - lkft/linux-stable-rc-linux-4.9.y
+      - lkft/linux-stable-rc-linux-4.4.y
       - lkft/linaro-hikey-stable-rc-4.4-oe
   - environments: *environments_all
     notes: >
@@ -1013,8 +1013,8 @@ projects:
       and ENOSYS. And it is likely that it won't be added to v4.4 and v4.9.
       This test should continue be marked as known issue for those kernels.
     projects:
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-linux-4.9.y
+    - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
     - kselftest/proc_fd-003-kthread
@@ -1036,10 +1036,10 @@ projects:
     notes: >
       LKFT: BPF test_btf PASS on 4.18 and failed on 4.17 and below
     projects:
-    - lkft/linux-stable-rc-4.19-oe
-    - lkft/linux-stable-rc-4.14-oe
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-linux-4.19.y
+    - lkft/linux-stable-rc-linux-4.14.y
+    - lkft/linux-stable-rc-linux-4.9.y
+    - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
     - kselftest/bpf_test_btf
@@ -1052,9 +1052,9 @@ projects:
     notes: >
       LKFT: net: udpgso.sh PASS on 4.18 and failed on 4.17 and below
     projects:
-    - lkft/linux-stable-rc-4.14-oe
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-linux-4.14.y
+    - lkft/linux-stable-rc-linux-4.9.y
+    - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
     - kselftest/net_udpgso.sh
@@ -1069,10 +1069,10 @@ projects:
       PASS on 4.20 mainline and -next.
       FAILED on 4.19, 4.14, 4.9 and 4.4 on all devices.
     projects:
-    - lkft/linux-stable-rc-4.19-oe
-    - lkft/linux-stable-rc-4.14-oe
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-linux-4.19.y
+    - lkft/linux-stable-rc-linux-4.14.y
+    - lkft/linux-stable-rc-linux-4.9.y
+    - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
     - kselftest/bpf_test_cgroup_storage
@@ -1087,14 +1087,14 @@ projects:
       PASS on mainline and -next.
       FAILED on 5.1, 4.19, 4.14, 4.9 and 4.4 on all devices.
     projects:
-    - lkft/linux-stable-rc-5.8-oe
+    - lkft/linux-stable-rc-linux-5.8.y
     - lkft/linux-stable-rc-5.7-oe
     - lkft/linux-stable-rc-5.6-oe
-    - lkft/linux-stable-rc-5.4-oe
-    - lkft/linux-stable-rc-4.19-oe
-    - lkft/linux-stable-rc-4.14-oe
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-linux-5.4.y
+    - lkft/linux-stable-rc-linux-4.19.y
+    - lkft/linux-stable-rc-linux-4.14.y
+    - lkft/linux-stable-rc-linux-4.9.y
+    - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
     - kselftest/net_fib_rule_tests.sh
@@ -1110,8 +1110,8 @@ projects:
       LKFT: 4.9 and 4.4: x86: breakpoint step_after_suspend_tests
       Bail out! Failed to enter Suspend state
     projects:
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-linux-4.9.y
+    - lkft/linux-stable-rc-linux-4.4.y
     test_names:
     - kselftest/breakpoints_step_after_suspend_test
     - kselftest-vsyscall-mode-none/breakpoints_step_after_suspend_test
@@ -1151,10 +1151,10 @@ projects:
       projects: *projects_all
     - environments: *environments_all
       projects:
-      - lkft/linux-stable-rc-4.19-oe
-      - lkft/linux-stable-rc-4.14-oe
-      - lkft/linux-stable-rc-4.9-oe
-      - lkft/linux-stable-rc-4.4-oe
+      - lkft/linux-stable-rc-linux-4.19.y
+      - lkft/linux-stable-rc-linux-4.14.y
+      - lkft/linux-stable-rc-linux-4.9.y
+      - lkft/linux-stable-rc-linux-4.4.y
       - lkft/linaro-hikey-stable-rc-4.4-oe
   - environments: *environments_all
     notes: >
@@ -1162,10 +1162,10 @@ projects:
       expected two remotes after link set FAIL
       FAILED on 4.18, 4.14, 4.9 and 4.4 on all devices.
     projects:
-    - lkft/linux-stable-rc-4.19-oe
-    - lkft/linux-stable-rc-4.14-oe
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-linux-4.19.y
+    - lkft/linux-stable-rc-linux-4.14.y
+    - lkft/linux-stable-rc-linux-4.9.y
+    - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
     - kselftest/net_test_vxlan_fdb_changelink.sh
@@ -1180,10 +1180,10 @@ projects:
       FAILED on 4.20, 4.19, 4.14, 4.9 and 4.4 on all devices.
       Fixed and PASS on mainline
     projects:
-    - lkft/linux-stable-rc-4.19-oe
-    - lkft/linux-stable-rc-4.14-oe
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-linux-4.19.y
+    - lkft/linux-stable-rc-linux-4.14.y
+    - lkft/linux-stable-rc-linux-4.9.y
+    - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
     - kselftest/net_ip_defrag.sh
@@ -1199,8 +1199,8 @@ projects:
       FAILED on  4.14 and 4.4 on all devices.
       PASS on 4.9, 4.19, 4.20 mainline and -next
     projects:
-    - lkft/linux-stable-rc-4.14-oe
-    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-linux-4.14.y
+    - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
     - kselftest/bpf_test_xdp_meta.sh
@@ -1215,7 +1215,7 @@ projects:
       Prog section 'redirect_to_222' rejected: Invalid argument (22)!
       FAILED on 4.4 on all devices.
     projects:
-    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
     - kselftest/bpf_test_xdp_redirect.sh
@@ -1237,8 +1237,8 @@ projects:
       projects: *projects_all
     - environments: *environments_all
       projects:
-      - lkft/linux-stable-rc-4.14-oe
-      - lkft/linux-stable-rc-4.4-oe
+      - lkft/linux-stable-rc-linux-4.14.y
+      - lkft/linux-stable-rc-linux-4.4.y
       - lkft/linaro-hikey-stable-rc-4.4-oe
     url: https://bugs.linaro.org/show_bug.cgi?id=4285
     active: true
@@ -1272,10 +1272,10 @@ projects:
       projects: *projects_all
     - environments: *environments_all
       projects:
-      - lkft/linux-stable-rc-4.19-oe
-      - lkft/linux-stable-rc-4.14-oe
-      - lkft/linux-stable-rc-4.9-oe
-      - lkft/linux-stable-rc-4.4-oe
+      - lkft/linux-stable-rc-linux-4.19.y
+      - lkft/linux-stable-rc-linux-4.14.y
+      - lkft/linux-stable-rc-linux-4.9.y
+      - lkft/linux-stable-rc-linux-4.4.y
       - lkft/linaro-hikey-stable-rc-4.4-oe
     url: https://bugs.linaro.org/show_bug.cgi?id=4317
     active: true
@@ -1463,9 +1463,9 @@ projects:
     notes: >
       proc_proc-pid-vm test got failed on x86_64 and qemu_x86_64 for 4.14 and below
     projects:
-    - lkft/linux-stable-rc-4.14-oe
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-linux-4.14.y
+    - lkft/linux-stable-rc-linux-4.9.y
+    - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
     - kselftest/proc_proc-pid-vm
@@ -1478,9 +1478,9 @@ projects:
     notes: >
       proc_setns-dcache test got failed on all devices for 4.14 and below
     projects:
-    - lkft/linux-stable-rc-4.14-oe
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-linux-4.14.y
+    - lkft/linux-stable-rc-linux-4.9.y
+    - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
     - kselftest/proc_setns-dcache
@@ -1593,9 +1593,9 @@ projects:
       PASS on 4.19, 5.4 and 5.5 branches.
       si_code != SEGV_ACCERR...test is probably broken!
     projects:
-    - lkft/linux-stable-rc-4.14-oe
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-linux-4.14.y
+    - lkft/linux-stable-rc-linux-4.9.y
+    - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
     - arm64_fake_sigreturn_bad_size

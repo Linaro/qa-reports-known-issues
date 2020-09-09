@@ -10,14 +10,14 @@ projects:
   projects: &projects_all
     - lkft/linux-next-master
     - lkft/linux-mainline-master
-    - lkft/linux-stable-rc-5.8-oe
+    - lkft/linux-stable-rc-linux-5.8.y
     - lkft/linux-stable-rc-5.7-oe
     - lkft/linux-stable-rc-5.6-oe
-    - lkft/linux-stable-rc-5.4-oe
-    - lkft/linux-stable-rc-4.19-oe
-    - lkft/linux-stable-rc-4.14-oe
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-linux-5.4.y
+    - lkft/linux-stable-rc-linux-4.19.y
+    - lkft/linux-stable-rc-linux-4.14.y
+    - lkft/linux-stable-rc-linux-4.9.y
+    - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
   url: https://qa-reports.linaro.org
   environments: &environments_all
@@ -45,10 +45,10 @@ projects:
     projects:
     - lkft/linux-next-master
     - lkft/linux-mainline-master
-    - lkft/linux-stable-rc-5.8-oe
+    - lkft/linux-stable-rc-linux-5.8.y
     - lkft/linux-stable-rc-5.7-oe
     - lkft/linux-stable-rc-5.6-oe
-    - lkft/linux-stable-rc-5.4-oe
+    - lkft/linux-stable-rc-linux-5.4.y
     test_names:
     - v4l2-compliance/VIDIOC_REQBUFS-CREATE_BUFS-QUERYBUF
     url: https://bugs.linaro.org/show_bug.cgi?id=4639
@@ -70,10 +70,10 @@ projects:
       fail: ../../../v4l-utils-1.16.0/utils/v4l2-compliance/v4l2-test-formats.cpp(1447): testLegacyCrop(node)
       test Cropping: FAIL
     projects:
-    - lkft/linux-stable-rc-4.19-oe
-    - lkft/linux-stable-rc-4.14-oe
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-linux-4.19.y
+    - lkft/linux-stable-rc-linux-4.14.y
+    - lkft/linux-stable-rc-linux-4.9.y
+    - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
     - v4l2-compliance/Cropping
@@ -86,10 +86,10 @@ projects:
       fail: ../../../v4l-utils-1.16.0/utils/v4l2-compliance/v4l2-test-formats.cpp(1132): reserved not zeroed
       test VIDIOC_G/S_PARM: FAIL
     projects:
-    - lkft/linux-stable-rc-4.19-oe
-    - lkft/linux-stable-rc-4.14-oe
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-linux-4.19.y
+    - lkft/linux-stable-rc-linux-4.14.y
+    - lkft/linux-stable-rc-linux-4.9.y
+    - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
     - v4l2-compliance/VIDIOC_G-S_PARM

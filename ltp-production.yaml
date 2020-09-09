@@ -63,14 +63,14 @@ projects:
   projects: &projects_all
     - lkft/linux-next-master
     - lkft/linux-mainline-master
-    - lkft/linux-stable-rc-5.8-oe
+    - lkft/linux-stable-rc-linux-5.8.y
     - lkft/linux-stable-rc-5.7-oe
     - lkft/linux-stable-rc-5.6-oe
-    - lkft/linux-stable-rc-5.4-oe
-    - lkft/linux-stable-rc-4.19-oe
-    - lkft/linux-stable-rc-4.14-oe
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-linux-5.4.y
+    - lkft/linux-stable-rc-linux-4.19.y
+    - lkft/linux-stable-rc-linux-4.14.y
+    - lkft/linux-stable-rc-linux-4.9.y
+    - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
   url: https://qa-reports.linaro.org
   environments: &environments_all
@@ -105,7 +105,7 @@ projects:
       New test case bind03 failed
       LTP: 4.4: bind03.c:55: FAIL: expected EINVAL: EADDRINUSE
     projects:
-      - lkft/linux-stable-rc-4.4-oe
+      - lkft/linux-stable-rc-linux-4.4.y
       - lkft/linaro-hikey-stable-rc-4.4-oe
     test_name: ltp-syscalls-tests/bind03
     url: https://bugs.linaro.org/show_bug.cgi?id=4042
@@ -116,7 +116,7 @@ projects:
       New test case mlock203 failed
       LTP: 4.4: mlock203.c:63: FAIL: Locking one memory again increased VmLck
     projects:
-      - lkft/linux-stable-rc-4.4-oe
+      - lkft/linux-stable-rc-linux-4.4.y
       - lkft/linaro-hikey-stable-rc-4.4-oe
     test_name: ltp-syscalls-tests/mlock203
     url: https://bugs.linaro.org/show_bug.cgi?id=4043
@@ -247,8 +247,8 @@ projects:
       LKFT: LTP: inotify07 FAIL: didn't get event: mask=40000004
       inotify07 is not supported on 4.4 and 4.9
     projects:
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-linux-4.9.y
+    - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_name: ltp-syscalls-tests/inotify07
     url: https://bugs.linaro.org/show_bug.cgi?id=3931
@@ -259,9 +259,9 @@ projects:
       LKFT: LTP: inotify08 FAIL: didn't get event: mask=4
       inotify08 is not supported on 4.14, 4.9 and 4.4
     projects:
-    - lkft/linux-stable-rc-4.14-oe
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-linux-4.14.y
+    - lkft/linux-stable-rc-linux-4.9.y
+    - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_name: ltp-syscalls-tests/inotify08
     url: https://bugs.linaro.org/show_bug.cgi?id=3881
@@ -486,7 +486,7 @@ projects:
       LKFT: LTP: open posix: schedule_1-1 intermittent failures on x86 and i386
       running 4.14 stable kernel.
     projects:
-    - lkft/linux-stable-rc-4.14-oe
+    - lkft/linux-stable-rc-linux-4.14.y
     test_name: ltp-open-posix-tests/schedule_1-1
     url: https://bugs.linaro.org/show_bug.cgi?id=5528
     active: true
@@ -663,8 +663,8 @@ projects:
       fanotify10.c:293: FAIL: group 0 (prio 1) with FAN_MARK_INODE and
       FAN_MARK_MOUNT ignore mask got event
     projects:
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-linux-4.9.y
+    - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
     - ltp-syscalls-tests/fanotify10
@@ -725,7 +725,7 @@ projects:
     notes: >
       LTP syscalls test preadv201/ preadv201_64 failed on 4.4 on all devices.
     projects:
-    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
     - ltp-syscalls-tests/preadv201
@@ -737,7 +737,7 @@ projects:
     notes: >
       LTP syscalls test pwritev201/ pwritev201_64 failed on 4.4 on all devices.
     projects:
-    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
     - ltp-syscalls-tests/pwritev201
@@ -845,10 +845,10 @@ projects:
     projects:
     - lkft/linux-next-master
     - lkft/linux-mainline-master
-    - lkft/linux-stable-rc-5.4-oe
+    - lkft/linux-stable-rc-linux-5.4.y
     - lkft/linux-stable-rc-5.6-oe
     - lkft/linux-stable-rc-5.7-oe
-    - lkft/linux-stable-rc-5.8-oe
+    - lkft/linux-stable-rc-linux-5.8.y
     test_names:
     - ltp-syscalls-tests/shmctl01
     url: https://bugs.linaro.org/show_bug.cgi?id=5313
@@ -898,10 +898,10 @@ projects:
      sysctl02 1 TINFO trying to set fs.file-max=18446744073709551616
      sysctl02 1 TFAIL /proc/sys/fs/file-max overflows and is set to 0
     projects:
-    - lkft/linux-stable-rc-4.19-oe
-    - lkft/linux-stable-rc-4.14-oe
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-linux-4.19.y
+    - lkft/linux-stable-rc-linux-4.14.y
+    - lkft/linux-stable-rc-linux-4.9.y
+    - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
     - ltp-commands-tests/sysctl02_sh
@@ -1139,8 +1139,8 @@ projects:
       LTP af_alg02  test case fails on stable 4.9 and stable 4.4
       af_alg02.c:52 BROK Timed out while reading from request socket.
     projects:
-    - lkft/linux-stable-rc-4.9-oe
-    - lkft/linux-stable-rc-4.4-oe
+    - lkft/linux-stable-rc-linux-4.9.y
+    - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
     - ltp-crypto-tests/af_alg02
