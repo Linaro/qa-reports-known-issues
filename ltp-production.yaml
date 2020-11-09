@@ -7,6 +7,9 @@ globals:
     - dragonboard-410c
     - qemu_arm64
     - nxp-ls2088
+    - nxp-ls2088-kasan
+    - qemu-arm64-compat
+    - qemu-arm64-kasan
   - environments: &environments_arm32
     - x15
     - qemu_arm
@@ -14,6 +17,8 @@ globals:
     - x86
     - x86-kasan
     - qemu_x86_64
+    - qemu_x86_64-compat
+    - qemu_x86_64-kasan
   - environments: &environments_i386
     - i386
     - qemu_i386
@@ -22,6 +27,10 @@ globals:
     - qemu_arm64
     - qemu_i386
     - qemu_x86_64
+    - qemu_x86_64-compat
+    - qemu_x86_64-kasan
+    - qemu-arm64-compat
+    - qemu-arm64-kasan
   - environments: &environments_32bit
     - i386
     - qemu_i386
@@ -30,12 +39,16 @@ globals:
   - environments: &environments_qemu_arm
     - qemu_arm
     - qemu_arm64
+    - qemu-arm64-compat
+    - qemu-arm64-kasan
   - environments: &environments_intel
     - i386
     - qemu_i386
     - qemu_x86_64
     - x86
     - x86-kasan
+    - qemu_x86_64-compat
+    - qemu_x86_64-kasan
   - environments: &environments_arm64_arm32
     - dragonboard-410c
     - hi6220-hikey
@@ -46,6 +59,9 @@ globals:
     - qemu_arm
     - x15
     - nxp-ls2088
+    - nxp-ls2088-kasan
+    - qemu-arm64-compat
+    - qemu-arm64-kasan
   - environments: &environments_64bit
     - dragonboard-410c
     - hi6220-hikey
@@ -57,6 +73,10 @@ globals:
     - x86
     - x86-kasan
     - nxp-ls2088
+    - nxp-ls2088-kasan
+    - qemu-arm64-kasan
+    - qemu_x86_64-compat
+    - qemu_x86_64-kasan
 
 projects:
 - name: LKFT-ltp
@@ -88,6 +108,11 @@ projects:
   - x86
   - x86-kasan
   - nxp-ls2088
+  - nxp-ls2088-kasan
+  - qemu-arm64-compat
+  - qemu-arm64-kasan
+  - qemu_x86_64-compat
+  - qemu_x86_64-kasan
   known_issues:
   - environments:
     - hi6220-hikey
