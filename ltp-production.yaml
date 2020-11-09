@@ -1148,3 +1148,17 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5664
     active: true
     intermittent: true
+  - environments: *environments_all
+    notes: >
+      LTP shmctl04 test case fails on stable 4.14, 4.9 and stable 4.4
+      shmctl04.c:115: TFAIL: SHM_INFO haven't returned a valid index: SUCCESS (0)
+    projects:
+    - lkft/linux-stable-rc-linux-4.14.y
+    - lkft/linux-stable-rc-linux-4.9.y
+    - lkft/linux-stable-rc-linux-4.4.y
+    - lkft/linaro-hikey-stable-rc-4.4-oe
+    test_names:
+    - ltp-syscalls-tests/shmctl04
+    url: https://bugs.linaro.org/show_bug.cgi?id=5692
+    active: true
+    intermittent: false
