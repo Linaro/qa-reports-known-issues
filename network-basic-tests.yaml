@@ -4,6 +4,7 @@ projects:
   projects: &projects_all
     - lkft/linux-next-master
     - lkft/linux-mainline-master
+    - lkft/linux-stable-rc-linux-5.9.y
     - lkft/linux-stable-rc-linux-5.8.y
     - lkft/linux-stable-rc-5.7-oe
     - lkft/linux-stable-rc-5.6-oe
