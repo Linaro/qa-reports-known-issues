@@ -1200,3 +1200,16 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5707
     active: true
     intermittent: false
+  - environments:
+    - qemu_i386
+    - juno-r2-compat
+    - qemu_x86_64-compat
+    - qemu-arm64-compat
+    notes: >
+      LKFT: qemu: LTP skip failed timing test cases on
+      qemu_i386 and all compat mode testing
+    projects: *projects_all
+    test_name: ltp-syscalls-tests/futex_wait04
+    url: https://bugs.linaro.org/show_bug.cgi?id=5708
+    active: true
+    intermittent: true
