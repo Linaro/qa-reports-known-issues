@@ -1189,3 +1189,14 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5692
     active: true
     intermittent: false
+  - environments:
+    - i386
+    - qemu_i386
+    notes: >
+      LTP new version 20200930 added new functionality to run tests in
+      non NUMA Machine. and this test started failing on i386.
+    projects: *projects_all
+    test_name: ltp-controllers-tests/cpuset_inherit
+    url: https://bugs.linaro.org/show_bug.cgi?id=5707
+    active: true
+    intermittent: false
