@@ -20,7 +20,7 @@ globals:
     - x86-kasan
     - qemu_x86_64
     - qemu_x86_64-compat
-    - qemu_x86_64-kasan
+    - qemu-x86_64-kasan
     - qemu-x86_64-clang
   - environments: &environments_i386
     - i386
@@ -34,7 +34,7 @@ globals:
     - qemu-i386-clang
     - qemu_x86_64
     - qemu_x86_64-compat
-    - qemu_x86_64-kasan
+    - qemu-x86_64-kasan
     - qemu-x86_64-clang
     - qemu-arm64-compat
     - qemu-arm64-kasan
@@ -61,7 +61,7 @@ globals:
     - x86
     - x86-kasan
     - qemu_x86_64-compat
-    - qemu_x86_64-kasan
+    - qemu-x86_64-kasan
     - qemu-x86_64-clang
   - environments: &environments_arm64_arm32
     - dragonboard-410c
@@ -93,7 +93,7 @@ globals:
     - qemu-arm64-kasan
     - qemu-arm64-clang
     - qemu_x86_64-compat
-    - qemu_x86_64-kasan
+    - qemu-x86_64-kasan
     - qemu-x86_64-clang
 
 projects:
@@ -134,7 +134,7 @@ projects:
   - qemu-arm64-kasan
   - qemu-arm64-clang
   - qemu_x86_64-compat
-  - qemu_x86_64-kasan
+  - qemu-x86_64-kasan
   - qemu-x86_64-clang
   known_issues:
   - environments:
