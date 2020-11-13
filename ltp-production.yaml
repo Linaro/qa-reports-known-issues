@@ -1247,3 +1247,15 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5710
     active: true
     intermittent: false
+  - environments:
+    - juno-r2-compat
+    - qemu_x86_64-compat
+    - qemu-arm64-compat
+    notes: >
+       shmctl03.c:33: TFAIL: /proc/sys/kernel/shmmax != 2147483647 got 4294967295
+       failed on all compat mode testing.
+    projects: *projects_all
+    test_name: ltp-syscalls-tests/shmctl03
+    url: https://bugs.linaro.org/show_bug.cgi?id=5711
+    active: true
+    intermittent: false
