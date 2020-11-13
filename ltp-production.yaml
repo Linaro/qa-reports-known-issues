@@ -1235,3 +1235,15 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5708
     active: true
     intermittent: true
+  - environments:
+    - juno-r2-compat
+    - qemu_x86_64-compat
+    - qemu-arm64-compat
+    notes: >
+       io_pgetevents02.c:107: TFAIL: invalid max_nr: io_pgetevents() passed unexpectedly
+       failed on all compat mode testing.
+    projects: *projects_all
+    test_name: ltp-syscalls-tests/io_pgetevents02
+    url: https://bugs.linaro.org/show_bug.cgi?id=5710
+    active: true
+    intermittent: false
