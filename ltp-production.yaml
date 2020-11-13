@@ -1259,3 +1259,11 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5711
     active: true
     intermittent: false
+  - environments: *environments_all
+    notes: >
+      af_alg07.c:96: TFAIL: fchownat() failed to fail, kernel may be vulnerable
+    projects: *projects_all
+    test_name: ltp-crypto-tests/af_alg07
+    url: https://bugs.linaro.org/show_bug.cgi?id=5712
+    active: true
+    intermittent: true
