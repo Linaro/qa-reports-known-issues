@@ -1259,7 +1259,9 @@ projects:
     notes: >
       af_alg07.c:96: TFAIL: fchownat() failed to fail, kernel may be vulnerable
     projects: *projects_all
-    test_name: ltp-crypto-tests/af_alg07
+    test_names:
+    - ltp-crypto-tests/af_alg07
+    - ltp-cve-tests/CVE-2019-8912
     url: https://bugs.linaro.org/show_bug.cgi?id=5712
     active: true
     intermittent: true
