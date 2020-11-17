@@ -1291,3 +1291,11 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5715
     active: true
     intermittent: true
+  - environments: *environments_all
+    notes: >
+      LTP: memcg_stat_test 6 TFAIL: hierarchical_memory_limit is 4096, 8192 expected
+    projects: *projects_all
+    test_name: ltp-controllers-tests/memcg_stat
+    url: https://bugs.linaro.org/show_bug.cgi?id=5716
+    active: true
+    intermittent: false
