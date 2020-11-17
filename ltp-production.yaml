@@ -1299,3 +1299,21 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5716
     active: true
     intermittent: false
+  - environments: *environments_all
+    notes: >
+      LTP tracing test case dynamic_debug01 timeout on slow machines after running about 15 minutes
+      of time and this is an intermittent failure.
+    projects: *projects_all
+    test_name: ltp-tracing-tests/dynamic_debug01
+    url: https://bugs.linaro.org/show_bug.cgi?id=5717
+    active: true
+    intermittent: true
+  - environments: *environments_arm32
+    notes: >
+      LTP syscalls semop03 fails intermittently on arm x15 and qemu_arm.
+      semop03.c:55: TFAIL: unexpected failure: EAGAIN/EWOULDBLOCK (11)
+    projects: *projects_all
+    test_name: ltp-syscalls-tests/semop03
+    url: https://bugs.linaro.org/show_bug.cgi?id=5718
+    active: true
+    intermittent: true
