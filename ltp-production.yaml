@@ -1308,3 +1308,12 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5717
     active: true
     intermittent: true
+  - environments: *environments_arm32
+    notes: >
+      LTP syscalls semop03 fails intermittently on arm x15 and qemu_arm.
+      semop03.c:55: TFAIL: unexpected failure: EAGAIN/EWOULDBLOCK (11)
+    projects: *projects_all
+    test_name: ltp-syscalls-tests/semop03
+    url: https://bugs.linaro.org/show_bug.cgi?id=5718
+    active: true
+    intermittent: true
