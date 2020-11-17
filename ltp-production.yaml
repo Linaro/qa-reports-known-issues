@@ -1281,3 +1281,13 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5714
     active: true
     intermittent: true
+  - environments: *environments_all
+    notes: >
+      LTP: cve-2018-1000204 ioctl_sg01 tests failed on x86_64 due to timeout
+    projects: *projects_all
+    test_names:
+    - ltp-syscalls-tests/ioctl_sg01
+    - ltp-cve-tests/cve-2018-1000204
+    url: https://bugs.linaro.org/show_bug.cgi?id=5715
+    active: true
+    intermittent: true
