@@ -1317,3 +1317,13 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5718
     active: true
     intermittent: true
+  - environments:
+    - dragonboard-410c
+    notes: >
+      Due to these errors / warning /crashes the LTP tests call this as failures
+      db410c: Internal error: Oops: 96000144 __clean_dcache_area_poc
+    projects: *projects_all
+    test_name: ltp-pty-tests/pty05
+    url: https://bugs.linaro.org/show_bug.cgi?id=5720
+    active: true
+    intermittent: false
