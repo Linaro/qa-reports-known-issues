@@ -1327,3 +1327,24 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5720
     active: true
     intermittent: false
+  - environments:
+    - dragonboard-410c
+    notes: >
+      Due to these errors / warning /crashes the LTP tests call this as failures
+      db410c: Internal error: Oops: 96000144 __clean_dcache_area_poc
+      tst_taint.c:93: TBROK: Kernel is already tainted: 128
+    projects: *projects_all
+    test_names:
+    - ltp-cve-tests/cve-2016-8655
+    - ltp-cve-tests/cve-2017-1000112
+    - ltp-cve-tests/cve-2017-10661
+    - ltp-cve-tests/cve-2017-17712
+    - ltp-cve-tests/cve-2017-2636
+    - ltp-cve-tests/cve-2018-18445
+    - ltp-cve-tests/cve-2018-18559
+    - ltp-cve-tests/cve-2018-7566
+    - ltp-cve-tests/cve-2018-9568
+    - ltp-cve-tests/cve-2020-14386
+    url: https://bugs.linaro.org/show_bug.cgi?id=5720
+    active: true
+    intermittent: false
