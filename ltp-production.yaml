@@ -1367,3 +1367,15 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5720
     active: true
     intermittent: false
+  - environments: *environments_arm32
+    notes: >
+      cpuset_regression_test 1 TBROK: Both cpuset.cpu_exclusive and cpu_exclusive do not exist.
+      /opt/ltp/testcases/bin/cpuset_regression_test.sh: line 94: cpuset_test/: Is a directory
+      umount: cpuset_test: not mounted.
+      cpuset_regression_test 1 TWARN: 'umount cpuset_test' failed
+    projects: *projects_all
+    test_names:
+    - ltp-controllers-tests/cpuset_regression_test
+    url: https://bugs.linaro.org/show_bug.cgi?id=5724
+    active: true
+    intermittent: false
