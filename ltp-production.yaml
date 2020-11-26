@@ -1348,3 +1348,22 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5720
     active: true
     intermittent: false
+  - environments:
+    - dragonboard-410c
+    notes: >
+      Due to these errors / warning /crashes the LTP tests call this as failures
+      db410c: Internal error: Oops: 96000144 __clean_dcache_area_poc
+      tst_taint.c:93: TBROK: Kernel is already tainted: 128
+    projects:
+    - lkft/linux-stable-rc-linux-4.19.y
+    - lkft/linux-stable-rc-linux-4.14.y
+    test_names:
+    - ltp-syscalls-tests/bpf_prog04
+    - ltp-syscalls-tests/connect02
+    - ltp-syscalls-tests/sendmsg03
+    - ltp-syscalls-tests/sendto03
+    - ltp-syscalls-tests/setsockopt05
+    - ltp-syscalls-tests/setsockopt06
+    url: https://bugs.linaro.org/show_bug.cgi?id=5720
+    active: true
+    intermittent: false
