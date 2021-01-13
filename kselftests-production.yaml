@@ -91,9 +91,9 @@ projects:
       No such file or directory
     projects: *projects_all
     test_names:
-    - kselftest/bpf_test_progs
-    - kselftest-vsyscall-mode-none/bpf_test_progs
-    - kselftest-vsyscall-mode-native/bpf_test_progs
+    - kselftest/bpf.test_progs
+    - kselftest-vsyscall-mode-none/bpf.test_progs
+    - kselftest-vsyscall-mode-native/bpf.test_progs
     url: https://bugs.linaro.org/show_bug.cgi?id=3120
     active: true
     intermittent: false
@@ -101,7 +101,7 @@ projects:
     notes: >
       LKFT: linux-next: x86: kselftest: test_kmod.sh test failed
     projects: *projects_all
-    test_name: kselftest/bpf_test_kmod.sh
+    test_name: kselftest/bpf.test_kmod.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=3219
     active: true
     intermittent: false
@@ -110,9 +110,9 @@ projects:
       LKFT: linux-next: x86: kselftest: pstore_tests failed
     projects: *projects_all
     test_names:
-    - kselftest/pstore_pstore_tests
-    - kselftest-vsyscall-mode-none/pstore_pstore_tests
-    - kselftest-vsyscall-mode-native/pstore_pstore_tests
+    - kselftest/pstore.pstore_tests
+    - kselftest-vsyscall-mode-none/pstore.pstore_tests
+    - kselftest-vsyscall-mode-native/pstore.pstore_tests
     url: https://bugs.linaro.org/show_bug.cgi?id=3222
     active: true
     intermittent: false
@@ -122,7 +122,7 @@ projects:
       Hikey and x86
     projects: *projects_all
     test_names:
-    - kselftest/pstore_pstore_post_reboot_tests
+    - kselftest/pstore.pstore_post_reboot_tests
     url: https://bugs.linaro.org/show_bug.cgi?id=3222
     active: true
     intermittent: false
@@ -131,17 +131,17 @@ projects:
       LKFT: selftests: seccomp TRACE_syscall.skip_after_RET_TRACE
     projects: *projects_all
     test_names:
-    - kselftest/seccomp_seccomp_bpf
-    - kselftest-vsyscall-mode-none/seccomp_seccomp_bpf
-    - kselftest-vsyscall-mode-native/seccomp_seccomp_bpf
+    - kselftest/seccomp.seccomp_bpf
+    - kselftest-vsyscall-mode-none/seccomp.seccomp_bpf
+    - kselftest-vsyscall-mode-native/seccomp.seccomp_bpf
     url: https://bugs.linaro.org/show_bug.cgi?id=2980
     active: true
     intermittent: false
   - environments: *environments_arm64
     notes: >
-      LKFT: linux-next: kselftest: breakpoint_test_arm64 build failed
+      LKFT: linux-next: kselftest: breakpoint.test_arm64 build failed
     projects: *projects_all
-    test_name: kselftest/breakpoint_test_arm64
+    test_name: kselftest/breakpoint.test_arm64
     url: https://bugs.linaro.org/show_bug.cgi?id=3208
     active: true
     intermittent: false
@@ -149,7 +149,7 @@ projects:
     notes: >
       LKFT: linux-mainline: kselftest sync_test failed
     projects: *projects_all
-    test_name: kselftest/sync_sync_test
+    test_name: kselftest/sync.sync_test
     url: https://bugs.linaro.org/show_bug.cgi?id=3504
     active: true
     intermittent: false
@@ -163,9 +163,9 @@ projects:
     - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
-    - kselftest/bpf_test_dev_cgroup
-    - kselftest-vsyscall-mode-none/bpf_test_dev_cgroup
-    - kselftest-vsyscall-mode-native/bpf_test_dev_cgroup
+    - kselftest/bpf.test_dev_cgroup
+    - kselftest-vsyscall-mode-none/bpf.test_dev_cgroup
+    - kselftest-vsyscall-mode-native/bpf.test_dev_cgroup
     url: https://bugs.linaro.org/show_bug.cgi?id=3500
     active: true
     intermittent: false
@@ -177,22 +177,22 @@ projects:
     active: true
     intermittent: true
     test_names:
-    - kselftest/bpf_test_maps
-    - kselftest-vsyscall-mode-none/bpf_test_maps
-    - kselftest-vsyscall-mode-native/bpf_test_maps
-    - kselftest/bpf_test_tag
-    - kselftest-vsyscall-mode-none/bpf_test_tag
-    - kselftest-vsyscall-mode-native/bpf_test_tag
-    - kselftest/bpf_test_lru_map
-    - kselftest-vsyscall-mode-none/bpf_test_lru_map
-    - kselftest-vsyscall-mode-native/bpf_test_lru_map
-    - kselftest/bpf_test_lpm_map
-    - kselftest-vsyscall-mode-none/bpf_test_lpm_map
-    - kselftest-vsyscall-mode-native/bpf_test_lpm_map
+    - kselftest/bpf.test_maps
+    - kselftest-vsyscall-mode-none/bpf.test_maps
+    - kselftest-vsyscall-mode-native/bpf.test_maps
+    - kselftest/bpf.test_tag
+    - kselftest-vsyscall-mode-none/bpf.test_tag
+    - kselftest-vsyscall-mode-native/bpf.test_tag
+    - kselftest/bpf.test_lru_map
+    - kselftest-vsyscall-mode-none/bpf.test_lru_map
+    - kselftest-vsyscall-mode-native/bpf.test_lru_map
+    - kselftest/bpf.test_lpm_map
+    - kselftest-vsyscall-mode-none/bpf.test_lpm_map
+    - kselftest-vsyscall-mode-native/bpf.test_lpm_map
     - kselftest/futex_run.sh
     - kselftest/intel_pstate_run.sh
     - kselftest/android_run.sh
-    - kselftest/memfd_run_fuse_test.sh
+    - kselftest/memfd.run_fuse_test.sh
     - kselftest/vm_run_vmtests
     - kselftest-vsyscall-mode-none/vm_run_vmtests
     - kselftest-vsyscall-mode-native/vm_run_vmtests
@@ -203,9 +203,9 @@ projects:
       kselftest mpx-mini-test_64 - no MPX support-failed-Aborted (core dumped)
     projects: *projects_all
     test_names:
-    - kselftest/x86_mpx-mini-test_64
-    - kselftest-vsyscall-mode-none/x86_mpx-mini-test_64
-    - kselftest-vsyscall-mode-native/x86_mpx-mini-test_64
+    - kselftest/x86.mpx-mini-test_64
+    - kselftest-vsyscall-mode-none/x86.mpx-mini-test_64
+    - kselftest-vsyscall-mode-native/x86.mpx-mini-test_64
     url: https://bugs.linaro.org/show_bug.cgi?id=3497
     active: true
     intermittent: false
@@ -214,7 +214,7 @@ projects:
     notes: >
       kselftest mpx-mini-test_32 - no MPX support-failed-Aborted (core dumped)
     projects: *projects_all
-    test_name: kselftest/x86_mpx-mini-test_32
+    test_name: kselftest/x86.mpx-mini-test_32
     url: https://bugs.linaro.org/show_bug.cgi?id=3497
     active: true
     intermittent: false
@@ -222,15 +222,15 @@ projects:
     notes: >
       kselftest: size: get_size Segmentation fault on i386
     projects: *projects_all
-    test_name: kselftest/size_get_size
+    test_name: kselftest/size.get_size
     url: https://bugs.linaro.org/show_bug.cgi?id=3992
     active: true
     intermittent: false
   - test_names:
-    - kselftest/firmware_fw_run_tests.sh
-    - kselftest-vsyscall-mode-none/firmware_fw_run_tests.sh
-    - kselftest-vsyscall-mode-native/firmware_fw_run_tests.sh
-    - kselftest/firmware_fw_fallback.sh
+    - kselftest/firmware.fw_run_tests.sh
+    - kselftest-vsyscall-mode-none/firmware.fw_run_tests.sh
+    - kselftest-vsyscall-mode-native/firmware.fw_run_tests.sh
+    - kselftest/firmware.fw_fallback.sh
     notes: >
       LKFT: linux-mainline: x86, x15, juno-r2: kselftest fw_filesystem.sh failed
     url: https://bugs.linaro.org/show_bug.cgi?id=3503
@@ -261,18 +261,18 @@ projects:
       0x1/0x0 to 0x0/0x0 Fails intermittently
     projects: *projects_all
     test_names:
-    - kselftest/x86_fsgsbase_64
-    - kselftest-vsyscall-mode-none/x86_fsgsbase_64
-    - kselftest-vsyscall-mode-native/x86_fsgsbase_64
+    - kselftest/x86.fsgsbase_64
+    - kselftest-vsyscall-mode-none/x86.fsgsbase_64
+    - kselftest-vsyscall-mode-native/x86.fsgsbase_64
     url: https://bugs.linaro.org/show_bug.cgi?id=3596
     active: true
     intermittent: true
   - test_names:
-    - kselftest/net_reuseport_bpf_numa
-    - kselftest-vsyscall-mode-none/net_reuseport_bpf_numa
-    - kselftest-vsyscall-mode-native/net_reuseport_bpf_numa
+    - kselftest/net.reuseport_bpf.numa
+    - kselftest-vsyscall-mode-none/net.reuseport_bpf.numa
+    - kselftest-vsyscall-mode-native/net.reuseport_bpf.numa
     notes: >
-      LKFT: linux-mainline: x15: kselfteest NET reuseport_bpf_numa failed
+      LKFT: linux-mainline: x15: kselfteest NET reuseport_bpf.numa failed
     url: https://bugs.linaro.org/show_bug.cgi?id=3501
     active: true
     intermittent: true
@@ -294,12 +294,12 @@ projects:
       - lkft/linux-stable-rc-linux-5.8.y
       - lkft/linux-stable-rc-linux-5.4.y
   - test_names:
-    - kselftest/bpf_test_align
-    - kselftest-vsyscall-mode-none/bpf_test_align
-    - kselftest-vsyscall-mode-native/bpf_test_align
-    - kselftest/bpf_test_verifier
-    - kselftest-vsyscall-mode-none/bpf_test_verifier
-    - kselftest-vsyscall-mode-native/bpf_test_verifier
+    - kselftest/bpf.test_align
+    - kselftest-vsyscall-mode-none/bpf.test_align
+    - kselftest-vsyscall-mode-native/bpf.test_align
+    - kselftest/bpf.test_verifier
+    - kselftest-vsyscall-mode-none/bpf.test_verifier
+    - kselftest-vsyscall-mode-native/bpf.test_verifier
     notes: >
       LKFT: linux-next, 4.9 and 4.4: bpf: test_align and test_verifier:
       No such file or directory
@@ -316,7 +316,7 @@ projects:
       - lkft/linaro-hikey-stable-rc-4.4-oe
     - environments: *environments_32bit
       projects: *projects_all
-  - test_name: kselftest/lib_bitmap.sh
+  - test_name: kselftest/lib.bitmap.sh
     notes: >
       LKFT: linux-mainline: x15: printf.sh bitmap.sh netns_netlink - section 4
       reloc 2 sym memset relocation 28 out of range (0xbf046044 -> 0xc109f720)
@@ -339,11 +339,11 @@ projects:
     - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
-    - kselftest/memory-hotplug_mem-on-off-test.sh
+    - kselftest/memory-hotplug.mem-on-off-test.sh
     url: null
     active: true
     intermittent: false
-  - test_name: kselftest/efivarfs_efivarfs.sh
+  - test_name: kselftest/efivarfs.efivarfs.sh
     notes: >
       skip all tests efivarfs is not mounted on /sys/firmware/efi/efivars
     url: null
@@ -366,7 +366,7 @@ projects:
     - lkft/linux-stable-rc-linux-4.9.y
     - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
-    test_name: kselftest/sysctl_sysctl.sh
+    test_name: kselftest/sysctl.sysctl.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=3251
     active: true
     intermittent: false
@@ -379,7 +379,7 @@ projects:
     - lkft/linux-stable-rc-linux-4.9.y
     - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
-    test_name: kselftest/timer_inconsistency-check
+    test_name: kselftest/timer.inconsistency-check
     url: https://bugs.linaro.org/show_bug.cgi?id=2950
     active: true
     intermittent: false
@@ -388,7 +388,7 @@ projects:
       kselftests: x86_syscall_nt_32 fails on i386 and qemu_i386 for 4.4
     projects:
     - lkft/linux-stable-rc-linux-4.4.y
-    test_name: kselftest/x86_test_mremap_vdso_32
+    test_name: kselftest/x86.test_mremap_vdso_32
     url: https://bugs.linaro.org/show_bug.cgi?id=4047
     active: true
     intermittent: false
@@ -397,7 +397,7 @@ projects:
       kselftests: x86_syscall_nt_32 fails on i386 and qemu_i386 for 4.4
     projects:
     - lkft/linux-stable-rc-linux-4.4.y
-    test_name: kselftest/x86_syscall_nt_32
+    test_name: kselftest/x86.syscall_nt_32
     url: https://bugs.linaro.org/show_bug.cgi?id=4046
     active: true
     intermittent: false
@@ -407,7 +407,7 @@ projects:
     projects:
     - lkft/linux-stable-rc-linux-4.9.y
     - lkft/linux-stable-rc-linux-4.4.y
-    test_name: kselftest/x86_ldt_gdt_32
+    test_name: kselftest/x86.ldt_gdt_32
     url: https://bugs.linaro.org/show_bug.cgi?id=3993
     active: true
     intermittent: false
@@ -417,7 +417,7 @@ projects:
     projects:
     - lkft/linux-stable-rc-linux-4.9.y
     - lkft/linux-stable-rc-linux-4.4.y
-    test_name: kselftest/x86_ldt_gdt_64
+    test_name: kselftest/x86.ldt_gdt_64
     url: https://bugs.linaro.org/show_bug.cgi?id=3564
     active: true
     intermittent: false
@@ -435,7 +435,7 @@ projects:
       is managed by cpufreq core, exiting
     projects: *projects_all
     test_names:
-    - kselftest/cpufreq_main.sh
+    - kselftest/cpufreq.main.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=3489
     active: true
     intermittent: false
@@ -447,8 +447,8 @@ projects:
     - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
-    - kselftest/nsfs_owner
-    - kselftest/nsfs_pidns
+    - kselftest/nsfs.owner
+    - kselftest/nsfs.pidns
     url: https://bugs.linaro.org/show_bug.cgi?id=3090
     active: true
     intermittent: false
@@ -457,7 +457,7 @@ projects:
     projects:
     - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
-    test_name: kselftest/net_run_afpackettests
+    test_name: kselftest/net.run_afpackettests
     url: null
     active: true
     intermittent: false
@@ -466,14 +466,14 @@ projects:
     projects:
     - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
-    test_name: kselftest/sigaltstack_sas
+    test_name: kselftest/sigaltstack.sas
     url: null
     active: true
     intermittent: false
   - test_names:
-    - kselftest/rtc_rtctest
-    - kselftest-vsyscall-mode-none/rtc_rtctest
-    - kselftest-vsyscall-mode-native/rtc_rtctest
+    - kselftest/rtc.rtctest
+    - kselftest-vsyscall-mode-none/rtc.rtctest
+    - kselftest-vsyscall-mode-native/rtc.rtctest
     notes: >
       LKFT: linux-mainline, 4.9 and 4.4: x15: rtctest - PIE delta error: 0.018197
       should be close to 0.015625
@@ -499,11 +499,11 @@ projects:
       should be close to 0.015625
     projects: *projects_all
     test_names:
-    - kselftest/timers_rtcpie
+    - kselftest/timers.rtcpie
     url: https://bugs.linaro.org/show_bug.cgi?id=3402
     active: true
     intermittent: true
-  - test_name: kselftest/net_test_bpf.sh
+  - test_name: kselftest/net.test_bpf.sh
     notes: null
     url: null
     active: true
@@ -520,28 +520,28 @@ projects:
   - environments: *environments_qemu
     notes: null
     projects: *projects_all
-    test_name: kselftest/breakpoint_test
+    test_name: kselftest/breakpoint.test
     url: null
     active: true
     intermittent: false
   - environments: *environments_qemu_arm
     notes: null
     projects: *projects_all
-    test_name: kselftest/mq_open_tests
+    test_name: kselftest/mqueue.mq_open_tests
     url: null
     active: true
     intermittent: false
   - environments: *environments_qemu_arm
     notes: null
     projects: *projects_all
-    test_name: kselftest/mq_perf_tests
+    test_name: kselftest/mqueue.mq_perf_tests
     url: null
     active: true
     intermittent: false
   - environments: *environments_all
     notes: >
-      (cgroup_helpers.c:62: errno: No such device) mount cgroup2
-      (cgroup_helpers.c:97: errno: No such file or directory) Opening
+      (cgroup.helpers.c:62: errno: No such device) mount cgroup2
+      (cgroup.helpers.c:97: errno: No such file or directory) Opening
       Cgroup Procs: /mnt/cgroup.procs
     projects:
       - lkft/linux-stable-rc-linux-5.10.y
@@ -554,27 +554,27 @@ projects:
       - lkft/linux-stable-rc-linux-4.4.y
       - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
-    - kselftest/bpf_test_tcpbpf_user
-    - kselftest-vsyscall-mode-none/bpf_test_tcpbpf_user
-    - kselftest-vsyscall-mode-native/bpf_test_tcpbpf_user
+    - kselftest/bpf.test_tcpbpf.user
+    - kselftest-vsyscall-mode-none/bpf.test_tcpbpf.user
+    - kselftest-vsyscall-mode-native/bpf.test_tcpbpf.user
     url: https://bugs.linaro.org/show_bug.cgi?id=3964
     active: true
     intermittent: false
   - environments: *environments_qemu
     notes: null
     projects: *projects_all
-    test_name: kselftest/static_keys_test_static_keys.sh
+    test_name: kselftest/static_keys.test_static_keys.sh
     url: null
     active: true
     intermittent: false
   - environments: *environments_qemu
     notes: null
     projects: *projects_all
-    test_name: kselftest/user_test_user_copy.sh
+    test_name: kselftest/user.test_user_copy.sh
     url: null
     active: true
     intermittent: false
-  - test_name: kselftest/x86_sigreturn_64
+  - test_name: kselftest/x86.sigreturn_64
     notes: >
       LKFT: kselftest: sigreturn_64 intermittent failure on qemu_x86_64
     url: https://bugs.linaro.org/show_bug.cgi?id=3684
@@ -592,17 +592,17 @@ projects:
       LKFT: linux-mainline: all: net fib-onlink-tests.sh and fib_tests.sh failed
     projects: *projects_all
     test_names:
-    - kselftest/net_fib-onlink-tests.sh
-    - kselftest-vsyscall-mode-none/net_fib-onlink-tests.sh
-    - kselftest-vsyscall-mode-native/net_fib-onlink-tests.sh
-    - kselftest/net_fib_tests.sh
-    - kselftest-vsyscall-mode-none/net_fib_tests.sh
-    - kselftest-vsyscall-mode-native/net_fib_tests.sh
+    - kselftest/net.fib-onlink-tests.sh
+    - kselftest-vsyscall-mode-none/net.fib-onlink-tests.sh
+    - kselftest-vsyscall-mode-native/net.fib-onlink-tests.sh
+    - kselftest/net.fib_tests.sh
+    - kselftest-vsyscall-mode-none/net.fib_tests.sh
+    - kselftest-vsyscall-mode-native/net.fib_tests.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=3742
     active: true
     intermittent: true
   - test_names:
-    - kselftest/gpio_gpio-mockup.sh
+    - kselftest/gpio.gpio-mockup.sh
     notes: >
       LKFT: linux-next: gpio: gpio-mockup-chardev: No such file or directory -
       Build failed.
@@ -629,9 +629,9 @@ projects:
     - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
-    - kselftest/membarrier_membarrier_test
-    - kselftest-vsyscall-mode-none/membarrier_membarrier_test
-    - kselftest-vsyscall-mode-native/membarrier_membarrier_test
+    - kselftest/membarrier.membarrier_test
+    - kselftest-vsyscall-mode-none/membarrier.membarrier_test
+    - kselftest-vsyscall-mode-native/membarrier.membarrier_test
     url: https://bugs.linaro.org/show_bug.cgi?id=3771
     active: true
     intermittent: false
@@ -649,9 +649,9 @@ projects:
       read is using deprecated sysctl
     projects: *projects_all
     test_names:
-    - kselftest/proc_read
-    - kselftest-vsyscall-mode-none/proc_read
-    - kselftest-vsyscall-mode-native/proc_read
+    - kselftest/proc.read
+    - kselftest-vsyscall-mode-none/proc.read
+    - kselftest-vsyscall-mode-native/proc.read
     url: https://bugs.linaro.org/show_bug.cgi?id=3744
     active: true
     intermittent: true
@@ -661,9 +661,9 @@ projects:
       a new (host) dummy device on Hikey and Juno
     projects: *projects_all
     test_names:
-    - kselftest/net_rtnetlink.sh
-    - kselftest-vsyscall-mode-none/net_rtnetlink.sh
-    - kselftest-vsyscall-mode-native/net_rtnetlink.sh
+    - kselftest/net.rtnetlink.sh
+    - kselftest-vsyscall-mode-none/net.rtnetlink.sh
+    - kselftest-vsyscall-mode-native/net.rtnetlink.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=3834
     active: true
     intermittent: false
@@ -672,14 +672,14 @@ projects:
       LKFT: linux-mainline: devpts_pts failed on all devices Failed to perform
       TIOCGPTPEER ioctl
     projects: *projects_all
-    test_name: kselftest/filesystems_devpts_pts
+    test_name: kselftest/filesystems.devpts_pts
     url: https://bugs.linaro.org/show_bug.cgi?id=3732
     active: true
     intermittent: false
   - test_names:
-    - kselftest/proc_proc-self-map-files-002
-    - kselftest-vsyscall-mode-none/proc_proc-self-map-files-002
-    - kselftest-vsyscall-mode-native/proc_proc-self-map-files-002
+    - kselftest/proc.proc-self-map-files-002
+    - kselftest-vsyscall-mode-none/proc.proc-self-map-files-002
+    - kselftest-vsyscall-mode-native/proc.proc-self-map-files-002
     notes: >
       LKFT: all-dev: kselftest proc selftests: proc-self-map-files-002 failed
       on 4.16 to 4.4 kernels.
@@ -710,9 +710,9 @@ projects:
     - lkft/linux-stable-rc-linux-4.9.y
     - lkft/linux-stable-rc-linux-4.14.y
     test_names:
-    - kselftest/proc_proc-self-map-files-001
-    - kselftest-vsyscall-mode-none/proc_proc-self-map-files-001
-    - kselftest-vsyscall-mode-native/proc_proc-self-map-files-001
+    - kselftest/proc.proc-self-map-files-001
+    - kselftest-vsyscall-mode-none/proc.proc-self-map-files-001
+    - kselftest-vsyscall-mode-native/proc.proc-self-map-files-001
     url: https://bugs.linaro.org/show_bug.cgi?id=3908
     active: true
     intermittent: false
@@ -720,19 +720,19 @@ projects:
     notes: >
       LKFT: mainline: kselftest proc selftests: proc-self-syscall failed on arm32
     projects: *projects_all
-    test_name: kselftest/proc_proc-self-syscall
+    test_name: kselftest/proc.proc-self-syscall
     url: https://bugs.linaro.org/show_bug.cgi?id=3783
     active: true
     intermittent: false
   - environments: *environments_all
     notes: >
-      LKFT: 4.4: Juno: Hikey: x15: x86 reuseport_bpf reuseport_bpf_cpu failed
+      LKFT: 4.4: Juno: Hikey: x15: x86 reuseport_bpf reuseport_bpf.cpu failed
     projects:
     - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
-    - kselftest/net_reuseport_bpf
-    - kselftest/net_reuseport_bpf_cpu
+    - kselftest/net.reuseport_bpf
+    - kselftest/net.reuseport_bpf.cpu
     url: https://bugs.linaro.org/show_bug.cgi?id=3520
     active: true
     intermittent: false
@@ -742,31 +742,31 @@ projects:
       KVM test cases do not build for arm/arm64 and i386.
     projects: *projects_all
     test_names:
-    - kselftest/kvm_set_sregs_test
-    - kselftest/kvm_sync_regs_test
-    - kselftest/kvm_vmx_tsc_adjust_test
-    - kselftest/kvm_cr4_cpuid_sync_test
-    - kselftest/kvm_state_test
-    - kselftest/kvm_dirty_log_test
-    - kselftest/kvm_clear_dirty_log_test
-    - kselftest/kvm_hyperv_cpuid
-    - kselftest/kvm_platform_info_test
-    - kselftest/kvm_evmcs_test
+    - kselftest/kvm.set_sregs_test
+    - kselftest/kvm.sync_regs_test
+    - kselftest/kvm.vmx_tsc_adjust_test
+    - kselftest/kvm.cr4_cpuid_sync_test
+    - kselftest/kvm.state_test
+    - kselftest/kvm.dirty_log_test
+    - kselftest/kvm.clear_dirty_log_test
+    - kselftest/kvm.hyperv_cpuid
+    - kselftest/kvm.platform_info_test
+    - kselftest/kvm.evmcs_test
     url: https://bugs.linaro.org/show_bug.cgi?id=3741
     active: true
     intermittent: false
   - environments: *environments_all
     notes: >
-      LKFT: kselftest: test_progs: libbpf: failed to open ./test_pkt_access.o:
+      LKFT: kselftest: test_progs: libbpf: failed to opekvm_n ./test_pkt_access.o:
       No such file or directory
     projects: *projects_all
     test_names:
-    - kselftest/bpf_test_sock_addr.sh
-    - kselftest-vsyscall-mode-none/bpf_test_sock_addr.sh
-    - kselftest-vsyscall-mode-native/bpf_test_sock_addr.sh
-    - kselftest/bpf_test_sock
-    - kselftest-vsyscall-mode-none/bpf_test_sock
-    - kselftest-vsyscall-mode-native/bpf_test_sock
+    - kselftest/bpf.test_sock_addr.sh
+    - kselftest-vsyscall-mode-none/bpf.test_sock_addr.sh
+    - kselftest-vsyscall-mode-native/bpf.test_sock_addr.sh
+    - kselftest/bpf.test_sock
+    - kselftest-vsyscall-mode-none/bpf.test_sock
+    - kselftest-vsyscall-mode-native/bpf.test_sock
     url: https://bugs.linaro.org/show_bug.cgi?id=3912
     active: true
     intermittent: true
@@ -776,22 +776,22 @@ projects:
       not supported
     projects: *projects_all
     test_names:
-    - kselftest/net_pmtu.sh
-    - kselftest-vsyscall-mode-none/net_pmtu.sh
-    - kselftest-vsyscall-mode-native/net_pmtu.sh
+    - kselftest/net.pmtu.sh
+    - kselftest-vsyscall-mode-none/net.pmtu.sh
+    - kselftest-vsyscall-mode-native/net.pmtu.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=3830
     active: true
     intermittent: true
   - environments: *environments_all
     notes: >
-      LKFT: bpf: get_cgroup_id_user failed errno 2 on all devices
+      LKFT: bpf: get_cgroup.id_user failed errno 2 on all devices
       This expected file not found,
       /sys/kernel/debug/tracing/events/syscalls/sys_enter_nanosleep/id
     projects: *projects_all
     test_names:
-    - kselftest/bpf_get_cgroup_id_user
-    - kselftest-vsyscall-mode-none/bpf_get_cgroup_id_user
-    - kselftest-vsyscall-mode-native/bpf_get_cgroup_id_user
+    - kselftest/bpf.get_cgroup.id_user
+    - kselftest-vsyscall-mode-none/bpf.get_cgroup.id_user
+    - kselftest-vsyscall-mode-native/bpf.get_cgroup.id_user
     url: https://bugs.linaro.org/show_bug.cgi?id=3920
     active: true
     intermittent: false
@@ -802,9 +802,9 @@ projects:
       Need a Makefile fix for this case
     projects: *projects_all
     test_names:
-    - kselftest/bpf_test_lirc_mode2_user
-    - kselftest-vsyscall-mode-none/bpf_test_lirc_mode2_user
-    - kselftest-vsyscall-mode-native/bpf_test_lirc_mode2_user
+    - kselftest/bpf.test_lirc_mode2_user
+    - kselftest-vsyscall-mode-none/bpf.test_lirc_mode2_user
+    - kselftest-vsyscall-mode-native/bpf.test_lirc_mode2_user
     url: https://bugs.linaro.org/show_bug.cgi?id=3918
     active: true
     intermittent: false
@@ -818,31 +818,31 @@ projects:
       Failed to parse eBPF program: Operation not permitted
     projects: *projects_all
     test_names:
-    - kselftest/bpf_test_lwt_seg6local.sh
-    - kselftest-vsyscall-mode-none/bpf_test_lwt_seg6local.sh
-    - kselftest-vsyscall-mode-native/bpf_test_lwt_seg6local.sh
+    - kselftest/bpf.test_lwt_seg6local.sh
+    - kselftest-vsyscall-mode-none/bpf.test_lwt_seg6local.sh
+    - kselftest-vsyscall-mode-native/bpf.test_lwt_seg6local.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=3919
     active: true
     intermittent: false
   - environments: *environments_all
     notes: >
       test_select_reuseport failed on all devices.
-      prepare_bpf_obj(100):FAIL:get first bpf_program !prog
+      prepare_bpf.obj(100):FAIL:get first bpf.program !prog
       Error fetching program/map!
     projects: *projects_all
     test_names:
-    - kselftest/bpf_test_select_reuseport
-    - kselftest-vsyscall-mode-none/bpf_test_select_reuseport
-    - kselftest-vsyscall-mode-native/bpf_test_select_reuseport
+    - kselftest/bpf.test_select_reuseport
+    - kselftest-vsyscall-mode-none/bpf.test_select_reuseport
+    - kselftest-vsyscall-mode-native/bpf.test_select_reuseport
     url: https://bugs.linaro.org/show_bug.cgi?id=3974
     active: true
     intermittent: false
   - test_names:
-    - kselftest/bpf_test_skb_cgroup_id.sh
-    - kselftest-vsyscall-mode-none/bpf_test_skb_cgroup_id.sh
-    - kselftest-vsyscall-mode-native/bpf_test_skb_cgroup_id.sh
+    - kselftest/bpf.test_skb_cgroup.id.sh
+    - kselftest-vsyscall-mode-none/bpf.test_skb_cgroup.id.sh
+    - kselftest-vsyscall-mode-native/bpf.test_skb_cgroup.id.sh
     notes: >
-      bpf: test_skb_cgroup_id.sh Error fetching program/map
+      bpf: test_skb_cgroup.id.sh Error fetching program/map
       FAILs on 4.19, 4.18, 4.14, 4.9 and 4.4 kernels on all devices.
       PASS on mainline and next for arm64, arm and i386.
       FAILs on x86_64 and qemu_x86_64 for all kernel branches.
@@ -859,9 +859,9 @@ projects:
       - lkft/linux-stable-rc-linux-4.4.y
       - lkft/linaro-hikey-stable-rc-4.4-oe
   - test_names:
-    - kselftest/bpf_test_socket_cookie
-    - kselftest-vsyscall-mode-none/bpf_test_socket_cookie
-    - kselftest-vsyscall-mode-native/bpf_test_socket_cookie
+    - kselftest/bpf.test_socket_cookie
+    - kselftest-vsyscall-mode-none/bpf.test_socket_cookie
+    - kselftest-vsyscall-mode-native/bpf.test_socket_cookie
     matrix_apply:
     - environments: *environments_32bit
       projects: *projects_all
@@ -887,9 +887,9 @@ projects:
       Unable to load eBPF objects in file 'test_sockmap_kern.o' : 'version' section incorrect or lost
     projects: *projects_all
     test_names:
-    - kselftest/bpf_test_sockmap
-    - kselftest-vsyscall-mode-none/bpf_test_sockmap
-    - kselftest-vsyscall-mode-native/bpf_test_sockmap
+    - kselftest/bpf.test_sockmap
+    - kselftest-vsyscall-mode-none/bpf.test_sockmap
+    - kselftest-vsyscall-mode-native/bpf.test_sockmap
     url: https://bugs.linaro.org/show_bug.cgi?id=3977
     active: true
     intermittent: true
@@ -901,16 +901,16 @@ projects:
       not ok 3 test_cgcore_top_down_constraint_disable
     projects: *projects_all
     test_names:
-    - kselftest/cgroup_test_core
-    - kselftest-vsyscall-mode-none/cgroup_test_core
-    - kselftest-vsyscall-mode-native/cgroup_test_core
+    - kselftest/cgroup.test_core
+    - kselftest-vsyscall-mode-none/cgroup.test_core
+    - kselftest-vsyscall-mode-native/cgroup.test_core
     url: https://bugs.linaro.org/show_bug.cgi?id=3981
     active: true
     intermittent: false
   - test_names:
-    - kselftest/net_msg_zerocopy.sh
-    - kselftest-vsyscall-mode-none/net_msg_zerocopy.sh
-    - kselftest-vsyscall-mode-native/net_msg_zerocopy.sh
+    - kselftest/net.msg_zerocopy.sh
+    - kselftest-vsyscall-mode-none/net.msg_zerocopy.sh
+    - kselftest-vsyscall-mode-native/net.msg_zerocopy.sh
     notes: >
       LKFT: net: msg_zerocopy.sh failed on x15 and qemu_arm on all kernels
       and for all devices running 4.4 n 4.9 kernel
@@ -932,9 +932,9 @@ projects:
       - lkft/linux-stable-rc-linux-4.4.y
       - lkft/linaro-hikey-stable-rc-4.4-oe
   - test_names:
-    - kselftest/net_psock_snd.sh
-    - kselftest-vsyscall-mode-none/net_psock_snd.sh
-    - kselftest-vsyscall-mode-native/net_psock_snd.sh
+    - kselftest/net.psock_snd.sh
+    - kselftest-vsyscall-mode-none/net.psock_snd.sh
+    - kselftest-vsyscall-mode-native/net.psock_snd.sh
     notes: >
       LKFT: net: psock_snd: recv: Resource temporarily unavailable on all devices
     url: https://bugs.linaro.org/show_bug.cgi?id=3925
@@ -947,16 +947,16 @@ projects:
       net: tls: tls.recv_peek_multiple_records failed on all devices and all kernel except next
     projects: *projects_all
     test_names:
-    - kselftest/net_tls
-    - kselftest-vsyscall-mode-none/net_tls
-    - kselftest-vsyscall-mode-native/net_tls
+    - kselftest/net.tls
+    - kselftest-vsyscall-mode-none/net.tls
+    - kselftest-vsyscall-mode-native/net.tls
     url: https://bugs.linaro.org/show_bug.cgi?id=3925
     active: true
     intermittent: true
   - test_names:
-    - kselftest/rseq_basic_percpu_ops_test
-    - kselftest-vsyscall-mode-none/rseq_basic_percpu_ops_test
-    - kselftest-vsyscall-mode-native/rseq_basic_percpu_ops_test
+    - kselftest/rseq.basic_percpu_ops_test
+    - kselftest-vsyscall-mode-none/rseq.basic_percpu_ops_test
+    - kselftest-vsyscall-mode-native/rseq.basic_percpu_ops_test
     notes: >
       LKFT: Kselftest: rseq: tests getting timeout
       FAIL 2 selftests rseq basic_percpu_ops_test  TIMEOUT
@@ -975,21 +975,21 @@ projects:
       - lkft/linux-stable-rc-linux-4.4.y
       - lkft/linaro-hikey-stable-rc-4.4-oe
   - test_names:
-      - kselftest/rseq_param_test
-      - kselftest-vsyscall-mode-none/rseq_param_test
-      - kselftest-vsyscall-mode-native/rseq_param_test
-      - kselftest/rseq_param_test_benchmark
-      - kselftest-vsyscall-mode-none/rseq_param_test_benchmark
-      - kselftest-vsyscall-mode-native/rseq_param_test_benchmark
-      - kselftest/rseq_param_test_compare_twice
-      - kselftest-vsyscall-mode-none/rseq_param_test_compare_twice
-      - kselftest-vsyscall-mode-native/rseq_param_test_compare_twice
-      - kselftest/rseq_basic_test
-      - kselftest-vsyscall-mode-none/rseq_basic_test
-      - kselftest-vsyscall-mode-native/rseq_basic_test
-      - kselftest/rseq_run_param_test.sh
-      - kselftest-vsyscall-mode-none/rseq_run_param_test.sh
-      - kselftest-vsyscall-mode-native/rseq_run_param_test.sh
+      - kselftest/rseq.param_test
+      - kselftest-vsyscall-mode-none/rseq.param_test
+      - kselftest-vsyscall-mode-native/rseq.param_test
+      - kselftest/rseq.param_test_benchmark
+      - kselftest-vsyscall-mode-none/rseq.param_test_benchmark
+      - kselftest-vsyscall-mode-native/rseq.param_test_benchmark
+      - kselftest/rseq.param_test_compare_twice
+      - kselftest-vsyscall-mode-none/rseq.param_test_compare_twice
+      - kselftest-vsyscall-mode-native/rseq.param_test_compare_twice
+      - kselftest/rseq.basic_test
+      - kselftest-vsyscall-mode-none/rseq.basic_test
+      - kselftest-vsyscall-mode-native/rseq.basic_test
+      - kselftest/rseq.run_param_test.sh
+      - kselftest-vsyscall-mode-none/rseq.run_param_test.sh
+      - kselftest-vsyscall-mode-native/rseq.run_param_test.sh
     notes: >
       LKFT: Kselftest: rseq: tests not building for arm64 for mainline but test pass on -next
       LKFT: Kselftest: rseq: : Function not implemented on older kernel
@@ -1017,9 +1017,9 @@ projects:
     - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
-    - kselftest/proc_fd-003-kthread
-    - kselftest-vsyscall-mode-none/proc_fd-003-kthread
-    - kselftest-vsyscall-mode-native/proc_fd-003-kthread
+    - kselftest/proc.fd-003-kthread
+    - kselftest-vsyscall-mode-none/proc.fd-003-kthread
+    - kselftest-vsyscall-mode-native/proc.fd-003-kthread
     url: https://bugs.linaro.org/show_bug.cgi?id=4039
     active: true
     intermittent: false
@@ -1028,7 +1028,7 @@ projects:
     notes: >
       x86: syscall_arg_fault_32 intermittent failure on qemu_i386
     projects: *projects_all
-    test_name: kselftest/x86_syscall_arg_fault_32
+    test_name: kselftest/x86.syscall_arg_fault_32
     url: https://bugs.linaro.org/show_bug.cgi?id=4025
     active: true
     intermittent: true
@@ -1042,9 +1042,9 @@ projects:
     - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
-    - kselftest/bpf_test_btf
-    - kselftest-vsyscall-mode-native/bpf_test_btf
-    - kselftest-vsyscall-mode-none/bpf_test_btf
+    - kselftest/bpf.test_btf
+    - kselftest-vsyscall-mode-native/bpf.test_btf
+    - kselftest-vsyscall-mode-none/bpf.test_btf
     url: https://bugs.linaro.org/show_bug.cgi?id=3979
     active: true
     intermittent: false
@@ -1057,15 +1057,15 @@ projects:
     - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
-    - kselftest/net_udpgso.sh
-    - kselftest-vsyscall-mode-none/net_udpgso.sh
-    - kselftest-vsyscall-mode-native/net_udpgso.sh
+    - kselftest/net.udpgso.sh
+    - kselftest-vsyscall-mode-none/net.udpgso.sh
+    - kselftest-vsyscall-mode-native/net.udpgso.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=3980
     active: true
     intermittent: false
   - environments: *environments_all
     notes: >
-      LKFT: selftests: bpf: test_cgroup_storage Failed to create map: Invalid argument
+      LKFT: selftests: bpf: test_cgroup.storage Failed to create map: Invalid argument
       PASS on 4.20 mainline and -next.
       FAILED on 4.19, 4.14, 4.9 and 4.4 on all devices.
     projects:
@@ -1075,9 +1075,9 @@ projects:
     - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
-    - kselftest/bpf_test_cgroup_storage
-    - kselftest-vsyscall-mode-none/bpf_test_cgroup_storage
-    - kselftest-vsyscall-mode-native/bpf_test_cgroup_storage
+    - kselftest/bpf.test_cgroup.storage
+    - kselftest-vsyscall-mode-none/bpf.test_cgroup.storage
+    - kselftest-vsyscall-mode-native/bpf.test_cgroup.storage
     url: https://bugs.linaro.org/show_bug.cgi?id=4050
     active: true
     intermittent: false
@@ -1097,9 +1097,9 @@ projects:
     - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
-    - kselftest/net_fib_rule_tests.sh
-    - kselftest-vsyscall-mode-none/net_fib_rule_tests.sh
-    - kselftest-vsyscall-mode-native/net_fib_rule_tests.sh
+    - kselftest/net.fib_rule_tests.sh
+    - kselftest-vsyscall-mode-none/net.fib_rule_tests.sh
+    - kselftest-vsyscall-mode-native/net.fib_rule_tests.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=4051
     active: true
     intermittent: false
@@ -1113,9 +1113,9 @@ projects:
     - lkft/linux-stable-rc-linux-4.9.y
     - lkft/linux-stable-rc-linux-4.4.y
     test_names:
-    - kselftest/breakpoints_step_after_suspend_test
-    - kselftest-vsyscall-mode-none/breakpoints_step_after_suspend_test
-    - kselftest-vsyscall-mode-native/breakpoints_step_after_suspend_test
+    - kselftest/breakpoints.step_after_suspend_test
+    - kselftest-vsyscall-mode-none/breakpoints.step_after_suspend_test
+    - kselftest-vsyscall-mode-native/breakpoints.step_after_suspend_test
     url: https://bugs.linaro.org/show_bug.cgi?id=3739
     active: true
     intermittent: false
@@ -1130,16 +1130,16 @@ projects:
       installed as well
     projects: *projects_all
     test_names:
-    - kselftest/bpf_test_flow_dissector.sh
-    - kselftest-vsyscall-mode-none/bpf_test_flow_dissector.sh
-    - kselftest-vsyscall-mode-native/bpf_test_flow_dissector.sh
+    - kselftest/bpf.test_flow_dissector.sh
+    - kselftest-vsyscall-mode-none/bpf.test_flow_dissector.sh
+    - kselftest-vsyscall-mode-native/bpf.test_flow_dissector.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=4036
     active: true
     intermittent: false
   - test_names:
-    - kselftest/bpf_test_netcnt
-    - kselftest-vsyscall-mode-none/bpf_test_netcnt
-    - kselftest-vsyscall-mode-native/bpf_test_netcnt
+    - kselftest/bpf.test_netcnt
+    - kselftest-vsyscall-mode-none/bpf.test_netcnt
+    - kselftest-vsyscall-mode-native/bpf.test_netcnt
     notes: >
        kselftest: i386: bpf: test_netcnt : libbpf: failed to create map
        (name: 'percpu_netcnt'): Invalid argument
@@ -1168,9 +1168,9 @@ projects:
     - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
-    - kselftest/net_test_vxlan_fdb_changelink.sh
-    - kselftest-vsyscall-mode-none/net_test_vxlan_fdb_changelink.sh
-    - kselftest-vsyscall-mode-native/net_test_vxlan_fdb_changelink.sh
+    - kselftest/net.test_vxlan_fdb_changelink.sh
+    - kselftest-vsyscall-mode-none/net.test_vxlan_fdb_changelink.sh
+    - kselftest-vsyscall-mode-native/net.test_vxlan_fdb_changelink.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=4266
     active: true
     intermittent: false
@@ -1186,9 +1186,9 @@ projects:
     - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
-    - kselftest/net_ip_defrag.sh
-    - kselftest-vsyscall-mode-none/net_ip_defrag.sh
-    - kselftest-vsyscall-mode-native/net_ip_defrag.sh
+    - kselftest/net.ip_defrag.sh
+    - kselftest-vsyscall-mode-none/net.ip_defrag.sh
+    - kselftest-vsyscall-mode-native/net.ip_defrag.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=4214
     active: true
     intermittent: true
@@ -1203,9 +1203,9 @@ projects:
     - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
-    - kselftest/bpf_test_xdp_meta.sh
-    - kselftest-vsyscall-mode-none/bpf_test_xdp_meta.sh
-    - kselftest-vsyscall-mode-native/bpf_test_xdp_meta.sh
+    - kselftest/bpf.test_xdp_meta.sh
+    - kselftest-vsyscall-mode-none/bpf.test_xdp_meta.sh
+    - kselftest-vsyscall-mode-native/bpf.test_xdp_meta.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=3630
     active: true
     intermittent: false
@@ -1218,18 +1218,18 @@ projects:
     - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
-    - kselftest/bpf_test_xdp_redirect.sh
-    - kselftest-vsyscall-mode-none/bpf_test_xdp_redirect.sh
-    - kselftest-vsyscall-mode-native/bpf_test_xdp_redirect.sh
+    - kselftest/bpf.test_xdp_redirect.sh
+    - kselftest-vsyscall-mode-none/bpf.test_xdp_redirect.sh
+    - kselftest-vsyscall-mode-native/bpf.test_xdp_redirect.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=3630
     active: true
     intermittent: false
   - test_names:
-    - kselftest/bpf_test_xdp_vlan.sh
-    - kselftest-vsyscall-mode-none/bpf_test_xdp_vlan.sh
-    - kselftest-vsyscall-mode-native/bpf_test_xdp_vlan.sh
+    - kselftest/bpf.test_xdp_vlan.sh
+    - kselftest-vsyscall-mode-none/bpf.test_xdp_vlan.sh
+    - kselftest-vsyscall-mode-native/bpf.test_xdp_vlan.sh
     notes: >
-      selftest: bpf_test_xdp_vlan.sh ping fails
+      selftest: bpf.test_xdp_vlan.sh ping fails
       failed for all 32bit devices on all branches
       failed on 4.14 and 4.4 on all devices.
     matrix_apply:
@@ -1249,22 +1249,22 @@ projects:
       not yet configured
     projects: *projects_all
     test_names:
-    - kselftest/bpf_test_lwt_ip_encap.sh
-    - kselftest-vsyscall-mode-none/bpf_test_lwt_ip_encap.sh
-    - kselftest-vsyscall-mode-native/bpf_test_lwt_ip_encap.sh
+    - kselftest/bpf.test_lwt_ip_encap.sh
+    - kselftest-vsyscall-mode-none/bpf.test_lwt_ip_encap.sh
+    - kselftest-vsyscall-mode-native/bpf.test_lwt_ip_encap.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=4346
     active: true
     intermittent: false
   - test_names:
-    - kselftest/bpf_test_tcpnotify_user
-    - kselftest-vsyscall-mode-none/bpf_test_tcpnotify_user
-    - kselftest-vsyscall-mode-native/bpf_test_tcpnotify_user
+    - kselftest/bpf.test_tcpnotify_user
+    - kselftest-vsyscall-mode-none/bpf.test_tcpnotify_user
+    - kselftest-vsyscall-mode-native/bpf.test_tcpnotify_user
     notes: >
       Newly added test case selftests: bpf: test_tcpnotify_user is getting failed on 32bit
       architectures x15 and i386.
       selftests: bpf: test_tcpnotify_user
       libbpf: object file doesn't contain bpf program
-      FAILED: load_bpf_file failed for: test_tcpnotify_kern.o
+      FAILED: load_bpf.file failed for: test_tcpnotify_kern.o
       PASSED on linux next 20190605 default in tree source.
       close this known issues when we upgrade to 5.2 kselftest version and 5.2 kernel.
     matrix_apply:
@@ -1285,12 +1285,12 @@ projects:
       selftests: bpf: test_sock_fields
       libbpf: failed to create map (name: 'sk_pkt_out_cnt'): Invalid argument
       libbpf: failed to load object 'test_sock_fields_kern.o'
-      main(438):FAIL:bpf_prog_load_xattr() err:-22
+      main(438):FAIL:bpf.prog_load_xattr() err:-22
     projects: *projects_all
     test_names:
-    - kselftest/bpf_test_sock_fields
-    - kselftest-vsyscall-mode-none/bpf_test_sock_fields
-    - kselftest-vsyscall-mode-native/bpf_test_sock_fields
+    - kselftest/bpf.test_sock_fields
+    - kselftest-vsyscall-mode-none/bpf.test_sock_fields
+    - kselftest-vsyscall-mode-native/bpf.test_sock_fields
     url: https://bugs.linaro.org/show_bug.cgi?id=4644
     active: true
     intermittent: false
@@ -1298,12 +1298,12 @@ projects:
     notes: >
       CONFIG_UDMABUF=y is missing in kernel config
       selftests: dma-buf: udmabuf
-      drivers/dma-buf/udmabuf: [skip,no-udmabuf]
+      drivers/dma.buf/udmabuf: [skip,no-udmabuf]
     projects: *projects_all
     test_names:
-    - kselftest/dma-buf_udmabuf
-    - kselftest-vsyscall-mode-none/dma-buf_udmabuf
-    - kselftest-vsyscall-mode-native/dma-buf_udmabuf
+    - kselftest/dma.buf_udmabuf
+    - kselftest-vsyscall-mode-none/dma.buf_udmabuf
+    - kselftest-vsyscall-mode-native/dma.buf_udmabuf
     url: https://bugs.linaro.org/show_bug.cgi?id=4211
     active: true
     intermittent: false
@@ -1313,9 +1313,9 @@ projects:
       Test case btf_dump_test_case_syntax test_btf_dump_case 71 FAIL failed to load test BTF -2
     projects: *projects_all
     test_names:
-    - kselftest/bpf_test_btf_dump
-    - kselftest-vsyscall-mode-none/bpf_test_btf_dump
-    - kselftest-vsyscall-mode-native/bpf_test_btf_dump
+    - kselftest/bpf.test_btf_dump
+    - kselftest-vsyscall-mode-none/bpf.test_btf_dump
+    - kselftest-vsyscall-mode-native/bpf.test_btf_dump
     url: https://bugs.linaro.org/show_bug.cgi?id=5299
     active: true
     intermittent: false
@@ -1324,9 +1324,9 @@ projects:
       Newly added selftests kvm smm_test build failed for arm / arm64 and skipped on x86_64.
     projects: *projects_all
     test_names:
-    - kselftest/kvm_smm_test
-    - kselftest-vsyscall-mode-none/kvm_smm_test
-    - kselftest-vsyscall-mode-native/kvm_smm_test
+    - kselftest/kvm.smm_test
+    - kselftest-vsyscall-mode-none/kvm.smm_test
+    - kselftest-vsyscall-mode-native/kvm.smm_test
     url: https://bugs.linaro.org/show_bug.cgi?id=5301
     active: true
     intermittent: false
@@ -1335,9 +1335,9 @@ projects:
       Newly added test kvm vmx_close_while_nested_test skipped on x86_64 and build failed on all other devices.
     projects: *projects_all
     test_names:
-    - kselftest/kvm_vmx_close_while_nested_test
-    - kselftest-vsyscall-mode-none/kvm_vmx_close_while_nested_test
-    - kselftest-vsyscall-mode-native/kvm_vmx_close_while_nested_test
+    - kselftest/kvm.vmx_close_while_nested_test
+    - kselftest-vsyscall-mode-none/kvm.vmx_close_while_nested_test
+    - kselftest-vsyscall-mode-native/kvm.vmx_close_while_nested_test
     url: https://bugs.linaro.org/show_bug.cgi?id=5302
     active: true
     intermittent: false
@@ -1346,9 +1346,9 @@ projects:
       Newly added test net test_vxlan_under_vrf.sh Check VM connectivity through VXLAN underlay in a VRF FAIL
     projects: *projects_all
     test_names:
-    - kselftest/net_test_vxlan_under_vrf.sh
-    - kselftest-vsyscall-mode-none/net_test_vxlan_under_vrf.sh
-    - kselftest-vsyscall-mode-native/net_test_vxlan_under_vrf.sh
+    - kselftest/net.test_vxlan_under_vrf.sh
+    - kselftest-vsyscall-mode-none/net.test_vxlan_under_vrf.sh
+    - kselftest-vsyscall-mode-native/net.test_vxlan_under_vrf.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=5303
     active: true
     intermittent: false
@@ -1359,12 +1359,12 @@ projects:
       ImportError: No module named tpm2_tests
     projects: *projects_all
     test_names:
-    - kselftest/tpm2_test_space.sh
-    - kselftest-vsyscall-mode-none/tpm2_test_space.sh
-    - kselftest-vsyscall-mode-native/tpm2_test_space.sh
-    - kselftest/tpm2_test_smoke.sh
-    - kselftest-vsyscall-mode-none/tpm2_test_smoke.sh
-    - kselftest-vsyscall-mode-native/tpm2_test_smoke.sh
+    - kselftest/tpm2.test_space.sh
+    - kselftest-vsyscall-mode-none/tpm2.test_space.sh
+    - kselftest-vsyscall-mode-native/tpm2.test_space.sh
+    - kselftest/tpm2.test_smoke.sh
+    - kselftest-vsyscall-mode-none/tpm2.test_smoke.sh
+    - kselftest-vsyscall-mode-native/tpm2.test_smoke.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=4640
     active: true
     intermittent: false
@@ -1373,20 +1373,20 @@ projects:
       net udp gso zerocopy udpgso_bench_tx: setsockopt zerocopy: Unknown error 524
     projects: *projects_all
     test_names:
-    - kselftest/net_udpgso_bench.sh
-    - kselftest-vsyscall-mode-none/net_udpgso_bench.sh
-    - kselftest-vsyscall-mode-native/net_udpgso_bench.sh
+    - kselftest/net.udpgso_bench.sh
+    - kselftest-vsyscall-mode-none/net.udpgso_bench.sh
+    - kselftest-vsyscall-mode-native/net.udpgso_bench.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=5307
     active: true
     intermittent: false
   - environments: *environments_all
     notes: >
-      ./run_kselftest.sh: line 323: 8681 Aborted (core dumped) ./memfd_test >> $OUTPUT 2>&1
+      ./run_kselftest.sh: line 323: 8681 Aborted (core dumped) ./memfd.test >> $OUTPUT 2>&1
     projects: *projects_all
     test_names:
-    - kselftest/memfd_memfd_test
-    - kselftest-vsyscall-mode-none/memfd_memfd_test
-    - kselftest-vsyscall-mode-native/memfd_memfd_test
+    - kselftest/memfd.memfd_test
+    - kselftest-vsyscall-mode-none/memfd.memfd_test
+    - kselftest-vsyscall-mode-native/memfd.memfd_test
     url: https://bugs.linaro.org/show_bug.cgi?id=5308
     active: true
     intermittent: false
@@ -1396,16 +1396,16 @@ projects:
       not ok 6 test_cgfreezer_ptrace
     projects: *projects_all
     test_names:
-    - kselftest/cgroup_test_freezer
-    - kselftest-vsyscall-mode-none/cgroup_test_freezer
-    - kselftest-vsyscall-mode-native/cgroup_test_freezer
+    - kselftest/cgroup.test_freezer
+    - kselftest-vsyscall-mode-none/cgroup.test_freezer
+    - kselftest-vsyscall-mode-native/cgroup.test_freezer
     url: https://bugs.linaro.org/show_bug.cgi?id=5318
     active: true
     intermittent: true
   - environments: *environments_all
     notes: >
       net: UDP IPv4 reuseport_addr_any: received on an unexpected socket
-      net_reuseport_addr_any.sh test got failed on
+      net.reuseport_addr_any.sh test got failed on
         - 4.19
         - 4.14
         - 4.9
@@ -1417,9 +1417,9 @@ projects:
         - next
     projects: *projects_all
     test_names:
-    - kselftest/net_reuseport_addr_any.sh
-    - kselftest-vsyscall-mode-none/net_reuseport_addr_any.sh
-    - kselftest-vsyscall-mode-native/net_reuseport_addr_any.sh
+    - kselftest/net.reuseport_addr_any.sh
+    - kselftest-vsyscall-mode-none/net.reuseport_addr_any.sh
+    - kselftest-vsyscall-mode-native/net.reuseport_addr_any.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=5304
     active: true
     intermittent: true
@@ -1428,7 +1428,7 @@ projects:
       udp gso and gro - over veth touching data
       ./udpgso_bench_rx: setsockopt UDP_GRO: Protocol not available
       ./udpgso_bench_tx: sendmsg: Connection refused
-      net_udpgro_bench.sh test got failed on
+      net.udpgro_bench.sh test got failed on
       selftests net udpgro_bench.sh and udpgro.sh failed due to
       Missing xdp_dummy helper.
         - 4.19
@@ -1442,35 +1442,35 @@ projects:
         - next
     projects: *projects_all
     test_names:
-    - kselftest/net_udpgro_bench.sh
-    - kselftest-vsyscall-mode-none/net_udpgro_bench.sh
-    - kselftest-vsyscall-mode-native/net_udpgro_bench.sh
+    - kselftest/net.udpgro_bench.sh
+    - kselftest-vsyscall-mode-none/net.udpgro_bench.sh
+    - kselftest-vsyscall-mode-native/net.udpgro_bench.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=4315
     active: true
     intermittent: true
   - environments: *environments_intel
     notes: >
-      net_xfrm_policy.sh test got failed on x86_64 and i386 for all branches
+      net.xfrm_policy.sh test got failed on x86_64 and i386 for all branches
     projects: *projects_all
     test_names:
-    - kselftest/net_xfrm_policy.sh
-    - kselftest-vsyscall-mode-none/net_xfrm_policy.sh
-    - kselftest-vsyscall-mode-native/net_xfrm_policy.sh
+    - kselftest/net.xfrm_policy.sh
+    - kselftest-vsyscall-mode-none/net.xfrm_policy.sh
+    - kselftest-vsyscall-mode-native/net.xfrm_policy.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=5327
     active: true
     intermittent: false
   - environments: *environments_x86_64
     notes: >
-      proc_proc-pid-vm test got failed on x86_64 and qemu_x86_64 for 4.14 and below
+      proc.proc-pid-vm test got failed on x86_64 and qemu_x86_64 for 4.14 and below
     projects:
     - lkft/linux-stable-rc-linux-4.14.y
     - lkft/linux-stable-rc-linux-4.9.y
     - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
-    - kselftest/proc_proc-pid-vm
-    - kselftest-vsyscall-mode-none/proc_proc-pid-vm
-    - kselftest-vsyscall-mode-native/proc_proc-pid-vm
+    - kselftest/proc.proc-pid-vm
+    - kselftest-vsyscall-mode-none/proc.proc-pid-vm
+    - kselftest-vsyscall-mode-native/proc.proc-pid-vm
     url: https://bugs.linaro.org/show_bug.cgi?id=5329
     active: true
     intermittent: false
@@ -1483,9 +1483,9 @@ projects:
     - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
-    - kselftest/proc_setns-dcache
-    - kselftest-vsyscall-mode-none/proc_setns-dcache
-    - kselftest-vsyscall-mode-native/proc_setns-dcache
+    - kselftest/proc.setns-dcache
+    - kselftest-vsyscall-mode-none/proc.setns-dcache
+    - kselftest-vsyscall-mode-native/proc.setns-dcache
     url: https://bugs.linaro.org/show_bug.cgi?id=5330
     active: true
     intermittent: false
@@ -1495,9 +1495,9 @@ projects:
       ERROR delay 6751 expected between 6000 and 6500
     projects: *projects_all
     test_names:
-    - kselftest/timestamping_txtimestamp.sh
-    - kselftest-vsyscall-mode-none/timestamping_txtimestamp.sh
-    - kselftest-vsyscall-mode-native/timestamping_txtimestamp.sh
+    - kselftest/timestamping.txtimestamp.sh
+    - kselftest-vsyscall-mode-none/timestamping.txtimestamp.sh
+    - kselftest-vsyscall-mode-native/timestamping.txtimestamp.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=5300
     active: true
     intermittent: false
@@ -1511,9 +1511,9 @@ projects:
       [FAIL] 28 selftests net so_txtime.sh
     projects: *projects_all
     test_names:
-    - kselftest/net_so_txtime.sh
-    - kselftest-vsyscall-mode-none/net_so_txtime.sh
-    - kselftest-vsyscall-mode-native/net_so_txtime.sh
+    - kselftest/net.so_txtime.sh
+    - kselftest-vsyscall-mode-none/net.so_txtime.sh
+    - kselftest-vsyscall-mode-native/net.so_txtime.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=5331
     active: true
     intermittent: true
@@ -1527,9 +1527,9 @@ projects:
       selftests pidfd_pidfd_test [FAIL]
     projects: *projects_all
     test_names:
-    - kselftest/pidfd_pidfd_test
-    - kselftest-vsyscall-mode-none/pidfd_pidfd_test
-    - kselftest-vsyscall-mode-native/pidfd_pidfd_test
+    - kselftest/pidfd.pidfd_test
+    - kselftest-vsyscall-mode-none/pidfd.pidfd_test
+    - kselftest-vsyscall-mode-native/pidfd.pidfd_test
     url: https://bugs.linaro.org/show_bug.cgi?id=5542
     active: true
     intermittent: true
@@ -1539,9 +1539,9 @@ projects:
       SKIP Could not run IPV6 test without traceroute6
     projects: *projects_all
     test_names:
-    - kselftest/net_traceroute.sh
-    - kselftest-vsyscall-mode-none/net_traceroute.sh
-    - kselftest-vsyscall-mode-native/net_traceroute.sh
+    - kselftest/net.traceroute.sh
+    - kselftest-vsyscall-mode-none/net.traceroute.sh
+    - kselftest-vsyscall-mode-native/net.traceroute.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=5530
     active: true
     intermittent: true
@@ -1551,9 +1551,9 @@ projects:
       And intermittently failed on qemu and i386.
     projects: *projects_all
     test_names:
-    - kselftest/net_tcp_fastopen_backup_key.sh
-    - kselftest-vsyscall-mode-none/net_tcp_fastopen_backup_key.sh
-    - kselftest-vsyscall-mode-native/net_tcp_fastopen_backup_key.sh
+    - kselftest/net.tcp_fastopen_backup_key.sh
+    - kselftest-vsyscall-mode-none/net.tcp_fastopen_backup_key.sh
+    - kselftest-vsyscall-mode-native/net.tcp_fastopen_backup_key.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=5531
     active: true
     intermittent: true
@@ -1565,12 +1565,12 @@ projects:
       Warning file pidfd_poll_test is missing
     projects: *projects_all
     test_names:
-    - kselftest/pidfd_pidfd_poll_test
-    - kselftest-vsyscall-mode-none/pidfd_pidfd_poll_test
-    - kselftest-vsyscall-mode-native/pidfd_pidfd_poll_test
-    - kselftest/pidfd_pidfd_open_test
-    - kselftest-vsyscall-mode-none/pidfd_pidfd_open_test
-    - kselftest-vsyscall-mode-native/pidfd_pidfd_open_test
+    - kselftest/pidfd.pidfd_poll_test
+    - kselftest-vsyscall-mode-none/pidfd.pidfd_poll_test
+    - kselftest-vsyscall-mode-native/pidfd.pidfd_poll_test
+    - kselftest/pidfd.pidfd_open_test
+    - kselftest-vsyscall-mode-none/pidfd.pidfd_open_test
+    - kselftest-vsyscall-mode-native/pidfd.pidfd_open_test
     url: https://bugs.linaro.org/show_bug.cgi?id=5532
     active: true
     intermittent: false
@@ -1580,9 +1580,9 @@ projects:
       [FAIL] 2 selftests seccomp seccomp_benchmark TIMEOUT
     projects: *projects_all
     test_names:
-    - kselftest/seccomp_seccomp_benchmark
-    - kselftest-vsyscall-mode-none/seccomp_seccomp_benchmark
-    - kselftest-vsyscall-mode-native/seccomp_seccomp_benchmark
+    - kselftest/seccomp.seccomp_benchmark
+    - kselftest-vsyscall-mode-none/seccomp.seccomp_benchmark
+    - kselftest-vsyscall-mode-native/seccomp.seccomp_benchmark
     url: https://bugs.linaro.org/show_bug.cgi?id=5536
     active: true
     intermittent: true
@@ -1598,20 +1598,20 @@ projects:
     - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
-    - arm64_fake_sigreturn_bad_size
-    - arm64_fake_sigreturn_bad_magic
-    - arm64_mangle_pstate_invalid_mode_el1t
-    - arm64_mangle_pstate_invalid_mode_el3t
-    - arm64_mangle_pstate_invalid_mode_el3h
-    - arm64_mangle_pstate_invalid_mode_el1h
-    - arm64_mangle_pstate_invalid_daif_bits
-    - arm64_mangle_pstate_invalid_mode_el2t
-    - arm64_fake_sigreturn_missing_fpsimd
-    - arm64_fake_sigreturn_duplicated_fpsimd
-    - arm64_mangle_pstate_invalid_mode_el2h
-    - arm64_fake_sigreturn_misaligned_sp
-    - arm64_mangle_pstate_invalid_compat_toggle
-    - arm64_fake_sigreturn_bad_size_for_magic0
+    - kselftest/arm64.fake_sigreturn_bad_size
+    - kselftest/arm64.fake_sigreturn_bad_magic
+    - kselftest/arm64.mangle_pstate_invalid_mode_el1t
+    - kselftest/arm64.mangle_pstate_invalid_mode_el3t
+    - kselftest/arm64.mangle_pstate_invalid_mode_el3h
+    - kselftest/arm64.mangle_pstate_invalid_mode_el1h
+    - kselftest/arm64.mangle_pstate_invalid_daif_bits
+    - kselftest/arm64.mangle_pstate_invalid_mode_el2t
+    - kselftest/arm64.fake_sigreturn_missing_fpsimd
+    - kselftest/arm64.fake_sigreturn_duplicated_fpsimd
+    - kselftest/arm64.mangle_pstate_invalid_mode_el2h
+    - kselftest/arm64.fake_sigreturn_misaligned_sp
+    - kselftest/arm64.mangle_pstate_invalid_compat_toggle
+    - kselftest/arm64.fake_sigreturn_bad_size_for_magic0
     url: https://bugs.linaro.org/show_bug.cgi?id=5541
     active: true
     intermittent: false
@@ -1622,9 +1622,9 @@ projects:
       waitpid failed (ret -1, errno 0)
     projects: *projects_all
     test_names:
-    - kselftest/pidfd_pidfd_fdinfo_test
-    - kselftest-vsyscall-mode-none/pidfd_pidfd_fdinfo_test
-    - kselftest-vsyscall-mode-native/pidfd_pidfd_fdinfo_test
+    - kselftest/pidfd.pidfd_fdinfo_test
+    - kselftest-vsyscall-mode-none/pidfd.pidfd_fdinfo_test
+    - kselftest-vsyscall-mode-native/pidfd.pidfd_fdinfo_test
     url: https://bugs.linaro.org/show_bug.cgi?id=5543
     active: true
     intermittent: true
@@ -1635,9 +1635,9 @@ projects:
       Function not implemented
     projects: *projects_all
     test_names:
-    - kselftest/pidfd_pidfd_wait
-    - kselftest-vsyscall-mode-none/pidfd_pidfd_wait
-    - kselftest-vsyscall-mode-native/pidfd_pidfd_wait
+    - kselftest/pidfd.pidfd_wait
+    - kselftest-vsyscall-mode-none/pidfd.pidfd_wait
+    - kselftest-vsyscall-mode-native/pidfd.pidfd_wait
     url: https://bugs.linaro.org/show_bug.cgi?id=5544
     active: true
     intermittent: true
@@ -1647,9 +1647,9 @@ projects:
       Missing xdp_dummy helper.
     projects: *projects_all
     test_names:
-    - kselftest/net_udpgro.sh
-    - kselftest-vsyscall-mode-none/net_udpgro.sh
-    - kselftest-vsyscall-mode-native/net_udpgro.sh
+    - kselftest/net.udpgro.sh
+    - kselftest-vsyscall-mode-none/net.udpgro.sh
+    - kselftest-vsyscall-mode-native/net.udpgro.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=5545
     active: true
     intermittent: false
@@ -1659,9 +1659,9 @@ projects:
       timeouts and fails intermittently on all devices.
     projects: *projects_all
     test_names:
-    - kselftest/net/mptcp_mptcp_connect.sh
-    - kselftest-vsyscall-mode-none/net/mptcp_mptcp_connect.sh
-    - kselftest-vsyscall-mode-native/net/mptcp_mptcp_connect.sh
+    - kselftest/net.mptcp.mptcp_connect.sh
+    - kselftest-vsyscall-mode-none/net.mptcp.mptcp_connect.sh
+    - kselftest-vsyscall-mode-native/net.mptcp.mptcp_connect.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=5565
     active: true
     intermittent: true
