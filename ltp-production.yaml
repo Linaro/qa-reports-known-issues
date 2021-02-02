@@ -8,6 +8,7 @@ globals:
     - qemu_arm64
     - nxp-ls2088
     - nxp-ls2088-kasan
+    - nxp-ls2088-64k_page_size
     - qemu-arm64-compat
     - qemu-arm64-kasan
     - qemu-arm64-clang
@@ -75,6 +76,7 @@ globals:
     - x15
     - nxp-ls2088
     - nxp-ls2088-kasan
+    - nxp-ls2088-64k_page_size
     - qemu-arm64-compat
     - qemu-arm64-kasan
     - qemu-arm64-clang
@@ -90,6 +92,7 @@ globals:
     - x86-kasan
     - nxp-ls2088
     - nxp-ls2088-kasan
+    - nxp-ls2088-64k_page_size
     - qemu-arm64-kasan
     - qemu-arm64-clang
     - qemu_x86_64-compat
@@ -129,6 +132,7 @@ projects:
   - x86-kasan
   - nxp-ls2088
   - nxp-ls2088-kasan
+  - nxp-ls2088-64k_page_size
   - qemu-arm64-compat
   - qemu-arm64-kasan
   - qemu-arm64-clang
@@ -1020,6 +1024,7 @@ projects:
     intermittent: false
   - environments:
     - nxp-ls2088
+    - nxp-ls2088-64k_page_size
     notes: >
       These listed test cases failed on nxp-ls2088
       because tests running on nfs mounted rootfs.
