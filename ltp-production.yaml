@@ -4,6 +4,7 @@ globals:
     - juno-r2
     - juno-r2-kasan
     - juno-r2-compat
+    - juno-64k_page_size
     - dragonboard-410c
     - qemu_arm64
     - nxp-ls2088
@@ -70,6 +71,7 @@ globals:
     - juno-r2
     - juno-r2-kasan
     - juno-r2-compat
+    - juno-64k_page_size
     - qemu_arm64
     - qemu_arm
     - qemu-arm-clang
@@ -86,6 +88,7 @@ globals:
     - juno-r2
     - juno-r2-kasan
     - juno-r2-compat
+    - juno-64k_page_size
     - qemu_x86_64
     - qemu_arm64
     - x86
@@ -121,6 +124,7 @@ projects:
   - juno-r2
   - juno-r2-kasan
   - juno-r2-compat
+  - juno-64k_page_size
   - qemu_x86_64
   - qemu_i386
   - qemu-i386-clang
@@ -834,6 +838,7 @@ projects:
     - juno-r2
     - juno-r2-kasan
     - juno-r2-compat
+    - juno-64k_page_size
     - x15
     notes: >
       LTP: getrusage04 failed - stime increased > 6000u
@@ -994,6 +999,7 @@ projects:
     - juno-r2
     - juno-r2-kasan
     - juno-r2-compat
+    - juno-64k_page_size
     notes: >
       LTP copy_file_range02 failed on i386, qemu_i386, qemu_x86_64, qemu_arm and x15 device.
       copy_file_range returned wrong value 32
@@ -1062,6 +1068,7 @@ projects:
     - juno-r2
     - juno-r2-kasan
     - juno-r2-compat
+    - juno-64k_page_size
     notes: >
       LTP: clock_gettime01 failed on Juno-r2 - intermittently
     projects: *projects_all
