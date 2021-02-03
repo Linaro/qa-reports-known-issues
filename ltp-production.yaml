@@ -1393,3 +1393,15 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5724
     active: true
     intermittent: false
+  - environments: *environments_all
+    notes: >
+      semctl09.c:136: TINFO: Test SEM_STAT_ANY with nobody user
+      semctl09.c:153: TFAIL: SEM_STAT_ANY doesn't pass the buffer specified by the caller to kernel
+      semctl09.c:136: TINFO: Test SEM_STAT_ANY with root user
+      semctl09.c:153: TFAIL: SEM_STAT_ANY doesn't pass the buffer specified by the caller to kernel
+    projects: *projects_all
+    test_names:
+    - ltp-syscalls-tests/semctl09
+    url: https://bugs.linaro.org/show_bug.cgi?id=5737
+    active: true
+    intermittent: false
