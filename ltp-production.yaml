@@ -24,6 +24,7 @@ globals:
     - qemu_x86_64-compat
     - qemu-x86_64-kasan
     - qemu-x86_64-clang
+    - qemu-x86_64-kcsan
   - environments: &environments_i386
     - i386
     - qemu_i386
@@ -41,6 +42,7 @@ globals:
     - qemu_arm64-compat
     - qemu-arm64-kasan
     - qemu-arm64-clang
+    - qemu-x86_64-kcsan
   - environments: &environments_32bit
     - i386
     - qemu_i386
@@ -65,6 +67,7 @@ globals:
     - qemu_x86_64-compat
     - qemu-x86_64-kasan
     - qemu-x86_64-clang
+    - qemu-x86_64-kcsan
   - environments: &environments_arm64_arm32
     - dragonboard-410c
     - hi6220-hikey
@@ -102,6 +105,7 @@ globals:
     - qemu-x86_64-kasan
     - qemu-x86_64-clang
     - qemu_arm64-compat
+    - qemu-x86_64-kcsan
 
 projects:
 - name: LKFT-ltp
@@ -144,6 +148,7 @@ projects:
   - qemu_x86_64-compat
   - qemu-x86_64-kasan
   - qemu-x86_64-clang
+  - qemu-x86_64-kcsan
   known_issues:
   - environments:
     - hi6220-hikey
