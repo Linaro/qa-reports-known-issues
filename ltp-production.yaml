@@ -10,7 +10,7 @@ globals:
     - nxp-ls2088
     - nxp-ls2088-kasan
     - nxp-ls2088-64k_page_size
-    - qemu-arm64-compat
+    - qemu_arm64-compat
     - qemu-arm64-kasan
     - qemu-arm64-clang
   - environments: &environments_arm32
@@ -38,7 +38,7 @@ globals:
     - qemu_x86_64-compat
     - qemu-x86_64-kasan
     - qemu-x86_64-clang
-    - qemu-arm64-compat
+    - qemu_arm64-compat
     - qemu-arm64-kasan
     - qemu-arm64-clang
   - environments: &environments_32bit
@@ -52,7 +52,7 @@ globals:
     - qemu_arm
     - qemu-arm-clang
     - qemu_arm64
-    - qemu-arm64-compat
+    - qemu_arm64-compat
     - qemu-arm64-kasan
     - qemu-arm64-clang
   - environments: &environments_intel
@@ -79,7 +79,7 @@ globals:
     - nxp-ls2088
     - nxp-ls2088-kasan
     - nxp-ls2088-64k_page_size
-    - qemu-arm64-compat
+    - qemu_arm64-compat
     - qemu-arm64-kasan
     - qemu-arm64-clang
   - environments: &environments_64bit
@@ -101,6 +101,7 @@ globals:
     - qemu_x86_64-compat
     - qemu-x86_64-kasan
     - qemu-x86_64-clang
+    - qemu_arm64-compat
 
 projects:
 - name: LKFT-ltp
@@ -137,7 +138,7 @@ projects:
   - nxp-ls2088
   - nxp-ls2088-kasan
   - nxp-ls2088-64k_page_size
-  - qemu-arm64-compat
+  - qemu_arm64-compat
   - qemu-arm64-kasan
   - qemu-arm64-clang
   - qemu_x86_64-compat
@@ -1236,7 +1237,7 @@ projects:
     - qemu_i386
     - juno-r2-compat
     - qemu_x86_64-compat
-    - qemu-arm64-compat
+    - qemu_arm64-compat
     notes: >
       LKFT: qemu: LTP skip failed timing test cases on
       qemu_i386 and all compat mode testing
@@ -1248,7 +1249,7 @@ projects:
   - environments:
     - juno-r2-compat
     - qemu_x86_64-compat
-    - qemu-arm64-compat
+    - qemu_arm64-compat
     notes: >
        io_pgetevents02.c:107: TFAIL: invalid max_nr: io_pgetevents() passed unexpectedly
        failed on all compat mode testing.
@@ -1260,7 +1261,7 @@ projects:
   - environments:
     - juno-r2-compat
     - qemu_x86_64-compat
-    - qemu-arm64-compat
+    - qemu_arm64-compat
     notes: >
        shmctl03.c:33: TFAIL: /proc/sys/kernel/shmmax != 2147483647 got 4294967295
        failed on all compat mode testing.
