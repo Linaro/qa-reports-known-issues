@@ -1405,3 +1405,22 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5737
     active: true
     intermittent: false
+  - environments:
+    - juno-r2-compat
+    notes: >
+      While testing LTP syscalls on juno-r2-compat the following tests
+      failed intermittently. These intermittent failures are specific to
+      juno-r2-compat mode which is 64 bit kernel running on 32 bit userspace.
+
+      tst_ioctl.c:30: TINFO FIBMAP ioctl is supported
+      swapoff01    1  TFAIL    ../swapon/libswapon.c:70: mkswap on EXT2/EXT3/EXT4 failed
+    projects: *projects_all
+    test_names:
+    - ltp-syscalls-tests/swapoff01
+    - ltp-syscalls-tests/swapoff02
+    - ltp-syscalls-tests/swapon01
+    - ltp-syscalls-tests/swapon02
+    - ltp-syscalls-tests/swapon03
+    url: https://bugs.linaro.org/show_bug.cgi?id=5747
+    active: true
+    intermittent: true
