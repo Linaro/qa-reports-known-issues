@@ -1,6 +1,8 @@
 # Known Issues for qa-reports.linaro.org
 
-[![Build Status](https://travis-ci.com/Linaro/qa-reports-known-issues.svg?branch=master)](https://travis-ci.com/Linaro/qa-reports-known-issues)
+![Build Status](https://github.com/Linaro/qa-reports-known-issues/actions/workflows/test-pipeline.yml/badge.svg)
+![REUSE Compliance Check](https://github.com/Linaro/qa-reports-known-issues/actions/workflows/reuse.yml/badge.svg)
+
 
 This repository contains YAML files with serialized known issues. Known issues
 are meant to highlight failed tests in qa-reports.linaro.org so it is clear
