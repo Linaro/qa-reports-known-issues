@@ -26,5 +26,7 @@ jobs:
           black --check .
 
       - name: Test known-issues
+        env:
+          QA_REPORTS_KNOWN_ISSUE_TOKEN: ${{ secrets.QA_REPORTS_KNOWN_ISSUE_TOKEN }}
         run: |
           ./sync_known_issues.py -c *.yaml $@
