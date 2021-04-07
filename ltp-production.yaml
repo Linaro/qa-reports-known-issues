@@ -1467,3 +1467,23 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5748
     active: true
     intermittent: false
+  - environments: *environments_all
+    notes: >
+      tst_device.c:89: TINFO: Found free device 0 '/dev/loop0'
+      [  163.035370] loop0: detected capacity change from 0 to 40960
+      [  163.058232]  loop0: p1
+      ioctl09.c:45: TPASS: access /sys/block/loop0/loop0p1 succeeds
+      ioctl09.c:53: TPASS: access /dev/loop0p1 succeeds
+      ioctl09.c:48: TPASS: access /sys/block/loop0/loop0p2 fails
+      ioctl09.c:56: TPASS: access /dev/loop0p2 fails
+      ioctl09.c:45: TPASS: access /sys/block/loop0/loop0p1 succeeds
+      ioctl09.c:53: TPASS: access /dev/loop0p1 succeeds
+      ioctl09.c:48: TFAIL: access /sys/block/loop0/loop0p2 fails
+      ioctl09.c:56: TFAIL: access /dev/loop0p2 fails
+
+    projects: *projects_all
+    test_names:
+    - ltp-syscalls-tests/ioctl09
+    url: https://bugs.linaro.org/show_bug.cgi?id=5753
+    active: true
+    intermittent: true
