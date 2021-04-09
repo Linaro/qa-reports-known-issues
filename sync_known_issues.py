@@ -168,7 +168,7 @@ class SquadKnownIssue(object):
                 self.projects_environments[project] = set()
             for item in config.get("environments"):
                 if item not in self.squad_environments:
-                    raise SquadKnownIssueException("Incorrect environment: %s" % item)
+                    raise SquadKnownIssueException("Incorrect environment for project %s: %s" % (project, item))
                 self.projects_environments[project].add(item)
 
     def __repr__(self):
