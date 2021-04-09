@@ -154,8 +154,10 @@ projects:
   - qemu_x86_64
   - qemu_i386
   - qemu-i386-clang
+  - qemu-i386-debug
   - qemu_arm
   - qemu-arm-clang
+  - qemu-arm-debug
   - qemu_arm64
   - x15
   - x86
@@ -166,10 +168,13 @@ projects:
   - qemu_arm64-compat
   - qemu-arm64-kasan
   - qemu-arm64-clang
+  - qemu-arm64-debug
+  - qemu-arm64-armv8-features
   - qemu_x86_64-compat
   - qemu-x86_64-kasan
   - qemu-x86_64-clang
   - qemu-x86_64-kcsan
+  - qemu-x86_64-debug
   known_issues:
   - environments:
     - hi6220-hikey
