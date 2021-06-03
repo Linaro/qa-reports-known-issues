@@ -1494,3 +1494,41 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5753
     active: true
     intermittent: true
+  - environments: *environments_i386
+    notes: >
+      These are intermittent failures on i386
+      fs_perms  1  TBROK  : fs_perms.c:85: Could not find path to sh in $PATH.
+      fs_perms  2  TBROK  : fs_perms.c:85: Remaining cases broken
+      fs_perms  1  TBROK  : fs_perms.c:85: Could not find path to sh in $PATH.
+      fs_perms  2  TBROK  : fs_perms.c:85: Remaining cases broken
+      fs_perms  1  TBROK  : fs_perms.c:85: Could not find path to sh in $PATH.
+      fs_perms  2  TBROK  : fs_perms.c:85: Remaining cases broken
+      fs_perms  1  TPASS  :  w a 002 file owned by (99/99) as user/group (12/100)
+      fs_perms  1  TPASS  :  w a 020 file owned by (99/99) as user/group (200/99)
+      fs_perms  1  TPASS  :  w a 200 file owned by (99/99) as user/group (99/500)
+      fs_perms  1  TPASS  :  r a 004 file owned by (99/99) as user/group (12/100)
+      fs_perms  1  TPASS  :  r a 040 file owned by (99/99) as user/group (200/99)
+      fs_perms  1  TPASS  :  r a 400 file owned by (99/99) as user/group (99/500)
+      fs_perms  1  TPASS  :  r a 000 file owned by (99/99) as user/group (99/99)
+      fs_perms  1  TPASS  :  w a 000 file owned by (99/99) as user/group (99/99)
+      fs_perms  1  TBROK  : fs_perms.c:85: Could not find path to sh in $PATH.
+      fs_perms  2  TBROK  : fs_perms.c:85: Remaining cases broken
+      fs_perms  1  TBROK  : fs_perms.c:85: Could not find path to sh in $PATH.
+      fs_perms  2  TBROK  : fs_perms.c:85: Remaining cases broken
+      fs_perms  1  TBROK  : fs_perms.c:85: Could not find path to sh in $PATH.
+      fs_perms  2  TBROK  : fs_perms.c:85: Remaining cases broken
+      fs_perms  1  TPASS  :  w a 020 file owned by (99/99) as user/group (99/500)
+      fs_perms  1  TPASS  :  w a 200 file owned by (99/99) as user/group (200/99)
+      fs_perms  1  TPASS  :  r a 040 file owned by (99/99) as user/group (99/500)
+      fs_perms  1  TPASS  :  r a 400 file owned by (99/99) as user/group (200/99)
+    projects: *projects_all
+    test_names:
+    - ltp-fs_perms_simple-tests/fs_perms01
+    - ltp-fs_perms_simple-tests/fs_perms02
+    - ltp-fs_perms_simple-tests/fs_perms03
+    - ltp-fs_perms_simple-tests/fs_perms12
+    - ltp-fs_perms_simple-tests/fs_perms13
+    - ltp-fs_perms_simple-tests/fs_perms14
+    url: https://bugs.linaro.org/show_bug.cgi?id=5763
+    active: true
+    intermittent: true
