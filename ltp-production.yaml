@@ -1532,3 +1532,13 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5763
     active: true
     intermittent: true
+  - environments: *environments_all
+    notes: >
+      cgroup_xattr.c:364: Expect: can read xattr trusted.test of file 'NetworkManager-dispatcher.service'
+      cgroup_xattr.c:380: Expect: values equal
+    projects: *projects_all
+    test_names:
+    - ltp-controllers-tests/cgroup_xattr
+    url: https://bugs.linaro.org/show_bug.cgi?id=5764
+    active: true
+    intermittent: true
