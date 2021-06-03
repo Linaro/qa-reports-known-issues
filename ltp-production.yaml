@@ -1548,3 +1548,12 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5765
     active: true
     intermittent: true
+  - environments: *environments_all
+    notes: >
+      vfork01.c:340: stat(2) failed to get info. of working directory in parent process
+    projects: *projects_all
+    test_names:
+    - ltp-syscalls-tests/vfork01
+    url: https://bugs.linaro.org/show_bug.cgi?id=5766
+    active: true
+    intermittent: true
