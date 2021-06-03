@@ -1542,3 +1542,12 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5764
     active: true
     intermittent: true
+  - environments: *environments_arm64
+    notes: >
+      fsync02.c:96: TFAIL: fsync took too long: 148.000000 seconds; max_block: 17768; data_blocks: 2287
+    projects: *projects_all
+    test_names:
+    - ltp-syscalls-tests/fsync02
+    url: https://bugs.linaro.org/show_bug.cgi?id=5765
+    active: true
+    intermittent: true
