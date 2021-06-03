@@ -1050,9 +1050,7 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5554
     active: true
     intermittent: false
-  - environments:
-    - hi6220-hikey
-    - dragonboard-410c
+  - environments: *environments_all
     notes: >
       LTP syscalls test case acct02 getting failed on Dragonboard 410c,
       Hikey Board on multiple linux stable rc branches.
@@ -1060,7 +1058,7 @@ projects:
     test_name: ltp-syscalls-tests/acct02
     url: https://bugs.linaro.org/show_bug.cgi?id=5555
     active: true
-    intermittent: false
+    intermittent: true
   - environments:
     - nxp-ls2088
     - nxp-ls2088-64k_page_size
@@ -1438,8 +1436,7 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5737
     active: true
     intermittent: false
-  - environments:
-    - juno-r2-compat
+  - environments: *environments_all
     notes: >
       While testing LTP syscalls on juno-r2-compat the following tests
       failed intermittently. These intermittent failures are specific to
