@@ -60,6 +60,7 @@ projects:
 - name: LKFT
   projects: &projects_all
     - lkft/linux-mainline-master
+    - lkft/linux-stable-rc-linux-5.13.y
     - lkft/linux-stable-rc-linux-5.12.y
     - lkft/linux-stable-rc-linux-5.11.y
     - lkft/linux-stable-rc-linux-5.10.y
@@ -263,6 +264,7 @@ projects:
       - x86-kasan
       projects:
       - lkft/linux-mainline-master
+      - lkft/linux-stable-rc-linux-5.13.y
       - lkft/linux-stable-rc-linux-5.12.y
       - lkft/linux-stable-rc-linux-5.11.y
       - lkft/linux-stable-rc-linux-5.10.y
@@ -512,6 +514,7 @@ projects:
       (cgroup.helpers.c:97: errno: No such file or directory) Opening
       Cgroup Procs: /mnt/cgroup.procs
     projects:
+      - lkft/linux-stable-rc-linux-5.13.y
       - lkft/linux-stable-rc-linux-5.12.y
       - lkft/linux-stable-rc-linux-5.11.y
       - lkft/linux-stable-rc-linux-5.10.y
@@ -643,6 +646,7 @@ projects:
     matrix_apply:
     - environments: *environments_all
       projects:
+      - lkft/linux-stable-rc-linux-5.13.y
       - lkft/linux-stable-rc-linux-5.12.y
       - lkft/linux-stable-rc-linux-5.11.y
       - lkft/linux-stable-rc-linux-5.10.y
@@ -850,6 +854,7 @@ projects:
       projects: *projects_all
     - environments: *environments_all
       projects:
+      - lkft/linux-stable-rc-linux-5.13.y
       - lkft/linux-stable-rc-linux-5.12.y
       - lkft/linux-stable-rc-linux-5.11.y
       - lkft/linux-stable-rc-linux-5.10.y
@@ -991,6 +996,7 @@ projects:
       PASS on mainline and -next.
       FAILED on 5.1, 4.19, 4.14, 4.9 and 4.4 on all devices.
     projects:
+    - lkft/linux-stable-rc-linux-5.13.y
     - lkft/linux-stable-rc-linux-5.12.y
     - lkft/linux-stable-rc-linux-5.11.y
     - lkft/linux-stable-rc-linux-5.10.y
