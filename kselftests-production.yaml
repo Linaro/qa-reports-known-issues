@@ -62,7 +62,6 @@ projects:
     - lkft/linux-mainline-master
     - lkft/linux-stable-rc-linux-5.13.y
     - lkft/linux-stable-rc-linux-5.12.y
-    - lkft/linux-stable-rc-linux-5.11.y
     - lkft/linux-stable-rc-linux-5.10.y
     - lkft/linux-stable-rc-linux-5.4.y
     - lkft/linux-stable-rc-linux-4.19.y
@@ -266,7 +265,6 @@ projects:
       - lkft/linux-mainline-master
       - lkft/linux-stable-rc-linux-5.13.y
       - lkft/linux-stable-rc-linux-5.12.y
-      - lkft/linux-stable-rc-linux-5.11.y
       - lkft/linux-stable-rc-linux-5.10.y
       - lkft/linux-stable-rc-linux-5.4.y
   - test_names:
@@ -516,7 +514,6 @@ projects:
     projects:
       - lkft/linux-stable-rc-linux-5.13.y
       - lkft/linux-stable-rc-linux-5.12.y
-      - lkft/linux-stable-rc-linux-5.11.y
       - lkft/linux-stable-rc-linux-5.10.y
       - lkft/linux-stable-rc-linux-5.4.y
       - lkft/linux-stable-rc-linux-4.19.y
@@ -648,7 +645,6 @@ projects:
       projects:
       - lkft/linux-stable-rc-linux-5.13.y
       - lkft/linux-stable-rc-linux-5.12.y
-      - lkft/linux-stable-rc-linux-5.11.y
       - lkft/linux-stable-rc-linux-5.10.y
       - lkft/linux-stable-rc-linux-5.4.y
       - lkft/linux-stable-rc-linux-4.19.y
@@ -856,7 +852,6 @@ projects:
       projects:
       - lkft/linux-stable-rc-linux-5.13.y
       - lkft/linux-stable-rc-linux-5.12.y
-      - lkft/linux-stable-rc-linux-5.11.y
       - lkft/linux-stable-rc-linux-5.10.y
       - lkft/linux-stable-rc-linux-5.4.y
       - lkft/linux-stable-rc-linux-4.19.y
@@ -998,7 +993,6 @@ projects:
     projects:
     - lkft/linux-stable-rc-linux-5.13.y
     - lkft/linux-stable-rc-linux-5.12.y
-    - lkft/linux-stable-rc-linux-5.11.y
     - lkft/linux-stable-rc-linux-5.10.y
     - lkft/linux-stable-rc-linux-5.4.y
     - lkft/linux-stable-rc-linux-4.19.y
