@@ -6,6 +6,7 @@ globals:
     - dragonboard-410c
     - qemu_arm64
     - nxp-ls2088
+    - fx700
   - environments: &environments_arm32
     - x15
     - qemu_arm
@@ -38,6 +39,7 @@ projects:
   - x86
   - x86-kasan
   - nxp-ls2088
+  - fx700
   known_issues:
   - environments: *environments_arm64
     notes: >
