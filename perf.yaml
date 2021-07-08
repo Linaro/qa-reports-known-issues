@@ -39,6 +39,7 @@ projects:
   - x86
   - x86-kasan
   - nxp-ls2088
+  - fx700
   known_issues:
   - environments:
     - qemu_i386

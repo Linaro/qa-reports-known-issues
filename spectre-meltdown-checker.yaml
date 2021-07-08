@@ -34,6 +34,7 @@ projects:
   - x86
   - x86-kasan
   - nxp-ls2088
+  - fx700
   known_issues:
   - environments: *environments_i386
     notes: >
@@ -69,6 +70,7 @@ projects:
     - qemu_x86_64
     - qemu_i386
     - nxp-ls2088
+    - fx700
     notes: >
       CVE-2018-3639: VULN Your CPU doesn't support SSBD
       CVE-2018-3640: VULN an up-to-date CPU microcode is needed to mitigate
