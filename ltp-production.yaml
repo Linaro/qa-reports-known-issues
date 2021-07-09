@@ -62,6 +62,9 @@ globals:
     - x15
     - qemu-arm-debug
     - qemu-i386-debug
+    - qemu_arm64-compat
+    - qemu_x86_64-compat
+    - juno-r2-compat
   - environments: &environments_qemu_arm
     - qemu_arm
     - qemu-arm-clang
