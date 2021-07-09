@@ -1566,3 +1566,12 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5766
     active: true
     intermittent: true
+  - environments: *environments_32bit
+    notes: >
+      LTP: futex_wake04: TBROK: Failed to open FILE '/proc/11583/task/11585/stat' for reading: ENOENT (2)
+    projects: *projects_all
+    test_names:
+    - ltp-syscalls-tests/futex_wake04
+    url: https://bugs.linaro.org/show_bug.cgi?id=5768
+    active: true
+    intermittent: true
