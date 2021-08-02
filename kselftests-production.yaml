@@ -1508,3 +1508,17 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5773
     active: true
     intermittent: true
+  - environments: *environments_all
+    notes: >
+      Kernel selftests: net: reuseport_bpf test fails intermittently.
+       selftests: net: reuseport_bpf
+       ---- IPv4 UDP ----
+       Testing EBPF mod 10...
+       ./reuseport_bpf: ebpf error. log:
+       : Function not implemented
+    projects: *projects_all
+    test_names:
+    - kselftest*/net.reuseport_bpf
+    url: https://bugs.linaro.org/show_bug.cgi?id=5774
+    active: true
+    intermittent: true
