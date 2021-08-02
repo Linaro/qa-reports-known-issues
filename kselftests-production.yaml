@@ -1497,3 +1497,14 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5565
     active: true
     intermittent: true
+  - environments: *environments_all
+    notes: >
+      Kernel selftest net altnames.sh fails intermittently.
+      Error: Unknown device type.
+      Cannot find device \"dummytest\"
+    projects: *projects_all
+    test_names:
+    - kselftest*/net.altnames.sh
+    url: https://bugs.linaro.org/show_bug.cgi?id=5773
+    active: true
+    intermittent: true
