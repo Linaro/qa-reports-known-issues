@@ -414,13 +414,11 @@ projects:
     intermittent: false
   - environments: *environments_all
     notes: null
-    projects:
-    - lkft/linux-stable-rc-linux-4.4.y
-    - lkft/linaro-hikey-stable-rc-4.4-oe
-    test_name: kselftest/net.run_afpackettests
+    projects: *projects_all
+    test_name: kselftest*/net.run_afpackettests
     url: null
     active: true
-    intermittent: false
+    intermittent: true
   - environments: *environments_all
     notes: null
     projects:
