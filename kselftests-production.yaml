@@ -1489,3 +1489,14 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5774
     active: true
     intermittent: true
+  - environments: *environments_all
+    notes: >
+        selftests: net: test_blackhole_dev.sh
+        test_blackhole_dev: [FAIL]
+        not ok 12 selftests: net: test_blackhole_dev.sh # exit=1
+    projects: *projects_all
+    test_names:
+    - kselftest*/net.test_blackhole_dev.sh
+    url: https://bugs.linaro.org/show_bug.cgi?id=5775
+    active: true
+    intermittent: true
