@@ -1045,18 +1045,12 @@ projects:
     notes: >
       LKFT: selftests: net: test_vxlan_fdb_changelink.sh
       expected two remotes after link set FAIL
-      FAILED on 4.18, 4.14, 4.9 and 4.4 on all devices.
-    projects:
-    - lkft/linux-stable-rc-linux-4.19.y
-    - lkft/linux-stable-rc-linux-4.14.y
-    - lkft/linux-stable-rc-linux-4.9.y
-    - lkft/linux-stable-rc-linux-4.4.y
-    - lkft/linaro-hikey-stable-rc-4.4-oe
+    projects: *projects_all
     test_names:
     - kselftest*/net.test_vxlan_fdb_changelink.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=4266
     active: true
-    intermittent: false
+    intermittent: true
   - environments: *environments_all
     notes: >
       selftests/net/ip_defrag.sh : ./ip_defrag: recv: expected timeout; got 2272
