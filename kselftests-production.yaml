@@ -978,22 +978,12 @@ projects:
     notes: >
       LKFT: selftests: net: fib_rule_tests.sh RTNETLINK answers: Operation not supported 4.14 and below
       PASS on mainline and -next.
-      FAILED on 5.1, 4.19, 4.14, 4.9 and 4.4 on all devices.
-    projects:
-    - lkft/linux-stable-rc-linux-5.13.y
-    - lkft/linux-stable-rc-linux-5.12.y
-    - lkft/linux-stable-rc-linux-5.10.y
-    - lkft/linux-stable-rc-linux-5.4.y
-    - lkft/linux-stable-rc-linux-4.19.y
-    - lkft/linux-stable-rc-linux-4.14.y
-    - lkft/linux-stable-rc-linux-4.9.y
-    - lkft/linux-stable-rc-linux-4.4.y
-    - lkft/linaro-hikey-stable-rc-4.4-oe
+    projects: *projects_all
     test_names:
     - kselftest*/net.fib_rule_tests.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=4051
     active: true
-    intermittent: false
+    intermittent: true
   - environments:
     - x86
     - x86-kasan
