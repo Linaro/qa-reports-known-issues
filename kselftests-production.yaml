@@ -1500,3 +1500,14 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5775
     active: true
     intermittent: true
+  - environments: *environments_x86_64
+    notes: >
+        kernel selftests proc proc-fsconfig-hidepid file is missing on x86_64.
+        selftests: proc: proc-fsconfig-hidepid
+        Warning: file proc-fsconfig-hidepid is missing!
+    projects: *projects_all
+    test_names:
+    - kselftest*/proc.proc-fsconfig-hidepid
+    url: https://bugs.linaro.org/show_bug.cgi?id=5776
+    active: true
+    intermittent: true
