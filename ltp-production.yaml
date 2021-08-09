@@ -1575,3 +1575,16 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5768
     active: true
     intermittent: true
+  - environments: *environments_arm64_arm32
+    notes: >
+      LTP: RTNETLINK answers: Operation not supported
+      netns_breakns 1 TBROK: unable to create veth pair devices
+      Cannot find device \"veth0\"
+    projects:
+    - lkft/linux-stable-rc-linux-4.4.y
+    test_names:
+    - ltp-containers-tests/netns_*_netlink
+    - ltp-containers-tests/netns_*_ioctl
+    url: https://bugs.linaro.org/show_bug.cgi?id=5778
+    active: true
+    intermittent: false
