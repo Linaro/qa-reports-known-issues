@@ -1511,3 +1511,17 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5776
     active: true
     intermittent: true
+  - environments: *environments_all
+    notes: >
+      ok 319 696a - Add simple ct action # skipped - \"-----> teardown stage\" did not complete successfully
+      ok 320 e38c - Add simple ct action with cookie # skipped - skipped - previous teardown failed 320 696a
+      ok 489 b8a1 - Replace bpf action with invalid goto_chain control # skipped - skipped - previous teardown failed 320 696a
+      -----> teardown stage *** Could not execute: \"$TC actions flush action ct\"
+      -----> teardown stage *** Error message \"Error Cannot flush unknown TC action.
+
+    projects: *projects_all
+    test_names:
+    - kselftest*/tc-testing.tdc.sh
+    url: https://bugs.linaro.org/show_bug.cgi?id=5779
+    active: true
+    intermittent: true
