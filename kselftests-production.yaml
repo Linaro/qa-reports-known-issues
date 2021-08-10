@@ -885,27 +885,20 @@ projects:
       - lkft/linux-stable-rc-linux-4.9.y
       - lkft/linux-stable-rc-linux-4.4.y
       - lkft/linaro-hikey-stable-rc-4.4-oe
-  - test_names:
+  - environments: *environments_all
+    notes: >
+      LKFT: Kselftest: rseq: tests not building for arm64 for mainline but test pass on -next
+      LKFT: Kselftest: rseq: : Function not implemented on older kernel
+    projects: *projects_all
+    test_names:
       - kselftest*/rseq.param_test
       - kselftest*/rseq.param_test_benchmark
       - kselftest*/rseq.param_test_compare_twice
       - kselftest*/rseq.basic_test
       - kselftest*/rseq.run_param_test.sh
-    notes: >
-      LKFT: Kselftest: rseq: tests not building for arm64 for mainline but test pass on -next
-      LKFT: Kselftest: rseq: : Function not implemented on older kernel
     url: https://bugs.linaro.org/show_bug.cgi?id=3923
     active: true
-    intermittent: false
-    matrix_apply:
-    - environments: *environments_arm64
-      projects: *projects_all
-    - environments: *environments_all
-      projects:
-      - lkft/linux-stable-rc-linux-4.14.y
-      - lkft/linux-stable-rc-linux-4.9.y
-      - lkft/linux-stable-rc-linux-4.4.y
-      - lkft/linaro-hikey-stable-rc-4.4-oe
+    intermittent: true
   - environments: *environments_all
     notes: >
       selftests: proc: fd-003-kthread test_lookup_fail: Assertion
