@@ -62,6 +62,9 @@ globals:
     - x15
     - qemu-arm-debug
     - qemu-i386-debug
+    - qemu_arm64-compat
+    - qemu_x86_64-compat
+    - juno-r2-compat
   - environments: &environments_qemu_arm
     - qemu_arm
     - qemu-arm-clang
@@ -1563,3 +1566,25 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5766
     active: true
     intermittent: true
+  - environments: *environments_32bit
+    notes: >
+      LTP: futex_wake04: TBROK: Failed to open FILE '/proc/11583/task/11585/stat' for reading: ENOENT (2)
+    projects: *projects_all
+    test_names:
+    - ltp-syscalls-tests/futex_wake04
+    url: https://bugs.linaro.org/show_bug.cgi?id=5768
+    active: true
+    intermittent: true
+  - environments: *environments_arm64_arm32
+    notes: >
+      LTP: RTNETLINK answers: Operation not supported
+      netns_breakns 1 TBROK: unable to create veth pair devices
+      Cannot find device \"veth0\"
+    projects:
+    - lkft/linux-stable-rc-linux-4.4.y
+    test_names:
+    - ltp-containers-tests/netns_*_netlink
+    - ltp-containers-tests/netns_*_ioctl
+    url: https://bugs.linaro.org/show_bug.cgi?id=5778
+    active: true
+    intermittent: false

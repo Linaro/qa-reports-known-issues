@@ -248,30 +248,15 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=3596
     active: true
     intermittent: true
-  - test_names:
-    - kselftest*/net.reuseport_bpf.numa
+  - environments: *environments_all
     notes: >
-      LKFT: linux-mainline: x15: kselfteest NET reuseport_bpf.numa failed
+      LKFT: linux-mainline: x15: kselfteest net reuseport_bpf_numa failed
+    test_names:
+    - kselftest*/net.reuseport_bpf_numa
+    projects: *projects_all
     url: https://bugs.linaro.org/show_bug.cgi?id=3501
     active: true
     intermittent: true
-    matrix_apply:
-    - environments: *environments_all
-      projects:
-      - lkft/linux-stable-rc-linux-4.9.y
-      - lkft/linux-stable-rc-linux-4.4.y
-      - lkft/linaro-hikey-stable-rc-4.4-oe
-    - environments: *environments_arm32
-      projects: *projects_all
-    - environments:
-      - x86
-      - x86-kasan
-      projects:
-      - lkft/linux-mainline-master
-      - lkft/linux-stable-rc-linux-5.13.y
-      - lkft/linux-stable-rc-linux-5.12.y
-      - lkft/linux-stable-rc-linux-5.10.y
-      - lkft/linux-stable-rc-linux-5.4.y
   - test_names:
     - kselftest*/bpf.test_align
     - kselftest*/bpf.test_verifier
@@ -429,13 +414,11 @@ projects:
     intermittent: false
   - environments: *environments_all
     notes: null
-    projects:
-    - lkft/linux-stable-rc-linux-4.4.y
-    - lkft/linaro-hikey-stable-rc-4.4-oe
-    test_name: kselftest/net.run_afpackettests
+    projects: *projects_all
+    test_name: kselftest*/net.run_afpackettests
     url: null
     active: true
-    intermittent: false
+    intermittent: true
   - environments: *environments_all
     notes: null
     projects:
@@ -902,27 +885,20 @@ projects:
       - lkft/linux-stable-rc-linux-4.9.y
       - lkft/linux-stable-rc-linux-4.4.y
       - lkft/linaro-hikey-stable-rc-4.4-oe
-  - test_names:
+  - environments: *environments_all
+    notes: >
+      LKFT: Kselftest: rseq: tests not building for arm64 for mainline but test pass on -next
+      LKFT: Kselftest: rseq: : Function not implemented on older kernel
+    projects: *projects_all
+    test_names:
       - kselftest*/rseq.param_test
       - kselftest*/rseq.param_test_benchmark
       - kselftest*/rseq.param_test_compare_twice
       - kselftest*/rseq.basic_test
       - kselftest*/rseq.run_param_test.sh
-    notes: >
-      LKFT: Kselftest: rseq: tests not building for arm64 for mainline but test pass on -next
-      LKFT: Kselftest: rseq: : Function not implemented on older kernel
     url: https://bugs.linaro.org/show_bug.cgi?id=3923
     active: true
-    intermittent: false
-    matrix_apply:
-    - environments: *environments_arm64
-      projects: *projects_all
-    - environments: *environments_all
-      projects:
-      - lkft/linux-stable-rc-linux-4.14.y
-      - lkft/linux-stable-rc-linux-4.9.y
-      - lkft/linux-stable-rc-linux-4.4.y
-      - lkft/linaro-hikey-stable-rc-4.4-oe
+    intermittent: true
   - environments: *environments_all
     notes: >
       selftests: proc: fd-003-kthread test_lookup_fail: Assertion
@@ -995,22 +971,12 @@ projects:
     notes: >
       LKFT: selftests: net: fib_rule_tests.sh RTNETLINK answers: Operation not supported 4.14 and below
       PASS on mainline and -next.
-      FAILED on 5.1, 4.19, 4.14, 4.9 and 4.4 on all devices.
-    projects:
-    - lkft/linux-stable-rc-linux-5.13.y
-    - lkft/linux-stable-rc-linux-5.12.y
-    - lkft/linux-stable-rc-linux-5.10.y
-    - lkft/linux-stable-rc-linux-5.4.y
-    - lkft/linux-stable-rc-linux-4.19.y
-    - lkft/linux-stable-rc-linux-4.14.y
-    - lkft/linux-stable-rc-linux-4.9.y
-    - lkft/linux-stable-rc-linux-4.4.y
-    - lkft/linaro-hikey-stable-rc-4.4-oe
+    projects: *projects_all
     test_names:
     - kselftest*/net.fib_rule_tests.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=4051
     active: true
-    intermittent: false
+    intermittent: true
   - environments:
     - x86
     - x86-kasan
@@ -1062,18 +1028,12 @@ projects:
     notes: >
       LKFT: selftests: net: test_vxlan_fdb_changelink.sh
       expected two remotes after link set FAIL
-      FAILED on 4.18, 4.14, 4.9 and 4.4 on all devices.
-    projects:
-    - lkft/linux-stable-rc-linux-4.19.y
-    - lkft/linux-stable-rc-linux-4.14.y
-    - lkft/linux-stable-rc-linux-4.9.y
-    - lkft/linux-stable-rc-linux-4.4.y
-    - lkft/linaro-hikey-stable-rc-4.4-oe
+    projects: *projects_all
     test_names:
     - kselftest*/net.test_vxlan_fdb_changelink.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=4266
     active: true
-    intermittent: false
+    intermittent: true
   - environments: *environments_all
     notes: >
       selftests/net/ip_defrag.sh : ./ip_defrag: recv: expected timeout; got 2272
@@ -1495,5 +1455,66 @@ projects:
     test_names:
     - kselftest*/net.mptcp.mptcp_connect.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=5565
+    active: true
+    intermittent: true
+  - environments: *environments_all
+    notes: >
+      Kernel selftest net altnames.sh fails intermittently.
+      Error: Unknown device type.
+      Cannot find device \"dummytest\"
+    projects: *projects_all
+    test_names:
+    - kselftest*/net.altnames.sh
+    url: https://bugs.linaro.org/show_bug.cgi?id=5773
+    active: true
+    intermittent: true
+  - environments: *environments_all
+    notes: >
+      Kernel selftests: net: reuseport_bpf test fails intermittently.
+       selftests: net: reuseport_bpf
+       ---- IPv4 UDP ----
+       Testing EBPF mod 10...
+       ./reuseport_bpf: ebpf error. log:
+       : Function not implemented
+    projects: *projects_all
+    test_names:
+    - kselftest*/net.reuseport_bpf
+    url: https://bugs.linaro.org/show_bug.cgi?id=5774
+    active: true
+    intermittent: true
+  - environments: *environments_all
+    notes: >
+        selftests: net: test_blackhole_dev.sh
+        test_blackhole_dev: [FAIL]
+        not ok 12 selftests: net: test_blackhole_dev.sh # exit=1
+    projects: *projects_all
+    test_names:
+    - kselftest*/net.test_blackhole_dev.sh
+    url: https://bugs.linaro.org/show_bug.cgi?id=5775
+    active: true
+    intermittent: true
+  - environments: *environments_x86_64
+    notes: >
+        kernel selftests proc proc-fsconfig-hidepid file is missing on x86_64.
+        selftests: proc: proc-fsconfig-hidepid
+        Warning: file proc-fsconfig-hidepid is missing!
+    projects: *projects_all
+    test_names:
+    - kselftest*/proc.proc-fsconfig-hidepid
+    url: https://bugs.linaro.org/show_bug.cgi?id=5776
+    active: true
+    intermittent: true
+  - environments: *environments_all
+    notes: >
+      ok 319 696a - Add simple ct action # skipped - \"-----> teardown stage\" did not complete successfully
+      ok 320 e38c - Add simple ct action with cookie # skipped - skipped - previous teardown failed 320 696a
+      ok 489 b8a1 - Replace bpf action with invalid goto_chain control # skipped - skipped - previous teardown failed 320 696a
+      -----> teardown stage *** Could not execute: \"$TC actions flush action ct\"
+      -----> teardown stage *** Error message \"Error Cannot flush unknown TC action.
+
+    projects: *projects_all
+    test_names:
+    - kselftest*/tc-testing.tdc.sh
+    url: https://bugs.linaro.org/show_bug.cgi?id=5779
     active: true
     intermittent: true
