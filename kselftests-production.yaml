@@ -672,7 +672,6 @@ projects:
     - lkft/linux-stable-rc-linux-4.4.y
     - lkft/linaro-hikey-stable-rc-4.4-oe
     test_names:
-    - kselftest*/net.reuseport_bpf
     - kselftest*/net.reuseport_bpf.cpu
     url: https://bugs.linaro.org/show_bug.cgi?id=3520
     active: true
