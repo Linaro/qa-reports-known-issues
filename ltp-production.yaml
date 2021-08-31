@@ -16,11 +16,16 @@ globals:
     - qemu-arm64-debug
     - qemu-arm64-armv8-features
     - fx700
+    - qemu-arm64-debug-kmemleak
+    - qemu-arm64-gic-version2
+    - qemu-arm64-gic-version3
+    - qemu-arm64-mte
   - environments: &environments_arm32
     - x15
     - qemu_arm
     - qemu-arm-clang
     - qemu-arm-debug
+    - qemu-arm-debug-kmemleak
   - environments: &environments_x86_64
     - x86
     - x86-kasan
@@ -51,8 +56,13 @@ globals:
     - qemu-x86_64-kcsan
     - qemu-arm64-debug
     - qemu-arm-debug
+    - qemu-arm-debug-kmemleak
     - qemu-i386-debug
     - qemu-x86_64-debug
+    - qemu-arm64-debug-kmemleak
+    - qemu-arm64-gic-version2
+    - qemu-arm64-gic-version3
+    - qemu-arm64-mte
   - environments: &environments_32bit
     - i386
     - qemu_i386
@@ -61,6 +71,7 @@ globals:
     - qemu-arm-clang
     - x15
     - qemu-arm-debug
+    - qemu-arm-debug-kmemleak
     - qemu-i386-debug
     - qemu_arm64-compat
     - qemu_x86_64-compat
@@ -74,7 +85,12 @@ globals:
     - qemu-arm64-clang
     - qemu-arm64-debug
     - qemu-arm-debug
+    - qemu-arm-debug-kmemleak
     - qemu-arm64-armv8-features
+    - qemu-arm64-debug-kmemleak
+    - qemu-arm64-gic-version2
+    - qemu-arm64-gic-version3
+    - qemu-arm64-mte
   - environments: &environments_intel
     - i386
     - qemu_i386
@@ -98,6 +114,8 @@ globals:
     - qemu_arm64
     - qemu_arm
     - qemu-arm-clang
+    - qemu-arm-debug
+    - qemu-arm-debug-kmemleak
     - x15
     - nxp-ls2088
     - nxp-ls2088-kasan
@@ -106,9 +124,12 @@ globals:
     - qemu-arm64-kasan
     - qemu-arm64-clang
     - qemu-arm64-debug
-    - qemu-arm-debug
     - qemu-arm64-armv8-features
     - fx700
+    - qemu-arm64-debug-kmemleak
+    - qemu-arm64-gic-version2
+    - qemu-arm64-gic-version3
+    - qemu-arm64-mte
   - environments: &environments_64bit
     - dragonboard-410c
     - hi6220-hikey
@@ -134,6 +155,10 @@ globals:
     - qemu-x86_64-debug
     - qemu-arm64-armv8-features
     - fx700
+    - qemu-arm64-debug-kmemleak
+    - qemu-arm64-gic-version2
+    - qemu-arm64-gic-version3
+    - qemu-arm64-mte
 
 projects:
 - name: LKFT-ltp
@@ -165,6 +190,7 @@ projects:
   - qemu_arm
   - qemu-arm-clang
   - qemu-arm-debug
+  - qemu-arm-debug-kmemleak
   - qemu_arm64
   - x15
   - x86
@@ -183,6 +209,10 @@ projects:
   - qemu-x86_64-kcsan
   - qemu-x86_64-debug
   - fx700
+  - qemu-arm64-debug-kmemleak
+  - qemu-arm64-gic-version2
+  - qemu-arm64-gic-version3
+  - qemu-arm64-mte
   known_issues:
   - environments:
     - hi6220-hikey
