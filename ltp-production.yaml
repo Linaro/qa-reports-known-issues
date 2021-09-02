@@ -165,6 +165,7 @@ projects:
   projects: &projects_all
     - lkft/linux-next-master
     - lkft/linux-mainline-master
+    - lkft/linux-stable-rc-linux-5.14.y
     - lkft/linux-stable-rc-linux-5.13.y
     - lkft/linux-stable-rc-linux-5.12.y
     - lkft/linux-stable-rc-linux-5.10.y
@@ -975,6 +976,7 @@ projects:
     - lkft/linux-stable-rc-linux-5.10.y
     - lkft/linux-stable-rc-linux-5.12.y
     - lkft/linux-stable-rc-linux-5.13.y
+    - lkft/linux-stable-rc-linux-5.14.y
     test_names:
     - ltp-syscalls-tests/shmctl01
     url: https://bugs.linaro.org/show_bug.cgi?id=5313
