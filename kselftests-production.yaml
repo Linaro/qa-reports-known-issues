@@ -146,6 +146,7 @@ projects:
 - name: LKFT
   projects: &projects_all
     - lkft/linux-mainline-master
+    - lkft/linux-stable-rc-linux-5.14.y
     - lkft/linux-stable-rc-linux-5.13.y
     - lkft/linux-stable-rc-linux-5.12.y
     - lkft/linux-stable-rc-linux-5.10.y
@@ -599,6 +600,7 @@ projects:
       (cgroup.helpers.c:97: errno: No such file or directory) Opening
       Cgroup Procs: /mnt/cgroup.procs
     projects:
+      - lkft/linux-stable-rc-linux-5.14.y
       - lkft/linux-stable-rc-linux-5.13.y
       - lkft/linux-stable-rc-linux-5.12.y
       - lkft/linux-stable-rc-linux-5.10.y
@@ -731,6 +733,7 @@ projects:
     matrix_apply:
     - environments: *environments_all
       projects:
+      - lkft/linux-stable-rc-linux-5.14.y
       - lkft/linux-stable-rc-linux-5.13.y
       - lkft/linux-stable-rc-linux-5.12.y
       - lkft/linux-stable-rc-linux-5.10.y
@@ -937,6 +940,7 @@ projects:
       projects: *projects_all
     - environments: *environments_all
       projects:
+      - lkft/linux-stable-rc-linux-5.14.y
       - lkft/linux-stable-rc-linux-5.13.y
       - lkft/linux-stable-rc-linux-5.12.y
       - lkft/linux-stable-rc-linux-5.10.y
