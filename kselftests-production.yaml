@@ -167,6 +167,8 @@ projects:
   - qemu-x86_64-clang
   - qemu-x86_64-debug
   - qemu-x86_64-debug-kmemleak
+  - qemu-x86_64-kasan
+  - qemu-x86_64-kcsan
   - qemu_i386
   - qemu-i386-clang
   - qemu-i386-debug
