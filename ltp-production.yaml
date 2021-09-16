@@ -188,6 +188,7 @@ projects:
   - qemu_i386
   - qemu-i386-clang
   - qemu-i386-debug
+  - qemu-i386-debug-kmemleak
   - qemu_arm
   - qemu-arm-clang
   - qemu-arm-debug
@@ -209,6 +210,7 @@ projects:
   - qemu-x86_64-clang
   - qemu-x86_64-kcsan
   - qemu-x86_64-debug
+  - qemu-x86_64-debug-kmemleak
   - fx700
   - qemu-arm64-debug-kmemleak
   - qemu-arm64-gic-version2
