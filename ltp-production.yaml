@@ -1622,3 +1622,14 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5778
     active: true
     intermittent: false
+  - environments: *environments_all
+    notes: >
+      af_alg07.c:110: TFAIL: fchownat() failed to fail, kernel may be vulnerable
+      HINT: You _MAY_ be vulnerable to CVE(s), see:
+      https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-8912
+    projects: *projects_all
+    test_names:
+    - ltp-cve-tests/cve-2019-8912
+    url: https://bugs.linaro.org/show_bug.cgi?id=5802
+    active: true
+    intermittent: true
