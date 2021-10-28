@@ -913,6 +913,10 @@ projects:
     - juno-r2-compat
     - juno-64k_page_size
     - x15
+    - qemu_arm64
+    - qemu-arm64-debug
+    - qemu-arm64-kasan
+    - qemu-arm64-clang
     notes: >
       LTP: getrusage04 failed - stime increased > 6000u
       intermittently failed on x15 and juno-r2
