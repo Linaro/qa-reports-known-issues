@@ -1635,3 +1635,17 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5802
     active: true
     intermittent: true
+  - environments: *environments_all
+    notes: >
+      LTP fs read_all_proc taking too long and timeouted.
+
+      tst_test.c:1365: TINFO: Timeout per run is 0h 15m 00s
+      Test timeouted, sending SIGKILL!
+      tst_test.c:1410: TINFO: If you are running on slow machine, try exporting LTP_TIMEOUT_MUL > 1
+      tst_test.c:1411: TBROK: Test killed! (timeout?)
+    projects: *projects_all
+    test_names:
+    - ltp-fs-tests/read_all_proc
+    url: https://bugs.linaro.org/show_bug.cgi?id=5805
+    active: true
+    intermittent: true
