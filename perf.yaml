@@ -107,8 +107,8 @@ projects:
     notes: >
       Perf build-id-cache-operations fails intermittently.
 
-     Test pass from tuxmake pipeline builds
-     Test fails from jenkins builds
+      Test pass from tuxmake pipeline builds
+      Test fails from jenkins builds
     projects: *projects_all
     test_names:
     - perf/build-id-cache-operations
