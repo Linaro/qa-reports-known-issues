@@ -249,27 +249,15 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=4043
     active: true
     intermittent: false
-  - environments:
-    - hi6220-hikey
-    - x15
-    - qemu_arm
-    - qemu_arm64
-    - qemu_i386
-    - qemu_x86_64
+  - environments: *environments_all
     notes: >
-      LKFT: LTP: pselect01_64: slept for too long
+      LKFT: LTP: pselect01: slept for too long
     projects: *projects_all
     test_name: ltp-syscalls-tests/pselect01
     url: https://bugs.linaro.org/show_bug.cgi?id=3089
     active: true
     intermittent: true
-  - environments:
-    - hi6220-hikey
-    - x15
-    - qemu_arm
-    - qemu_arm64
-    - qemu_i386
-    - qemu_x86_64
+  - environments: *environments_all
     notes: >
       LKFT: LTP: pselect01_64: slept for too long
     projects: *projects_all
@@ -1633,5 +1621,29 @@ projects:
     test_names:
     - ltp-cve-tests/cve-2019-8912
     url: https://bugs.linaro.org/show_bug.cgi?id=5802
+    active: true
+    intermittent: true
+  - environments: *environments_all
+    notes: >
+      LTP fs read_all_proc taking too long and timeouted.
+
+      tst_test.c:1365: TINFO: Timeout per run is 0h 15m 00s
+      Test timeouted, sending SIGKILL!
+      tst_test.c:1410: TINFO: If you are running on slow machine, try exporting LTP_TIMEOUT_MUL > 1
+      tst_test.c:1411: TBROK: Test killed! (timeout?)
+    projects: *projects_all
+    test_names:
+    - ltp-fs-tests/read_all_proc
+    url: https://bugs.linaro.org/show_bug.cgi?id=5805
+    active: true
+    intermittent: true
+  - environments: *environments_all
+    notes: >
+      LTP clock_adjtime01 test fails intermittently on slow devices.
+      clock_adjtime01.c:174 TFAIL clock_adjtime() could not set value (mode=4)
+    projects: *projects_all
+    test_names:
+    - ltp-syscalls-tests/clock_adjtime01
+    url: https://bugs.linaro.org/show_bug.cgi?id=5806
     active: true
     intermittent: true

@@ -1593,7 +1593,7 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5775
     active: true
     intermittent: true
-  - environments: *environments_x86_64
+  - environments: *environments_all
     notes: >
         kernel selftests proc proc-fsconfig-hidepid file is missing on x86_64.
         selftests: proc: proc-fsconfig-hidepid
@@ -1616,5 +1616,27 @@ projects:
     test_names:
     - kselftest*/tc-testing.tdc.sh
     url: https://bugs.linaro.org/show_bug.cgi?id=5779
+    active: true
+    intermittent: true
+  - environments: *environments_all
+    notes: >
+        kernel selftests proc proc-uptime-001
+        proc-uptime-001: proc-uptime-001.c:39: main: Assertion `i1 >= i0' failed.
+        ./kselftest/runner.sh: line 33: 13598 Aborted /usr/bin/timeout --foreground \"$kselftest_timeout\" $1
+        not ok 12 selftests: proc: proc-uptime-001 # exit=134
+    projects: *projects_all
+    test_names:
+    - kselftest*/proc.proc-uptime-001
+    url: https://bugs.linaro.org/show_bug.cgi?id=5803
+    active: true
+    intermittent: true
+  - environments: *environments_all
+    notes: >
+        selftest futex test timeout intermittently
+        not ok 1 selftests: futex: run.sh # TIMEOUT 45 seconds
+    projects: *projects_all
+    test_names:
+    - kselftest*/futex.run.sh
+    url: https://bugs.linaro.org/show_bug.cgi?id=5804
     active: true
     intermittent: true
