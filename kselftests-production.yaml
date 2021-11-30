@@ -1630,3 +1630,13 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5803
     active: true
     intermittent: true
+  - environments: *environments_all
+    notes: >
+        selftest futex test timeout intermittently
+        not ok 1 selftests: futex: run.sh # TIMEOUT 45 seconds
+    projects: *projects_all
+    test_names:
+    - kselftest*/futex.run.sh
+    url: https://bugs.linaro.org/show_bug.cgi?id=5804
+    active: true
+    intermittent: true
