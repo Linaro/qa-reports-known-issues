@@ -7,6 +7,7 @@ globals:
     - qemu_arm64
     - nxp-ls2088
     - fx700
+    - bcm2711-rpi-4-b
     - qemu-arm64-clang
     - qemu-arm64-debug
     - qemu-arm64-debug-kmemleak
@@ -106,6 +107,7 @@ globals:
     - x15
     - nxp-ls2088
     - fx700
+    - bcm2711-rpi-4-b
     - qemu-arm-clang
     - qemu-arm-debug
     - qemu-arm-debug-kmemleak
@@ -131,6 +133,7 @@ globals:
     - qemu-i386-debug-kmemleak
     - nxp-ls2088
     - fx700
+    - bcm2711-rpi-4-b
     - qemu-arm-clang
     - qemu-arm-debug
     - qemu-arm-debug-kmemleak
@@ -179,6 +182,7 @@ projects:
   - x86-kasan
   - nxp-ls2088
   - fx700
+  - bcm2711-rpi-4-b
   - qemu-arm-clang
   - qemu-arm-debug
   - qemu-arm-debug-kmemleak
@@ -333,6 +337,7 @@ projects:
       - qemu_i386
       - nxp-ls2088
       - fx700
+      - bcm2711-rpi-4-b
       projects: *projects_all
     - environments: *environments_all
       projects:
@@ -694,6 +699,7 @@ projects:
     - qemu_x86_64
     - nxp-ls2088
     - fx700
+    - bcm2711-rpi-4-b
     notes: >
       LKFT: LKFT: mainline: dragon board 410c: proc read failed - ICMPv6: process
       read is using deprecated sysctl
