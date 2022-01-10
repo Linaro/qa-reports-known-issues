@@ -16,6 +16,7 @@ globals:
     - qemu-arm64-debug
     - qemu-arm64-armv8-features
     - fx700
+    - bcm2711-rpi-4-b
     - qemu-arm64-debug-kmemleak
     - qemu-arm64-gic-version2
     - qemu-arm64-gic-version3
@@ -126,6 +127,7 @@ globals:
     - qemu-arm64-debug
     - qemu-arm64-armv8-features
     - fx700
+    - bcm2711-rpi-4-b
     - qemu-arm64-debug-kmemleak
     - qemu-arm64-gic-version2
     - qemu-arm64-gic-version3
@@ -155,6 +157,7 @@ globals:
     - qemu-x86_64-debug
     - qemu-arm64-armv8-features
     - fx700
+    - bcm2711-rpi-4-b
     - qemu-arm64-debug-kmemleak
     - qemu-arm64-gic-version2
     - qemu-arm64-gic-version3
@@ -211,6 +214,7 @@ projects:
   - qemu-x86_64-debug
   - qemu-x86_64-debug-kmemleak
   - fx700
+  - bcm2711-rpi-4-b
   - qemu-arm64-debug-kmemleak
   - qemu-arm64-gic-version2
   - qemu-arm64-gic-version3
@@ -1094,6 +1098,7 @@ projects:
     - nxp-ls2088
     - nxp-ls2088-64k_page_size
     - fx700
+    - bcm2711-rpi-4-b
     notes: >
       These listed test cases failed on nxp-ls2088
       because tests running on nfs mounted rootfs.
@@ -1493,6 +1498,7 @@ projects:
     - nxp-ls2088-kasan
     - nxp-ls2088-64k_page_size
     - fx700
+    - bcm2711-rpi-4-b
     notes: >
       syscalls/ioctl_loop05.c: skip test on overlay filesystem
 

@@ -42,6 +42,7 @@ projects:
   - x86-kasan
   - nxp-ls2088
   - fx700
+  - bcm2711-rpi-4-b
   known_issues:
   - environments:
     - qemu_i386
