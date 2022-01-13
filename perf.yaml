@@ -43,6 +43,7 @@ projects:
   - nxp-ls2088
   - fx700
   - bcm2711-rpi-4-b
+  - dragonboard-845c
   known_issues:
   - environments:
     - qemu_i386

@@ -128,6 +128,7 @@ globals:
     - qemu-arm64-armv8-features
     - fx700
     - bcm2711-rpi-4-b
+    - dragonboard-845c
     - qemu-arm64-debug-kmemleak
     - qemu-arm64-gic-version2
     - qemu-arm64-gic-version3
@@ -158,6 +159,7 @@ globals:
     - qemu-arm64-armv8-features
     - fx700
     - bcm2711-rpi-4-b
+    - dragonboard-845c
     - qemu-arm64-debug-kmemleak
     - qemu-arm64-gic-version2
     - qemu-arm64-gic-version3
@@ -215,6 +217,7 @@ projects:
   - qemu-x86_64-debug-kmemleak
   - fx700
   - bcm2711-rpi-4-b
+  - dragonboard-845c
   - qemu-arm64-debug-kmemleak
   - qemu-arm64-gic-version2
   - qemu-arm64-gic-version3
