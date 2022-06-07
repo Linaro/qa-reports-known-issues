@@ -156,7 +156,6 @@ projects:
     - lkft/linux-stable-rc-linux-5.17.y
     - lkft/linux-stable-rc-linux-5.16.y
     - lkft/linux-stable-rc-linux-5.15.y
-    - lkft/linux-stable-rc-linux-5.14.y
     - lkft/linux-stable-rc-linux-5.10.y
     - lkft/linux-stable-rc-linux-5.4.y
     - lkft/linux-stable-rc-linux-4.19.y
@@ -618,7 +617,6 @@ projects:
       - lkft/linux-stable-rc-linux-5.17.y
       - lkft/linux-stable-rc-linux-5.16.y
       - lkft/linux-stable-rc-linux-5.15.y
-      - lkft/linux-stable-rc-linux-5.14.y
       - lkft/linux-stable-rc-linux-5.10.y
       - lkft/linux-stable-rc-linux-5.4.y
       - lkft/linux-stable-rc-linux-4.19.y
@@ -755,7 +753,6 @@ projects:
       - lkft/linux-stable-rc-linux-5.17.y
       - lkft/linux-stable-rc-linux-5.16.y
       - lkft/linux-stable-rc-linux-5.15.y
-      - lkft/linux-stable-rc-linux-5.14.y
       - lkft/linux-stable-rc-linux-5.10.y
       - lkft/linux-stable-rc-linux-5.4.y
       - lkft/linux-stable-rc-linux-4.19.y
@@ -961,7 +958,6 @@ projects:
     - environments: *environments_all
       projects:
       - lkft/linux-stable-rc-linux-5.15.y
-      - lkft/linux-stable-rc-linux-5.14.y
       - lkft/linux-stable-rc-linux-5.10.y
       - lkft/linux-stable-rc-linux-5.4.y
       - lkft/linux-stable-rc-linux-4.19.y
