@@ -12,7 +12,6 @@ projects:
     - lkft/linux-mainline-master
     - lkft/linux-stable-rc-linux-5.18.y
     - lkft/linux-stable-rc-linux-5.17.y
-    - lkft/linux-stable-rc-linux-5.16.y
     - lkft/linux-stable-rc-linux-5.15.y
     - lkft/linux-stable-rc-linux-5.10.y
     - lkft/linux-stable-rc-linux-5.4.y
