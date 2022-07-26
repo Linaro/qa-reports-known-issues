@@ -6,6 +6,7 @@ globals:
     - juno-r2-compat
     - juno-64k_page_size
     - dragonboard-410c
+    - qemu-arm64
     - qemu_arm64
     - nxp-ls2088
     - nxp-ls2088-kasan
@@ -23,6 +24,7 @@ globals:
     - qemu-arm64-mte
   - environments: &environments_arm32
     - x15
+    - qemu-arm
     - qemu_arm
     - qemu-arm-clang
     - qemu-arm-debug
@@ -30,6 +32,7 @@ globals:
   - environments: &environments_x86_64
     - x86
     - x86-kasan
+    - qemu-x86_64
     - qemu_x86_64
     - qemu_x86_64-compat
     - qemu-x86_64-kasan
@@ -38,15 +41,20 @@ globals:
     - qemu-x86_64-debug
   - environments: &environments_i386
     - i386
+    - qemu-i386
     - qemu_i386
     - qemu-i386-clang
     - qemu-i386-debug
   - environments: &environments_qemu
+    - qemu-arm
     - qemu_arm
     - qemu-arm-clang
+    - qemu-arm64
     - qemu_arm64
+    - qemu-i386
     - qemu_i386
     - qemu-i386-clang
+    - qemu-x86_64
     - qemu_x86_64
     - qemu_x86_64-compat
     - qemu-x86_64-kasan
@@ -66,8 +74,10 @@ globals:
     - qemu-arm64-mte
   - environments: &environments_32bit
     - i386
+    - qemu-i386
     - qemu_i386
     - qemu-i386-clang
+    - qemu-arm
     - qemu_arm
     - qemu-arm-clang
     - x15
@@ -78,8 +88,10 @@ globals:
     - qemu_x86_64-compat
     - juno-r2-compat
   - environments: &environments_qemu_arm
+    - qemu-arm
     - qemu_arm
     - qemu-arm-clang
+    - qemu-arm64
     - qemu_arm64
     - qemu_arm64-compat
     - qemu-arm64-kasan
@@ -94,8 +106,10 @@ globals:
     - qemu-arm64-mte
   - environments: &environments_intel
     - i386
+    - qemu-i386
     - qemu_i386
     - qemu-i386-clang
+    - qemu-x86_64
     - qemu_x86_64
     - x86
     - x86-kasan
@@ -112,7 +126,9 @@ globals:
     - juno-r2-kasan
     - juno-r2-compat
     - juno-64k_page_size
+    - qemu-arm64
     - qemu_arm64
+    - qemu-arm
     - qemu_arm
     - qemu-arm-clang
     - qemu-arm-debug
@@ -140,7 +156,9 @@ globals:
     - juno-r2-kasan
     - juno-r2-compat
     - juno-64k_page_size
+    - qemu-x86_64
     - qemu_x86_64
+    - qemu-arm64
     - qemu_arm64
     - x86
     - x86-kasan
@@ -189,15 +207,19 @@ projects:
   - juno-r2-kasan
   - juno-r2-compat
   - juno-64k_page_size
+  - qemu-x86_64
   - qemu_x86_64
+  - qemu-i386
   - qemu_i386
   - qemu-i386-clang
   - qemu-i386-debug
   - qemu-i386-debug-kmemleak
+  - qemu-arm
   - qemu_arm
   - qemu-arm-clang
   - qemu-arm-debug
   - qemu-arm-debug-kmemleak
+  - qemu-arm64
   - qemu_arm64
   - x15
   - x86
@@ -408,7 +430,9 @@ projects:
     - environments: *environments_arm64
       projects: *projects_all
     - environments:
+      - qemu-i386
       - qemu_i386
+      - qemu-x86_64
       - qemu_x86_64
       projects: *projects_all
     url: https://bugs.linaro.org/show_bug.cgi?id=3354
@@ -626,7 +650,9 @@ projects:
     active: true
     intermittent: true
   - environments:
+    - qemu-arm
     - qemu_arm
+    - qemu-arm64
     - qemu_arm64
     notes: >
       LKFT: LTP: cve-2017-2671 times out for mainline in qemu_arm and
@@ -638,6 +664,7 @@ projects:
     intermittent: true
   - environments:
     - i386
+    - qemu-i386
     - qemu_i386
     notes: >
       meltdown.c:373: FAIL: I was able to read your kernel memory!!!
@@ -655,9 +682,13 @@ projects:
     intermittent: true
   - environments:
     - i386
+    - qemu-i386
     - qemu_i386
+    - qemu-x86_64
     - qemu_x86_64
+    - qemu-arm
     - qemu_arm
+    - qemu-arm64
     - qemu_arm64
     notes: >
       LTP CVE cve-2017-17053 fails intermittently.
@@ -808,6 +839,7 @@ projects:
     intermittent: true
   - environments:
     - x15
+    - qemu-arm
     - qemu_arm
     notes: >
       CONFIG_TASKSTATS and CONFIG_TASK_IO_ACCOUNTING to be set in kernel config
@@ -829,8 +861,11 @@ projects:
     intermittent: true
   - environments:
     - i386
+    - qemu-x86_64
     - qemu_x86_64
+    - qemu-i386
     - qemu_i386
+    - qemu-arm
     - qemu_arm
     - x15
     - x86
@@ -881,6 +916,7 @@ projects:
     active: true
     intermittent: true
   - environments:
+    - qemu-arm
     - qemu_arm
     notes: >
       LTP: dio: dio13 No space left on device
@@ -908,6 +944,7 @@ projects:
     - juno-r2-compat
     - juno-64k_page_size
     - x15
+    - qemu-arm64
     - qemu_arm64
     - qemu-arm64-debug
     - qemu-arm64-kasan
@@ -1005,6 +1042,7 @@ projects:
     active: true
     intermittent: true
   - environments:
+    - qemu-arm64
     - qemu_arm64
     notes: >
      utimensat01 fails due to expected error not found
@@ -1066,8 +1104,11 @@ projects:
   - environments:
     - x15
     - i386
+    - qemu-arm
     - qemu_arm
+    - qemu-arm64
     - qemu_arm64
+    - qemu-i386
     - qemu_i386
     - juno-r2
     - juno-r2-kasan
@@ -1159,7 +1200,9 @@ projects:
     active: true
     intermittent: true
   - environments:
+    - qemu-arm
     - qemu_arm
+    - qemu-arm64
     - qemu_arm64
     notes: >
       LTP syscalls test case prctl09 failed on qemu_arm64 and qemu_arm on
@@ -1201,6 +1244,7 @@ projects:
     active: true
     intermittent: false
   - environments:
+    - qemu-arm
     - qemu_arm
     - x15
     notes: >
@@ -1296,6 +1340,7 @@ projects:
     intermittent: false
   - environments:
     - i386
+    - qemu-i386
     - qemu_i386
     notes: >
       LTP new version 20200930 added new functionality to run tests in
@@ -1306,6 +1351,7 @@ projects:
     active: true
     intermittent: false
   - environments:
+    - qemu-i386
     - qemu_i386
     - juno-r2-compat
     - qemu_x86_64-compat
