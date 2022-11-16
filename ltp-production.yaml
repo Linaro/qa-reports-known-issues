@@ -182,6 +182,7 @@ globals:
     - qemu-arm64-gic-version2
     - qemu-arm64-gic-version3
     - qemu-arm64-mte
+    - fvp
 
 projects:
 - name: LKFT-ltp
@@ -246,6 +247,7 @@ projects:
   - qemu-arm64-gic-version2
   - qemu-arm64-gic-version3
   - qemu-arm64-mte
+  - fvp
   known_issues:
   - environments:
     - hi6220-hikey

@@ -33,6 +33,7 @@ projects:
   - fx700
   - bcm2711-rpi-4-b
   - dragonboard-845c
+  - fvp
   known_issues:
   - environments:
     - hi6220-hikey
