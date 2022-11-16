@@ -16,6 +16,7 @@ globals:
     - qemu-arm64-gic-version3
     - qemu-arm64-kasan
     - qemu-arm64-mte
+    - fvp
   - environments: &environments_arm32
     - x15
     - qemu_arm
@@ -60,6 +61,7 @@ globals:
     - qemu-arm64-gic-version3
     - qemu-arm64-kasan
     - qemu-arm64-mte
+    - fvp
   - environments: &environments_32bit
     - i386
     - qemu_i386
@@ -84,6 +86,7 @@ globals:
     - qemu-arm64-gic-version3
     - qemu-arm64-kasan
     - qemu-arm64-mte
+    - fvp
   - environments: &environments_intel
     - i386
     - qemu_i386
@@ -120,6 +123,7 @@ globals:
     - qemu-arm64-gic-version3
     - qemu-arm64-kasan
     - qemu-arm64-mte
+    - fvp
   - environments: &environments_arm64_arm32_i386
     - dragonboard-410c
     - hi6220-hikey
@@ -147,6 +151,7 @@ globals:
     - qemu-arm64-gic-version3
     - qemu-arm64-kasan
     - qemu-arm64-mte
+    - fvp
 
 projects:
 - name: LKFT
@@ -199,6 +204,7 @@ projects:
   - qemu-arm64-gic-version3
   - qemu-arm64-kasan
   - qemu-arm64-mte
+  - fvp
   known_issues:
   - environments: *environments_all
     notes: >
