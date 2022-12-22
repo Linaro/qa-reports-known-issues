@@ -5,14 +5,15 @@ on: [pull_request]
 jobs:
   dryrun:
     name: Make sure yaml and script are OK
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        python-version: [3.6] 
 
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python 3.6
         uses: actions/setup-python@v2
-        with:
-          python-version: '3.6'
 
       - name: Install deps
         run: |
