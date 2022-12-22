@@ -35,6 +35,7 @@ projects:
   - dragonboard-845c
   - fvp
   - bcm2711-rpi-4-b-64k_page_size
+  - bcm2711-rpi-4-b-clang
   known_issues:
   - environments:
     - hi6220-hikey
