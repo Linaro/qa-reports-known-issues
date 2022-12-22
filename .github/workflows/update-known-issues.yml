@@ -5,15 +5,17 @@ on: [push]
 jobs:
   update:
     name: Update Known Issues
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.6] 
+        python-version: [3.6]
 
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Python 3.6
+      - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
 
       - name: Install deps
         run: |
