@@ -164,8 +164,6 @@ projects:
   projects: &projects_all
     - lkft/linux-mainline-master
     - lkft/linux-stable-rc-linux-6.0.y
-    - lkft/linux-stable-rc-linux-5.19.y
-    - lkft/linux-stable-rc-linux-5.18.y
     - lkft/linux-stable-rc-linux-5.15.y
     - lkft/linux-stable-rc-linux-5.10.y
     - lkft/linux-stable-rc-linux-5.4.y
@@ -629,8 +627,6 @@ projects:
       Cgroup Procs: /mnt/cgroup.procs
     projects:
       - lkft/linux-stable-rc-linux-6.0.y
-      - lkft/linux-stable-rc-linux-5.19.y
-      - lkft/linux-stable-rc-linux-5.18.y
       - lkft/linux-stable-rc-linux-5.15.y
       - lkft/linux-stable-rc-linux-5.10.y
       - lkft/linux-stable-rc-linux-5.4.y
@@ -766,8 +762,6 @@ projects:
     - environments: *environments_all
       projects:
       - lkft/linux-stable-rc-linux-6.0.y
-      - lkft/linux-stable-rc-linux-5.19.y
-      - lkft/linux-stable-rc-linux-5.18.y
       - lkft/linux-stable-rc-linux-5.15.y
       - lkft/linux-stable-rc-linux-5.10.y
       - lkft/linux-stable-rc-linux-5.4.y
