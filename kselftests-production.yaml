@@ -17,6 +17,8 @@ globals:
     - qemu-arm64-kasan
     - qemu-arm64-mte
     - fvp
+    - bcm2711-rpi-4-b-64k_page_size
+    - bcm2711-rpi-4-b-clang
   - environments: &environments_arm32
     - x15
     - qemu_arm
@@ -124,6 +126,8 @@ globals:
     - qemu-arm64-kasan
     - qemu-arm64-mte
     - fvp
+    - bcm2711-rpi-4-b-64k_page_size
+    - bcm2711-rpi-4-b-clang
   - environments: &environments_arm64_arm32_i386
     - dragonboard-410c
     - hi6220-hikey
@@ -152,14 +156,15 @@ globals:
     - qemu-arm64-kasan
     - qemu-arm64-mte
     - fvp
+    - bcm2711-rpi-4-b-64k_page_size
+    - bcm2711-rpi-4-b-clang
 
 projects:
 - name: LKFT
   projects: &projects_all
     - lkft/linux-mainline-master
     - lkft/linux-stable-rc-linux-6.0.y
-    - lkft/linux-stable-rc-linux-5.19.y
-    - lkft/linux-stable-rc-linux-5.18.y
+    - lkft/linux-stable-rc-linux-6.1.y
     - lkft/linux-stable-rc-linux-5.15.y
     - lkft/linux-stable-rc-linux-5.10.y
     - lkft/linux-stable-rc-linux-5.4.y
@@ -205,6 +210,8 @@ projects:
   - qemu-arm64-kasan
   - qemu-arm64-mte
   - fvp
+  - bcm2711-rpi-4-b-64k_page_size
+  - bcm2711-rpi-4-b-clang
   known_issues:
   - environments: *environments_all
     notes: >
@@ -351,6 +358,7 @@ projects:
       - fx700
       - bcm2711-rpi-4-b
       - dragonboard-845c
+      - bcm2711-rpi-4-b-clang
       projects: *projects_all
     - environments: *environments_all
       projects:
@@ -620,8 +628,7 @@ projects:
       Cgroup Procs: /mnt/cgroup.procs
     projects:
       - lkft/linux-stable-rc-linux-6.0.y
-      - lkft/linux-stable-rc-linux-5.19.y
-      - lkft/linux-stable-rc-linux-5.18.y
+      - lkft/linux-stable-rc-linux-6.1.y
       - lkft/linux-stable-rc-linux-5.15.y
       - lkft/linux-stable-rc-linux-5.10.y
       - lkft/linux-stable-rc-linux-5.4.y
@@ -716,6 +723,7 @@ projects:
     - fx700
     - bcm2711-rpi-4-b
     - dragonboard-845c
+    - bcm2711-rpi-4-b-clang
     notes: >
       LKFT: LKFT: mainline: dragon board 410c: proc read failed - ICMPv6: process
       read is using deprecated sysctl
@@ -756,8 +764,7 @@ projects:
     - environments: *environments_all
       projects:
       - lkft/linux-stable-rc-linux-6.0.y
-      - lkft/linux-stable-rc-linux-5.19.y
-      - lkft/linux-stable-rc-linux-5.18.y
+      - lkft/linux-stable-rc-linux-6.1.y
       - lkft/linux-stable-rc-linux-5.15.y
       - lkft/linux-stable-rc-linux-5.10.y
       - lkft/linux-stable-rc-linux-5.4.y
