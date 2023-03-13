@@ -431,7 +431,6 @@ def prune_known_issues(config_data, dry_run=True):
 
 
 def main():
-
     assert not os.path.isfile(
         os.environ.get("HOME") + "/.netrc"
     ), "Error - remove ~/.netrc - see https://github.com/requests/requests/issues/3929"
