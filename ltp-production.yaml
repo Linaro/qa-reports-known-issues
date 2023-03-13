@@ -195,7 +195,7 @@ projects:
   projects: &projects_all
     - lkft/linux-next-master
     - lkft/linux-mainline-master
-    - lkft/linux-stable-rc-linux-6.0.y
+    - lkft/linux-stable-rc-linux-6.2.y
     - lkft/linux-stable-rc-linux-6.1.y
     - lkft/linux-stable-rc-linux-5.15.y
     - lkft/linux-stable-rc-linux-5.10.y
@@ -1023,7 +1023,7 @@ projects:
     - lkft/linux-stable-rc-linux-5.4.y
     - lkft/linux-stable-rc-linux-5.10.y
     - lkft/linux-stable-rc-linux-5.15.y
-    - lkft/linux-stable-rc-linux-6.0.y
+    - lkft/linux-stable-rc-linux-6.2.y
     - lkft/linux-stable-rc-linux-6.1.y
     test_names:
     - ltp-syscalls/shmctl01
