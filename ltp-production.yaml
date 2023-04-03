@@ -1728,3 +1728,16 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5951
     active: true
     intermittent: true
+  - environments: *environments_arm64
+    notes: >
+      LTP crypto af_alg04 tess gets timeout and reports a fails on slow qemu.
+      Test timeouted, sending SIGKILL!
+      tst_test.c:1569: TINFO: Killed the leftover descendant processes
+      tst_test.c:1575: TINFO: If you are running on slow machine, try exporting LTP_TIMEOUT_MUL > 1
+      tst_test.c:1577: TBROK: Test killed! (timeout?)
+    projects: *projects_all
+    test_names:
+    - ltp-crypto/af_alg04
+    url: https://bugs.linaro.org/show_bug.cgi?id=5952
+    active: true
+    intermittent: true
