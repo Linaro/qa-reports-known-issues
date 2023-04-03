@@ -16,7 +16,7 @@ globals:
     - qemu-arm64-gic-version3
     - qemu-arm64-kasan
     - qemu-arm64-mte
-    - fvp
+    - fvp-aemva
     - bcm2711-rpi-4-b-64k_page_size
     - bcm2711-rpi-4-b-clang
   - environments: &environments_arm32
@@ -63,7 +63,7 @@ globals:
     - qemu-arm64-gic-version3
     - qemu-arm64-kasan
     - qemu-arm64-mte
-    - fvp
+    - fvp-aemva
   - environments: &environments_32bit
     - i386
     - qemu_i386
@@ -88,7 +88,7 @@ globals:
     - qemu-arm64-gic-version3
     - qemu-arm64-kasan
     - qemu-arm64-mte
-    - fvp
+    - fvp-aemva
   - environments: &environments_intel
     - i386
     - qemu_i386
@@ -125,7 +125,7 @@ globals:
     - qemu-arm64-gic-version3
     - qemu-arm64-kasan
     - qemu-arm64-mte
-    - fvp
+    - fvp-aemva
     - bcm2711-rpi-4-b-64k_page_size
     - bcm2711-rpi-4-b-clang
   - environments: &environments_arm64_arm32_i386
@@ -155,7 +155,7 @@ globals:
     - qemu-arm64-gic-version3
     - qemu-arm64-kasan
     - qemu-arm64-mte
-    - fvp
+    - fvp-aemva
     - bcm2711-rpi-4-b-64k_page_size
     - bcm2711-rpi-4-b-clang
 
@@ -209,7 +209,7 @@ projects:
   - qemu-arm64-gic-version3
   - qemu-arm64-kasan
   - qemu-arm64-mte
-  - fvp
+  - fvp-aemva
   - bcm2711-rpi-4-b-64k_page_size
   - bcm2711-rpi-4-b-clang
   known_issues:

@@ -24,6 +24,7 @@ globals:
     - qemu-arm64-mte
     - bcm2711-rpi-4-b-64k_page_size
     - bcm2711-rpi-4-b-clang
+    - fvp-aemva
   - environments: &environments_arm32
     - x15
     - qemu-arm
@@ -74,6 +75,7 @@ globals:
     - qemu-arm64-gic-version2
     - qemu-arm64-gic-version3
     - qemu-arm64-mte
+    - fvp-aemva
   - environments: &environments_32bit
     - i386
     - qemu-i386
@@ -153,6 +155,7 @@ globals:
     - qemu-arm64-mte
     - bcm2711-rpi-4-b-64k_page_size
     - bcm2711-rpi-4-b-clang
+    - fvp-aemva
   - environments: &environments_64bit
     - dragonboard-410c
     - hi6220-hikey
@@ -186,7 +189,7 @@ globals:
     - qemu-arm64-gic-version2
     - qemu-arm64-gic-version3
     - qemu-arm64-mte
-    - fvp
+    - fvp-aemva
     - bcm2711-rpi-4-b-64k_page_size
     - bcm2711-rpi-4-b-clang
 
@@ -252,7 +255,7 @@ projects:
   - qemu-arm64-gic-version2
   - qemu-arm64-gic-version3
   - qemu-arm64-mte
-  - fvp
+  - fvp-aemva
   - bcm2711-rpi-4-b-64k_page_size
   - bcm2711-rpi-4-b-clang
   known_issues:
