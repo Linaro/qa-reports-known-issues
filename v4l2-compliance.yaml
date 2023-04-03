@@ -37,7 +37,7 @@ projects:
   - fx700
   - bcm2711-rpi-4-b
   - dragonboard-845c
-  - fvp
+  - fvp-aemva
   - bcm2711-rpi-4-b-64k_page_size
   - bcm2711-rpi-4-b-clang
   known_issues:

@@ -9,7 +9,7 @@ globals:
     - fx700
     - bcm2711-rpi-4-b
     - dragonboard-845c
-    - fvp
+    - fvp-aemva
     - bcm2711-rpi-4-b-clang
   - environments: &environments_arm32
     - x15
@@ -47,7 +47,7 @@ projects:
   - fx700
   - bcm2711-rpi-4-b
   - dragonboard-845c
-  - fvp
+  - fvp-aemva
   - bcm2711-rpi-4-b-clang
   known_issues:
   - environments: *environments_arm64
