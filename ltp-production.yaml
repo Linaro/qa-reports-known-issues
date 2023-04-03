@@ -1718,3 +1718,13 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5806
     active: true
     intermittent: true
+  - environments: *environments_qemu
+    notes: >
+      add_key05.c 136 TFAIL max used bytes 19991, key allow max bytes 20000
+      add_key05 fails intermittently on slow devices and qemu's.
+    projects: *projects_all
+    test_names:
+    - ltp-syscalls/add_key05
+    url: https://bugs.linaro.org/show_bug.cgi?id=5951
+    active: true
+    intermittent: true
