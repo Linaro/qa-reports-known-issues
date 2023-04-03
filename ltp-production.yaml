@@ -1741,3 +1741,15 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5952
     active: true
     intermittent: true
+  - environments: *environments_all
+    notes: >
+      LTP CVE cve-2020-25705 test fails intermittently on slow machines and qemu.
+      icmp_rate_limit01.c:234: TINFO: Batch 6: Got 100 ICMP errors
+      icmp_rate_limit01.c:234: TINFO: Batch 7: Got 100 ICMP errors
+      icmp_rate_limit01.c:238: TFAIL: ICMP rate limit not randomized, system is vulnerable
+    projects: *projects_all
+    test_names:
+    - ltp-cve/cve-2020-25705
+    url: https://bugs.linaro.org/show_bug.cgi?id=5953
+    active: true
+    intermittent: true
