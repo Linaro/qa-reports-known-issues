@@ -1792,3 +1792,15 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5979
     active: true
     intermittent: true
+  - environments: *environments_all
+    notes: >
+      LTP syscalls recvmmsg01 fails on compat mode and 32-bit mode.
+      recvmmsg01[421]: segfault at error 4 in libc.so.6
+      comm=\"recvmmsg01\" exe=\"/opt/ltp/testcases/bin/recvmmsg01\" sig=11 res=1
+      tst_test.c:1618: TBROK: Test killed by SIGSEGV!
+    projects: *projects_all
+    test_names:
+    - ltp-syscalls/recvmmsg01
+    url: https://bugs.linaro.org/show_bug.cgi?id=5980
+    active: true
+    intermittent: true
