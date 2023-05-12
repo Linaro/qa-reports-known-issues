@@ -1778,3 +1778,17 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5978
     active: true
     intermittent: true
+  - environments: *environments_all
+    notes: >
+      LTP syscalls mq_timedreceive01 and mq_timedsend01 fails on compat mode and 32-bit mode.
+      mq_timedreceive[733]: segfault at f7f8d004 ip 00000000f7c93b5f sp 00000000ff92e9a0 error 4 in libc.so.6
+      tst_test.c:1618: TBROK: Test killed by SIGSEGV!
+      mq_timedsend01.c:210: TPASS: mq_timedsend() failed expectedly: EFAULT (14)
+      tst_test.c:1618: TBROK: Test killed by SIGSEGV!
+    projects: *projects_all
+    test_names:
+    - ltp-syscalls/mq_timedreceive01
+    - ltp-syscalls/mq_timedsend01
+    url: https://bugs.linaro.org/show_bug.cgi?id=5979
+    active: true
+    intermittent: true
