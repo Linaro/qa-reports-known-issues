@@ -1767,3 +1767,14 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5977
     active: true
     intermittent: true
+  - environments: *environments_all
+    notes: >
+      sigtimedwait01 fails on compat mode 64-bit kernel booting on 32-bit userspace
+      sigtimedwait01[566]: segfault at 5 ip 00000000f7c3b58f sp 00000000ffe587d0 error 4 in libc.so.6
+      tst_test.c:1618: TBROK: Test killed by SIGSEGV!
+    projects: *projects_all
+    test_names:
+    - ltp-syscalls/sigtimedwait01
+    url: https://bugs.linaro.org/show_bug.cgi?id=5978
+    active: true
+    intermittent: true
