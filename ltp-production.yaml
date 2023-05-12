@@ -1195,13 +1195,10 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5640
     active: true
     intermittent: true
-  - environments:
-    - juno-r2
-    - juno-r2-kasan
-    - juno-r2-compat
-    - juno-64k_page_size
+  - environments: *environments_all
     notes: >
       LTP: clock_gettime01 failed on Juno-r2 - intermittently
+      also fails with compat mode.
     projects: *projects_all
     test_name: ltp-syscalls/clock_gettime01
     url: https://bugs.linaro.org/show_bug.cgi?id=5643
@@ -1367,12 +1364,7 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5707
     active: true
     intermittent: false
-  - environments:
-    - qemu-i386
-    - qemu_i386
-    - juno-r2-compat
-    - qemu_x86_64-compat
-    - qemu_arm64-compat
+  - environments: *environments_all
     notes: >
       LKFT: qemu: LTP skip failed timing test cases on
       qemu_i386 and all compat mode testing
@@ -1381,10 +1373,7 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5708
     active: true
     intermittent: true
-  - environments:
-    - juno-r2-compat
-    - qemu_x86_64-compat
-    - qemu_arm64-compat
+  - environments: *environments_all
     notes: >
        io_pgetevents02.c:107: TFAIL: invalid max_nr: io_pgetevents() passed unexpectedly
        failed on all compat mode testing.
@@ -1392,11 +1381,8 @@ projects:
     test_name: ltp-syscalls/io_pgetevents02
     url: https://bugs.linaro.org/show_bug.cgi?id=5710
     active: true
-    intermittent: false
-  - environments:
-    - juno-r2-compat
-    - qemu_x86_64-compat
-    - qemu_arm64-compat
+    intermittent: true
+  - environments:  *environments_all
     notes: >
        shmctl03.c:33: TFAIL: /proc/sys/kernel/shmmax != 2147483647 got 4294967295
        failed on all compat mode testing.
