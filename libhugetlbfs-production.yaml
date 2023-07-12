@@ -1,5 +1,6 @@
 globals:
   - environments: &environments_arm32
+    - qemu-armv7
     - qemu_arm
     - x15
 projects:
@@ -33,6 +34,10 @@ projects:
   - juno-r2
   - juno-r2-kasan
   - nxp-ls2088
+  - qemu-arm64
+  - qemu-armv7
+  - qemu-i386
+  - qemu-x86_64
   - qemu_arm
   - qemu_arm64
   - qemu_i386
@@ -69,6 +74,7 @@ projects:
     active: true
     intermittent: false
   - environments:
+    - qemu-i386
     - qemu_i386
     notes: >
       LKFT: libhugetlbfs: heapshrink-4M-32 on qemu_i386 failed.

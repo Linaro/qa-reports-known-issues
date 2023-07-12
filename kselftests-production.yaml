@@ -11,6 +11,7 @@ globals:
     - juno-r2
     - juno-r2-kasan
     - nxp-ls2088
+    - qemu-arm64
     - qemu-arm64-clang
     - qemu-arm64-debug
     - qemu-arm64-debug-kmemleak
@@ -23,9 +24,11 @@ globals:
     - qemu-arm-clang
     - qemu-arm-debug
     - qemu-arm-debug-kmemleak
+    - qemu-armv7
     - qemu_arm
     - x15
   - environments: &environments_x86_64
+    - qemu-x86_64
     - qemu-x86_64-clang
     - qemu-x86_64-debug
     - qemu-x86_64-debug-kmemleak
@@ -36,6 +39,7 @@ globals:
     - x86-kasan
   - environments: &environments_i386
     - i386
+    - qemu-i386
     - qemu-i386-clang
     - qemu-i386-debug
     - qemu-i386-debug-kmemleak
@@ -45,6 +49,7 @@ globals:
     - qemu-arm-clang
     - qemu-arm-debug
     - qemu-arm-debug-kmemleak
+    - qemu-arm64
     - qemu-arm64-clang
     - qemu-arm64-debug
     - qemu-arm64-debug-kmemleak
@@ -52,9 +57,12 @@ globals:
     - qemu-arm64-gic-version3
     - qemu-arm64-kasan
     - qemu-arm64-mte
+    - qemu-armv7
+    - qemu-i386
     - qemu-i386-clang
     - qemu-i386-debug
     - qemu-i386-debug-kmemleak
+    - qemu-x86_64
     - qemu-x86_64-clang
     - qemu-x86_64-debug
     - qemu-x86_64-debug-kmemleak
@@ -69,6 +77,8 @@ globals:
     - qemu-arm-clang
     - qemu-arm-debug
     - qemu-arm-debug-kmemleak
+    - qemu-armv7
+    - qemu-i386
     - qemu-i386-clang
     - qemu-i386-debug
     - qemu-i386-debug-kmemleak
@@ -80,6 +90,7 @@ globals:
     - qemu-arm-clang
     - qemu-arm-debug
     - qemu-arm-debug-kmemleak
+    - qemu-arm64
     - qemu-arm64-clang
     - qemu-arm64-debug
     - qemu-arm64-debug-kmemleak
@@ -87,13 +98,16 @@ globals:
     - qemu-arm64-gic-version3
     - qemu-arm64-kasan
     - qemu-arm64-mte
+    - qemu-armv7
     - qemu_arm
     - qemu_arm64
   - environments: &environments_intel
     - i386
+    - qemu-i386
     - qemu-i386-clang
     - qemu-i386-debug
     - qemu-i386-debug-kmemleak
+    - qemu-x86_64
     - qemu-x86_64-clang
     - qemu-x86_64-debug
     - qemu-x86_64-debug-kmemleak
@@ -118,6 +132,7 @@ globals:
     - qemu-arm-clang
     - qemu-arm-debug
     - qemu-arm-debug-kmemleak
+    - qemu-arm64
     - qemu-arm64-clang
     - qemu-arm64-debug
     - qemu-arm64-debug-kmemleak
@@ -125,6 +140,7 @@ globals:
     - qemu-arm64-gic-version3
     - qemu-arm64-kasan
     - qemu-arm64-mte
+    - qemu-armv7
     - qemu_arm
     - qemu_arm64
     - x15
@@ -144,6 +160,7 @@ globals:
     - qemu-arm-clang
     - qemu-arm-debug
     - qemu-arm-debug-kmemleak
+    - qemu-arm64
     - qemu-arm64-clang
     - qemu-arm64-debug
     - qemu-arm64-debug-kmemleak
@@ -151,6 +168,8 @@ globals:
     - qemu-arm64-gic-version3
     - qemu-arm64-kasan
     - qemu-arm64-mte
+    - qemu-armv7
+    - qemu-i386
     - qemu-i386-clang
     - qemu-i386-debug
     - qemu-i386-debug-kmemleak
@@ -192,6 +211,7 @@ projects:
   - qemu-arm-clang
   - qemu-arm-debug
   - qemu-arm-debug-kmemleak
+  - qemu-arm64
   - qemu-arm64-clang
   - qemu-arm64-debug
   - qemu-arm64-debug-kmemleak
@@ -199,9 +219,12 @@ projects:
   - qemu-arm64-gic-version3
   - qemu-arm64-kasan
   - qemu-arm64-mte
+  - qemu-armv7
+  - qemu-i386
   - qemu-i386-clang
   - qemu-i386-debug
   - qemu-i386-debug-kmemleak
+  - qemu-x86_64
   - qemu-x86_64-clang
   - qemu-x86_64-debug
   - qemu-x86_64-debug-kmemleak
@@ -355,7 +378,12 @@ projects:
       - juno-r2
       - juno-r2-kasan
       - nxp-ls2088
+      - qemu-arm64
+      - qemu-armv7
+      - qemu-i386
+      - qemu-x86_64
       - qemu_arm
+      - qemu_arm64
       - qemu_i386
       - qemu_x86_64
       - x15
@@ -515,10 +543,15 @@ projects:
     - i386
     - juno-r2
     - juno-r2-kasan
+    - qemu-arm64
+    - qemu-armv7
+    - qemu-i386
+    - qemu-x86_64
     - qemu_arm
     - qemu_arm64
     - qemu_i386
     - qemu_x86_64
+
     notes: >
       LKFT: linux-stable-rc-4.4: Juno: kselftest cpufreq test failed - No cpu
       is managed by cpufreq core, exiting
@@ -574,6 +607,10 @@ projects:
       projects: *projects_all
   - environments:
     - dragonboard-410c
+    - qemu-arm64
+    - qemu-armv7
+    - qemu-i386
+    - qemu-x86_64
     - qemu_arm
     - qemu_arm64
     - qemu_i386
@@ -725,6 +762,7 @@ projects:
     - juno-r2
     - juno-r2-kasan
     - nxp-ls2088
+    - qemu-x86_64
     - qemu_x86_64
     - x86
     - x86-kasan

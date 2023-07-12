@@ -26,10 +26,10 @@ globals:
     - qemu_arm64
     - qemu_arm64-compat
   - environments: &environments_arm32
-    - qemu-arm
     - qemu-arm-clang
     - qemu-arm-debug
     - qemu-arm-debug-kmemleak
+    - qemu-armv7
     - qemu_arm
     - x15
   - environments: &environments_x86_64
@@ -50,7 +50,6 @@ globals:
     - qemu_i386
   - environments: &environments_qemu
     - fvp-aemva
-    - qemu-arm
     - qemu-arm-clang
     - qemu-arm-debug
     - qemu-arm-debug-kmemleak
@@ -62,6 +61,7 @@ globals:
     - qemu-arm64-gic-version3
     - qemu-arm64-kasan
     - qemu-arm64-mte
+    - qemu-armv7
     - qemu-i386
     - qemu-i386-clang
     - qemu-i386-debug
@@ -79,10 +79,10 @@ globals:
   - environments: &environments_32bit
     - i386
     - juno-r2-compat
-    - qemu-arm
     - qemu-arm-clang
     - qemu-arm-debug
     - qemu-arm-debug-kmemleak
+    - qemu-armv7
     - qemu-i386
     - qemu-i386-clang
     - qemu-i386-debug
@@ -92,7 +92,6 @@ globals:
     - qemu_x86_64-compat
     - x15
   - environments: &environments_qemu_arm
-    - qemu-arm
     - qemu-arm-clang
     - qemu-arm-debug
     - qemu-arm-debug-kmemleak
@@ -105,6 +104,7 @@ globals:
     - qemu-arm64-gic-version3
     - qemu-arm64-kasan
     - qemu-arm64-mte
+    - qemu-armv7
     - qemu_arm
     - qemu_arm64
     - qemu_arm64-compat
@@ -139,7 +139,6 @@ globals:
     - nxp-ls2088
     - nxp-ls2088-64k_page_size
     - nxp-ls2088-kasan
-    - qemu-arm
     - qemu-arm-clang
     - qemu-arm-debug
     - qemu-arm-debug-kmemleak
@@ -152,6 +151,7 @@ globals:
     - qemu-arm64-gic-version3
     - qemu-arm64-kasan
     - qemu-arm64-mte
+    - qemu-armv7
     - qemu_arm
     - qemu_arm64
     - qemu_arm64-compat
@@ -228,7 +228,6 @@ projects:
   - nxp-ls2088
   - nxp-ls2088-64k_page_size
   - nxp-ls2088-kasan
-  - qemu-arm
   - qemu-arm-clang
   - qemu-arm-debug
   - qemu-arm-debug-kmemleak
@@ -241,6 +240,7 @@ projects:
   - qemu-arm64-gic-version3
   - qemu-arm64-kasan
   - qemu-arm64-mte
+  - qemu-armv7
   - qemu-i386
   - qemu-i386-clang
   - qemu-i386-debug
@@ -665,8 +665,8 @@ projects:
     active: true
     intermittent: true
   - environments:
-    - qemu-arm
     - qemu-arm64
+    - qemu-armv7
     - qemu_arm
     - qemu_arm64
     notes: >
@@ -697,8 +697,8 @@ projects:
     intermittent: true
   - environments:
     - i386
-    - qemu-arm
     - qemu-arm64
+    - qemu-armv7
     - qemu-i386
     - qemu-x86_64
     - qemu_arm
@@ -853,7 +853,7 @@ projects:
     active: true
     intermittent: true
   - environments:
-    - qemu-arm
+    - qemu-armv7
     - qemu_arm
     - x15
     notes: >
@@ -876,7 +876,7 @@ projects:
     intermittent: true
   - environments:
     - i386
-    - qemu-arm
+    - qemu-armv7
     - qemu-i386
     - qemu-x86_64
     - qemu_arm
@@ -931,7 +931,7 @@ projects:
     active: true
     intermittent: true
   - environments:
-    - qemu-arm
+    - qemu-armv7
     - qemu_arm
     notes: >
       LTP: dio: dio13 No space left on device
@@ -1124,8 +1124,8 @@ projects:
     - juno-r2
     - juno-r2-compat
     - juno-r2-kasan
-    - qemu-arm
     - qemu-arm64
+    - qemu-armv7
     - qemu-i386
     - qemu_arm
     - qemu_arm64
@@ -1216,8 +1216,8 @@ projects:
     active: true
     intermittent: true
   - environments:
-    - qemu-arm
     - qemu-arm64
+    - qemu-armv7
     - qemu_arm
     - qemu_arm64
     notes: >
@@ -1260,7 +1260,7 @@ projects:
     active: true
     intermittent: false
   - environments:
-    - qemu-arm
+    - qemu-armv7
     - qemu_arm
     - x15
     notes: >
