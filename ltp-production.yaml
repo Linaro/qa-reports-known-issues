@@ -192,7 +192,6 @@ globals:
     - qemu_x86_64-compat
     - x86
     - x86-kasan
-
 projects:
 - name: LKFT-ltp
   projects: &projects_all
