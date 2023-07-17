@@ -177,7 +177,6 @@ globals:
     - qemu_arm64
     - qemu_i386
     - x15
-
 projects:
 - name: LKFT
   projects: &projects_all
@@ -551,7 +550,6 @@ projects:
     - qemu_arm64
     - qemu_i386
     - qemu_x86_64
-
     notes: >
       LKFT: linux-stable-rc-4.4: Juno: kselftest cpufreq test failed - No cpu
       is managed by cpufreq core, exiting
