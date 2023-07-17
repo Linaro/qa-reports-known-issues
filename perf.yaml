@@ -1,14 +1,14 @@
 globals:
   - environments: &environments_arm32
-    - x15
     - qemu_arm
+    - x15
   - environments: &environments_i386
     - i386
     - qemu_i386
   - environments: &environments_32bit
     - i386
-    - qemu_i386
     - qemu_arm
+    - qemu_i386
     - x15
 projects:
 - name: LKFT-perf
@@ -29,25 +29,25 @@ projects:
     - lkft/linaro-hikey-stable-rc-4.4-oe
   url: https://qa-reports.linaro.org
   environments: &environments_all
+  - bcm2711-rpi-4-b
+  - bcm2711-rpi-4-b-64k_page_size
+  - bcm2711-rpi-4-b-clang
   - dragonboard-410c
+  - dragonboard-845c
+  - fvp-aemva
+  - fx700
   - hi6220-hikey
   - i386
   - juno-r2
   - juno-r2-kasan
-  - qemu_x86_64
-  - qemu_i386
+  - nxp-ls2088
   - qemu_arm
   - qemu_arm64
+  - qemu_i386
+  - qemu_x86_64
   - x15
   - x86
   - x86-kasan
-  - nxp-ls2088
-  - fx700
-  - bcm2711-rpi-4-b
-  - dragonboard-845c
-  - fvp-aemva
-  - bcm2711-rpi-4-b-64k_page_size
-  - bcm2711-rpi-4-b-clang
   known_issues:
   - environments:
     - qemu_i386

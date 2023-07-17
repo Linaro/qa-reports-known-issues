@@ -1,197 +1,197 @@
 globals:
   - environments: &environments_arm64
-    - hi6220-hikey
-    - juno-r2
-    - juno-r2-kasan
-    - juno-r2-compat
-    - juno-64k_page_size
+    - bcm2711-rpi-4-b
+    - bcm2711-rpi-4-b-64k_page_size
+    - bcm2711-rpi-4-b-clang
     - dragonboard-410c
-    - qemu-arm64
-    - qemu_arm64
+    - fvp-aemva
+    - fx700
+    - hi6220-hikey
+    - juno-64k_page_size
+    - juno-r2
+    - juno-r2-compat
+    - juno-r2-kasan
     - nxp-ls2088
-    - nxp-ls2088-kasan
     - nxp-ls2088-64k_page_size
-    - qemu_arm64-compat
-    - qemu-arm64-kasan
+    - nxp-ls2088-kasan
+    - qemu-arm64
+    - qemu-arm64-armv8-features
     - qemu-arm64-clang
     - qemu-arm64-debug
-    - qemu-arm64-armv8-features
-    - fx700
-    - bcm2711-rpi-4-b
     - qemu-arm64-debug-kmemleak
     - qemu-arm64-gic-version2
     - qemu-arm64-gic-version3
+    - qemu-arm64-kasan
     - qemu-arm64-mte
-    - bcm2711-rpi-4-b-64k_page_size
-    - bcm2711-rpi-4-b-clang
-    - fvp-aemva
+    - qemu_arm64
+    - qemu_arm64-compat
   - environments: &environments_arm32
-    - x15
     - qemu-arm
-    - qemu_arm
     - qemu-arm-clang
     - qemu-arm-debug
     - qemu-arm-debug-kmemleak
+    - qemu_arm
+    - x15
   - environments: &environments_x86_64
-    - x86
-    - x86-kasan
     - qemu-x86_64
+    - qemu-x86_64-clang
+    - qemu-x86_64-debug
+    - qemu-x86_64-kasan
+    - qemu-x86_64-kcsan
     - qemu_x86_64
     - qemu_x86_64-compat
-    - qemu-x86_64-kasan
-    - qemu-x86_64-clang
-    - qemu-x86_64-kcsan
-    - qemu-x86_64-debug
+    - x86
+    - x86-kasan
   - environments: &environments_i386
     - i386
     - qemu-i386
-    - qemu_i386
     - qemu-i386-clang
     - qemu-i386-debug
-  - environments: &environments_qemu
-    - qemu-arm
-    - qemu_arm
-    - qemu-arm-clang
-    - qemu-arm64
-    - qemu_arm64
-    - qemu-i386
     - qemu_i386
+  - environments: &environments_qemu
+    - fvp-aemva
+    - qemu-arm
+    - qemu-arm-clang
+    - qemu-arm-debug
+    - qemu-arm-debug-kmemleak
+    - qemu-arm64
+    - qemu-arm64-clang
+    - qemu-arm64-debug
+    - qemu-arm64-debug-kmemleak
+    - qemu-arm64-gic-version2
+    - qemu-arm64-gic-version3
+    - qemu-arm64-kasan
+    - qemu-arm64-mte
+    - qemu-i386
     - qemu-i386-clang
+    - qemu-i386-debug
     - qemu-x86_64
+    - qemu-x86_64-clang
+    - qemu-x86_64-debug
+    - qemu-x86_64-kasan
+    - qemu-x86_64-kcsan
+    - qemu_arm
+    - qemu_arm64
+    - qemu_arm64-compat
+    - qemu_i386
     - qemu_x86_64
     - qemu_x86_64-compat
-    - qemu-x86_64-kasan
-    - qemu-x86_64-clang
-    - qemu_arm64-compat
-    - qemu-arm64-kasan
-    - qemu-arm64-clang
-    - qemu-x86_64-kcsan
-    - qemu-arm64-debug
-    - qemu-arm-debug
-    - qemu-arm-debug-kmemleak
-    - qemu-i386-debug
-    - qemu-x86_64-debug
-    - qemu-arm64-debug-kmemleak
-    - qemu-arm64-gic-version2
-    - qemu-arm64-gic-version3
-    - qemu-arm64-mte
-    - fvp-aemva
   - environments: &environments_32bit
     - i386
-    - qemu-i386
-    - qemu_i386
-    - qemu-i386-clang
+    - juno-r2-compat
     - qemu-arm
-    - qemu_arm
     - qemu-arm-clang
-    - x15
     - qemu-arm-debug
     - qemu-arm-debug-kmemleak
+    - qemu-i386
+    - qemu-i386-clang
     - qemu-i386-debug
+    - qemu_arm
     - qemu_arm64-compat
+    - qemu_i386
     - qemu_x86_64-compat
-    - juno-r2-compat
+    - x15
   - environments: &environments_qemu_arm
     - qemu-arm
-    - qemu_arm
     - qemu-arm-clang
-    - qemu-arm64
-    - qemu_arm64
-    - qemu_arm64-compat
-    - qemu-arm64-kasan
-    - qemu-arm64-clang
-    - qemu-arm64-debug
     - qemu-arm-debug
     - qemu-arm-debug-kmemleak
+    - qemu-arm64
     - qemu-arm64-armv8-features
+    - qemu-arm64-clang
+    - qemu-arm64-debug
     - qemu-arm64-debug-kmemleak
     - qemu-arm64-gic-version2
     - qemu-arm64-gic-version3
+    - qemu-arm64-kasan
     - qemu-arm64-mte
+    - qemu_arm
+    - qemu_arm64
+    - qemu_arm64-compat
   - environments: &environments_intel
     - i386
     - qemu-i386
-    - qemu_i386
     - qemu-i386-clang
+    - qemu-i386-debug
     - qemu-x86_64
+    - qemu-x86_64-clang
+    - qemu-x86_64-debug
+    - qemu-x86_64-kasan
+    - qemu-x86_64-kcsan
+    - qemu_i386
     - qemu_x86_64
+    - qemu_x86_64-compat
     - x86
     - x86-kasan
-    - qemu_x86_64-compat
-    - qemu-x86_64-kasan
-    - qemu-x86_64-clang
-    - qemu-x86_64-kcsan
-    - qemu-i386-debug
-    - qemu-x86_64-debug
   - environments: &environments_arm64_arm32
+    - bcm2711-rpi-4-b
+    - bcm2711-rpi-4-b-64k_page_size
+    - bcm2711-rpi-4-b-clang
     - dragonboard-410c
+    - dragonboard-845c
+    - fvp-aemva
+    - fx700
     - hi6220-hikey
-    - juno-r2
-    - juno-r2-kasan
-    - juno-r2-compat
     - juno-64k_page_size
-    - qemu-arm64
-    - qemu_arm64
+    - juno-r2
+    - juno-r2-compat
+    - juno-r2-kasan
+    - nxp-ls2088
+    - nxp-ls2088-64k_page_size
+    - nxp-ls2088-kasan
     - qemu-arm
-    - qemu_arm
     - qemu-arm-clang
     - qemu-arm-debug
     - qemu-arm-debug-kmemleak
-    - x15
-    - nxp-ls2088
-    - nxp-ls2088-kasan
-    - nxp-ls2088-64k_page_size
-    - qemu_arm64-compat
-    - qemu-arm64-kasan
+    - qemu-arm64
+    - qemu-arm64-armv8-features
     - qemu-arm64-clang
     - qemu-arm64-debug
-    - qemu-arm64-armv8-features
-    - fx700
-    - bcm2711-rpi-4-b
-    - dragonboard-845c
     - qemu-arm64-debug-kmemleak
     - qemu-arm64-gic-version2
     - qemu-arm64-gic-version3
+    - qemu-arm64-kasan
     - qemu-arm64-mte
+    - qemu_arm
+    - qemu_arm64
+    - qemu_arm64-compat
+    - x15
+  - environments: &environments_64bit
+    - bcm2711-rpi-4-b
     - bcm2711-rpi-4-b-64k_page_size
     - bcm2711-rpi-4-b-clang
-    - fvp-aemva
-  - environments: &environments_64bit
     - dragonboard-410c
+    - dragonboard-845c
+    - fvp-aemva
+    - fx700
     - hi6220-hikey
-    - juno-r2
-    - juno-r2-kasan
-    - juno-r2-compat
     - juno-64k_page_size
-    - qemu-x86_64
-    - qemu_x86_64
+    - juno-r2
+    - juno-r2-compat
+    - juno-r2-kasan
+    - nxp-ls2088
+    - nxp-ls2088-64k_page_size
+    - nxp-ls2088-kasan
     - qemu-arm64
+    - qemu-arm64-armv8-features
+    - qemu-arm64-clang
+    - qemu-arm64-debug
+    - qemu-arm64-debug-kmemleak
+    - qemu-arm64-gic-version2
+    - qemu-arm64-gic-version3
+    - qemu-arm64-kasan
+    - qemu-arm64-mte
+    - qemu-x86_64
+    - qemu-x86_64-clang
+    - qemu-x86_64-debug
+    - qemu-x86_64-kasan
+    - qemu-x86_64-kcsan
     - qemu_arm64
+    - qemu_arm64-compat
+    - qemu_x86_64
+    - qemu_x86_64-compat
     - x86
     - x86-kasan
-    - nxp-ls2088
-    - nxp-ls2088-kasan
-    - nxp-ls2088-64k_page_size
-    - qemu-arm64-kasan
-    - qemu-arm64-clang
-    - qemu_x86_64-compat
-    - qemu-x86_64-kasan
-    - qemu-x86_64-clang
-    - qemu_arm64-compat
-    - qemu-x86_64-kcsan
-    - qemu-arm64-debug
-    - qemu-x86_64-debug
-    - qemu-arm64-armv8-features
-    - fx700
-    - bcm2711-rpi-4-b
-    - dragonboard-845c
-    - qemu-arm64-debug-kmemleak
-    - qemu-arm64-gic-version2
-    - qemu-arm64-gic-version3
-    - qemu-arm64-mte
-    - fvp-aemva
-    - bcm2711-rpi-4-b-64k_page_size
-    - bcm2711-rpi-4-b-clang
 
 projects:
 - name: LKFT-ltp
@@ -212,54 +212,54 @@ projects:
     - lkft/linaro-hikey-stable-rc-4.4-oe
   url: https://qa-reports.linaro.org
   environments: &environments_all
+  - bcm2711-rpi-4-b
+  - bcm2711-rpi-4-b-64k_page_size
+  - bcm2711-rpi-4-b-clang
   - dragonboard-410c
+  - dragonboard-845c
+  - fvp-aemva
+  - fx700
   - hi6220-hikey
   - i386
-  - juno-r2
-  - juno-r2-kasan
-  - juno-r2-compat
   - juno-64k_page_size
-  - qemu-x86_64
-  - qemu_x86_64
-  - qemu-i386
-  - qemu_i386
-  - qemu-i386-clang
-  - qemu-i386-debug
-  - qemu-i386-debug-kmemleak
+  - juno-r2
+  - juno-r2-compat
+  - juno-r2-kasan
+  - nxp-ls2088
+  - nxp-ls2088-64k_page_size
+  - nxp-ls2088-kasan
   - qemu-arm
-  - qemu_arm
   - qemu-arm-clang
   - qemu-arm-debug
   - qemu-arm-debug-kmemleak
   - qemu-arm64
-  - qemu_arm64
-  - x15
-  - x86
-  - x86-kasan
-  - nxp-ls2088
-  - nxp-ls2088-kasan
-  - nxp-ls2088-64k_page_size
-  - qemu_arm64-compat
-  - qemu-arm64-kasan
+  - qemu-arm64-armv8-features
   - qemu-arm64-clang
   - qemu-arm64-debug
-  - qemu-arm64-armv8-features
-  - qemu_x86_64-compat
-  - qemu-x86_64-kasan
-  - qemu-x86_64-clang
-  - qemu-x86_64-kcsan
-  - qemu-x86_64-debug
-  - qemu-x86_64-debug-kmemleak
-  - fx700
-  - bcm2711-rpi-4-b
-  - dragonboard-845c
   - qemu-arm64-debug-kmemleak
   - qemu-arm64-gic-version2
   - qemu-arm64-gic-version3
+  - qemu-arm64-kasan
   - qemu-arm64-mte
-  - fvp-aemva
-  - bcm2711-rpi-4-b-64k_page_size
-  - bcm2711-rpi-4-b-clang
+  - qemu-i386
+  - qemu-i386-clang
+  - qemu-i386-debug
+  - qemu-i386-debug-kmemleak
+  - qemu-x86_64
+  - qemu-x86_64-clang
+  - qemu-x86_64-debug
+  - qemu-x86_64-debug-kmemleak
+  - qemu-x86_64-kasan
+  - qemu-x86_64-kcsan
+  - qemu_arm
+  - qemu_arm64
+  - qemu_arm64-compat
+  - qemu_i386
+  - qemu_x86_64
+  - qemu_x86_64-compat
+  - x15
+  - x86
+  - x86-kasan
   known_issues:
   - environments:
     - hi6220-hikey
@@ -446,8 +446,8 @@ projects:
       projects: *projects_all
     - environments:
       - qemu-i386
-      - qemu_i386
       - qemu-x86_64
+      - qemu_i386
       - qemu_x86_64
       projects: *projects_all
     url: https://bugs.linaro.org/show_bug.cgi?id=3354
@@ -654,8 +654,8 @@ projects:
     active: true
     intermittent: true
   - environments:
-    - hi6220-hikey
     - dragonboard-410c
+    - hi6220-hikey
     notes: >
       LKFT: hikey: LTP: FS: read_all: kernel BUG: sleeping function called
       from invalid context percpu-rwsem.h:34 - regmap_mmio_read32le+0x24/0x38
@@ -666,8 +666,8 @@ projects:
     intermittent: true
   - environments:
     - qemu-arm
-    - qemu_arm
     - qemu-arm64
+    - qemu_arm
     - qemu_arm64
     notes: >
       LKFT: LTP: cve-2017-2671 times out for mainline in qemu_arm and
@@ -697,14 +697,14 @@ projects:
     intermittent: true
   - environments:
     - i386
-    - qemu-i386
-    - qemu_i386
-    - qemu-x86_64
-    - qemu_x86_64
     - qemu-arm
-    - qemu_arm
     - qemu-arm64
+    - qemu-i386
+    - qemu-x86_64
+    - qemu_arm
     - qemu_arm64
+    - qemu_i386
+    - qemu_x86_64
     notes: >
       LTP CVE cve-2017-17053 fails intermittently.
       Marking this test as known issue for i386 and qemu_i386.
@@ -841,8 +841,8 @@ projects:
     active: true
     intermittent: false
   - environments:
-    - hi6220-hikey
     - dragonboard-410c
+    - hi6220-hikey
     notes: >
       fanotify01.c:256: FAIL: got event: mask=2 (expected 20) pid=3248 fd=8
       fanotify01 failed on hikey and dragonboard410c boards all kernel versions
@@ -853,9 +853,9 @@ projects:
     active: true
     intermittent: true
   - environments:
-    - x15
     - qemu-arm
     - qemu_arm
+    - x15
     notes: >
       CONFIG_TASKSTATS and CONFIG_TASK_IO_ACCOUNTING to be set in kernel config
     projects: *projects_all
@@ -876,12 +876,12 @@ projects:
     intermittent: true
   - environments:
     - i386
-    - qemu-x86_64
-    - qemu_x86_64
-    - qemu-i386
-    - qemu_i386
     - qemu-arm
+    - qemu-i386
+    - qemu-x86_64
     - qemu_arm
+    - qemu_i386
+    - qemu_x86_64
     - x15
     - x86
     - x86-kasan
@@ -954,16 +954,16 @@ projects:
     active: true
     intermittent: false
   - environments:
-    - juno-r2
-    - juno-r2-kasan
-    - juno-r2-compat
     - juno-64k_page_size
-    - x15
+    - juno-r2
+    - juno-r2-compat
+    - juno-r2-kasan
     - qemu-arm64
-    - qemu_arm64
+    - qemu-arm64-clang
     - qemu-arm64-debug
     - qemu-arm64-kasan
-    - qemu-arm64-clang
+    - qemu_arm64
+    - x15
     notes: >
       LTP: getrusage04 failed - stime increased > 6000u
       intermittently failed on x15 and juno-r2
@@ -1119,18 +1119,18 @@ projects:
     active: true
     intermittent: true
   - environments:
-    - x15
     - i386
-    - qemu-arm
-    - qemu_arm
-    - qemu-arm64
-    - qemu_arm64
-    - qemu-i386
-    - qemu_i386
-    - juno-r2
-    - juno-r2-kasan
-    - juno-r2-compat
     - juno-64k_page_size
+    - juno-r2
+    - juno-r2-compat
+    - juno-r2-kasan
+    - qemu-arm
+    - qemu-arm64
+    - qemu-i386
+    - qemu_arm
+    - qemu_arm64
+    - qemu_i386
+    - x15
     notes: >
       LTP copy_file_range02 failed on i386, qemu_i386, qemu_x86_64, qemu_arm and x15 device.
       copy_file_range returned wrong value 32
@@ -1158,12 +1158,12 @@ projects:
     active: true
     intermittent: true
   - environments:
-    - nxp-ls2088
-    - nxp-ls2088-64k_page_size
-    - fx700
     - bcm2711-rpi-4-b
     - bcm2711-rpi-4-b-64k_page_size
     - bcm2711-rpi-4-b-clang
+    - fx700
+    - nxp-ls2088
+    - nxp-ls2088-64k_page_size
     notes: >
       These listed test cases failed on nxp-ls2088
       because tests running on nfs mounted rootfs.
@@ -1217,8 +1217,8 @@ projects:
     intermittent: true
   - environments:
     - qemu-arm
-    - qemu_arm
     - qemu-arm64
+    - qemu_arm
     - qemu_arm64
     notes: >
       LTP syscalls test case prctl09 failed on qemu_arm64 and qemu_arm on
@@ -1548,15 +1548,15 @@ projects:
     active: true
     intermittent: true
   - environments:
-    - hi6220-hikey
-    - dragonboard-410c
-    - nxp-ls2088
-    - nxp-ls2088-kasan
-    - nxp-ls2088-64k_page_size
-    - fx700
     - bcm2711-rpi-4-b
     - bcm2711-rpi-4-b-64k_page_size
     - bcm2711-rpi-4-b-clang
+    - dragonboard-410c
+    - fx700
+    - hi6220-hikey
+    - nxp-ls2088
+    - nxp-ls2088-64k_page_size
+    - nxp-ls2088-kasan
     notes: >
       syscalls/ioctl_loop05.c: skip test on overlay filesystem
 
