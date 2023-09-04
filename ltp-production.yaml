@@ -199,8 +199,6 @@ projects:
     - lkft/linux-mainline-master
     - lkft/linux-stable-rc-linux-6.5.y
     - lkft/linux-stable-rc-linux-6.4.y
-    - lkft/linux-stable-rc-linux-6.3.y
-    - lkft/linux-stable-rc-linux-6.2.y
     - lkft/linux-stable-rc-linux-6.1.y
     - lkft/linux-stable-rc-linux-5.15.y
     - lkft/linux-stable-rc-linux-5.10.y
@@ -1029,8 +1027,6 @@ projects:
     - lkft/linux-stable-rc-linux-5.10.y
     - lkft/linux-stable-rc-linux-5.15.y
     - lkft/linux-stable-rc-linux-6.1.y
-    - lkft/linux-stable-rc-linux-6.2.y
-    - lkft/linux-stable-rc-linux-6.3.y
     - lkft/linux-stable-rc-linux-6.4.y
     - lkft/linux-stable-rc-linux-6.5.y
     test_names:
