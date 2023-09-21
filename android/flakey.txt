@@ -1,0 +1,83 @@
+# fully qualified  test name (c/n/p from report)  followed by option kernel versions followed by hardware platform
+# EBNF (roughly)
+#
+# Line
+# : STATE TESTNAME (KERNEL_VERSIONS) (HARDWARE) (ANDROID_VERSIONS)
+#
+# STATE
+## I == Investigation
+## F == Flakey
+## B == Bug#, link to bugzilla
+## E == Expected Fails
+# I | F | B | E
+#
+# TESTNAME
+#
+# KERNEL_VERSIONS
+# : ( ALL | 6.1 | 5.15 | 5.10 |5.4 | 4.19 | 4.14 )
+#
+# HARDWARE
+# : ( ALL | HiKey | HiKey960 | db845c | rb5)
+#
+# ANDROID_VERSIONS
+# : ( ALL | Android11 | Android12 | Android13 | Android14 | Android15 | AOSP )
+
+# Expected Fails
+# db845c
+E android.webkit.cts.WebViewTest#testPrinting#arm64-v8a ALL db845c ALL
+E libcore.java.net.ConcurrentCloseTest#test_connect ALL db845c ALL
+E libcore.java.net.ConcurrentCloseTest#test_connect_nonBlocking ALL db845c ALL
+E libcore.java.net.ConcurrentCloseTest#test_connect_timeout ALL db845c ALL
+E libcore.java.net.SocketTest#testCloseDuringConnect ALL db845c ALL
+E com.android.cts.usb.TestUsbTest#testUsbSerialReadOnDeviceMatches ALL db845c ALL
+
+#Hikey960
+E com.android.tests.dynamic_partitions.KernelDynamicPartitionsTest#testDynamicPartitionsSysProp#arm64-v8a ALL HiKey960 ALL
+
+#Hikey
+E com.android.cts.usb.TestUsbTest#testUsbSerialReadOnDeviceMatches ALL HiKey ALL
+
+## Flakey Cases
+# Hikey960
+F VtsKernelLinuxKselftest#timers_nsleep-lat_32bit ALL HiKey960 ALL
+F VtsKernelLinuxKselftest#timers_set-timer-lat_64bit ALL HiKey960 ALL
+
+## Flakey Cases ALL ALL ALL
+F android.systemui.cts.LightBarTests#testLightNavigationBar#arm64-v8a ALL ALL ALL
+F android.systemui.cts.LightBarTests#testLightNavigationBar#armeabi-v7a ALL ALL ALL
+F android.systemui.cts.LightBarTests#testNavigationBarDivider#arm64-v8a ALL ALL ALL
+F android.systemui.cts.LightBarTests#testNavigationBarDivider#armeabi-v7a ALL ALL ALL
+F android.systemui.cts.LightBarThemeTest#testNavigationBarDividerColor#arm64-v8a ALL ALL ALL
+F android.systemui.cts.LightBarThemeTest#testNavigationBarDividerColor#armeabi-v7a ALL ALL ALL
+F android.webkit.cts.WebChromeClientTest#testOnJsBeforeUnloadIsCalled#arm64-v8a ALL ALL ALL
+F android.webkit.cts.WebChromeClientTest#testOnJsBeforeUnloadIsCalled#armeabi-v7a ALL ALL ALL
+F VtsKernelLtp#dio.dio16_32bit ALL HiKey ALL
+F VtsKernelLtp#dio.dio16_64bit ALL HiKey ALL
+F VtsKernelLtp#dio.dio17_32bit ALL HiKey ALL
+F VtsKernelLtp#dio.dio17_64bit ALL HiKey ALL
+F VtsKernelLtp#dio.dio20_32bit ALL HiKey ALL
+F VtsKernelLtp#dio.dio20_64bit ALL HiKey ALL
+F VtsKernelLtp#dio.dio21_32bit ALL HiKey ALL
+F VtsKernelLtp#dio.dio24_32bit ALL HiKey ALL
+F VtsKernelLtp#dio.dio24_64bit ALL HiKey ALL
+F VtsKernelLtp#dio.dio25_32bit ALL HiKey ALL
+F VtsKernelLtp#dio.dio25_64bit ALL HiKey ALL
+F VtsKernelLtp#dio.dio27_64bit ALL Hikey ALL
+F VtsKernelLtp#dio.dio28_32bit ALL HiKey ALL
+F VtsKernelLtp#dio.dio28_64bit ALL HiKey ALL
+
+## Flakey 4.4 & HiKey
+F android.bluetooth.cts.BasicAdapterTest#test_enableDisable#arm64-v8a 4.4 HiKey ALL
+F android.bluetooth.cts.BasicAdapterTest#test_enableDisable#armeabi-v7a 4.4 HiKey ALL
+F android.bluetooth.cts.BasicAdapterTest#test_getAddress#arm64-v8a 4.4 HiKey ALL
+F android.bluetooth.cts.BasicAdapterTest#test_getAddress#armeabi-v7a 4.4 HiKey ALL
+F android.bluetooth.cts.BasicAdapterTest#test_getBondedDevices#arm64-v8a 4.4 HiKey ALL
+F android.bluetooth.cts.BasicAdapterTest#test_getBondedDevices#armeabi-v7a 4.4 HiKey ALL
+F android.bluetooth.cts.BasicAdapterTest#test_getName#arm64-v8a 4.4 HiKey ALL
+F android.bluetooth.cts.BasicAdapterTest#test_getName#armeabi-v7a 4.4 HiKey ALL
+F android.bluetooth.cts.BasicAdapterTest#test_listenUsingRfcommWithServiceRecord#arm64-v8a 4.4 HiKey ALL
+F android.bluetooth.cts.BasicAdapterTest#test_listenUsingRfcommWithServiceRecord#armeabi-v7a 4.4 HiKey ALL
+F android.bluetooth.cts.BluetoothLeScanTest#testBasicBleScan#arm64-v8a 4.4 HiKey ALL
+F android.bluetooth.cts.BluetoothLeScanTest#testBasicBleScan#armeabi-v7a 4.4 HiKey ALL
+F android.bluetooth.cts.BluetoothLeScanTest#testScanFilter#arm64-v8a 4.4 HiKey ALL
+F android.bluetooth.cts.BluetoothLeScanTest#testScanFilter#armeabi-v7a 4.4 HiKey ALL
