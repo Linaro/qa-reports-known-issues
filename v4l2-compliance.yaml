@@ -13,7 +13,6 @@ projects:
     - lkft/linux-next-master
     - lkft/linux-mainline-master
     - lkft/linux-stable-rc-linux-6.5.y
-    - lkft/linux-stable-rc-linux-6.4.y
     - lkft/linux-stable-rc-linux-6.1.y
     - lkft/linux-stable-rc-linux-5.10.y
     - lkft/linux-stable-rc-linux-5.4.y
