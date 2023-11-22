@@ -1803,3 +1803,22 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=5980
     active: true
     intermittent: true
+  - environments:
+    - bcm2711-rpi-4-b
+    - bcm2711-rpi-4-b-64k_page_size
+    - bcm2711-rpi-4-b-clang
+    notes: >
+      LTP syscalls chown02, fchown02, fanotify16 and inotify12 fails.
+      chown02.c:58: TFAIL: testfile2: wrong mode permissions 0100700, expected 0102700
+      fchown02.c:67: TFAIL: testfile2: wrong mode permissions 0100700, expected 0102700
+      inotify12.c:135: TFAIL: Got unexpected 2nd event
+      fanotify.h:168: TBROK: fanotify_mark (3, FAN_MARK_ADD, ..., AT_FDCWD, \".\") failed: ENODEV (19)
+    projects: *projects_all
+    test_names:
+    - ltp-syscalls/chown02
+    - ltp-syscalls/fchown02
+    - ltp-syscalls/fanotify16
+    - ltp-syscalls/inotify12
+    url: https://bugs.linaro.org/show_bug.cgi?id=6020
+    active: true
+    intermittent: true
