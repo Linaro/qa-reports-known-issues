@@ -4,6 +4,7 @@ globals:
     - bcm2711-rpi-4-b-clang
     - dragonboard-410c
     - dragonboard-845c
+    - e850-96
     - fvp-aemva
     - fx700
     - hi6220-hikey
@@ -38,6 +39,7 @@ projects:
   - bcm2711-rpi-4-b-clang
   - dragonboard-410c
   - dragonboard-845c
+  - e850-96
   - fvp-aemva
   - fx700
   - hi6220-hikey
