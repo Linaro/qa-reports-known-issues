@@ -13,6 +13,7 @@ globals:
     - nxp-ls2088
     - qemu-arm64
     - qemu_arm64
+    - rk3399-rock-pi-4b
   - environments: &environments_arm32
     - qemu-armv7
     - qemu_arm
@@ -55,6 +56,7 @@ projects:
   - qemu_arm64
   - qemu_i386
   - qemu_x86_64
+  - rk3399-rock-pi-4b
   - x15
   - x86
   - x86-kasan

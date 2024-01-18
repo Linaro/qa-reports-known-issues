@@ -21,6 +21,7 @@ globals:
     - qemu-arm64-kasan
     - qemu-arm64-mte
     - qemu_arm64
+    - rk3399-rock-pi-4b
   - environments: &environments_arm32
     - qemu-arm-clang
     - qemu-arm-debug
@@ -146,6 +147,7 @@ globals:
     - qemu_arm
     - qemu_arm64
     - x15
+    - rk3399-rock-pi-4b
   - environments: &environments_arm64_arm32_i386
     - bcm2711-rpi-4-b
     - bcm2711-rpi-4-b-64k_page_size
@@ -179,6 +181,7 @@ globals:
     - qemu_arm
     - qemu_arm64
     - qemu_i386
+    - rk3399-rock-pi-4b
     - x15
 projects:
 - name: LKFT
@@ -236,6 +239,7 @@ projects:
   - qemu_arm64
   - qemu_i386
   - qemu_x86_64
+  - rk3399-rock-pi-4b
   - x15
   - x86
   - x86-kasan
@@ -388,6 +392,7 @@ projects:
       - qemu_arm64
       - qemu_i386
       - qemu_x86_64
+      - rk3399-rock-pi-4b
       - x15
       - x86
       - x86-kasan
@@ -553,6 +558,7 @@ projects:
     - qemu_arm64
     - qemu_i386
     - qemu_x86_64
+    - rk3399-rock-pi-4b
     notes: >
       LKFT: linux-stable-rc-4.4: Juno: kselftest cpufreq test failed - No cpu
       is managed by cpufreq core, exiting
@@ -766,6 +772,7 @@ projects:
     - qemu_x86_64
     - x86
     - x86-kasan
+    - rk3399-rock-pi-4b
     notes: >
       LKFT: LKFT: mainline: dragon board 410c: proc read failed - ICMPv6: process
       read is using deprecated sysctl
