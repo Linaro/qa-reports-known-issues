@@ -26,6 +26,7 @@ globals:
     - qemu-arm64-mte
     - qemu_arm64
     - qemu_arm64-compat
+    - rk3399-rock-pi-4b
   - environments: &environments_arm32
     - qemu-arm-clang
     - qemu-arm-debug
@@ -157,6 +158,7 @@ globals:
     - qemu_arm
     - qemu_arm64
     - qemu_arm64-compat
+    - rk3399-rock-pi-4b
     - x15
   - environments: &environments_64bit
     - bcm2711-rpi-4-b
@@ -193,6 +195,7 @@ globals:
     - qemu_arm64-compat
     - qemu_x86_64
     - qemu_x86_64-compat
+    - rk3399-rock-pi-4b
     - x86
     - x86-kasan
 projects:
@@ -259,6 +262,7 @@ projects:
   - qemu_i386
   - qemu_x86_64
   - qemu_x86_64-compat
+  - rk3399-rock-pi-4b
   - x15
   - x86
   - x86-kasan
@@ -965,6 +969,7 @@ projects:
     - qemu-arm64-debug
     - qemu-arm64-kasan
     - qemu_arm64
+    - rk3399-rock-pi-4b
     - x15
     notes: >
       LTP: getrusage04 failed - stime increased > 6000u
@@ -1131,6 +1136,7 @@ projects:
     - qemu_arm
     - qemu_arm64
     - qemu_i386
+    - rk3399-rock-pi-4b
     - x15
     notes: >
       LTP copy_file_range02 failed on i386, qemu_i386, qemu_x86_64, qemu_arm and x15 device.
@@ -1558,6 +1564,7 @@ projects:
     - nxp-ls2088
     - nxp-ls2088-64k_page_size
     - nxp-ls2088-kasan
+    - rk3399-rock-pi-4b
     notes: >
       syscalls/ioctl_loop05.c: skip test on overlay filesystem
 
@@ -1811,6 +1818,7 @@ projects:
     - bcm2711-rpi-4-b
     - bcm2711-rpi-4-b-64k_page_size
     - bcm2711-rpi-4-b-clang
+    - rk3399-rock-pi-4b
     notes: >
       LTP syscalls chown02, fchown02, fanotify16 and inotify12 fails.
       chown02.c:58: TFAIL: testfile2: wrong mode permissions 0100700, expected 0102700
