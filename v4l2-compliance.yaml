@@ -12,6 +12,7 @@ projects:
   projects: &projects_all
     - lkft/linux-next-master
     - lkft/linux-mainline-master
+    - lkft/linux-stable-rc-linux-6.8.y
     - lkft/linux-stable-rc-linux-6.7.y
     - lkft/linux-stable-rc-linux-6.6.y
     - lkft/linux-stable-rc-linux-6.5.y
