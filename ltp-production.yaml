@@ -1836,3 +1836,13 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=6020
     active: true
     intermittent: true
+  - environments: *environments_all
+    notes: >
+      LTP controllers memcontrol03
+      memcontrol03.c:149: TBROK: tst_checkpoint_wait(1, 10000) failed: ETIMEDOUT (110)
+    projects: *projects_all
+    test_names:
+    - ltp-controllers/memcontol03
+    url: https://qa-reports.linaro.org/lkft/linux-stable-rc-linux-6.8.y/build/v6.8.4-274-g51d60edf2813/testrun/23360421/suite/ltp-controllers/test/memcontrol03/history/
+    active: true
+    intermittent: true
