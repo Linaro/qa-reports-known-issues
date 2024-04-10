@@ -1863,3 +1863,14 @@ projects:
     url: https://qa-reports.linaro.org/lkft/linux-stable-rc-linux-6.8.y/build/v6.8.4-281-g6d08df6c401e/testrun/23380037/suite/ltp-syscalls/test/inotify11/history/
     active: true
     intermittent: true
+  - environments:
+    - bcm2711-rpi-4-b
+    - rk3399-rock-pi-4b
+    notes: >
+      LTP syscalls mount01 fails due to nfs mounted rootfs, we need to add an SSD to the devices to solve this issue.
+      "mount01     0  TWARN  :  tst_tmpdir.c:342: tst_rmdir: rmobj(/scratch/ltp-FCPGzKUYuG/LTP_mou3PeNFh) failed: remove(/scratch/ltp-FCPGzKUYuG/LTP_mou3PeNFh) failed; errno=39: ENOTEMPTY"
+    projects: *projects_all
+    test_name: ltp-syscalls/mount01
+    url: https://qa-reports.linaro.org/lkft/linux-stable-rc-linux-6.8.y/build/v6.8.4-281-g6d08df6c401e/testrun/23380037/suite/ltp-syscalls/test/mount01/history/
+    active: true
+    intermittent: true
