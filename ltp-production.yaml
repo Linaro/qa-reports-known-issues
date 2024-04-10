@@ -1846,3 +1846,11 @@ projects:
     url: https://qa-reports.linaro.org/lkft/linux-stable-rc-linux-6.8.y/build/v6.8.4-274-g51d60edf2813/testrun/23360421/suite/ltp-controllers/test/memcontrol03/history/
     active: true
     intermittent: true
+  - environments: *environments_all
+    notes: >
+      LTP syscalls futex_waitv01 fails due to timeout expires after 5min.
+    projects: *projects_all
+    test_name: ltp-syscalls/futex_waitv01
+    url: https://qa-reports.linaro.org/lkft/linux-stable-rc-linux-6.8.y/build/v6.8.4-281-g6d08df6c401e/testrun/23380037/suite/ltp-syscalls/test/futex_waitv01/history/
+    active: true
+    intermittent: true
