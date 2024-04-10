@@ -1872,6 +1872,7 @@ projects:
     test_name:
     - ltp-syscalls/mount01
     - ltp-syscalls/mount02
+    - ltp-syscalls/rename11
     url: https://qa-reports.linaro.org/lkft/linux-stable-rc-linux-6.8.y/build/v6.8.4-281-g6d08df6c401e/testrun/23380037/suite/ltp-syscalls/test/mount01/history/
     active: true
     intermittent: true
