@@ -1854,3 +1854,11 @@ projects:
     url: https://qa-reports.linaro.org/lkft/linux-stable-rc-linux-6.8.y/build/v6.8.4-281-g6d08df6c401e/testrun/23380037/suite/ltp-syscalls/test/futex_waitv01/history/
     active: true
     intermittent: true
+  - environments: bcm2711-rpi-4-b
+    notes: >
+      LTP syscalls inotify11 fails due to timeout expires after 5min.
+    projects: *projects_all
+    test_name: ltp-syscalls/inotify11
+    url: https://qa-reports.linaro.org/lkft/linux-stable-rc-linux-6.8.y/build/v6.8.4-281-g6d08df6c401e/testrun/23380037/suite/ltp-syscalls/test/inotify11/history/
+    active: true
+    intermittent: true
