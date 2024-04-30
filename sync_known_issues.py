@@ -469,7 +469,7 @@ def main():
             logging.root.removeHandler(handler)
         logging.basicConfig(level=logging.DEBUG, format=FORMAT)
 
-    if not args.dry_run and "QA_REPORTS_KNOWN_ISSUE_TOKEN" not in os.environ:
+    if "QA_REPORTS_KNOWN_ISSUE_TOKEN" not in os.environ:
         logger.error("Error: QA_REPORTS_KNOWN_ISSUE_TOKEN not set in environment")
         sys.exit(1)
 
