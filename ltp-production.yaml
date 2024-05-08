@@ -1836,3 +1836,63 @@ projects:
     url: https://bugs.linaro.org/show_bug.cgi?id=6020
     active: true
     intermittent: true
+  - environments: *environments_all
+    notes: >
+      LTP controllers memcontrol03
+      memcontrol03.c:149: TBROK: tst_checkpoint_wait(1, 10000) failed: ETIMEDOUT (110)
+    projects: *projects_all
+    test_names:
+    - ltp-controllers/memcontol03
+    url: https://qa-reports.linaro.org/lkft/linux-stable-rc-linux-6.8.y/build/v6.8.4-274-g51d60edf2813/testrun/23360421/suite/ltp-controllers/test/memcontrol03/history/
+    active: true
+    intermittent: true
+  - environments: *environments_all
+    notes: >
+      LTP syscalls futex_waitv01 fails due to timeout expires after 5min.
+    projects: *projects_all
+    test_name: ltp-syscalls/futex_waitv01
+    url: https://qa-reports.linaro.org/lkft/linux-stable-rc-linux-6.8.y/build/v6.8.4-281-g6d08df6c401e/testrun/23380037/suite/ltp-syscalls/test/futex_waitv01/history/
+    active: true
+    intermittent: true
+  - environments:
+    - bcm2711-rpi-4-b
+    notes: >
+      LTP syscalls inotify11 fails due to timeout expires after 5min.
+    projects: *projects_all
+    test_name: ltp-syscalls/inotify11
+    url: https://qa-reports.linaro.org/lkft/linux-stable-rc-linux-6.8.y/build/v6.8.4-281-g6d08df6c401e/testrun/23380037/suite/ltp-syscalls/test/inotify11/history/
+    active: true
+    intermittent: true
+  - environments:
+    - bcm2711-rpi-4-b
+    - rk3399-rock-pi-4b
+    notes: >
+      LTP syscalls mount01 fails due to nfs mounted rootfs, we need to add an SSD to the devices to solve this issue.
+      "mount01     0  TWARN  :  tst_tmpdir.c:342: tst_rmdir: rmobj(/scratch/ltp-FCPGzKUYuG/LTP_mou3PeNFh) failed: remove(/scratch/ltp-FCPGzKUYuG/LTP_mou3PeNFh) failed; errno=39: ENOTEMPTY"
+    projects: *projects_all
+    test_names:
+    - ltp-syscalls/mount01
+    - ltp-syscalls/rename11
+    - ltp-syscalls/renameat01
+    - ltp-syscalls/umount2_01
+    url: https://qa-reports.linaro.org/lkft/linux-stable-rc-linux-6.8.y/build/v6.8.4-281-g6d08df6c401e/testrun/23380037/suite/ltp-syscalls/test/mount01/history/
+    active: true
+    intermittent: true
+  - environments:
+    - qemu-arm64
+    - dragonboard-410c
+    notes: >
+      LTP syscalls futex_cmp_requeue01 fails due to fork rejected.
+      "futex_cmp_requeue01.c:140: TINFO: children woken, futex0: 30, futex1: 70, spurious wakeups: 0
+       futex_cmp_requeue01.c:187: TPASS: futex_cmp_requeue()
+        [ 2186.935916] cgroup: fork rejected by pids controller in /user.slice/user-0.slice/session-1.scope
+        futex_cmp_requeue01.c:95: TBROK: fork() failed: EAGAIN/EWOULDBLOCK (11)
+        tst_test.c:1641: TINFO: Killed the leftover descendant processes"
+
+      This is happening on all branches for dragonboard-410c.
+      For qemu-arm64 this happens on kernel <= v6.1.
+    projects: *projects_all
+    test_name: ltp-syscalls/futex_cmp_requeue01
+    url: https://qa-reports.linaro.org/lkft/linux-stable-rc-linux-6.8.y/build/v6.8.4-281-g6d08df6c401e/testrun/23380037/suite/ltp-syscalls/test/futex_cmp_requeue01/history/
+    active: true
+    intermittent: true
