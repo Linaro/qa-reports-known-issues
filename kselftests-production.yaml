@@ -187,6 +187,7 @@ projects:
 - name: LKFT
   projects: &projects_all
     - lkft/linux-mainline-master
+    - lkft/linux-stable-rc-linux-6.10.y
     - lkft/linux-stable-rc-linux-6.9.y
     - lkft/linux-stable-rc-linux-6.8.y
     - lkft/linux-stable-rc-linux-6.7.y
